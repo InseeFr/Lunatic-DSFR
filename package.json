@@ -1,0 +1,38 @@
+{
+  "name": "lunatic-dsfr",
+  "version": "1.0.0",
+  "description": "A library to apply the styles of the DSFR on Lunatic components",
+  "main": "index.ts",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InseeFr/lunatic-dsfr.git"
+  },
+  "keywords": [
+    "lunatic",
+    "insee",
+    "dsfr", 
+    "react",
+		"component",
+		"react-component",
+		"library"
+  ],
+  "author": "INSEE (http://www.insee.fr)",
+  "contributor": [
+		{
+			"name": "Matthew Clark ",
+			"email": "matthew.clark@insee.fr"
+		},
+		{
+			"name": "Renaud Genevois",
+			"email": "renaud.genevois@insee.fr"
+		}
+	],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/InseeFr/lunatic-dsfr/issues"
+  },
+  "homepage": "https://github.com/InseeFr/lunatic-dsfr#readme"
+}
