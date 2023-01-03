@@ -37,13 +37,16 @@ export function RoundaboutItButton({
 }) {
 	const status = getStatus(complete, partial);
 	const label = getLabel(complete, partial);
-
-	const onClick = useCallback(
-		function () {
-			// goToIteration(iteration);
-		},
-		[iteration, goToIteration]
-	);
+	console.log(iteration)
+	// const onClick = useCallback(
+	// 	function () {
+	// 		goToIteration(iteration);
+	// 	},
+	// 	[iteration, goToIteration]
+	// );
+	const onClick = () => {
+		goToIteration(iteration)
+	}
 
 	return (
         <ul className="fr-btns-group fr-btns-group--lg">
@@ -51,9 +54,9 @@ export function RoundaboutItButton({
                 <Button
                     className={classnames('roundabout-it-button', status)}
                     disabled={status === 'complete' && locked}
-                    onClick={onClick}
+					onClick={onClick}
                 >
-                    {label}toto
+                    {label}
                 </Button>
             </li>    
         </ul>
