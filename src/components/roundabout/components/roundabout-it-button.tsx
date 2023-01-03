@@ -37,7 +37,6 @@ export function RoundaboutItButton({
 }) {
 	const status = getStatus(complete, partial);
 	const label = getLabel(complete, partial);
-	console.log(iteration)
 	// const onClick = useCallback(
 	// 	function () {
 	// 		goToIteration(iteration);
