@@ -1,10 +1,18 @@
 {
-  "name": "lunatic-dsfr",
-  "version": "1.0.0",
+  "name": "@inseefr/lunatic-dsfr",
+  "version": "1.0.1",
   "description": "A library to apply the styles of the DSFR on Lunatic components",
-  "main": "index.ts",
+  "main": "lib/index.js",
+  "files": [
+		"lib"
+	],
   "scripts": {
-    "test": "test"
+    "build": "tsc -p .",
+    "test": "test",
+    "precompile": "npm run clean",
+    "clean": "rimraf lib/*",
+    "compile": "npm run compile:ts",
+    "compile:ts": "tsc --outDir ./lib --module commonjs ./src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -45,6 +53,7 @@
     "react": "^18.2.0"
   },
   "devDependencies": {
+    "rimraf": "^3.0.2",
     "typescript": "^4.9.4"
   }
 }

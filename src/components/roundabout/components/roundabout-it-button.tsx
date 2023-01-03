@@ -22,7 +22,7 @@ function getLabel(complete: boolean, partial: boolean) {
 	return 'Commencer';
 }
 
-export function RoundaboutItButtonDSFR({
+export function RoundaboutItButton({
 	complete,
 	partial,
 	iteration,
@@ -40,7 +40,7 @@ export function RoundaboutItButtonDSFR({
 
 	const onClick = useCallback(
 		function () {
-			goToIteration(iteration);
+			// goToIteration(iteration);
 		},
 		[iteration, goToIteration]
 	);
@@ -53,14 +53,14 @@ export function RoundaboutItButtonDSFR({
                     disabled={status === 'complete' && locked}
                     onClick={onClick}
                 >
-                    {label}
+                    {label}toto
                 </Button>
             </li>    
         </ul>
 	);
 }
 
-RoundaboutItButtonDSFR.defaultProps = {
+RoundaboutItButton.defaultProps = {
 	locked: true,
 };
 
