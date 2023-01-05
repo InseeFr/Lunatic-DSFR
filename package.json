@@ -12,7 +12,10 @@
     "precompile": "npm run clean",
     "clean": "rimraf lib/*",
     "compile": "npm run compile:ts",
-    "compile:ts": "tsc --outDir ./lib --module commonjs ./src/index.ts"
+    "compile:ts": "tsc --outDir ./lib --module commonjs ./src/index.ts", 
+    "postinstall": "copy-dsfr-to-public", 
+    "prestart": "only-include-used-icons",
+    "prebuild": "only-include-used-icons"
   },
   "repository": {
     "type": "git",
