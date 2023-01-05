@@ -4,18 +4,20 @@
   "description": "A library to apply the styles of the DSFR on Lunatic components",
   "main": "lib/index.js",
   "files": [
-		"lib"
-	],
+    "lib"
+  ],
   "scripts": {
     "build": "tsc -p .",
     "test": "test",
     "precompile": "npm run clean",
     "clean": "rimraf lib/*",
     "compile": "npm run compile:ts",
-    "compile:ts": "tsc --outDir ./lib --module commonjs ./src/index.ts", 
-    "postinstall": "copy-dsfr-to-public", 
+    "compile:ts": "tsc --outDir ./lib --module commonjs ./src/index.ts",
+    "postinstall": "copy-dsfr-to-public",
     "prestart": "only-include-used-icons",
-    "prebuild": "only-include-used-icons"
+    "prebuild": "only-include-used-icons",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -48,17 +50,29 @@
   "homepage": "https://github.com/InseeFr/lunatic-dsfr#readme",
   "dependencies": {
     "@codegouvfr/react-dsfr": "^0.11.1",
+    "@inseefr/lunatic": "../lunatic/inseefr-lunatic-v2.0.5-v2.tgz",
     "@types/jest": "^29.2.4",
     "@types/node": "^18.11.17",
-    "@types/react": "^18.0.26",
+    "@types/react": "^16.0.0 || ^17.0.0 || ^18.0.0",
     "@types/react-dom": "^18.0.9",
     "classnames": "^2.3.2",
-    "react": "^18.2.0"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@storybook/addon-actions": "^6.5.15",
+    "@storybook/addon-essentials": "^6.5.15",
+    "@storybook/addon-interactions": "^6.5.15",
+    "@storybook/addon-links": "^6.5.15",
+    "@storybook/builder-webpack4": "^6.5.15",
+    "@storybook/manager-webpack4": "^6.5.15",
+    "@storybook/react": "^6.5.15",
+    "@storybook/testing-library": "^0.0.13",
+    "babel-loader": "^8.3.0",
     "rimraf": "^3.0.2",
     "typescript": "^4.9.4"
-  }, 
+  },
   "peerDependencies": {
     "@types/react": "^16.0.0 || ^17.0.0 || ^18.0.0",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
