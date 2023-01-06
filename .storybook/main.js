@@ -1,3 +1,6 @@
+const { config } = require('process');
+const { path } = require('path');
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -8,5 +11,17 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions"
   ],
-  "framework": "@storybook/react"
+  "framework": "@storybook/react", 
+  webpackFinal: async (config, { configType }) => {
+    // config.module.rules.push({
+		// 	test: /\.scss$/,
+		// 	use: ['style-loader', 'css-loader', 'sass-loader'],
+		// 	include: path.resolve(__dirname, '../'),
+		// });
+    config.node = {
+      ...config.node,
+      fs: "empty",
+    };
+    return config;
+  }
 }

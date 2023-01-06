@@ -1,6 +1,6 @@
 import React, { FC } from 'react'; 
 // import {lunatic} from '@inseefr/lunatic';
-// const lunatic = require('@inseefr/lunatic')
+const lunatic = require('@inseefr/lunatic')
 
 interface OrchestratorProps {
     source: {maxPage: string},
