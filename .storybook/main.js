@@ -1,5 +1,6 @@
-const { config } = require('process');
-const { path } = require('path');
+const config = require('process');
+const path = require('path');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   "stories": [
@@ -18,10 +19,24 @@ module.exports = {
 		// 	use: ['style-loader', 'css-loader', 'sass-loader'],
 		// 	include: path.resolve(__dirname, '../'),
 		// });
-    config.node = {
-      ...config.node,
-      fs: "empty",
-    };
+    config.resolve = {
+			modules: [
+				...(config.resolve.modules || []),
+				path.resolve(__dirname, '../src'),
+			],
+			fallback: {
+				...(config.resolve || {}).fallback,
+				fs: false,
+				stream: false,
+				os: false,
+			},
+      plugins: [
+        ...(config.resolve.plugins || []), 
+        new TsconfigPathsPlugin({
+          extensions: config.resolve.extensions,
+        })
+      ]
+		};
     return config;
   }
 }
