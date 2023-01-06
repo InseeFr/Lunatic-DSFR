@@ -15,20 +15,14 @@ module.exports = {
   },
 
   webpackFinal: async (config, { configType }) => {
-    // config.module.rules.push({
-    // 	test: /\.scss$/,
-    // 	use: ['style-loader', 'css-loader', 'sass-loader'],
-    // 	include: path.resolve(__dirname, '../'),
-    // });
-
-    // config.export = {
-    //   ...config.export,
-    //   core: {
-    //     builder: "webpack5",
-    //   },
-    // };
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: ["style-loader", "css-loader", "sass-loader"],
+      include: path.resolve(__dirname, "../"),
+    });
 
     config.resolve = {
+      extensions: [".js", ".jsx", ".ts", ".tsx"],
       modules: [
         ...(config.resolve.modules || []),
         path.resolve(__dirname, "../src"),
