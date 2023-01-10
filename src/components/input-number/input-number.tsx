@@ -26,6 +26,7 @@ export default  function InputNumber({
 	step: number, 
 	unit: string, 
 }) {
+
 	const handleChange = useCallback(
 		function (e: React.ChangeEvent<HTMLInputElement>) {
 			const val = e.target.valueAsNumber;
@@ -33,6 +34,7 @@ export default  function InputNumber({
 		},
 		[onChange]
 	);
+	
 	const unitDisplay = (unit?: string) => {
 		if (unit !== ""){
 			return (
@@ -47,7 +49,6 @@ export default  function InputNumber({
 		inputNumberColumns = "fr-col-11 "
 	} 
 
-	console.log(inputNumberColumns)
 	return (
 		<div className="lunatic-input-number-container fr-grid-row fr-grid-row--middle">
 			<Input 
@@ -66,7 +67,6 @@ export default  function InputNumber({
 					step: step,
 				}}
 			/>
-			{/* {unit && <span className="fr-col-1">{unit}</span>} */}
 			{unitDisplay(unit)}
 		</div>
 	);

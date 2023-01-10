@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import classnames from 'classnames';
+import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input"
 
 
 function checkValue(value: string) {
@@ -31,20 +32,17 @@ export default function Input({
 				onChange(value);
 			}, [onChange]
 		);
-		
+
 	return (
-		<input
-			id={id}
-			// labelledbby={labelledBy}
-			autoComplete="off"
-			type="text"
-			disabled={disabled}
-			className={classnames('lunatic-input', "fr-input")}
-			value={checkValue(value)}
-			onChange={handleChange}
-			aria-required={required}
-			required={required}
-			maxLength={maxLength}
+		<InputDSFR
+			label=""
+			className={classnames('lunatic-dsfr-input', { disabled })}
+			nativeInputProps={{
+				id: id, 
+				maxLength: maxLength, 
+				value: checkValue(value), 
+				required: required, 
+			}}
 		/>
 	);
 }
