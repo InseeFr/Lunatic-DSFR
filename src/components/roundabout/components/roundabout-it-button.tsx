@@ -37,15 +37,12 @@ export function RoundaboutItButton({
 }) {
 	const status = getStatus(complete, partial);
 	const label = getLabel(complete, partial);
-	// const onClick = useCallback(
-	// 	function () {
-	// 		goToIteration(iteration);
-	// 	},
-	// 	[iteration, goToIteration]
-	// );
-	const onClick = () => {
-		goToIteration(iteration)
-	}
+	const onClick = useCallback(
+		function () {
+			goToIteration(iteration);
+		},
+		[iteration, goToIteration]
+	);
 
 	return (
         <ul className="fr-btns-group fr-btns-group--lg">

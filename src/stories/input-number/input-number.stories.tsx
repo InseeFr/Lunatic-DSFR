@@ -1,17 +1,17 @@
 import React from 'react';
 import Orchestrator from '../utils/Orchestrator';
 import source from './source.json';
-import data from './data.json';
+// import data from './data.json';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
+import sourceEuros from './source-euros.json';
 import defaultArgTypes from '../utils/default-arg-types';
-import "../../../public/dsfr/dsfr.min.css"
 import * as custom from "../../components"
-
-const stories = { 
-    title: 'Components/Roundabout',
-    component: Orchestrator, 
-    argTypes: defaultArgTypes,
-} as ComponentMeta<typeof Orchestrator>;  
+// const custom = {}
+const stories = {
+	title: 'Components/InputNumber',
+	component: Orchestrator,
+	argTypes: defaultArgTypes,
+};
 
 export default stories;
 
@@ -19,4 +19,9 @@ const Template: ComponentStory<typeof Orchestrator> = (args) => <Orchestrator {.
 
 export const Default = Template.bind({});
 
-Default.args = { source, data };
+Default.args = { source };
+
+export const UnitEuros = Template.bind({});
+
+UnitEuros.args = { source: sourceEuros };
+

@@ -25,14 +25,13 @@ export default function Input({
 }
 ) {
 	const handleChange = 
-		// useCallback(
+		useCallback(
 			function (e: React.ChangeEvent<HTMLInputElement>) {
 				const value = e.target.value;
 				onChange(value);
-			}
-			// ,
-			// [onChange]
-		// );
+			}, [onChange]
+		);
+		
 	return (
 		<input
 			id={id}

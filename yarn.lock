@@ -1138,10 +1138,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@codegouvfr/react-dsfr@^0.11.1":
-  version "0.11.3"
-  resolved "https://registry.yarnpkg.com/@codegouvfr/react-dsfr/-/react-dsfr-0.11.3.tgz#f78a8d63194357acf216f0eb469b274a69864618"
-  integrity sha512-1eoijnMB0w9YUksB+2MvIwx4G+Xpvsu98HS968NsQB+QIovBNF3EifmW+IcflxTQ7DYx9Mlph+cirdZgUs5K7w==
+"@codegouvfr/react-dsfr@^0.23.0":
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/@codegouvfr/react-dsfr/-/react-dsfr-0.23.0.tgz#2a05d171f2a509464639007fd8b8240ab457e30c"
+  integrity sha512-9lNYyuTVEaBb0PDYXyCVDWNxw46nl62kmSvPiZH8CqtdPqKYHolc5t8sqRIKPbPffYTPA6mjsiB24OP7bBZymg==
   dependencies:
     tsafe "^1.4.0"
 
@@ -1213,11 +1213,11 @@
 
 "@inseefr/lunatic@../lunatic/inseefr-lunatic-v2.0.5-v2.tgz":
   version "2.0.5-v2"
-  resolved "../lunatic/inseefr-lunatic-v2.0.5-v2.tgz#4841090ffc78fc9fea36d7a70e202df07a8d034d"
+  resolved "../lunatic/inseefr-lunatic-v2.0.5-v2.tgz#a8f64b77661081fc9dc7df075413eccaf71d770b"
   dependencies:
     "@inseefr/trevas" "^0.1.16"
     "@inseefr/vtl-2.0-antlr-tools" "^0.1.0-bundle"
-    antlr4 "4.11.0"
+    antlr4 "4.8.0"
     classnames "^2.3.1"
     date-fns "^2.25.0"
     lodash.camelcase "^4.3.0"
@@ -3227,11 +3227,6 @@ ansi-to-html@^0.6.11:
   integrity sha512-28ijx2aHJGdzbs+O5SNQF65r6rrKYnkuwTYm8lZlChuoJ9P1vVzIpWO20sQTqTPDXYp6NFwk326vApTtLVFXpQ==
   dependencies:
     entities "^2.0.0"
-
-antlr4@4.11.0:
-  version "4.11.0"
-  resolved "https://registry.yarnpkg.com/antlr4/-/antlr4-4.11.0.tgz#d7466f5044fa6e333c0ec821b30c6157f6b004ae"
-  integrity sha512-GUGlpE2JUjAN+G8G5vY+nOoeyNhHsXoIJwP1XF1oRw89vifA1K46T6SEkwLwr7drihN7I/lf0DIjKc4OZvBX8w==
 
 antlr4@4.8.0:
   version "4.8.0"

@@ -2,6 +2,7 @@
   "include": [
     "./src/**/*",
     "./src/components/roundabout**/*",
+    "./src/utils/custom.d.ts"
   ],
   "compilerOptions": {
     
