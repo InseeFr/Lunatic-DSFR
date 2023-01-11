@@ -34,7 +34,7 @@ export default  function InputNumber({
 		},
 		[onChange]
 	);
-	
+
 	const unitDisplay = (unit?: string) => {
 		if (unit !== ""){
 			return (
@@ -57,6 +57,7 @@ export default  function InputNumber({
 				nativeInputProps={{
 					inputMode: 'numeric',
 					id: id, 
+					maxLength: 30, 
 					pattern: '[0-9]*',
 					type: 'number',
 					onChange: handleChange,
@@ -65,6 +66,7 @@ export default  function InputNumber({
 					min: min,
 					max: max,
 					step: step,
+					
 				}}
 			/>
 			{unitDisplay(unit)}

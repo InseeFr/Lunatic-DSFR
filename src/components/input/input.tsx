@@ -42,6 +42,7 @@ export default function Input({
 				maxLength: maxLength, 
 				value: checkValue(value), 
 				required: required, 
+				onChange: handleChange
 			}}
 		/>
 	);

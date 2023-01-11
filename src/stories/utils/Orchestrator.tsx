@@ -133,7 +133,7 @@ const Orchestrator: FC<OrchestratorProps> = ({
 				}) {
 					const { id, componentType, storeName, response, ...other } =
 						component;
-					console.log(storeName)
+					
 					const Component = lunatic[componentType];
 					const storeInfo = storeName ? getStoreInfo(storeName) : {};
 					return (

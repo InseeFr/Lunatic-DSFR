@@ -7,7 +7,7 @@ function getStatus(complete: boolean, partial: boolean) {
 		return 'complete';
 	}
 	if (partial) {
-		return 'partial';
+		return 'fr-btn--secondary';
 	}
 	return 'unstarted';
 }
@@ -43,17 +43,28 @@ export function RoundaboutItButton({
 		},
 		[iteration, goToIteration]
 	);
+	
+	// When a questionnaire has been started, it shows the "complété" badge
+	const completeBadge = (status: string) => {
+		if(status !== "unstarted") {
+			return <p className="fr-badge fr-badge--success">Complété</p>
+		}
+	}
 
+	
 	return (
         <ul className="fr-btns-group fr-btns-group--lg">
             <li>
-                <Button
-                    className={classnames('roundabout-it-button', status)}
-                    disabled={status === 'complete' && locked}
-					onClick={onClick}
-                >
-                    {label}
-                </Button>
+				{completeBadge(status)}
+				{/* When questionnaire is complete, it no longer displays */}
+				{status !== 'complete' && locked &&
+					<Button
+						className={classnames('roundabout-it-button', status)}
+						onClick={onClick}
+					>
+						{label}
+					</Button>
+				}
             </li>    
         </ul>
 	);
