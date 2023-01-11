@@ -3,12 +3,13 @@ import Orchestrator from '../utils/Orchestrator';
 import source from './source.json';
 import data from './data.json';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
+import defaultArgTypes from '../utils/default-arg-types';
 import * as custom from "../../components"
 
 const stories = { 
     title: 'Components/Input',
     component: Orchestrator, 
-    // argTypes: defaultArgTypes,
+    argTypes: defaultArgTypes,
 } as ComponentMeta<typeof Orchestrator>;  
 
 export default stories;
