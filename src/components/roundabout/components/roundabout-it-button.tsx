@@ -7,17 +7,17 @@ function getStatus(complete: boolean, partial: boolean) {
 		return 'complete';
 	}
 	if (partial) {
-		return 'fr-btn--secondary';
+		return 'partial';
 	}
 	return 'unstarted';
 }
 
 function getLabel(complete: boolean, partial: boolean) {
 	if (complete) {
-		return 'Complété';
+		return 'Compléter';
 	}
 	if (partial) {
-		return 'Modifier';
+		return 'Continuer';
 	}
 	return 'Commencer';
 }
@@ -44,29 +44,39 @@ export function RoundaboutItButton({
 		[iteration, goToIteration]
 	);
 	
+	
 	// When a questionnaire has been started, it shows the "complété" badge
 	const completeBadge = (status: string) => {
-		if(status !== "unstarted") {
-			return <p className="fr-badge fr-badge--success">Complété</p>
+		if(status === "complete") {
+			let completeBadgeSpacing = "fr-mb-2w"
+			if (locked) {
+				completeBadgeSpacing = ""
+			}
+			return (
+				<div className={classnames("fr-col-12", completeBadgeSpacing)}> 
+					<p className="fr-badge fr-badge--success">Complété</p>
+				</div> 
+			)
 		}
 	}
-
 	
 	return (
-        <ul className="fr-btns-group fr-btns-group--lg">
-            <li>
+		<div className="fr-col">
+			<div className="fr-grid-row">
 				{completeBadge(status)}
-				{/* When questionnaire is complete, it no longer displays */}
-				{status !== 'complete' && locked &&
-					<Button
-						className={classnames('roundabout-it-button', status)}
-						onClick={onClick}
-					>
-						{label}
-					</Button>
-				}
-            </li>    
-        </ul>
+				<div className="fr-col-12">
+					{/* When questionnaire is complete, it no longer displays */}
+					{((status !== 'complete' && locked) || (!locked)) &&
+						<Button
+							className={classnames('roundabout-it-button')}
+							onClick={onClick}
+						>
+							{label}
+						</Button>
+					}
+				</div>
+			</div>
+		</div>
 	);
 }
 

@@ -23,3 +23,5 @@ node_modules/
 .DS_Store
 
 /public\dsfr/
+
+/public/dsfr/
