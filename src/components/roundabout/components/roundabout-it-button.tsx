@@ -22,6 +22,22 @@ function getLabel(complete: boolean, partial: boolean) {
 	return 'Commencer';
 }
 
+// When a questionnaire has been started, it shows the "complété" badge
+const CompleteBadge = ({status, locked}: {status: string, locked: boolean}) => {
+	if(status === "complete") {
+		let completeBadgeSpacing = "fr-mb-2w"
+		if (locked) {
+			completeBadgeSpacing = ""
+		}
+		return (
+			<div className={classnames("fr-col-12", completeBadgeSpacing)}> 
+				<p className="fr-badge fr-badge--success">Complété</p>
+			</div> 
+		)
+	}
+	return null;
+}
+
 export function RoundaboutItButton({
 	complete,
 	partial,
@@ -44,26 +60,10 @@ export function RoundaboutItButton({
 		[iteration, goToIteration]
 	);
 	
-	
-	// When a questionnaire has been started, it shows the "complété" badge
-	const completeBadge = (status: string) => {
-		if(status === "complete") {
-			let completeBadgeSpacing = "fr-mb-2w"
-			if (locked) {
-				completeBadgeSpacing = ""
-			}
-			return (
-				<div className={classnames("fr-col-12", completeBadgeSpacing)}> 
-					<p className="fr-badge fr-badge--success">Complété</p>
-				</div> 
-			)
-		}
-	}
-	
 	return (
 		<div className="fr-col">
 			<div className="fr-grid-row">
-				{completeBadge(status)}
+				<CompleteBadge status={status} locked={locked} /> 
 				<div className="fr-col-12">
 					{/* When questionnaire is complete, it no longer displays */}
 					{((status !== 'complete' && locked) || (!locked)) &&
