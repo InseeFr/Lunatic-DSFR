@@ -22,20 +22,40 @@ function getLabel(complete: boolean, partial: boolean) {
 	return 'Commencer';
 }
 
-// When a questionnaire has been started, it shows the "complété" badge
+//  When a questionnaire has been started, it shows the "complété" badge
+
 const CompleteBadge = ({status, locked}: {status: string, locked: boolean}) => {
 	if(status === "complete") {
-		let completeBadgeSpacing = "fr-mb-2w"
-		if (locked) {
-			completeBadgeSpacing = ""
-		}
+		// let completeBadgeSpacing = "fr-mb-2w"
+		// if (locked) {
+		// 	completeBadgeSpacing = ""
+		// }
 		return (
-			<div className={classnames("fr-col-12", completeBadgeSpacing)}> 
+			<div className={classnames("fr-col-12", { "fr-mb-2w" : !locked } )}> 
 				<p className="fr-badge fr-badge--success">Complété</p>
 			</div> 
 		)
 	}
 	return null;
+}
+
+// When a question is locked and completed, the button is removed.  
+// When a question is not locked, the button is always visible. 
+const DisplayButton = (
+	{status, locked, onClick, label}: 
+	{status: string, locked: boolean, onClick: Function, label: string}
+) => {
+	if(((status !== "complete" && locked) || (!locked))) {
+		return (
+			<Button
+				className={classnames('roundabout-it-button')}
+				onClick={onClick()}
+			>
+				{label}
+			</Button>
+		)
+	}
+	return null; 
 }
 
 export function RoundaboutItButton({
@@ -59,21 +79,13 @@ export function RoundaboutItButton({
 		},
 		[iteration, goToIteration]
 	);
-	
+
 	return (
 		<div className="fr-col">
 			<div className="fr-grid-row">
 				<CompleteBadge status={status} locked={locked} /> 
 				<div className="fr-col-12">
-					{/* When questionnaire is complete, it no longer displays */}
-					{((status !== 'complete' && locked) || (!locked)) &&
-						<Button
-							className={classnames('roundabout-it-button')}
-							onClick={onClick}
-						>
-							{label}
-						</Button>
-					}
+					<DisplayButton status={status} locked={locked} onClick={onClick} label={label} />
 				</div>
 			</div>
 		</div>
