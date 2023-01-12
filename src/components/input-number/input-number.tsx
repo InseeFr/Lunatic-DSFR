@@ -3,6 +3,15 @@ import classnames from 'classnames';
 import { Input } from "@codegouvfr/react-dsfr/Input"
 import { StringOptionsWithImporter } from 'sass';
 
+const UnitDisplay = ({unit}: {unit?: string}) => {
+	if (unit !== ""){
+		return (
+			<span className="fr-col-1">{unit}</span>
+		)
+	} 
+	return null; 
+}
+
 export default  function InputNumber({
 	id,
 	value,
@@ -35,25 +44,16 @@ export default  function InputNumber({
 		[onChange]
 	);
 
-	const unitDisplay = (unit?: string) => {
-		if (unit !== ""){
-			return (
-				<span className="fr-col-1">{unit}</span>
-			)
-		} 
-	}
-
-	let inputNumberColumns = "fr-col-12 "
-
-	if (unit !== undefined) {
-		inputNumberColumns = "fr-col-11 "
-	} 
-
 	return (
 		<div className="lunatic-input-number-container fr-grid-row fr-grid-row--middle">
 			<Input 
 				label=""
-				className={inputNumberColumns + classnames('lunatic-dsfr-input-number', { disabled, readOnly })}
+				className={classnames('lunatic-dsfr-input-number', { 
+					disabled, 
+					readOnly, 
+					"fr-col-11" : unit !== undefined, 
+					"fr-col-12" : unit === undefined 
+				})}
 				nativeInputProps={{
 					inputMode: 'numeric',
 					id: id, 
@@ -69,7 +69,7 @@ export default  function InputNumber({
 					
 				}}
 			/>
-			{unitDisplay(unit)}
+			<UnitDisplay unit={unit} />
 		</div>
 	);
 }
