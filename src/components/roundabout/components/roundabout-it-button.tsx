@@ -43,13 +43,13 @@ const CompleteBadge = ({status, locked}: {status: string, locked: boolean}) => {
 // When a question is not locked, the button is always visible. 
 const DisplayButton = (
 	{status, locked, onClick, label}: 
-	{status: string, locked: boolean, onClick: Function, label: string}
+	{status: string, locked: boolean, onClick: React.MouseEventHandler<HTMLElement>, label: string}
 ) => {
 	if(((status !== "complete" && locked) || (!locked))) {
 		return (
 			<Button
 				className={classnames('roundabout-it-button')}
-				onClick={onClick()}
+				onClick={onClick}
 			>
 				{label}
 			</Button>
