@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react';
 import classnames from 'classnames';
-import { Button } from "@codegouvfr/react-dsfr/Button"
+// import { Button } from "@codegouvfr/react-dsfr/Button"
+const lunatic = require('@inseefr/lunatic')
+import * as custom from "../../components"
 
 function getStatus(complete: boolean, partial: boolean) {
 	if (complete) {
@@ -45,11 +47,13 @@ const DisplayButton = (
 	{status, locked, onClick, label}: 
 	{status: string, locked: boolean, onClick: React.MouseEventHandler<HTMLElement>, label: string}
 ) => {
+	const Button = lunatic.Button;
 	if(((status !== "complete" && locked) || (!locked))) {
 		return (
 			<Button
 				className={classnames('roundabout-it-button')}
 				onClick={onClick}
+				custom={custom}
 			>
 				{label}
 			</Button>
