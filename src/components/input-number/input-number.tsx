@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
 import classnames from 'classnames';
-import { Input } from "@codegouvfr/react-dsfr/Input"
-import { StringOptionsWithImporter } from 'sass';
+import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input"
 
 const UnitDisplay = ({unit}: {unit?: string}) => {
 	if (unit !== ""){
@@ -12,13 +11,14 @@ const UnitDisplay = ({unit}: {unit?: string}) => {
 	return null; 
 }
 
-export default  function InputNumber({
+export default function InputNumber({
 	id,
 	value,
 	onChange,
 	disabled,
 	readOnly,
 	labelId,
+	label,
 	min,
 	max,
 	step,
@@ -30,6 +30,7 @@ export default  function InputNumber({
 	disabled: boolean, 
 	readOnly: boolean, 
 	labelId: number, 
+	label: string,
 	min: number, 
 	max: number, 
 	step: number, 
@@ -46,8 +47,9 @@ export default  function InputNumber({
 
 	return (
 		<div className="lunatic-input-number-container fr-grid-row fr-grid-row--middle">
-			<Input 
-				label=""
+			hello
+			<InputDSFR 
+				label={label}
 				className={classnames('lunatic-dsfr-input-number', { 
 					disabled, 
 					readOnly, 
