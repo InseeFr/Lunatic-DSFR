@@ -1211,32 +1211,9 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@inseefr/lunatic@../Lunatic/inseefr-lunatic-v2.0.6-v2.tgz":
+"@inseefr/lunatic@../Lunatic/inseefr-lunatic-v2.0.6-v22.tgz":
   version "2.0.6-v2"
-  resolved "../Lunatic/inseefr-lunatic-v2.0.6-v2.tgz#64692695661c9ba9f7d68391c9acf48baf72512b"
-  dependencies:
-    "@inseefr/trevas" "^0.1.16"
-    "@inseefr/vtl-2.0-antlr-tools" "^0.1.0-bundle"
-    antlr4 "4.11.0"
-    classnames "^2.3.1"
-    date-fns "^2.25.0"
-    lodash.camelcase "^4.3.0"
-    lodash.debounce "^4.0.8"
-    lodash.isequal "^4.5.0"
-    object-hash "^2.2.0"
-    prop-types "^15.7.2"
-    react-keyboard-event-handler "^1.5.4"
-    react-markdown "^8.0.3"
-    react-number-format "^5.0.0-beta.4"
-    react-tooltip "^4.2.15"
-    remove-accents "^0.4.2"
-    sass "^1.32.2"
-    snowball "^0.3.1"
-    string-tokenizer "^0.0.8"
-
-"@inseefr/lunatic@../lunatic/inseefr-lunatic-v2.0.6-v21.tgz":
-  version "2.0.6-v2"
-  resolved "../lunatic/inseefr-lunatic-v2.0.6-v21.tgz#a1ed5bfe0af66431574261d6f48fe0f2667543e3"
+  resolved "../Lunatic/inseefr-lunatic-v2.0.6-v22.tgz#bbe241f17c05f180c356dfdb7f88892918cde4f8"
   dependencies:
     "@inseefr/trevas" "^0.1.16"
     "@inseefr/vtl-2.0-antlr-tools" "^0.1.0-bundle"

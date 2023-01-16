@@ -47,7 +47,6 @@ export default function InputNumber({
 
 	return (
 		<div className="lunatic-input-number-container fr-grid-row fr-grid-row--middle">
-			hello
 			<InputDSFR 
 				label={label}
 				className={classnames('lunatic-dsfr-input-number', { 

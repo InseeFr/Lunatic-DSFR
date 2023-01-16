@@ -5,7 +5,6 @@ import {ComponentStory, ComponentMeta} from '@storybook/react';
 import defaultArgTypes from '../utils/default-arg-types';
 import * as custom from "../../components"
 
-console.log(custom["InputNumber"])
 
 const stories = {
 	title: 'Components/InputNumber',
