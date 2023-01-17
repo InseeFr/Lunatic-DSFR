@@ -135,7 +135,7 @@ const Orchestrator: FC<OrchestratorProps> = ({
 					const Component = lunatic[componentType];
 					const storeInfo = storeName ? getStoreInfo(storeName) : {};
 					return (
-						<div className="lunatic lunatic-component" key={`component-${id}`}>
+						<div className="lunatic lunatic-component-dsfr" key={`component-${id}`}>
 							<Component
 								id={id}
 								response={response}

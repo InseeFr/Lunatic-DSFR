@@ -13,6 +13,8 @@ export default function Input({
 	disabled,
 	required,
 	maxLength,
+	label,
+	description,
 	id,
 	labelledBy,
 }:{
@@ -21,6 +23,8 @@ export default function Input({
 	disabled: boolean,
 	required: boolean,
 	maxLength: number,
+	label: string,
+	description: string,
 	id: string,
 	labelledBy: number,
 }
@@ -35,7 +39,7 @@ export default function Input({
 
 	return (
 		<InputDSFR
-			label=""
+			label={label}
 			className={classnames('lunatic-dsfr-input', { disabled })}
 			nativeInputProps={{
 				id: id, 
