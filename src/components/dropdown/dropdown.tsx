@@ -18,7 +18,7 @@ export default function Dropdown({
 	id:string,
 	labelId:string,
 	disabled:boolean,
-	options:Object,
+	options:{value: string, label: {props: {expression: string}}}[],
 	onSelect:Function,
 	htmlFor:string,
 	writable:boolean,
@@ -29,8 +29,6 @@ export default function Dropdown({
 	errors:Object,
 }) {
 	return (
-		<>
-		testtttt
 		<DropdownDSFR
 			id={id}
 			className={className}
@@ -44,7 +42,6 @@ export default function Dropdown({
 			errors={errors}
 			description={description}
 		/>
-		</>
 	);
 }
 
