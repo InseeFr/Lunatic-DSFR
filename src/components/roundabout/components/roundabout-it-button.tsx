@@ -1,8 +1,7 @@
 import React, { useCallback } from 'react';
 import classnames from 'classnames';
-// import * as lunatic from "@inseefr/lunatic";
-// Import commented while types are not defined in Lunatic to allow for build
-const lunatic = require('@inseefr/lunatic')
+// @ts-ignore
+import * as lunatic from "@inseefr/lunatic";
 import * as custom from "../../components";
 
 function getStatus(complete: boolean, partial: boolean) {

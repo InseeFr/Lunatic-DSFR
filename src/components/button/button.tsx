@@ -37,7 +37,8 @@ export default function Button({children, onClick, disabled, label, className, p
         <ButtonDSFR
             disabled={disabled}
             className={classnames('button-lunatic-dsfr', className, { disabled })}
-			// value={label || children}
+			// @ts-ignore
+			value={label || children}
             onClick={handleClick}
             priority={priority}
         >
