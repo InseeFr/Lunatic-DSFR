@@ -8,7 +8,8 @@
 			"min": 0,
 			"max": 10,
 			"decimals": 0,
-			"label": { "value": "\"➡ 1. \" || \"NB \"", "type": "VTL|MD" },
+			"label": { "value": "\"What is your favourite number?\"", "type": "VTL|MD" },
+			"description": "\"This is a test description\"",
 			"conditionFilter": { "value": "true", "type": "VTL" },
 			"hierarchy": {
 				"sequence": {
