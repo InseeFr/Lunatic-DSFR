@@ -92,6 +92,7 @@ const Orchestrator: FC<OrchestratorProps> = ({
 	filterDescription = true,
 	...rest
 }) => {
+	console.log(custom)
 	const { maxPage } = source;
 	const {
 		getComponents,
