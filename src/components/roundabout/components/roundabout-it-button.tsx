@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react';
 import classnames from 'classnames';
-import { Button } from "@codegouvfr/react-dsfr/Button"
+// @ts-ignore
+import * as lunatic from "@inseefr/lunatic";
+import * as custom from "../../components";
 
 function getStatus(complete: boolean, partial: boolean) {
 	if (complete) {
@@ -26,10 +28,6 @@ function getLabel(complete: boolean, partial: boolean) {
 
 const CompleteBadge = ({status, locked}: {status: string, locked: boolean}) => {
 	if(status === "complete") {
-		// let completeBadgeSpacing = "fr-mb-2w"
-		// if (locked) {
-		// 	completeBadgeSpacing = ""
-		// }
 		return (
 			<div className={classnames("fr-col-12", { "fr-mb-2w" : !locked } )}> 
 				<p className="fr-badge fr-badge--success">Complété</p>
@@ -45,11 +43,13 @@ const DisplayButton = (
 	{status, locked, onClick, label}: 
 	{status: string, locked: boolean, onClick: React.MouseEventHandler<HTMLElement>, label: string}
 ) => {
+	const Button = lunatic.Button;
 	if(((status !== "complete" && locked) || (!locked))) {
 		return (
 			<Button
 				className={classnames('roundabout-it-button')}
 				onClick={onClick}
+				custom={custom}
 			>
 				{label}
 			</Button>
