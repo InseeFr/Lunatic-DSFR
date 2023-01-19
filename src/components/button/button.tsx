@@ -4,7 +4,7 @@ import { isElement } from '../../utils/is-element';
 import { Button as ButtonDSFR } from "@codegouvfr/react-dsfr/Button"
 
 export default function Button({children, onClick, disabled, label, className, priority}: {
-    children: React.ReactNode, 
+    children: string | React.ReactNode, 
     onClick: React.MouseEventHandler<HTMLButtonElement>, 
     disabled: boolean, 
     label: string, 
@@ -37,7 +37,7 @@ export default function Button({children, onClick, disabled, label, className, p
         <ButtonDSFR
             disabled={disabled}
             className={classnames('button-lunatic-dsfr', className, { disabled })}
-            value={label || children}
+			// value={label || children}
             onClick={handleClick}
             priority={priority}
         >

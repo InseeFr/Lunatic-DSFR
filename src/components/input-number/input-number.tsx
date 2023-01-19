@@ -23,6 +23,7 @@ export default function InputNumber({
 	max,
 	step,
 	unit,
+	description
 }:{
 	id:string, 
 	value:string, 
@@ -35,6 +36,7 @@ export default function InputNumber({
 	max: number, 
 	step: number, 
 	unit: string, 
+	description: string,
 }) {
 
 	const handleChange = useCallback(
@@ -49,6 +51,7 @@ export default function InputNumber({
 		<div className="lunatic-input-number-container fr-grid-row fr-grid-row--middle">
 			<InputDSFR 
 				label={label}
+				hintText={description}
 				className={classnames('lunatic-dsfr-input-number', { 
 					disabled, 
 					readOnly, 
