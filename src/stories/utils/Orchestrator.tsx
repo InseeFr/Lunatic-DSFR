@@ -3,6 +3,7 @@ import Waiting from './waiting';
 const lunatic = require('@inseefr/lunatic')
 
 interface OrchestratorProps {
+	id: string, 
 	source: { maxPage?: string, components?: {}, variables?: {} },
 	data: object,
 	management?: boolean,
@@ -74,6 +75,7 @@ function onLogChange(res: any, value: any, args: any) {
 }
 
 const Orchestrator: FC<OrchestratorProps> = ({
+	id,
 	source,
 	data,
 	management = false,
@@ -92,7 +94,6 @@ const Orchestrator: FC<OrchestratorProps> = ({
 	filterDescription = true,
 	...rest
 }) => {
-	console.log(custom)
 	const { maxPage } = source;
 	const {
 		getComponents,
@@ -107,6 +108,7 @@ const Orchestrator: FC<OrchestratorProps> = ({
 		getModalErrors,
 		getCurrentErrors,
 		getData,
+		Provider,
 	} = lunatic.useLunatic(source, data, {
 		initialPage,
 		features,
@@ -127,53 +129,55 @@ const Orchestrator: FC<OrchestratorProps> = ({
 	const currentErrors = getCurrentErrors();
 
 	return (
-		<div className="container">
-			<div className="components">
-				{components.map(function (component: {
-					id?: string, componentType: string, response?: string, storeName?: string
-				}) {
-					const { id, componentType, storeName, response, ...other } =
-						component;
-					
-					const Component = lunatic[componentType];
-					const storeInfo = storeName ? getStoreInfo(storeName) : {};
-					return (
-						<div className="lunatic lunatic-component-dsfr" key={`component-${id}`}>
-							<Component
-								id={id}
-								response={response}
-								{...other}
-								{...rest}
-								{...component}
-								{...storeInfo}
-								missing={missing}
-								missingStrategy={goNextPage}
-								shortcut={shortcut}
-								filterDescription={filterDescription}
-								errors={currentErrors}
-							/>
-						</div>
-					);
-				})}
-			</div>
-			<Pager
-				goPrevious={goPreviousPage}
-				goNext={goNextPage}
-				goToPage={goToPage}
-				isLast={isLastPage}
-				isFirst={isFirstPage}
-				pageTag={pageTag}
-				maxPage={maxPage}
-				getData={getData}
-				custom={custom}
-			/>
-			<lunatic.Modal errors={modalErrors} goNext={goNextPage} />
-			<Waiting status={waiting}>
-				<div className="waiting-orchestrator">
-					Initialisation des données de suggestion...
+		<Provider>
+			<div className="container">
+				<div className="components">
+					{components.map(function (component: {
+						id?: string, componentType: string, response?: string, storeName?: string
+					}) {
+						const { id, componentType, storeName, response, ...other } =
+							component;
+						
+						const Component = lunatic[componentType];
+						const storeInfo = storeName ? getStoreInfo(storeName) : {};
+						return (
+							<div className="lunatic lunatic-component-dsfr" key={`component-${id}`}>
+								<Component
+									id={id}
+									response={response}
+									{...other}
+									{...rest}
+									{...component}
+									{...storeInfo}
+									missing={missing}
+									missingStrategy={goNextPage}
+									shortcut={shortcut}
+									filterDescription={filterDescription}
+									errors={currentErrors}
+								/>
+							</div>
+						);
+					})}
 				</div>
-			</Waiting>
-		</div>
+				<Pager
+					goPrevious={goPreviousPage}
+					goNext={goNextPage}
+					goToPage={goToPage}
+					isLast={isLastPage}
+					isFirst={isFirstPage}
+					pageTag={pageTag}
+					maxPage={maxPage}
+					getData={getData}
+					custom={custom}
+				/>
+				<lunatic.Modal errors={modalErrors} goNext={goNextPage} />
+				<Waiting status={waiting}>
+					<div className="waiting-orchestrator">
+						Initialisation des données de suggestion...
+					</div>
+				</Waiting>
+			</div>
+		</Provider>
 	)
 }
 

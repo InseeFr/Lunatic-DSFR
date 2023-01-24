@@ -1,5 +1,6 @@
 import React from 'react';
-import DropdownDSFR from './DropdownDSFR'
+// import DropdownDSFR from './DropdownDSFR'
+import Select from "@codegouvfr/react-dsfr/Select"
 
 export default function Dropdown({
 	id,
@@ -29,19 +30,26 @@ export default function Dropdown({
 	errors:Object,
 }) {
 	return (
-		<DropdownDSFR
-			id={id}
-			className={className}
-			htmlFor={htmlFor}
-			labelId={labelId}
-			disabled={disabled}
-			options={options}
-			onSelect={onSelect}
-			value={value}
+		<Select
+			// id={id}
+			// className={className}
+			nativeSelectProps={{className: "test"}}
+			// htmlFor={htmlFor}
+			// labelId={labelId}
+			// disabled={disabled}
+			// options={options}
+			// onSelect={onSelect}
+			// value={value}
 			label={label}
-			errors={errors}
-			description={description}
-		/>
+			// errors={errors}
+			// description={description}
+		>
+			{options.map(function(option: {value: string, label: {props: {expression: string}}}) {
+                    return (
+                        <option value={option.value}>{option.label.props.expression}</option>
+                    )
+                })}
+		</Select>
 	);
 }
 
