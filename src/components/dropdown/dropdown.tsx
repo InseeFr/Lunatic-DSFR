@@ -1,53 +1,41 @@
 import React from 'react';
 // import DropdownDSFR from './DropdownDSFR'
+import classnames from 'classnames';
 import Select from "@codegouvfr/react-dsfr/Select"
+import classNames from 'classnames';
 
 export default function Dropdown({
-	id,
-	labelId,
 	disabled,
 	options,
 	onSelect,
-	htmlFor,
-	writable,
 	className,
-	value,
-	description,
 	label,
 	errors,
 }: {
-	id:string,
-	labelId:string,
 	disabled:boolean,
 	options:{value: string, label: {props: {expression: string}}}[],
 	onSelect:Function,
-	htmlFor:string,
-	writable:boolean,
 	className:string,
-	value:string,
-	description:string,
 	label:string,
 	errors:Object,
 }) {
 	return (
 		<Select
-			// id={id}
-			// className={className}
-			nativeSelectProps={{className: "test"}}
-			// htmlFor={htmlFor}
-			// labelId={labelId}
-			// disabled={disabled}
-			// options={options}
+			className={classnames('dropdown-lunatic-dsfr', className, { disabled })}
+			// hintText is not currently operational in react-dsfr
+			// hintText={description}
+			nativeSelectProps={{onSelect: onSelect()}}
+			disabled={disabled}
 			// onSelect={onSelect}
-			// value={value}
 			label={label}
 			// errors={errors}
-			// description={description}
 		>
 			{options.map(function(option: {value: string, label: {props: {expression: string}}}) {
-                    return (
-                        <option value={option.value}>{option.label.props.expression}</option>
-                    )
+				const { value, label } = option;
+				const { expression } = label.props; 
+                return (
+                    <option value={value}>{expression}</option>
+        	        )
                 })}
 		</Select>
 	);
