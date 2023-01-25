@@ -1,8 +1,6 @@
 import React, { useId } from 'react';
-// import DropdownDSFR from './DropdownDSFR'
 import classnames from 'classnames';
 import Select from "@codegouvfr/react-dsfr/Select"
-import classNames from 'classnames';
 import Errors from '../../utils/errors'
 
 export default function Dropdown({

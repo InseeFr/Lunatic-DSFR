@@ -1,6 +1,7 @@
 import React from 'react';
 import './errors.scss';
 
+// TODO: Typescripter les props de Errors 
 function Errors({ errors, activeId }: {errors: any, activeId: any}) {
 	const activeErrors = Object.entries(errors || {}).find(([k]) =>
 		activeId.trim().endsWith(k)
