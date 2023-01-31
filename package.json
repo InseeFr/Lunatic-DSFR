@@ -50,7 +50,7 @@
   "homepage": "https://github.com/InseeFr/lunatic-dsfr#readme",
   "dependencies": {
     "@codegouvfr/react-dsfr": "^0.23.0",
-    "@inseefr/lunatic": "../lunatic/inseefr-lunatic-v2.0.6-v2.tgz",
+    "@inseefr/lunatic": "^2.0.6-v2",
     "@types/jest": "^29.2.4",
     "@types/node": "^18.11.17",
     "@types/react": "^16.0.0 || ^17.0.0 || ^18.0.0",
