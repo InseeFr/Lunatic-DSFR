@@ -34,6 +34,7 @@ function Pager({
 	pageTag,
 	maxPage,
 	getData,
+	custom
 }: {
 	goPrevious: Function,
 	goNext: Function,
@@ -43,20 +44,21 @@ function Pager({
 	pageTag: number,
 	maxPage?: string,
 	getData: Function,
+	custom?: Object,
 }) {
 	if (maxPage && parseInt(maxPage) > 1) {
 		const Button = lunatic.Button;
 		return (
 			<>
 				<div className="pagination">
-					<Button onClick={goPrevious} disabled={isFirst}>
+					<Button custom={custom} onClick={goPrevious} disabled={isFirst}>
 						Previous
 					</Button>
-					<Button onClick={goNext} disabled={isLast}>
+					<Button custom={custom} onClick={goNext} disabled={isLast}>
 						Next
 					</Button>
-					<Button onClick={() => console.log(getData(true))}>Get State</Button>
-					<Button onClick={() => goToPage({ page: '18' })}>
+					<Button custom={custom} onClick={() => console.log(getData(true))}>Get State</Button>
+					<Button custom={custom} onClick={() => goToPage({ page: '18' })}>
 						Go to page 18
 					</Button>
 				</div>
@@ -162,6 +164,7 @@ const Orchestrator: FC<OrchestratorProps> = ({
 				pageTag={pageTag}
 				maxPage={maxPage}
 				getData={getData}
+				custom={custom}
 			/>
 			<lunatic.Modal errors={modalErrors} goNext={goNextPage} />
 			<Waiting status={waiting}>

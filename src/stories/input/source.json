@@ -3,6 +3,7 @@
 		{
 			"componentType": "Input",
 			"label": { "value": "\"What's your name?\"", "type": "VTL|MD" },
+			"description": "\"This is a test description\"",
 			"conditionFilter": { "value": "true", "type": "VTL" },
 			"maxLength": 30,
 			"id": "name",
