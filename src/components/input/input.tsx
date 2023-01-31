@@ -16,7 +16,6 @@ export default function Input({
 	label,
 	description,
 	id,
-	labelledBy,
 }:{
     value: string,
 	onChange: Function,
@@ -40,6 +39,7 @@ export default function Input({
 	return (
 		<InputDSFR
 			label={label}
+			hintText={description}
 			className={classnames('lunatic-dsfr-input', { disabled })}
 			nativeInputProps={{
 				id: id, 
