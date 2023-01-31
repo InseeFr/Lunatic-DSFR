@@ -17,7 +17,7 @@
     "prestart": "only-include-used-icons",
     "prebuild": "only-include-used-icons",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -o docs-build -s ./public"
   },
   "repository": {
     "type": "git",
