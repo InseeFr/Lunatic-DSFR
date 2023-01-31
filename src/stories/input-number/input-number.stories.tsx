@@ -4,7 +4,7 @@ import source from './source.json';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import defaultArgTypes from '../utils/default-arg-types';
 import * as custom from "../../components"
-
+// test 2
 
 const stories = {
 	title: 'Components/InputNumber',
