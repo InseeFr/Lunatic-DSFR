@@ -1,7 +1,7 @@
-import { isValidElement } from 'react';
+import { isValidElement } from "react";
 
 function isElement(element: any) {
-	return isValidElement(element);
+    return isValidElement(element);
 }
 
 export { isElement };

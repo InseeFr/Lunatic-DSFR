@@ -1,93 +1,89 @@
 {
-  "name": "@inseefr/lunatic-dsfr",
-  "version": "1.0.1",
-  "description": "A library to apply the styles of the DSFR on Lunatic components",
-  "main": "lib/index.js",
-  "files": [
-    "lib"
-  ],
-  "scripts": {
-    "build": "tsc -p .",
-    "test": "test",
-    "precompile": "npm run clean",
-    "clean": "rimraf lib/*",
-    "compile": "npm run compile:ts",
-    "compile:ts": "tsc --outDir ./lib --module commonjs ./src/index.ts",
-    "postinstall": "copy-dsfr-to-public",
-    "prestart": "only-include-used-icons",
-    "prebuild": "only-include-used-icons",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -o docs-build -s ./public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/InseeFr/lunatic-dsfr.git"
-  },
-  "keywords": [
-    "lunatic",
-    "insee",
-    "dsfr",
-    "react",
-    "component",
-    "react-component",
-    "library"
-  ],
-  "author": "INSEE (http://www.insee.fr)",
-  "contributor": [
-    {
-      "name": "Matthew Clark ",
-      "email": "matthew.clark@insee.fr"
+    "name": "lunatic-dsfr",
+    "version": "0.0.1",
+    "description": "",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/isMattCoding/lunatic-dsfr.git"
     },
-    {
-      "name": "Renaud Genevois",
-      "email": "renaud.genevois@insee.fr"
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "test": "echo DODO",
+        "build": "tsc",
+        "lint:check": "eslint . --ext .ts,.tsx",
+        "lint": "npm run lint:check -- --fix",
+        "_format": "prettier '**/*.{ts,tsx,json,md}'",
+        "format": "npm run _format -- --write",
+        "format:check": "npm run _format -- --list-different",
+        "link-in-main-project": "ts-node --skipProject src/scripts/link-in-main-project.ts",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook",
+        "postinstall": "copy-dsfr-to-public",
+        "prestart": "only-include-used-icons",
+        "prebuild": "only-include-used-icons"
+    },
+    "lint-staged": {
+        "*.{ts,tsx}": [
+            "eslint --fix"
+        ],
+        "*.{ts,tsx,json,md}": [
+            "prettier --write"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged -v"
+        }
+    },
+    "author": "u/isMattCoding",
+    "license": "MIT",
+    "files": [
+        "src/",
+        "!src/scripts/",
+        "dist/",
+        "!dist/tsconfig.tsbuildinfo"
+    ],
+    "keywords": [],
+    "homepage": "https://github.com/isMattCoding/lunatic-dsfr",
+    "peerDependencies": {
+        "@codegouvfr/react-dsfr": "^0.27.2",
+        "@emotion/react": "^11.10.5",
+        "react": "*"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.20.12",
+        "@codegouvfr/react-dsfr": "^0.27.2",
+        "@emotion/react": "^11.10.5",
+        "@storybook/addon-actions": "^6.5.16",
+        "@storybook/addon-essentials": "^6.5.16",
+        "@storybook/addon-interactions": "^6.5.16",
+        "@storybook/addon-links": "^6.5.16",
+        "@storybook/builder-webpack5": "^6.5.15",
+        "@storybook/manager-webpack5": "^6.5.15",
+        "@storybook/react": "^6.5.16",
+        "@storybook/testing-library": "^0.0.13",
+        "@types/node": "^16.4.9",
+        "@types/react": "^18.0.27",
+        "@types/react-dom": "^18.0.10",
+        "@typescript-eslint/eslint-plugin": "^4.28.5",
+        "@typescript-eslint/parser": "^4.28.5",
+        "babel-loader": "^8.3.0",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-storybook": "^0.6.10",
+        "husky": "^4.3.8",
+        "lint-staged": "^11.1.1",
+        "prettier": "^2.3.2",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "ts-node": "^10.9.1",
+        "tsconfig-paths-webpack-plugin": "^4.0.0",
+        "typescript": "^4.3.5"
+    },
+    "dependencies": {
+        "@inseefr/lunatic": "^2.0.7-v2",
+        "classnames": "^2.3.2",
+        "sass-loader": "^13.2.0"
     }
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/InseeFr/lunatic-dsfr/issues"
-  },
-  "homepage": "https://github.com/InseeFr/lunatic-dsfr#readme",
-  "dependencies": {
-    "@codegouvfr/react-dsfr": "^0.23.0",
-    "@inseefr/lunatic": "^2.0.6-v2",
-    "@types/jest": "^29.2.4",
-    "@types/node": "^18.11.17",
-    "@types/react": "^16.0.0 || ^17.0.0 || ^18.0.0",
-    "@types/react-dom": "^18.0.9",
-    "classnames": "^2.3.2",
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^18.2.0",
-    "sass": "^1.57.1",
-    "source-map": "^0.7.4"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.20.12",
-    "@storybook/addon-actions": "^6.5.15",
-    "@storybook/addon-essentials": "^6.5.15",
-    "@storybook/addon-interactions": "^6.5.15",
-    "@storybook/addon-links": "^6.5.15",
-    "@storybook/builder-webpack5": "^6.5.15",
-    "@storybook/manager-webpack5": "^6.5.15",
-    "@storybook/react": "^6.5.15",
-    "@storybook/testing-library": "^0.0.13",
-    "babel-loader": "^8.3.0",
-    "node-sass": "^8.0.0",
-    "rimraf": "^3.0.2",
-    "sass-loader": "^13.2.0",
-    "tsconfig-paths-webpack-plugin": "^4.0.0",
-    "typescript": "^4.9.4",
-    "vite-tsconfig-paths": "^4.0.3",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1"
-  },
-  "peerDependencies": {
-    "@types/react": "^16.0.0 || ^17.0.0 || ^18.0.0",
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
-  },
-  "browser": {
-    "fs": false,
-    "path": false,
-    "os": false
-  }
 }
