@@ -9,6 +9,13 @@
             "response": {
                 "name": "STATE"
             },
+            "controls": {
+                "stateRelatedMessage": {
+                    "default" : "Select a state",
+                    "error" : "Error",
+                    "success" : "Success"
+                }          
+            },
             "options": [
                 {
                     "value": "1",
