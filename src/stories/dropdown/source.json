@@ -11,10 +11,10 @@
             },
             "controls": {
                 "stateRelatedMessage": {
-                    "default" : "Select a state",
-                    "error" : "Error",
-                    "success" : "Success"
-                }          
+                    "default": "Select a state",
+                    "error": "Error",
+                    "success": "Success"
+                }
             },
             "options": [
                 {

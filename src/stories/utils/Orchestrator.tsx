@@ -139,7 +139,7 @@ const Orchestrator: FC<OrchestratorProps> = ({
         management,
         activeControls,
     });
-	console.log(getComponents)
+    console.log(getComponents);
     const components = getComponents();
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     // const errors = getErrors();

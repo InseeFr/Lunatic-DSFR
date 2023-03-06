@@ -4,6 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 import { Dropdown } from "../../";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const options = source.components[0].options.map((option: any) => ({
     value: option.value,
     label: {
@@ -30,7 +31,7 @@ const Template: ComponentStory<typeof Dropdown> = args => (
         />
     </>
 );
-  
+
 const TemplateError: ComponentStory<typeof Dropdown> = args => (
     <>
         <Dropdown

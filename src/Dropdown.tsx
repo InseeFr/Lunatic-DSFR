@@ -1,4 +1,4 @@
-import { useId } from "react";
+// import { useId } from "react";
 import classnames from "classnames";
 import Select from "@codegouvfr/react-dsfr/Select";
 
@@ -13,13 +13,14 @@ export function Dropdown({
 }: {
     disabled: boolean;
     options: { value: string; label: { props: { expression: string } } }[];
+    // eslint-disable-next-line @typescript-eslint/ban-types
     onSelect: Function;
     className: string;
     label: string;
     state: "success" | "error" | "default" | undefined;
     stateRelatedMessage: string;
 }) {
-    const selectId = `select-${useId()}`;
+    // const selectId = `select-${useId()}`;
     return (
         <Select
             className={classnames("dropdown-lunatic-dsfr", className, { disabled })}
