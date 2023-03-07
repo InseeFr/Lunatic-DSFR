@@ -1,38 +1,38 @@
 {
-	"components": [
-		{
-			"id": "kze792d8",
-			"componentType": "InputNumber",
-			"mandatory": false,
-			"page": "2",
-			"min": 0,
-			"max": 10,
-			"decimals": 0,
-			"label": { "value": "\"What is your favourite number?\"", "type": "VTL|MD" },
-			"description": "\"This is a test description\"",
-			"conditionFilter": { "value": "true", "type": "VTL" },
-			"hierarchy": {
-				"sequence": {
-					"id": "ksyjs7vy",
-					"page": "1",
-					"label": { "value": "S0", "type": "VTL|MD" }
-				}
-			},
-			"bindingDependencies": ["NB"],
-			"response": { "name": "NB" }
-		}
-	],
-	"variables": [
-		{
-			"variableType": "COLLECTED",
-			"name": "NB",
-			"values": {
-				"PREVIOUS": null,
-				"COLLECTED": null,
-				"FORCED": null,
-				"EDITED": null,
-				"INPUTED": null
-			}
-		}
-	]
+    "components": [
+        {
+            "id": "kze792d8",
+            "componentType": "InputNumber",
+            "mandatory": false,
+            "page": "2",
+            "min": 0,
+            "max": 10,
+            "decimals": 0,
+            "label": { "value": "\"What is your favourite number?\"", "type": "VTL|MD" },
+            "description": "\"This is a test description\"",
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "hierarchy": {
+                "sequence": {
+                    "id": "ksyjs7vy",
+                    "page": "1",
+                    "label": { "value": "S0", "type": "VTL|MD" }
+                }
+            },
+            "bindingDependencies": ["NB"],
+            "response": { "name": "NB" }
+        }
+    ],
+    "variables": [
+        {
+            "variableType": "COLLECTED",
+            "name": "NB",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        }
+    ]
 }

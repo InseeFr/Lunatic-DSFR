@@ -1,1 +1,1 @@
-export { default } from './waiting';
+export { default } from "./waiting";
