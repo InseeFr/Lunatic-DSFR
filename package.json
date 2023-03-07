@@ -1,11 +1,13 @@
 {
-    "name": "lunatic-dsfr",
+    "name": "@inseefr/lunatic-dsfr",
     "version": "0.0.1",
-    "description": "",
+    "description": "Couche graphique pour Lunatic reposant sur le Système de Design de l'État (DSFR)",
     "repository": {
         "type": "git",
-        "url": "git://github.com/isMattCoding/lunatic-dsfr.git"
+        "url": "git://github.com/Inseefr/lunatic-dsfr.git"
     },
+    "author": "INSEE (http://www.insee.fr)",
+    "license": "MIT",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
@@ -36,8 +38,6 @@
             "pre-commit": "lint-staged -v"
         }
     },
-    "author": "u/isMattCoding",
-    "license": "MIT",
     "files": [
         "src/",
         "!src/scripts/",
