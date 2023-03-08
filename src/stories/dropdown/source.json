@@ -9,13 +9,22 @@
             "response": {
                 "name": "STATE"
             },
-            "controls": {
-                "stateRelatedMessage": {
-                    "default": "Select a state",
-                    "error": "Error",
-                    "success": "Success"
+            "controls": [
+                {
+                    "id": "j4nw5cqz",
+                    "typeOfControl": "CONSISTENCY",
+                    "criticality": "WARN",
+                    "control": {
+                        "value": "not(nvl(STATE,\"\") = \"Not in any state, you fool!\")",
+                        "type": "VTL"
+                    },
+                    "errorMessage": {
+                        "value": "\"Please choose a state!\"",
+                        "type": "VTL|MD"
+                    },
+                    "bindingDependencies": ["STATE"]
                 }
-            },
+            ],
             "options": [
                 {
                     "value": "1",
