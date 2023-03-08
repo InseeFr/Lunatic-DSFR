@@ -23,6 +23,20 @@
                         "type": "VTL|MD"
                     },
                     "bindingDependencies": ["STATE"]
+                },
+                {
+                    "id": "j4nw5cqz",
+                    "typeOfControl": "CONSISTENCY",
+                    "criticality": "INFO",
+                    "control": {
+                        "value": "not(nvl(STATE,\"\") = \"4\")",
+                        "type": "VTL"
+                    },
+                    "errorMessage": {
+                        "value": "\"Idk if this is right, I'm just testing error messages!!\"",
+                        "type": "VTL|MD"
+                    },
+                    "bindingDependencies": ["STATE"]
                 }
             ],
             "options": [
