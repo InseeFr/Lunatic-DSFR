@@ -1,6 +1,6 @@
 {
     "name": "@inseefr/lunatic-dsfr",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Couche graphique pour Lunatic reposant sur le Système de Design de l'État (DSFR)",
     "repository": {
         "type": "git",
@@ -45,7 +45,6 @@
         "!dist/tsconfig.tsbuildinfo"
     ],
     "keywords": [],
-    "homepage": "https://github.com/isMattCoding/lunatic-dsfr",
     "peerDependencies": {
         "@codegouvfr/react-dsfr": "^0.27.2",
         "@emotion/react": "^11.10.5",
@@ -53,7 +52,7 @@
     },
     "devDependencies": {
         "@babel/core": "^7.20.12",
-        "@codegouvfr/react-dsfr": "^0.27.2",
+        "@codegouvfr/react-dsfr": "^0.37.0",
         "@emotion/react": "^11.10.5",
         "@storybook/addon-actions": "^6.5.16",
         "@storybook/addon-essentials": "^6.5.16",
@@ -82,7 +81,7 @@
         "typescript": "^4.3.5"
     },
     "dependencies": {
-        "@inseefr/lunatic": "^2.0.7-v2",
+        "@inseefr/lunatic": "../lunatic/inseefr-lunatic-v2.0.6-v2-label-position4.tgz",
         "classnames": "^2.3.2",
         "sass-loader": "^13.2.0"
     }
