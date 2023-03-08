@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useCallback } from "react";
 import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import Select from "@codegouvfr/react-dsfr/Select";
@@ -44,10 +44,16 @@ export function Dropdown({
     // const selectId = `select-${useId()}`;
     const state = getState(errors, id);
     const stateRelatedMessage = getStateRelatedMessage(errors, id);
+    const handleChange = useCallback(
+        function (e: React.ChangeEvent<HTMLSelectElement>) {
+            onSelect(e.target.value);
+        },
+        [onSelect],
+    );
     return (
         <Select
             className={classnames("dropdown-lunatic-dsfr", className, { disabled })}
-            nativeSelectProps={{ onSelect: onSelect() }}
+            nativeSelectProps={{ onChange: handleChange }}
             disabled={disabled}
             label={label}
             state={state}

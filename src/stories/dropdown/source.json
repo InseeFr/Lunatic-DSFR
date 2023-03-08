@@ -15,7 +15,7 @@
                     "typeOfControl": "CONSISTENCY",
                     "criticality": "WARN",
                     "control": {
-                        "value": "not(nvl(STATE,\"\") = \"Not in any state, you fool!\")",
+                        "value": "not(nvl(STATE,\"\") = \"13\")",
                         "type": "VTL"
                     },
                     "errorMessage": {
