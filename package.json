@@ -1,6 +1,6 @@
 {
     "name": "@inseefr/lunatic-dsfr",
-    "version": "0.0.3-alpha.0",
+    "version": "0.0.3",
     "description": "Couche graphique pour Lunatic reposant sur le Système de Design de l'État (DSFR)",
     "repository": {
         "type": "git",
