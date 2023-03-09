@@ -1,5 +1,6 @@
-import React, { useCallback } from "react";
+import React, { useCallback, ReactNode } from "react";
 import classnames from "classnames";
+import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
 
 function checkValue(value: string) {
@@ -13,10 +14,10 @@ export function Input({
     required,
     maxLength,
     label,
-    // description,
+    description,
     id,
-}: // labelledBy,
-{
+    errors,
+}: {
     value: string;
     // eslint-disable-next-line @typescript-eslint/ban-types
     onChange: Function;
@@ -24,9 +25,30 @@ export function Input({
     required: boolean;
     maxLength: number;
     label: string;
-    // description: string,
+    description: string;
     id: string;
-    // labelledBy: number,
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    errors: {
+        id: [
+            Pick<
+                {
+                    id: string;
+                    criticality: "INFO" | "WARN" | "ERROR";
+                    typeOfControl: "FORMAT" | "CONSISTENCY";
+                    control: { value: string; type: "VTL" | "VTL|MD" };
+                    errorMessage: { value: string; type: "VTL" | "VTL|MD" };
+                    bindingDependencies: string[];
+                },
+                "id" | "criticality" | "typeOfControl"
+            > & {
+                id: string;
+                criticality: "INFO" | "WARN" | "ERROR";
+                formula: string;
+                labelFormula: string;
+                errorMessage: ReactNode;
+            },
+        ];
+    };
 }) {
     const handleChange = useCallback(
         function (e: React.ChangeEvent<HTMLInputElement>) {
@@ -36,6 +58,8 @@ export function Input({
         [onChange],
     );
 
+    const state = getState(errors, id);
+    const stateRelatedMessage = getStateRelatedMessage(errors, id);
     return (
         <InputDSFR
             label={label}
@@ -47,6 +71,9 @@ export function Input({
                 required: required,
                 onChange: handleChange,
             }}
+            hintText={description}
+            state={state}
+            stateRelatedMessage={stateRelatedMessage}
         />
     );
 }

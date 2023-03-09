@@ -2,9 +2,23 @@
     "components": [
         {
             "componentType": "Input",
+            "bindingDependencies": ["NAME"],
             "label": { "value": "\"What's your name?\"", "type": "VTL|MD" },
             "description": "\"This is a test description\"",
             "conditionFilter": { "value": "true", "type": "VTL" },
+            "controls": [
+                {
+                    "id": "name",
+                    "typeOfControl": "CONSISTENCY",
+                    "criticality": "WARN",
+                    "control": { "value": "not(nvl(NAME,\"\") = \"BLABLA\")", "type": "VTL" },
+                    "errorMessage": {
+                        "value": "\"Merci de renseigner le type de logement\"",
+                        "type": "VTL|MD"
+                    },
+                    "bindingDependencies": ["NAME"]
+                }
+            ],
             "maxLength": 30,
             "id": "name",
             "response": {

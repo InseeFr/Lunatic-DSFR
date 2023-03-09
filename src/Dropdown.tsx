@@ -1,5 +1,6 @@
-// import { useId } from "react";
+import { ReactNode, useCallback } from "react";
 import classnames from "classnames";
+import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import Select from "@codegouvfr/react-dsfr/Select";
 
 export function Dropdown({
@@ -8,8 +9,8 @@ export function Dropdown({
     onSelect,
     className,
     label,
-    state,
-    stateRelatedMessage,
+    errors,
+    id,
 }: {
     disabled: boolean;
     options: { value: string; label: { props: { expression: string } } }[];
@@ -17,14 +18,42 @@ export function Dropdown({
     onSelect: Function;
     className: string;
     label: string;
-    state: "success" | "error" | "default" | undefined;
-    stateRelatedMessage: string;
+    id: string;
+    errors: {
+        id: [
+            Pick<
+                {
+                    id: string;
+                    criticality: "INFO" | "WARN" | "ERROR";
+                    typeOfControl: "FORMAT" | "CONSISTENCY";
+                    control: { value: string; type: "VTL" | "VTL|MD" };
+                    errorMessage: { value: string; type: "VTL" | "VTL|MD" };
+                    bindingDependencies: string[];
+                },
+                "id" | "criticality" | "typeOfControl"
+            > & {
+                id: string;
+                criticality: "INFO" | "WARN" | "ERROR";
+                formula: string;
+                labelFormula: string;
+                errorMessage: ReactNode;
+            },
+        ];
+    };
 }) {
     // const selectId = `select-${useId()}`;
+    const state = getState(errors, id);
+    const stateRelatedMessage = getStateRelatedMessage(errors, id);
+    const handleChange = useCallback(
+        function (e: React.ChangeEvent<HTMLSelectElement>) {
+            onSelect(e.target.value);
+        },
+        [onSelect],
+    );
     return (
         <Select
             className={classnames("dropdown-lunatic-dsfr", className, { disabled })}
-            nativeSelectProps={{ onSelect: onSelect() }}
+            nativeSelectProps={{ onChange: handleChange }}
             disabled={disabled}
             label={label}
             state={state}

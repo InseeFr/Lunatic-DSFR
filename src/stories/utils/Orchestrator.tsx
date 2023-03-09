@@ -96,7 +96,7 @@ const Orchestrator: FC<OrchestratorProps> = ({
     source,
     data,
     management = false,
-    activeControls = false,
+    activeControls = true,
     features,
     initialPage = "1",
     getStoreInfo = getStoreInfoRequired,
@@ -121,7 +121,6 @@ const Orchestrator: FC<OrchestratorProps> = ({
         isFirstPage,
         isLastPage,
         waiting,
-        // getErrors,
         getModalErrors,
         getCurrentErrors,
         getData,
@@ -139,10 +138,8 @@ const Orchestrator: FC<OrchestratorProps> = ({
         management,
         activeControls,
     });
-    console.log(getComponents);
+
     const components = getComponents();
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    // const errors = getErrors();
     const modalErrors = getModalErrors();
     const currentErrors = getCurrentErrors();
 
@@ -157,9 +154,9 @@ const Orchestrator: FC<OrchestratorProps> = ({
                         storeName?: string;
                     }) {
                         const { id, componentType, storeName, response, ...other } = component;
-
                         const Component = lunatic[componentType];
                         const storeInfo = storeName ? getStoreInfo(storeName) : {};
+
                         return (
                             <div className="lunatic lunatic-component-dsfr" key={`component-${id}`}>
                                 <Component
