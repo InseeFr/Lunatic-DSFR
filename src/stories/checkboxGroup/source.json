@@ -6,19 +6,33 @@
             "mandatory": false,
             "page": "1",
             "label": {
-                "value": "\"checkboxgroup component test test\"",
+                "value": "\"Which of these cities are in France?\"",
                 "type": "VTL|MD"
             },
+            "description": "\"If you select a city that is not in France, an error will appear!\"",
             "conditionFilter": { "value": "true", "type": "VTL" },
+            "controls": [
+                {
+                    "id": "checkboxgroup",
+                    "typeOfControl": "CONSISTENCY",
+                    "criticality": "WARN",
+                    "control": { "value": "OPT3 = false", "type": "VTL" },
+                    "errorMessage": {
+                        "value": "\"Merci de renseigner le type de logement\"",
+                        "type": "VTL|MD"
+                    },
+                    "bindingDependencies": ["OPT3"]
+                }
+            ],
             "responses": [
                 {
                     "id": "opt1",
                     "description": {
-                        "value": "\"Déscription option 1 boop boop \"",
+                        "value": "\"Paris is the capital city!\"",
                         "type": "VTL|MD"
                     },
                     "label": {
-                        "value": "\"option 1\"",
+                        "value": "\"Paris\"",
                         "type": "VTL|MD"
                     },
                     "response": { "name": "OPT1" }
@@ -27,14 +41,27 @@
                 {
                     "id": "opt2",
                     "description": {
-                        "value": "\"Déclaration option 2\"",
+                        "value": "\"Bordeaux is where you can find great wine!\"",
                         "type": "VTL|MD"
                     },
                     "label": {
-                        "value": "\"option 2\"",
+                        "value": "\"Bordeaux\"",
                         "type": "VTL|MD"
                     },
                     "response": { "name": "OPT2" }
+                },
+
+                {
+                    "id": "opt3",
+                    "description": {
+                        "value": "\"There is great Swiss chocolate in Geneva\"",
+                        "type": "VTL|MD"
+                    },
+                    "label": {
+                        "value": "\"Geneva\"",
+                        "type": "VTL|MD"
+                    },
+                    "response": { "name": "OPT3" }
                 }
             ]
         }
@@ -54,6 +81,17 @@
         {
             "variableType": "COLLECTED",
             "name": "OPT2",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "OPT3",
             "values": {
                 "PREVIOUS": null,
                 "COLLECTED": null,
