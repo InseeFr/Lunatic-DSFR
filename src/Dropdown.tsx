@@ -1,7 +1,8 @@
-import { ReactNode, useCallback } from "react";
+import { useCallback } from "react";
 import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import Select from "@codegouvfr/react-dsfr/Select";
+import { LunaticError } from "./utils/type/type";
 
 export function Dropdown({
     disabled,
@@ -19,27 +20,7 @@ export function Dropdown({
     className: string;
     label: string;
     id: string;
-    errors: {
-        id: [
-            Pick<
-                {
-                    id: string;
-                    criticality: "INFO" | "WARN" | "ERROR";
-                    typeOfControl: "FORMAT" | "CONSISTENCY";
-                    control: { value: string; type: "VTL" | "VTL|MD" };
-                    errorMessage: { value: string; type: "VTL" | "VTL|MD" };
-                    bindingDependencies: string[];
-                },
-                "id" | "criticality" | "typeOfControl"
-            > & {
-                id: string;
-                criticality: "INFO" | "WARN" | "ERROR";
-                formula: string;
-                labelFormula: string;
-                errorMessage: ReactNode;
-            },
-        ];
-    };
+    errors: Record<string, Array<LunaticError>>;
 }) {
     // const selectId = `select-${useId()}`;
     const state = getState(errors, id);

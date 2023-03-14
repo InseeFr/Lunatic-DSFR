@@ -28,7 +28,6 @@ export function Input({
     label: string;
     description: string;
     id: string;
-    // eslint-disable-next-line @typescript-eslint/ban-types
     errors: Record<string, Array<LunaticError>>;
 }) {
     const handleChange = useCallback(
