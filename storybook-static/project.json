@@ -1,25 +1,26 @@
 {
-    "generatedAt": 1673003670603,
-    "builder": { "name": "webpack4" },
+    "generatedAt": 1678715268749,
+    "builder": { "name": "@storybook/builder-webpack5" },
     "hasCustomBabel": false,
     "hasCustomWebpack": true,
     "hasStaticDirs": false,
-    "hasStorybookEslint": false,
+    "hasStorybookEslint": true,
     "refCount": 0,
     "packageManager": { "type": "yarn", "version": "1.22.19" },
-    "storybookVersion": "6.5.15",
+    "storybookVersion": "6.5.16",
     "language": "typescript",
     "storybookPackages": {
-        "@storybook/addon-actions": { "version": "6.5.15" },
-        "@storybook/builder-webpack4": { "version": "6.5.15" },
-        "@storybook/manager-webpack4": { "version": "6.5.15" },
-        "@storybook/react": { "version": "6.5.15" },
-        "@storybook/testing-library": { "version": "0.0.13" }
+        "@storybook/addon-actions": { "version": "6.5.16" },
+        "@storybook/builder-webpack5": { "version": "6.5.16" },
+        "@storybook/manager-webpack5": { "version": "6.5.16" },
+        "@storybook/react": { "version": "6.5.16" },
+        "@storybook/testing-library": { "version": "0.0.13" },
+        "eslint-plugin-storybook": { "version": "0.6.11" }
     },
     "framework": { "name": "react" },
     "addons": {
-        "@storybook/addon-links": { "version": "6.5.15" },
-        "@storybook/addon-essentials": { "version": "6.5.15" },
-        "@storybook/addon-interactions": { "version": "6.5.15" }
+        "@storybook/addon-links": { "version": "6.5.16" },
+        "@storybook/addon-essentials": { "version": "6.5.16" },
+        "@storybook/addon-interactions": { "version": "6.5.16" }
     }
 }
