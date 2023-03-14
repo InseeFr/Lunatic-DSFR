@@ -1,7 +1,8 @@
-import React, { useCallback, ReactNode } from "react";
+import React, { useCallback } from "react";
 import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
+import { LunaticError } from "./utils/type/type";
 
 function checkValue(value: string) {
     return value ?? "";
@@ -28,27 +29,7 @@ export function Input({
     description: string;
     id: string;
     // eslint-disable-next-line @typescript-eslint/ban-types
-    errors: {
-        id: [
-            Pick<
-                {
-                    id: string;
-                    criticality: "INFO" | "WARN" | "ERROR";
-                    typeOfControl: "FORMAT" | "CONSISTENCY";
-                    control: { value: string; type: "VTL" | "VTL|MD" };
-                    errorMessage: { value: string; type: "VTL" | "VTL|MD" };
-                    bindingDependencies: string[];
-                },
-                "id" | "criticality" | "typeOfControl"
-            > & {
-                id: string;
-                criticality: "INFO" | "WARN" | "ERROR";
-                formula: string;
-                labelFormula: string;
-                errorMessage: ReactNode;
-            },
-        ];
-    };
+    errors: Record<string, Array<LunaticError>>;
 }) {
     const handleChange = useCallback(
         function (e: React.ChangeEvent<HTMLInputElement>) {
