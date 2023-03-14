@@ -1,7 +1,6 @@
-import { isValidElement } from "react";
+import { isValidElement, ReactElement } from "react";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function isElement(element: any) {
+function isElement<P = unknown>(element: unknown): element is ReactElement<P> {
     return isValidElement(element);
 }
 
