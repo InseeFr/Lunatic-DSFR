@@ -4,6 +4,21 @@ import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates"
 import Select from "@codegouvfr/react-dsfr/Select";
 import { LunaticError } from "./utils/type/type";
 
+type OptionType = {
+    value: string | number;
+    label: string;
+};
+
+function getOptions(options?: Array<OptionType>) {
+    if (options) {
+        return options.map(function (option) {
+            const { value, label } = option;
+            return <option value={value}>{label}</option>;
+        });
+    }
+    return [];
+}
+
 export function Dropdown({
     disabled,
     options,
@@ -14,7 +29,7 @@ export function Dropdown({
     id,
 }: {
     disabled: boolean;
-    options: { value: string; label: { props: { expression: string } } }[];
+    options: Array<OptionType>;
     // eslint-disable-next-line @typescript-eslint/ban-types
     onSelect: Function;
     className: string;
@@ -40,11 +55,7 @@ export function Dropdown({
             state={state}
             stateRelatedMessage={stateRelatedMessage}
         >
-            {options.map(function (option: { value: string; label: { props: { expression: string } } }) {
-                const { value, label } = option;
-                const { expression } = label.props;
-                return <option value={value}>{expression}</option>;
-            })}
+            {getOptions(options)}
         </Select>
     );
 }

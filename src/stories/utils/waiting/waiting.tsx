@@ -1,6 +1,6 @@
 import React from "react";
 import "./waiting.scss";
-import ReactComponent from "./logo.svg";
+import ReactComponent from "./preloader.svg";
 
 function Logo() {
     return (
