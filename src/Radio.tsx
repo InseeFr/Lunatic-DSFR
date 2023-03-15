@@ -7,11 +7,8 @@ import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates"
 import { RadioButtons as RadioDSFR } from "@codegouvfr/react-dsfr/RadioButtons";
 
 export function Radio({
-    value,
-    onSelect,
+    // onSelect,
     disabled,
-    required,
-    maxLength,
     label,
     description,
     options,
