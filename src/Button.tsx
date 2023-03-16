@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import classnames from "classnames";
 import { isElement } from "./utils/is-element";
 import { Button as ButtonDSFR } from "@codegouvfr/react-dsfr/Button";
