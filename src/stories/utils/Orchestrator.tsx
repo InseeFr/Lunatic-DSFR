@@ -124,6 +124,7 @@ const Orchestrator: FC<OrchestratorProps> = ({
         getModalErrors,
         getCurrentErrors,
         getData,
+        Provider,
     } = lunatic.useLunatic(source, data, {
         initialPage,
         features,
@@ -135,6 +136,7 @@ const Orchestrator: FC<OrchestratorProps> = ({
         suggesterFetcher,
         management,
         activeControls,
+        custom,
     });
 
     const components = getComponents();
@@ -142,58 +144,62 @@ const Orchestrator: FC<OrchestratorProps> = ({
     const currentErrors = getCurrentErrors();
 
     return (
-        <div className="container">
-            <div className="components">
-                {components.map(function (component: {
-                    id?: string;
-                    componentType: string;
-                    response?: string;
-                    storeName?: string;
-                }) {
-                    const { id, componentType, storeName, response, ...other } = component;
-                    const Component = lunatic[componentType];
-                    const storeInfo = storeName ? getStoreInfo(storeName) : {};
-                    if (Component) {
+        <Provider>
+            <div className="container">
+                <div className="components">
+                    {components.map(function (component: {
+                        id?: string;
+                        componentType: string;
+                        response?: string;
+                        storeName?: string;
+                    }) {
+                        const { id, componentType, storeName, response, ...other } = component;
+                        const Component = lunatic[componentType];
+                        const storeInfo = storeName ? getStoreInfo(storeName) : {};
+                        if (Component) {
+                            return (
+                                <div className="lunatic-component-dsfr" key={`component-${id}`}>
+                                    <Component
+                                        id={id}
+                                        response={response}
+                                        {...other}
+                                        {...rest}
+                                        {...component}
+                                        {...storeInfo}
+                                        missing={missing}
+                                        missingStrategy={goNextPage}
+                                        shortcut={shortcut}
+                                        filterDescription={filterDescription}
+                                        errors={currentErrors}
+                                        // custom={custom}
+                                    />
+                                </div>
+                            );
+                        }
                         return (
-                            <div className="lunatic-component-dsfr" key={`component-${id}`}>
-                                <Component
-                                    id={id}
-                                    response={response}
-                                    {...other}
-                                    {...rest}
-                                    {...component}
-                                    {...storeInfo}
-                                    missing={missing}
-                                    missingStrategy={goNextPage}
-                                    shortcut={shortcut}
-                                    filterDescription={filterDescription}
-                                    errors={currentErrors}
-                                    custom={custom}
-                                />
-                            </div>
+                            <div>{`Le composant ${componentType} n'existe pas dans cette version de Lunatic.`}</div>
                         );
-                    }
-                    return (
-                        <div>{`Le composant ${componentType} n'existe pas dans cette version de Lunatic.`}</div>
-                    );
-                })}
+                    })}
+                </div>
+                <Pager
+                    goPrevious={goPreviousPage}
+                    goNext={goNextPage}
+                    goToPage={goToPage}
+                    isLast={isLastPage}
+                    isFirst={isFirstPage}
+                    pageTag={pageTag}
+                    maxPage={maxPage}
+                    getData={getData}
+                    custom={custom}
+                />
+                <lunatic.Modal errors={modalErrors} goNext={goNextPage} />
+                <Waiting status={waiting}>
+                    <div className="waiting-orchestrator">
+                        Initialisation des données de suggestion...
+                    </div>
+                </Waiting>
             </div>
-            <Pager
-                goPrevious={goPreviousPage}
-                goNext={goNextPage}
-                goToPage={goToPage}
-                isLast={isLastPage}
-                isFirst={isFirstPage}
-                pageTag={pageTag}
-                maxPage={maxPage}
-                getData={getData}
-                custom={custom}
-            />
-            <lunatic.Modal errors={modalErrors} goNext={goNextPage} />
-            <Waiting status={waiting}>
-                <div className="waiting-orchestrator">Initialisation des données de suggestion...</div>
-            </Waiting>
-        </div>
+        </Provider>
     );
 };
 
