@@ -124,13 +124,11 @@ const Orchestrator: FC<OrchestratorProps> = ({
         getModalErrors,
         getCurrentErrors,
         getData,
-        Provider,
     } = lunatic.useLunatic(source, data, {
         initialPage,
         features,
         preferences,
         onChange: onLogChange,
-        custom,
         activeGoNextForMissing,
         autoSuggesterLoading,
         suggesters,
@@ -144,21 +142,20 @@ const Orchestrator: FC<OrchestratorProps> = ({
     const currentErrors = getCurrentErrors();
 
     return (
-        <Provider>
-            <div className="container">
-                <div className="components">
-                    {components.map(function (component: {
-                        id?: string;
-                        componentType: string;
-                        response?: string;
-                        storeName?: string;
-                    }) {
-                        const { id, componentType, storeName, response, ...other } = component;
-                        const Component = lunatic[componentType];
-                        const storeInfo = storeName ? getStoreInfo(storeName) : {};
-
+        <div className="container">
+            <div className="components">
+                {components.map(function (component: {
+                    id?: string;
+                    componentType: string;
+                    response?: string;
+                    storeName?: string;
+                }) {
+                    const { id, componentType, storeName, response, ...other } = component;
+                    const Component = lunatic[componentType];
+                    const storeInfo = storeName ? getStoreInfo(storeName) : {};
+                    if (Component) {
                         return (
-                            <div className="lunatic lunatic-component-dsfr" key={`component-${id}`}>
+                            <div className="lunatic-component-dsfr" key={`component-${id}`}>
                                 <Component
                                     id={id}
                                     response={response}
@@ -171,30 +168,32 @@ const Orchestrator: FC<OrchestratorProps> = ({
                                     shortcut={shortcut}
                                     filterDescription={filterDescription}
                                     errors={currentErrors}
+                                    custom={custom}
                                 />
                             </div>
                         );
-                    })}
-                </div>
-                <Pager
-                    goPrevious={goPreviousPage}
-                    goNext={goNextPage}
-                    goToPage={goToPage}
-                    isLast={isLastPage}
-                    isFirst={isFirstPage}
-                    pageTag={pageTag}
-                    maxPage={maxPage}
-                    getData={getData}
-                    custom={custom}
-                />
-                <lunatic.Modal errors={modalErrors} goNext={goNextPage} />
-                <Waiting status={waiting}>
-                    <div className="waiting-orchestrator">
-                        Initialisation des données de suggestion...
-                    </div>
-                </Waiting>
+                    }
+                    return (
+                        <div>{`Le composant ${componentType} n'existe pas dans cette version de Lunatic.`}</div>
+                    );
+                })}
             </div>
-        </Provider>
+            <Pager
+                goPrevious={goPreviousPage}
+                goNext={goNextPage}
+                goToPage={goToPage}
+                isLast={isLastPage}
+                isFirst={isFirstPage}
+                pageTag={pageTag}
+                maxPage={maxPage}
+                getData={getData}
+                custom={custom}
+            />
+            <lunatic.Modal errors={modalErrors} goNext={goNextPage} />
+            <Waiting status={waiting}>
+                <div className="waiting-orchestrator">Initialisation des données de suggestion...</div>
+            </Waiting>
+        </div>
     );
 };
 

@@ -1,6 +1,11 @@
 import { ReactNode } from "react";
 import { ComponentType, ControlType, LunaticSource, Variable } from "./type-source";
-import { ExpressionLogger } from "./execute-expression/create-execute-expression";
+
+export type ExpressionLogger = (
+    expression: string | LunaticExpression,
+    bindings: { [variableName: string]: unknown },
+    e: unknown,
+) => void;
 
 export type LunaticComponentDefinition<
     T extends ComponentType["componentType"] = ComponentType["componentType"],
