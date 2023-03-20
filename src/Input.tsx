@@ -1,6 +1,4 @@
-// import {
-//         // useCallback
-//      } from "react";
+import { useCallback } from "react";
 import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
@@ -12,7 +10,7 @@ function checkValue(value: string) {
 
 export function Input({
     value,
-    // onChange,
+    onChange,
     disabled,
     required,
     maxLength,
@@ -23,7 +21,7 @@ export function Input({
 }: {
     value: string;
     // eslint-disable-next-line @typescript-eslint/ban-types
-    // onChange: Function;
+    onChange: Function;
     disabled: boolean;
     required: boolean;
     maxLength: number;
@@ -32,13 +30,13 @@ export function Input({
     id: string;
     errors: Record<string, Array<LunaticError>>;
 }) {
-    // const handleChange = useCallback(
-    //     function (e: React.ChangeEvent<HTMLInputElement>) {
-    //         const value = e.target.value;
-    //         onChange(value);
-    //     },
-    //     [onChange],
-    // );
+    const handleChange = useCallback(
+        function (e: React.ChangeEvent<HTMLInputElement>) {
+            const value = e.target.value;
+            onChange(value);
+        },
+        [onChange],
+    );
 
     const state = getState(errors, id);
     const stateRelatedMessage = getStateRelatedMessage(errors, id);
@@ -52,7 +50,7 @@ export function Input({
                 maxLength: maxLength,
                 value: checkValue(value),
                 required: required,
-                // onChange: handleChange,
+                onChange: handleChange,
             }}
             hintText={description}
             state={state}
