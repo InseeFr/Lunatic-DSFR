@@ -1,10 +1,11 @@
-import {
-    // useCallback,
-    ReactNode,
-} from "react";
+// import {
+//     // useCallback,
+//     ReactNode,
+// } from "react";
 import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
+import { LunaticError } from "./utils/type/type";
 
 const UnitDisplay = ({ unit }: { unit?: string }) => {
     if (unit !== "") {
@@ -37,27 +38,7 @@ export function InputNumber({
     step: number;
     unit: string;
     description: string;
-    errors: {
-        id: [
-            Pick<
-                {
-                    id: string;
-                    criticality: "INFO" | "WARN" | "ERROR";
-                    typeOfControl: "FORMAT" | "CONSISTENCY";
-                    control: { value: string; type: "VTL" | "VTL|MD" };
-                    errorMessage: { value: string; type: "VTL" | "VTL|MD" };
-                    bindingDependencies: string[];
-                },
-                "id" | "criticality" | "typeOfControl"
-            > & {
-                id: string;
-                criticality: "INFO" | "WARN" | "ERROR";
-                formula: string;
-                labelFormula: string;
-                errorMessage: ReactNode;
-            },
-        ];
-    };
+    errors: Record<string, Array<LunaticError>>;
 }) {
     // const handleChange = useCallback(
     //     function (e: React.ChangeEvent<HTMLInputElement>) {
@@ -74,10 +55,9 @@ export function InputNumber({
         <div className="lunatic-input-number-container fr-grid-row fr-grid-row--middle">
             <InputDSFR
                 label={label}
+                disabled={disabled}
                 hintText={description}
                 className={classnames("lunatic-dsfr-input-number", {
-                    disabled,
-                    readOnly,
                     "fr-col-11": unit !== undefined,
                     "fr-col-12": unit === undefined,
                 })}
