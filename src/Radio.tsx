@@ -1,13 +1,11 @@
-import {
-    // useCallback,
-    ReactNode,
-} from "react";
+import { useCallback } from "react";
 import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { RadioButtons as RadioDSFR } from "@codegouvfr/react-dsfr/RadioButtons";
+import { LunaticError } from "./utils/type/type";
 
 export function Radio({
-    // onSelect,
+    onSelect,
     disabled,
     label,
     description,
@@ -15,72 +13,50 @@ export function Radio({
     id,
     errors,
 }: {
-    value: string;
     // eslint-disable-next-line @typescript-eslint/ban-types
     onSelect: Function;
     disabled: boolean;
-    required: boolean;
-    maxLength: number;
     label: string;
     description: string;
-    options: {
+    options: Array<{
         value: string;
         description: { props: { expression: string } };
         label: { props: { expression: string } };
-    }[];
+        checked?: boolean;
+    }>;
     id: string;
-    // TODO: Clean types after merge of fix-typage branchgit
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    errors: {
-        id: [
-            Pick<
-                {
-                    id: string;
-                    criticality: "INFO" | "WARN" | "ERROR";
-                    typeOfControl: "FORMAT" | "CONSISTENCY";
-                    control: { value: string; type: "VTL" | "VTL|MD" };
-                    errorMessage: { value: string; type: "VTL" | "VTL|MD" };
-                    bindingDependencies: string[];
-                },
-                "id" | "criticality" | "typeOfControl"
-            > & {
-                id: string;
-                criticality: "INFO" | "WARN" | "ERROR";
-                formula: string;
-                labelFormula: string;
-                errorMessage: ReactNode;
-            },
-        ];
-    };
+    errors: Record<string, Array<LunaticError>>;
 }) {
     const state = getState(errors, id);
     const stateRelatedMessage = getStateRelatedMessage(errors, id);
-    // Below can be uncommented to test errors in storybook
-    // const handleChange = useCallback(
-    //     function (e: React.ChangeEvent<HTMLSelectElement>) {
-    //         onSelect(e.target.value);
-    //     },
-    //     [onSelect],
-    // );
 
+    const handleChange = useCallback(
+        function (e: React.ChangeEvent<HTMLInputElement>) {
+            onSelect(e.target.value);
+        },
+        [onSelect],
+    );
+    const radioOptions = options.map(function (option) {
+        const { value, label, description, checked } = option;
+
+        return {
+            label: label.props.expression,
+            hintText: description.props.expression,
+            nativeInputProps: {
+                value: value,
+                onChange: handleChange,
+                checked: checked,
+            },
+        };
+    });
     return (
         <RadioDSFR
+            disabled={disabled}
             legend={label}
             name="radio"
             hintText={description}
-            className={classnames("lunatic-dsfr-radio", { disabled })}
-            options={options.map(function (option) {
-                const { value, label, description } = option;
-
-                return {
-                    label: label.props.expression,
-                    hintText: description.props.expression,
-                    nativeInputProps: {
-                        value: value,
-                        // onClick: handleChange
-                    },
-                };
-            })}
+            className={classnames("lunatic-dsfr-radio")}
+            options={radioOptions}
             state={state}
             stateRelatedMessage={stateRelatedMessage}
         />
@@ -89,8 +65,6 @@ export function Radio({
 
 Radio.defaultProps = {
     disabled: false,
-    required: true,
-    maxLength: Number.MAX_SAFE_INTEGER,
 };
 
 export default Radio;

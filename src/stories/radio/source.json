@@ -2,9 +2,9 @@
     "components": [
         {
             "id": "radio",
+            "bindingDependencies": ["Q2"],
             "componentType": "Radio",
             "mandatory": false,
-            "page": "3",
             "label": {
                 "value": "\"Does Spongebob live in a pineapple under the sea?\"",
                 "type": "VTL|MD"
@@ -19,7 +19,7 @@
                     "id": "radio",
                     "typeOfControl": "CONSISTENCY",
                     "criticality": "WARN",
-                    "control": { "value": "not(nvl(Q2,\"\") = \"2\")", "type": "VTL" },
+                    "control": { "value": "not(Q2= \"2\")", "type": "VTL" },
                     "errorMessage": {
                         "value": "\"What else would Spongebob live in?\"",
                         "type": "VTL|MD"
@@ -52,6 +52,7 @@
         {
             "variableType": "COLLECTED",
             "name": "Q2",
+            "componentRef": "radio",
             "values": {
                 "PREVIOUS": null,
                 "COLLECTED": null,
