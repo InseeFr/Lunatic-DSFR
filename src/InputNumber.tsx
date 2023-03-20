@@ -11,13 +11,6 @@ function checkValue(value: number) {
     return value ?? null;
 }
 
-const UnitDisplay = ({ unit }: { unit?: string }) => {
-    if (unit !== "") {
-        return <span className="fr-col-1">{unit}</span>;
-    }
-    return null;
-};
-
 export function InputNumber({
     id,
     value,
@@ -80,11 +73,11 @@ export function InputNumber({
                     max: max,
                     step: step,
                     value: checkValue(value),
+                    placeholder: unit,
                 }}
                 state={state}
                 stateRelatedMessage={stateRelatedMessage}
             />
-            <UnitDisplay unit={unit} />
         </div>
     );
 }

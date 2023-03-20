@@ -66,3 +66,25 @@ Disabled.args = {
     description: "It must be a prime number bigger than 3",
     errors: {},
 };
+
+export const Unit = Template.bind({});
+
+Unit.args = {
+    id: "UnitMessage",
+    disabled: false,
+    label: "If one baguette costs 1€20, what is the price of 5 baguettes?",
+    description: "This time it's not a prime number",
+    unit: "€",
+    errors: {
+        ErrorMessage: [
+            {
+                id: "ErrorMessage",
+                criticality: "WARN",
+                typeOfControl: "CONSISTENCY",
+                formula: '(nvl(NB,"") = 6)',
+                labelFormula: "Take another guess",
+                errorMessage: "Take another guess",
+            },
+        ],
+    },
+};
