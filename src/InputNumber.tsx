@@ -1,16 +1,19 @@
-import React, { useCallback } from "react";
+import {
+    useCallback,
+    //     ReactNode,
+} from "react";
 import classnames from "classnames";
+import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
+import { LunaticError } from "./utils/type/type";
 
-const UnitDisplay = ({ unit }: { unit?: string }) => {
-    if (unit !== "") {
-        return <span className="fr-col-1">{unit}</span>;
-    }
-    return null;
-};
+function checkValue(value: number) {
+    return value ?? null;
+}
 
 export function InputNumber({
     id,
+    value,
     onChange,
     disabled,
     readOnly,
@@ -20,37 +23,40 @@ export function InputNumber({
     step,
     unit,
     description,
+    errors,
 }: {
     id: string;
-    // value:string,
+    value: number;
     // eslint-disable-next-line @typescript-eslint/ban-types
     onChange: Function;
     disabled: boolean;
     readOnly: boolean;
-    // labelId: number,
     label: string;
     min: number;
     max: number;
     step: number;
     unit: string;
     description: string;
+    errors: Record<string, Array<LunaticError>>;
 }) {
     const handleChange = useCallback(
         function (e: React.ChangeEvent<HTMLInputElement>) {
-            const val = e.target.valueAsNumber;
-            onChange(isNaN(val) ? null : val);
+            const value = e.target.valueAsNumber;
+            onChange(isNaN(value) ? null : value);
         },
         [onChange],
     );
+
+    const state = getState(errors, id);
+    const stateRelatedMessage = getStateRelatedMessage(errors, id);
 
     return (
         <div className="lunatic-input-number-container fr-grid-row fr-grid-row--middle">
             <InputDSFR
                 label={label}
+                disabled={disabled}
                 hintText={description}
                 className={classnames("lunatic-dsfr-input-number", {
-                    disabled,
-                    readOnly,
                     "fr-col-11": unit !== undefined,
                     "fr-col-12": unit === undefined,
                 })}
@@ -66,9 +72,12 @@ export function InputNumber({
                     min: min,
                     max: max,
                     step: step,
+                    value: checkValue(value),
+                    placeholder: unit,
                 }}
+                state={state}
+                stateRelatedMessage={stateRelatedMessage}
             />
-            <UnitDisplay unit={unit} />
         </div>
     );
 }
