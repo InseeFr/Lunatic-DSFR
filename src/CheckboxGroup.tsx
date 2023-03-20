@@ -1,7 +1,4 @@
-import {
-    ReactNode,
-    // useCallback
-} from "react";
+import { ReactNode, useCallback } from "react";
 import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Checkbox as CheckboxDSFR } from "@codegouvfr/react-dsfr/Checkbox";
@@ -17,27 +14,27 @@ function Options(
     }[],
 ) {
     return options.map(function (option, index) {
-        const { label, name, description, checked } = option;
+        const { label, name, description, checked, onClick } = option;
         const checkboxId = `lunatic-dsfr-checkbox-${index}-${name}`;
 
         // Errors will appear onChange if the below functions are available
 
-        // const onClickOption = useCallback(
-        //     function () {
-        //         onClick(!checked);
-        //     },
-        //     [checked, onClick],
-        // );
+        const onClickOption = useCallback(
+            function () {
+                onClick(!checked);
+            },
+            [checked, onClick],
+        );
 
-        // const handleKeyDown = useCallback(
-        //     function (e: { code: string }) {
-        //         const { code } = e;
-        //         if (code === "Space") {
-        //             onClickOption();
-        //         }
-        //     },
-        //     [onClickOption],
-        // );
+        const handleKeyDown = useCallback(
+            function (e: { code: string }) {
+                const { code } = e;
+                if (code === "Space") {
+                    onClickOption();
+                }
+            },
+            [onClickOption],
+        );
         return {
             label: label,
             id: checkboxId,
@@ -45,9 +42,9 @@ function Options(
             nativeInputProps: {
                 name: checkboxId,
                 checked: checked,
-                // onClick: onClickOption,
-                // onKeyDown: handleKeyDown,
-                // onChange: onClickOption,
+                onClick: onClickOption,
+                onKeyDown: handleKeyDown,
+                onChange: onClickOption,
             },
         };
     });
