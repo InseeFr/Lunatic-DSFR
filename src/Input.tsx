@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
@@ -43,7 +43,8 @@ export function Input({
     return (
         <InputDSFR
             label={label}
-            className={classnames("lunatic-dsfr-input", { disabled })}
+            disabled={disabled}
+            className={classnames("lunatic-dsfr-input")}
             nativeInputProps={{
                 id: id,
                 maxLength: maxLength,
