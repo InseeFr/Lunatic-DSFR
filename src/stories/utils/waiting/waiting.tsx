@@ -1,12 +1,20 @@
 import React from "react";
 import "./waiting.scss";
-// import preloader from './preloader.svg';
+import ReactComponent from "./preloader.svg";
+
+function Logo() {
+    return (
+        <img alt="loading" className="hello">
+            <ReactComponent />
+        </img>
+    );
+}
 
 function Waiting({ status, children }: { status: boolean; children: JSX.Element }) {
     if (status) {
         return (
             <div className="waiting">
-                {/* <img src={preloader} alt="loading" /> */}
+                <Logo />
                 <div className="content">{children}</div>
             </div>
         );

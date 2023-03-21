@@ -1,6 +1,6 @@
 {
     "name": "@inseefr/lunatic-dsfr",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Couche graphique pour Lunatic reposant sur le Système de Design de l'État (DSFR)",
     "repository": {
         "type": "git",
@@ -19,9 +19,8 @@
         "format": "npm run _format -- --write",
         "format:check": "npm run _format -- --list-different",
         "link-in-main-project": "ts-node --skipProject src/scripts/link-in-main-project.ts",
-        "storybook": "start-storybook -p 6006",
+        "storybook": "copy-dsfr-to-public && start-storybook -p 6006",
         "build-storybook": "build-storybook",
-        "postinstall": "copy-dsfr-to-public",
         "prestart": "only-include-used-icons",
         "prebuild": "only-include-used-icons"
     },
@@ -46,13 +45,13 @@
     ],
     "keywords": [],
     "peerDependencies": {
-        "@codegouvfr/react-dsfr": "^0.27.2",
+        "@codegouvfr/react-dsfr": "^0.37.0",
         "@emotion/react": "^11.10.5",
         "react": "*"
     },
     "devDependencies": {
-        "@babel/core": "^7.20.12",
         "@codegouvfr/react-dsfr": "^0.37.0",
+        "@babel/core": "^7.20.12",
         "@emotion/react": "^11.10.5",
         "@storybook/addon-actions": "^6.5.16",
         "@storybook/addon-essentials": "^6.5.16",
