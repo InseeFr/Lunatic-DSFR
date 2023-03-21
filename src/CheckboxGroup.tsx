@@ -1,7 +1,8 @@
-import { ReactNode, useCallback } from "react";
+import { useCallback } from "react";
 import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Checkbox as CheckboxDSFR } from "@codegouvfr/react-dsfr/Checkbox";
+import { LunaticError } from "./utils/type/type";
 
 function Options(
     options: {
@@ -72,35 +73,15 @@ export function CheckboxGroup({
         // eslint-disable-next-line @typescript-eslint/ban-types
         onClick: Function;
     }[];
-    errors: {
-        id: [
-            Pick<
-                {
-                    id: string;
-                    criticality: "INFO" | "WARN" | "ERROR";
-                    typeOfControl: "FORMAT" | "CONSISTENCY";
-                    control: { value: string; type: "VTL" | "VTL|MD" };
-                    errorMessage: { value: string; type: "VTL" | "VTL|MD" };
-                    bindingDependencies: string[];
-                },
-                "id" | "criticality" | "typeOfControl"
-            > & {
-                id: string;
-                criticality: "INFO" | "WARN" | "ERROR";
-                formula: string;
-                labelFormula: string;
-                errorMessage: ReactNode;
-            },
-        ];
-    };
+    errors: Record<string, Array<LunaticError>>;
 }) {
-    console.log(errors);
     const state = getState(errors, id);
     const stateRelatedMessage = getStateRelatedMessage(errors, id);
 
     return (
         <CheckboxDSFR
-            className={classnames("dropdown-lunatic-dsfr", className, id, { disabled })}
+            className={classnames("dropdown-lunatic-dsfr", className, id)}
+            disabled={disabled}
             legend={label}
             hintText={description}
             options={Options(options)}

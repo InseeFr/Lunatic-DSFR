@@ -18,7 +18,7 @@
                     "criticality": "WARN",
                     "control": { "value": "OPT3 = false", "type": "VTL" },
                     "errorMessage": {
-                        "value": "\"Merci de renseigner le type de logement\"",
+                        "value": "\"Take another guess\"",
                         "type": "VTL|MD"
                     },
                     "bindingDependencies": ["OPT3"]
