@@ -15,12 +15,12 @@ export function Radio({
 }: {
     // eslint-disable-next-line @typescript-eslint/ban-types
     onSelect: Function;
-    disabled: boolean;
+    disabled?: boolean;
     label: string;
     description: string;
     options: Array<{
         value: string;
-        description: { props: { expression: string } };
+        description?: { props: { expression: string } };
         label: { props: { expression: string } };
         checked?: boolean;
     }>;
@@ -38,16 +38,26 @@ export function Radio({
     );
     const radioOptions = options.map(function (option) {
         const { value, label, description, checked } = option;
-
-        return {
-            label: label.props.expression,
-            hintText: description.props.expression,
-            nativeInputProps: {
-                value: value,
-                onChange: handleChange,
-                checked: checked,
-            },
-        };
+        if (description) {
+            return {
+                label: label.props.expression,
+                hintText: description.props.expression,
+                nativeInputProps: {
+                    value: value,
+                    onChange: handleChange,
+                    checked: checked,
+                },
+            };
+        } else {
+            return {
+                label: label.props.expression,
+                nativeInputProps: {
+                    value: value,
+                    onChange: handleChange,
+                    checked: checked,
+                },
+            };
+        }
     });
     return (
         <RadioDSFR
