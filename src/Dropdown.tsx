@@ -25,6 +25,7 @@ export function Dropdown({
     onSelect,
     className,
     label,
+    description,
     errors,
     id,
 }: {
@@ -32,12 +33,12 @@ export function Dropdown({
     options: Array<OptionType>;
     // eslint-disable-next-line @typescript-eslint/ban-types
     onSelect: Function;
+    description: string;
     className: string;
     label: string;
     id: string;
     errors: Record<string, Array<LunaticError>>;
 }) {
-    // const selectId = `select-${useId()}`;
     const state = getState(errors, id);
     const stateRelatedMessage = getStateRelatedMessage(errors, id);
     const handleChange = useCallback(
@@ -54,6 +55,7 @@ export function Dropdown({
             label={label}
             state={state}
             stateRelatedMessage={stateRelatedMessage}
+            hint={description}
         >
             {getOptions(options)}
         </Select>
