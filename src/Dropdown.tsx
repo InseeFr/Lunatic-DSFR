@@ -13,7 +13,6 @@ function getOptions(options?: Array<OptionType>) {
     if (options) {
         const selectOption = { value: "", label: "Selectionnez une option" };
         options.unshift(selectOption);
-        console.log(options);
         return options.map(function (option, index) {
             const { value, label } = option;
             return (
