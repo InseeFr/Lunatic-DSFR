@@ -11,9 +11,16 @@ type OptionType = {
 
 function getOptions(options?: Array<OptionType>) {
     if (options) {
-        return options.map(function (option) {
+        const selectOption = { value: "", label: "Selectionnez une option" };
+        options.unshift(selectOption);
+        console.log(options);
+        return options.map(function (option, index) {
             const { value, label } = option;
-            return <option value={value}>{label}</option>;
+            return (
+                <option value={value} disabled={index === 0} hidden={index === 0} selected={index === 0}>
+                    {label}
+                </option>
+            );
         });
     }
     return [];
