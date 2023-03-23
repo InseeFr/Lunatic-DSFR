@@ -30,7 +30,7 @@ function checkValue(value: string) {
 //     ];
 // };
 
-type TypeError = Record<string, Array<LunaticError>>;
+export type TypeError = Record<string, Array<LunaticError>>;
 
 export function Input({
     value,

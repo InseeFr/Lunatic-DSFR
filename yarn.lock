@@ -1358,8 +1358,8 @@
 
 "@inseefr/lunatic@2.4.0-fix-controls":
   version "2.4.0-fix-controls"
-  resolved "https://nexus.insee.fr/repository/npm-public/@inseefr/lunatic/-/lunatic-2.4.0-fix-controls.tgz#ec75bf44d70c0c8a6ce2ecfefb304355811502cf"
-  integrity sha512-Ss5iunLdXbS1JoegJK2aN+E4PVV5w7bCKlocBTC8+iGl4YJQmp2iclUb/nsMluZH6+ZFgzDLfPyXLyDJwLYJ1g==
+  resolved "https://nexus.insee.fr/repository/npm-public/@inseefr/lunatic/-/lunatic-2.4.0-fix-controls.tgz#e2c8e2c3ab992d5ee797b54a5dc9c0eba9c30f45"
+  integrity sha512-ibeh4AZQvTMiBqIyrN0zqXtxguXM8XR2T9hy1IQEuW/juWpSIFAxL18lSOvsyRWPXYkTswHWzaR8YTkBBzSzhg==
   dependencies:
     "@inseefr/trevas" "^0.1.16"
     "@inseefr/vtl-2.0-antlr-tools" "^0.1.0-bundle"

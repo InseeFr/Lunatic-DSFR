@@ -1,6 +1,8 @@
 {
+    "maxPage": "2",
     "components": [
         {
+            "page": "1",
             "componentType": "Input",
             "bindingDependencies": ["NAME"],
             "label": { "value": "\"What's your name?\"", "type": "VTL|MD" },
@@ -8,15 +10,17 @@
             "conditionFilter": { "value": "true", "type": "VTL" },
             "controls": [
                 {
-                    "id": "name",
-                    "typeOfControl": "CONSISTENCY",
-                    "criticality": "WARN",
-                    "control": { "value": "not(nvl(NAME,\"\") = \"BLABLA\")", "type": "VTL" },
-                    "errorMessage": {
-                        "value": "\"Merci de renseigner le type de logement\"",
-                        "type": "VTL|MD"
+                    "id": "age-controls",
+                    "criticality": "ERROR",
+                    "typeOfControl": "FORMAT",
+                    "control": {
+                        "value": "false",
+                        "type": "VTL"
                     },
-                    "bindingDependencies": ["NAME"]
+                    "errorMessage": {
+                        "value": "\"TOTO n'est pas le bienvenue ici !\"",
+                        "type": "VTL"
+                    }
                 }
             ],
             "maxLength": 30,
@@ -24,6 +28,16 @@
             "response": {
                 "name": "NAME"
             }
+        },
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": "\"Bye!\"",
+                "type": "VTL|MD"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "2"
         }
     ],
     "variables": [

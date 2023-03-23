@@ -32,15 +32,13 @@ function getStoreInfoRequired() {
     return {};
 }
 function Pager(_a) {
-    var goPrevious = _a.goPrevious, goNext = _a.goNext, goToPage = _a.goToPage, isLast = _a.isLast, isFirst = _a.isFirst, pageTag = _a.pageTag, maxPage = _a.maxPage, getData = _a.getData, custom = _a.custom;
+    var goPrevious = _a.goPrevious, goNext = _a.goNext, isLast = _a.isLast, isFirst = _a.isFirst, pageTag = _a.pageTag, maxPage = _a.maxPage, custom = _a.custom;
     if (maxPage && parseInt(maxPage) > 1) {
         var Button = lunatic.Button;
         return (React.createElement(React.Fragment, null,
             React.createElement("div", { className: "pagination" },
                 React.createElement(Button, { custom: custom, onClick: goPrevious, disabled: isFirst }, "Previous"),
-                React.createElement(Button, { custom: custom, onClick: goNext, disabled: isLast }, "Next"),
-                React.createElement(Button, { custom: custom, onClick: function () { return console.log(getData(true)); } }, "Get State"),
-                React.createElement(Button, { custom: custom, onClick: function () { return goToPage({ page: "18" }); } }, "Go to page 18")),
+                React.createElement(Button, { custom: custom, onClick: goNext, disabled: isLast }, "Next")),
             React.createElement("div", null,
                 "PAGE: ",
                 pageTag)));
@@ -68,10 +66,20 @@ var Orchestrator = function (_a) {
         suggesterFetcher: suggesterFetcher,
         management: management,
         activeControls: activeControls
-    }), getComponents = _k.getComponents, goPreviousPage = _k.goPreviousPage, goNextPage = _k.goNextPage, goToPage = _k.goToPage, pageTag = _k.pageTag, isFirstPage = _k.isFirstPage, isLastPage = _k.isLastPage, waiting = _k.waiting, getModalErrors = _k.getModalErrors, compileControls = _k.compileControls, getData = _k.getData, Provider = _k.Provider;
+    }), getComponents = _k.getComponents, goPreviousPage = _k.goPreviousPage, goNextPage = _k.goNextPage, goToPage = _k.goToPage, pageTag = _k.pageTag, isFirstPage = _k.isFirstPage, isLastPage = _k.isLastPage, waiting = _k.waiting, compileControls = _k.compileControls, getData = _k.getData, Provider = _k.Provider;
     var components = getComponents();
-    var modalErrors = getModalErrors();
     var _l = react_1.useState(), currentErrors = _l[0], setCurrentErrors = _l[1];
+    var handleGoNextPage = react_1.useCallback(function () {
+        var errors = compileControls();
+        setCurrentErrors(errors.currentErrors);
+        console.log({ errors: errors });
+        if (errors.currentErrors) {
+            // TODO
+        }
+        else {
+            goNextPage();
+        }
+    }, [goNextPage, compileControls]);
     return (React.createElement(Provider, null,
         React.createElement("div", { className: "container" },
             React.createElement("div", { className: "components" }, components.map(function (component) {
@@ -81,8 +89,7 @@ var Orchestrator = function (_a) {
                 return (React.createElement("div", { className: "lunatic lunatic-component-dsfr", key: "component-" + id },
                     React.createElement(Component, __assign({ id: id, response: response }, other, rest, component, storeInfo, { missing: missing, missingStrategy: goNextPage, shortcut: shortcut, filterDescription: filterDescription, errors: currentErrors }))));
             })),
-            React.createElement(Pager, { goPrevious: goPreviousPage, goNext: goNextPage, goToPage: goToPage, isLast: isLastPage, isFirst: isFirstPage, pageTag: pageTag, maxPage: maxPage, getData: getData, custom: custom }),
-            React.createElement(lunatic.Modal, { errors: modalErrors, goNext: goNextPage }),
+            React.createElement(Pager, { goPrevious: goPreviousPage, goNext: handleGoNextPage, goToPage: goToPage, isLast: isLastPage, isFirst: isFirstPage, pageTag: pageTag, maxPage: maxPage, getData: getData, custom: custom }),
             React.createElement(waiting_1["default"], { status: waiting },
                 React.createElement("div", { className: "waiting-orchestrator" }, "Initialisation des donn\u00E9es de suggestion...")))));
 };
