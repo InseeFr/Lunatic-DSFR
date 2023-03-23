@@ -68,7 +68,6 @@ export function InputNumber({
                     type: "number",
                     onChange: handleChange,
                     readOnly: readOnly,
-                    disabled: disabled,
                     min: min,
                     max: max,
                     step: step,

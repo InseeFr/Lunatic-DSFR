@@ -18,8 +18,6 @@ function Options(
         const { label, name, description, checked, onClick } = option;
         const checkboxId = `lunatic-dsfr-checkbox-${index}-${name}`;
 
-        // Errors will appear onChange if the below functions are available
-
         const onClickOption = useCallback(
             function () {
                 onClick(!checked);
