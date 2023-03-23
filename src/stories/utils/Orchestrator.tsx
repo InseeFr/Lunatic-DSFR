@@ -1,4 +1,5 @@
-import { FC } from "react";
+import { FC, useState, useCallback } from "react";
+import { LunaticError } from "@inseefr/lunatic";
 import Waiting from "./waiting";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const lunatic = require("@inseefr/lunatic");
@@ -122,7 +123,7 @@ const Orchestrator: FC<OrchestratorProps> = ({
         isLastPage,
         waiting,
         getModalErrors,
-        getCurrentErrors,
+        compileControls,
         getData,
         Provider,
     } = lunatic.useLunatic(source, data, {
@@ -141,7 +142,7 @@ const Orchestrator: FC<OrchestratorProps> = ({
 
     const components = getComponents();
     const modalErrors = getModalErrors();
-    const currentErrors = getCurrentErrors();
+    const [currentErrors, setCurrentErrors] = useState<Record<string, Array<LunaticError>>>();
 
     return (
         <Provider>
