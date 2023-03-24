@@ -16,7 +16,7 @@ function getOptions(options?: Array<OptionType>) {
         return options.map(function (option, index) {
             const { value, label } = option;
             return (
-                <option value={value} disabled={index === 0} hidden={index === 0} selected={index === 0}>
+                <option value={value} disabled={index === 0} hidden={index === 0} selected={index === 0} key={value}>
                     {label}
                 </option>
             );
