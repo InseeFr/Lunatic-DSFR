@@ -9546,6 +9546,13 @@ react-number-format@^5.0.0-beta.4:
   dependencies:
     prop-types "^15.7.2"
 
+react-number-format@^5.1.4:
+  version "5.1.4"
+  resolved "https://nexus.insee.fr/repository/npm-public/react-number-format/-/react-number-format-5.1.4.tgz#23057d94a4f1b08e12ee41328e86be929b60a791"
+  integrity sha512-QV7QHzHrk9ZS9V0bWkIwu6ywiXJt0www4/cXWEVEgwaNqthmOZl/Cf5O0ukEPlGZJJr06Jh3+CM4rZsvXn8cOg==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-refresh@^0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.11.0.tgz#77198b944733f0f1f1a90e791de4541f9f074046"
