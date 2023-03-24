@@ -12,11 +12,17 @@ type OptionType = {
 function getOptions(options?: Array<OptionType>) {
     if (options) {
         const selectOption = { value: "", label: "Selectionnez une option" };
-        options.unshift(selectOption);
+        options[0].label != "Selectionnez une option" && options.unshift(selectOption);
         return options.map(function (option, index) {
             const { value, label } = option;
             return (
-                <option value={value} disabled={index === 0} hidden={index === 0} selected={index === 0} key={value}>
+                <option
+                    value={value}
+                    disabled={index === 0}
+                    hidden={index === 0}
+                    selected={index === 0}
+                    key={`${value}-${index}`}
+                >
                     {label}
                 </option>
             );
