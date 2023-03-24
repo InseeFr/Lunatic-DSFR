@@ -55,7 +55,7 @@ export function Dropdown({
     );
     return (
         <Select
-            className={classnames("dropdown-lunatic-dsfr", className, { disabled })}
+            className={classnames("dropdown-lunatic-dsfr", className)}
             nativeSelectProps={{ onChange: handleChange }}
             disabled={disabled}
             label={label}

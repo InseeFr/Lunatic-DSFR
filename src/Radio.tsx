@@ -73,8 +73,4 @@ export function Radio({
     );
 }
 
-Radio.defaultProps = {
-    disabled: false,
-};
-
 export default Radio;

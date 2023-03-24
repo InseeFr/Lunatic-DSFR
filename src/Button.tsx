@@ -19,7 +19,7 @@ export function Button({
         return (
             <ButtonDSFR
                 disabled={disabled}
-                className={classnames("button-lunatic-dsfr", className, { disabled })}
+                className={classnames("button-lunatic-dsfr", className)}
                 priority={priority}
             >
                 {children}
@@ -29,7 +29,7 @@ export function Button({
     return (
         <ButtonDSFR
             disabled={disabled}
-            className={classnames("button-lunatic-dsfr", className, { disabled })}
+            className={classnames("button-lunatic-dsfr", className)}
             priority={priority}
         >
             {children}
