@@ -25,15 +25,6 @@ function Options(
             [checked, onClick],
         );
 
-        const handleKeyDown = useCallback(
-            function (e: { code: string }) {
-                const { code } = e;
-                if (code === "Space") {
-                    onClickOption();
-                }
-            },
-            [onClickOption],
-        );
         return {
             label: label,
             id: checkboxId,
@@ -41,8 +32,6 @@ function Options(
             nativeInputProps: {
                 name: checkboxId,
                 checked: checked,
-                onClick: onClickOption,
-                onKeyDown: handleKeyDown,
                 onChange: onClickOption,
             },
         };
