@@ -41,6 +41,7 @@ jspm_packages
 .DS_Store
 
 /dist
+/lib
 /.yarn_home/
 
 /public/dsfr/
