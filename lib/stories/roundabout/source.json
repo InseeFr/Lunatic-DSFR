@@ -94,6 +94,8 @@
                     "componentType": "InputNumber",
                     "maxLength": 3,
                     "page": "4.1",
+                    "min": 0,
+                    "max": 125,
                     "label": {
                         "value": "\"Age\"))",
                         "type": "VTL|MD"

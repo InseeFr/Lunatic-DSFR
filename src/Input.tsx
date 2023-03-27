@@ -8,6 +8,8 @@ function checkValue(value: string) {
     return value ?? "";
 }
 
+export type TypeError = Record<string, Array<LunaticError>>;
+
 export function Input({
     value,
     onChange,
@@ -32,8 +34,7 @@ export function Input({
 }) {
     const handleChange = useCallback(
         function (e: React.ChangeEvent<HTMLInputElement>) {
-            const value = e.target.value;
-            onChange(value);
+            onChange(e.target.value);
         },
         [onChange],
     );

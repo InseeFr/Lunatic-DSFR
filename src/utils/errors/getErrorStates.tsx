@@ -1,6 +1,6 @@
-import { LunaticError } from "../type/type";
+import { TypeError } from "../../Input";
 
-function getState(errors: Record<string, Array<LunaticError>>, id: string) {
+function getState(errors: TypeError, id: string) {
     if (errors && errors[id as keyof typeof errors] && errors[id as keyof typeof errors][0]) {
         if (
             errors[id as keyof typeof errors][0].criticality == "WARN" ||
@@ -14,7 +14,7 @@ function getState(errors: Record<string, Array<LunaticError>>, id: string) {
     }
 }
 
-function getStateRelatedMessage(errors: Record<string, Array<LunaticError>>, id: string) {
+function getStateRelatedMessage(errors: TypeError, id: string) {
     if (errors && errors[id as keyof typeof errors] && errors[id as keyof typeof errors][0]) {
         return errors[id as keyof typeof errors][0].errorMessage;
     }

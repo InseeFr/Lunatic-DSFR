@@ -1,54 +1,32 @@
-import { useCallback } from "react";
 import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Checkbox as CheckboxDSFR } from "@codegouvfr/react-dsfr/Checkbox";
 import { LunaticError } from "./utils/type/type";
 
-function Options(
-    options: {
-        label: string;
-        checked?: boolean;
-        name?: string;
-        description?: string;
-        // eslint-disable-next-line @typescript-eslint/ban-types
-        onClick: Function;
-    }[],
-) {
-    return options.map(function (option, index) {
-        const { label, name, description, checked, onClick } = option;
-        const checkboxId = `lunatic-dsfr-checkbox-${index}-${name}`;
+type OptionType = {
+    label: string;
+    checked?: boolean;
+    name?: string;
+    description?: string;
+    onClick: (status: boolean) => void;
+};
 
-        // Errors will appear onChange if the below functions are available
+function getOptions(options?: Array<OptionType>) {
+    if (options) {
+        return options.map(function (option) {
+            const { label, name, checked, onClick } = option;
 
-        const onClickOption = useCallback(
-            function () {
-                onClick(!checked);
-            },
-            [checked, onClick],
-        );
-
-        const handleKeyDown = useCallback(
-            function (e: { code: string }) {
-                const { code } = e;
-                if (code === "Space") {
-                    onClickOption();
-                }
-            },
-            [onClickOption],
-        );
-        return {
-            label: label,
-            id: checkboxId,
-            hintText: description,
-            nativeInputProps: {
-                name: checkboxId,
-                checked: checked,
-                onClick: onClickOption,
-                onKeyDown: handleKeyDown,
-                onChange: onClickOption,
-            },
-        };
-    });
+            return {
+                label,
+                nativeInputProps: {
+                    name,
+                    check: checked,
+                    onClick: () => onClick(!checked),
+                },
+            };
+        });
+    }
+    return [];
 }
 
 export function CheckboxGroup({
@@ -65,14 +43,7 @@ export function CheckboxGroup({
     description: string;
     id: string;
     className: string;
-    options: {
-        label: string;
-        checked?: boolean;
-        name?: string;
-        description?: string;
-        // eslint-disable-next-line @typescript-eslint/ban-types
-        onClick: Function;
-    }[];
+    options: Array<OptionType>;
     errors: Record<string, Array<LunaticError>>;
 }) {
     const state = getState(errors, id);
@@ -84,7 +55,7 @@ export function CheckboxGroup({
             disabled={disabled}
             legend={label}
             hintText={description}
-            options={Options(options)}
+            options={getOptions(options)}
             state={state}
             stateRelatedMessage={stateRelatedMessage}
         />
