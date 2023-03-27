@@ -1,4 +1,5 @@
-import { FC } from "react";
+import { FC, useState, useCallback } from "react";
+import { LunaticError } from "@inseefr/lunatic";
 import Waiting from "./waiting";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const lunatic = require("@inseefr/lunatic");
@@ -37,12 +38,10 @@ function getStoreInfoRequired() {
 function Pager({
     goPrevious,
     goNext,
-    goToPage,
     isLast,
     isFirst,
     pageTag,
     maxPage,
-    getData,
     custom,
 }: {
     // eslint-disable-next-line @typescript-eslint/ban-types
@@ -70,12 +69,6 @@ function Pager({
                     </Button>
                     <Button custom={custom} onClick={goNext} disabled={isLast}>
                         Next
-                    </Button>
-                    <Button custom={custom} onClick={() => console.log(getData(true))}>
-                        Get State
-                    </Button>
-                    <Button custom={custom} onClick={() => goToPage({ page: "18" })}>
-                        Go to page 18
                     </Button>
                 </div>
                 <div>PAGE: {pageTag}</div>
@@ -121,8 +114,7 @@ const Orchestrator: FC<OrchestratorProps> = ({
         isFirstPage,
         isLastPage,
         waiting,
-        getModalErrors,
-        getCurrentErrors,
+        compileControls,
         getData,
         Provider,
     } = lunatic.useLunatic(source, data, {
@@ -140,8 +132,21 @@ const Orchestrator: FC<OrchestratorProps> = ({
     });
 
     const components = getComponents();
-    const modalErrors = getModalErrors();
-    const currentErrors = getCurrentErrors();
+    const [currentErrors, setCurrentErrors] = useState<Record<string, Array<LunaticError>>>();
+
+    const handleGoNextPage = useCallback(
+        function () {
+            const errors = compileControls();
+            setCurrentErrors(errors.currentErrors);
+
+            if (!errors.currentErrors) {
+                goNextPage();
+            } else {
+                console.warn(errors.currentErrors);
+            }
+        },
+        [goNextPage, compileControls],
+    );
 
     return (
         <Provider>
@@ -183,7 +188,7 @@ const Orchestrator: FC<OrchestratorProps> = ({
                 </div>
                 <Pager
                     goPrevious={goPreviousPage}
-                    goNext={goNextPage}
+                    goNext={handleGoNextPage}
                     goToPage={goToPage}
                     isLast={isLastPage}
                     isFirst={isFirstPage}
@@ -192,7 +197,6 @@ const Orchestrator: FC<OrchestratorProps> = ({
                     getData={getData}
                     custom={custom}
                 />
-                <lunatic.Modal errors={modalErrors} goNext={goNextPage} />
                 <Waiting status={waiting}>
                     <div className="waiting-orchestrator">
                         Initialisation des données de suggestion...

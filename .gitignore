@@ -44,5 +44,6 @@ jspm_packages
 /.yarn_home/
 
 /public/dsfr/
+/**/dist/**
 
-inseefr-lunatic-dsfr-v0.0.4.tgz
+*.tgz
