@@ -1,6 +1,6 @@
 import { Input, InputProps } from "@codegouvfr/react-dsfr/Input";
 import classNames from "classnames";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { NumberFormatValues, NumericFormat, NumericFormatProps } from "react-number-format";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { LunaticError } from "./utils/type/type";
@@ -34,7 +34,7 @@ export function InputNumber({
     label,
     min,
     max,
-    step,
+    decimals,
     unit,
     description,
     errors,
@@ -48,16 +48,20 @@ export function InputNumber({
     label: string;
     min: number;
     max: number;
-    step: number;
+    decimals: number;
     unit: string;
     description: string;
     errors: Record<string, Array<LunaticError>>;
 }) {
+    // Decimals is a number indicates the number behind the separator of decimals
+    // Computing step attribute of input according to decimal number
+    const [step] = useState(decimals ? 1 / Math.pow(10, decimals) : 1);
+
     const isAllowed = useCallback(
         (values: NumberFormatValues) => {
             const { floatValue } = values;
             if (floatValue && Number.isInteger(min) && Number.isInteger(max))
-                return floatValue >= min && floatValue <= max;
+                return (floatValue >= min && floatValue <= max) || floatValue === undefined;
             return true;
         },
         [max, min],
@@ -91,7 +95,7 @@ export function InputNumber({
                         inputMode: "numeric",
                         id: id,
                         maxLength: 30,
-                        pattern: "[0-9]*",
+                        pattern: "([0-9]|\\s)*",
                         type: "number",
                         readOnly: readOnly,
                         disabled: disabled,
@@ -107,7 +111,7 @@ export function InputNumber({
                 allowedDecimalSeparators={[",", "."]}
                 decimalSeparator={","}
                 thousandSeparator={" "}
-                decimalScale={0}
+                decimalScale={decimals}
                 allowLeadingZeros
             />
         </div>
