@@ -55,9 +55,6 @@ export function InputNumber({
 }) {
     const isAllowed = useCallback(
         (values: NumberFormatValues) => {
-            console.log("min :", min, "max :", max);
-            console.log("Is Allowed function, values", values);
-
             const { floatValue } = values;
             if (floatValue && Number.isInteger(min) && Number.isInteger(max))
                 return floatValue >= min && floatValue <= max;
