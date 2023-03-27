@@ -45,3 +45,5 @@ jspm_packages
 
 /public/dsfr/
 /**/dist/**
+
+*.tgz

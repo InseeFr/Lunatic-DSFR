@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"version":3,"file":"roundabout-container.js","sourceRoot":"","sources":["../../../../src/components/roundabout/components/roundabout-container.tsx"],"names":[],"mappings":";;;;;AAAA,kDAA0B;AAE1B,SAAwB,mBAAmB,CAAC,EAAC,QAAQ,EAA8B;IAClF,OAAO,CACN,uCAAK,SAAS,EAAC,wCAAwC;QACtD,uCAAK,SAAS,EAAC,aAAa,IAC1B,QAAQ,CACJ,CACD,CACN,CAAA;AACF,CAAC;AARD,sCAQC"}
+=======
+{"version":3,"file":"roundabout-container.js","sourceRoot":"","sources":["../../../../src/components/roundabout/components/roundabout-container.tsx"],"names":[],"mappings":";;;;;;AAAA,kDAA0B;AAE1B,SAAgB,mBAAmB,CAAC,EAAC,QAAQ,EAA8B;IAC1E,OAAO,uCAAK,SAAS,EAAC,wCAAwC,IAAE,QAAQ,CAAO,CAAC;AACjF,CAAC;AAFD,kDAEC"}
+>>>>>>> develop

@@ -1,20 +1,68 @@
-import Orchestrator from "../utils/Orchestrator";
-import source from "./source.json";
-import data from "./data.json";
+import Input from "../../Input";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
-import * as custom from "../../";
 
 const stories = {
-    title: "Components/Input",
-    component: Orchestrator,
+    title: "Components/Input/states",
+    component: Input,
     argTypes: defaultArgTypes,
-} as ComponentMeta<typeof Orchestrator>;
+} as ComponentMeta<typeof Input>;
 
 export default stories;
 
-const Template: ComponentStory<typeof Orchestrator> = args => <Orchestrator {...args} custom={custom} />;
+const Template: ComponentStory<typeof Input> = args => <Input {...args} />;
 
-export const Default = Template.bind({});
+export const Error = Template.bind({});
 
-Default.args = { source, data };
+Error.args = {
+    value: "Jerry",
+    id: "ErrorMessage",
+    disabled: false,
+    label: "What's the name of Spongebob's pet snail?",
+    description: "Spongebob's pet snail meows like a cat.",
+    errors: {
+        ErrorMessage: [
+            {
+                id: "ErrorMessage",
+                criticality: "WARN",
+                typeOfControl: "CONSISTENCY",
+                formula: '(nvl(NAME,"") = "Garry")',
+                labelFormula: "Take another guess",
+                errorMessage: "Take another guess",
+            },
+        ],
+    },
+};
+
+export const Success = Template.bind({});
+
+Success.args = {
+    value: "Garry",
+    id: "SuccessMessage",
+    disabled: false,
+    label: "What's the name of Spongebob's pet snail?",
+    description: "Spongebob's pet snail meows like a cat.",
+    errors: {
+        SuccessMessage: [
+            {
+                id: "SuccessMessage",
+                criticality: "INFO",
+                typeOfControl: "CONSISTENCY",
+                formula: '(nvl(NAME,"") = "Garry")',
+                labelFormula: "Take another guess",
+                errorMessage: "Take another guess",
+            },
+        ],
+    },
+};
+
+export const Disabled = Template.bind({});
+
+Disabled.args = {
+    value: "Garry",
+    id: "DisabledMessage",
+    disabled: true,
+    label: "What's the name of Spongebob's pet snail?",
+    description: "Spongebob's pet snail meows like a cat.",
+    errors: {},
+};

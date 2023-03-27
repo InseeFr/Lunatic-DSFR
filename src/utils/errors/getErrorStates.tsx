@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import { TypeError } from "../../Input";
 
 function getState(errors: TypeError, id: string) {

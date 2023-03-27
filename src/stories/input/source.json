@@ -47,7 +47,7 @@
             "componentRef": "name",
             "values": {
                 "PREVIOUS": null,
-                "COLLECTED": null,
+                "COLLECTED": "BLABLA",
                 "FORCED": null,
                 "EDITED": null,
                 "INPUTED": null

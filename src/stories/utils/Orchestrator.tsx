@@ -122,13 +122,13 @@ const Orchestrator: FC<OrchestratorProps> = ({
         features,
         preferences,
         onChange: onLogChange,
-        custom,
         activeGoNextForMissing,
         autoSuggesterLoading,
         suggesters,
         suggesterFetcher,
         management,
         activeControls,
+        custom,
     });
 
     const components = getComponents();
@@ -161,23 +161,28 @@ const Orchestrator: FC<OrchestratorProps> = ({
                         const { id, componentType, storeName, response, ...other } = component;
                         const Component = lunatic[componentType];
                         const storeInfo = storeName ? getStoreInfo(storeName) : {};
-
+                        if (Component) {
+                            return (
+                                <div className="lunatic-component-dsfr" key={`component-${id}`}>
+                                    <Component
+                                        id={id}
+                                        response={response}
+                                        {...other}
+                                        {...rest}
+                                        {...component}
+                                        {...storeInfo}
+                                        missing={missing}
+                                        missingStrategy={goNextPage}
+                                        shortcut={shortcut}
+                                        filterDescription={filterDescription}
+                                        errors={currentErrors}
+                                        // custom={custom}
+                                    />
+                                </div>
+                            );
+                        }
                         return (
-                            <div className="lunatic lunatic-component-dsfr" key={`component-${id}`}>
-                                <Component
-                                    id={id}
-                                    response={response}
-                                    {...other}
-                                    {...rest}
-                                    {...component}
-                                    {...storeInfo}
-                                    missing={missing}
-                                    missingStrategy={goNextPage}
-                                    shortcut={shortcut}
-                                    filterDescription={filterDescription}
-                                    errors={currentErrors}
-                                />
-                            </div>
+                            <div>{`Le composant ${componentType} n'existe pas dans cette version de Lunatic.`}</div>
                         );
                     })}
                 </div>

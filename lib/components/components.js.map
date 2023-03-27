@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"version":3,"file":"components.js","sourceRoot":"","sources":["../../src/components/components.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;AAAA,+CAA6B;AAC7B,iCAA2C;AAAlC,+GAAA,OAAO,OAAS;AACzB,+CAAwD;AAA/C,4HAAA,OAAO,OAAe;AAC/B,mCAA6C;AAApC,iHAAA,OAAO,OAAU"}
+=======
+{"version":3,"file":"components.js","sourceRoot":"","sources":["../../src/components/components.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;AAAA,+CAA6B;AAC7B,iCAA2C;AAAlC,+GAAA,OAAO,OAAS"}
+>>>>>>> develop
