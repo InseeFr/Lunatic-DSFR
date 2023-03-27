@@ -138,11 +138,11 @@ const Orchestrator: FC<OrchestratorProps> = ({
         function () {
             const errors = compileControls();
             setCurrentErrors(errors.currentErrors);
-            console.log({ errors });
-            if (errors.currentErrors) {
-                // TODO
-            } else {
+
+            if (!errors.currentErrors) {
                 goNextPage();
+            } else {
+                console.warn(errors.currentErrors);
             }
         },
         [goNextPage, compileControls],

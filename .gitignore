@@ -44,3 +44,4 @@ jspm_packages
 /.yarn_home/
 
 /public/dsfr/
+/**/dist/**
