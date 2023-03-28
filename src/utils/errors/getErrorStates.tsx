@@ -1,4 +1,6 @@
-import { TypeError } from "../../Input";
+import { LunaticError } from "@inseefr/lunatic/lib/src/use-lunatic/type";
+
+type TypeError = Record<string, Array<LunaticError>>;
 
 function getState(errors: TypeError, id: string) {
     if (errors && errors[id as keyof typeof errors] && errors[id as keyof typeof errors][0]) {

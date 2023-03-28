@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import Select from "@codegouvfr/react-dsfr/Select";
-import { LunaticError } from "./utils/type/type";
+import { LunaticError } from "@inseefr/lunatic/lib/src/use-lunatic/type";
 
 type OptionType = {
     value: string | number;
