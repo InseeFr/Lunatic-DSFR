@@ -1,19 +1,18 @@
-import { useCallback } from "react";
 import classnames from "classnames";
+import { useCallback } from "react";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Checkbox as CheckboxDSFR } from "@codegouvfr/react-dsfr/Checkbox";
 import { LunaticError } from "./utils/type/type";
 
-function Options(
-    options: {
-        label: string;
-        checked?: boolean;
-        name?: string;
-        description?: string;
-        // eslint-disable-next-line @typescript-eslint/ban-types
-        onClick: Function;
-    }[],
-) {
+type OptionType = {
+    label: string;
+    checked?: boolean;
+    name?: string;
+    description?: string;
+    onClick: (status: boolean) => void;
+};
+
+function Options(options: Array<OptionType>) {
     return options.map(function (option, index) {
         const { label, name, description, checked, onClick } = option;
         const checkboxId = `lunatic-dsfr-checkbox-${index}-${name}`;
@@ -52,14 +51,7 @@ export function CheckboxGroup({
     description: string;
     id: string;
     className: string;
-    options: {
-        label: string;
-        checked?: boolean;
-        name?: string;
-        description?: string;
-        // eslint-disable-next-line @typescript-eslint/ban-types
-        onClick: Function;
-    }[];
+    options: Array<OptionType>;
     errors: Record<string, Array<LunaticError>>;
 }) {
     const state = getState(errors, id);

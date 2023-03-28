@@ -1,15 +1,29 @@
-import {
-    useCallback,
-    //     ReactNode,
-} from "react";
-import classnames from "classnames";
+import { Input, InputProps } from "@codegouvfr/react-dsfr/Input";
+import classNames from "classnames";
+import { useCallback, useState } from "react";
+import { NumberFormatValues, NumericFormat, NumericFormatProps } from "react-number-format";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
-import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
 import { LunaticError } from "./utils/type/type";
 
 function checkValue(value: number) {
     return value ?? null;
 }
+
+const InputDSFR = (props: { DSFRProps: InputProps } & NumericFormatProps) => {
+    const {
+        DSFRProps: { nativeInputProps, ...otherDsfr },
+        ...rest
+    } = props;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    return <Input nativeInputProps={{ ...nativeInputProps, ...rest }} {...otherDsfr} />;
+};
+
+const NumberFormatDSFR = ({ ...props }: { DSFRProps: InputProps } & NumericFormatProps) => (
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    <NumericFormat customInput={InputDSFR} {...props} />
+);
 
 export function InputNumber({
     id,
@@ -20,7 +34,7 @@ export function InputNumber({
     label,
     min,
     max,
-    step,
+    decimals,
     unit,
     description,
     errors,
@@ -34,15 +48,29 @@ export function InputNumber({
     label: string;
     min: number;
     max: number;
-    step: number;
+    decimals: number;
     unit: string;
     description: string;
     errors: Record<string, Array<LunaticError>>;
 }) {
+    // Decimals is a number indicates the number behind the separator of decimals
+    // Computing step attribute of input according to decimal number
+    const [step] = useState(decimals ? 1 / Math.pow(10, decimals) : 1);
+
+    const isAllowed = useCallback(
+        (values: NumberFormatValues) => {
+            const { floatValue } = values;
+            if (floatValue && Number.isInteger(min) && Number.isInteger(max))
+                return (floatValue >= min && floatValue <= max) || floatValue === undefined;
+            return true;
+        },
+        [max, min],
+    );
+
     const handleChange = useCallback(
-        function (e: React.ChangeEvent<HTMLInputElement>) {
-            const value = e.target.valueAsNumber;
-            onChange(isNaN(value) ? null : value);
+        function (values: NumberFormatValues) {
+            const value = values.floatValue;
+            if (value) onChange(isNaN(value) ? null : value);
         },
         [onChange],
     );
@@ -52,30 +80,39 @@ export function InputNumber({
 
     return (
         <div className="lunatic-input-number-container fr-grid-row fr-grid-row--middle">
-            <InputDSFR
-                label={label}
-                disabled={disabled}
-                hintText={description}
-                className={classnames("lunatic-dsfr-input-number", {
-                    "fr-col-11": unit !== undefined,
-                    "fr-col-12": unit === undefined,
-                })}
-                nativeInputProps={{
-                    inputMode: "numeric",
-                    id: id,
-                    maxLength: 30,
-                    pattern: "[0-9]*",
-                    type: "number",
-                    onChange: handleChange,
-                    readOnly: readOnly,
-                    min: min,
-                    max: max,
-                    step: step,
-                    value: checkValue(value),
-                    placeholder: unit,
+            <NumberFormatDSFR
+                DSFRProps={{
+                    label: label,
+                    disabled: disabled,
+                    hintText: description,
+                    className: classNames("lunatic-dsfr-input-number", {
+                        "fr-col-11": unit !== undefined,
+                        "fr-col-12": unit === undefined,
+                    }),
+                    state: state,
+                    stateRelatedMessage: stateRelatedMessage,
+                    nativeInputProps: {
+                        inputMode: "numeric",
+                        id: id,
+                        maxLength: 30,
+                        pattern: "([0-9]|\\s)*",
+                        type: "number",
+                        readOnly: readOnly,
+                        disabled: disabled,
+                        min: min,
+                        max: max,
+                        step: step,
+                        placeholder: unit,
+                    },
                 }}
-                state={state}
-                stateRelatedMessage={stateRelatedMessage}
+                onValueChange={handleChange}
+                value={checkValue(value)}
+                isAllowed={isAllowed}
+                allowedDecimalSeparators={[",", "."]}
+                decimalSeparator={","}
+                thousandSeparator={" "}
+                decimalScale={decimals}
+                allowLeadingZeros
             />
         </div>
     );
