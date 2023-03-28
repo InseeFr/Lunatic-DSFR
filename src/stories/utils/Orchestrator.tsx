@@ -1,8 +1,7 @@
 import { FC, useState, useCallback } from "react";
-import { LunaticError } from "@inseefr/lunatic";
+import lunatic from "@inseefr/lunatic";
+import { LunaticError } from "@inseefr/lunatic/lib/src/use-lunatic/type";
 import Waiting from "./waiting";
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const lunatic = require("@inseefr/lunatic");
 import { startReactDsfr } from "@codegouvfr/react-dsfr/spa";
 startReactDsfr({ defaultColorScheme: "system" });
 
