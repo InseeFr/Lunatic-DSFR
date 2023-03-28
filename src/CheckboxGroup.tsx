@@ -2,7 +2,7 @@ import classnames from "classnames";
 import { useCallback } from "react";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Checkbox as CheckboxDSFR } from "@codegouvfr/react-dsfr/Checkbox";
-import { LunaticError } from "@inseefr/lunatic/lib/src/use-lunatic/type";
+import { LunaticError } from "./utils/type/type";
 
 type OptionType = {
     label: string;
