@@ -1,5 +1,5 @@
 import { FC, useState, useCallback } from "react";
-import lunatic from "@inseefr/lunatic";
+import * as lunatic from "@inseefr/lunatic";
 import { LunaticError } from "@inseefr/lunatic/lib/src/use-lunatic/type";
 import Waiting from "./waiting";
 import { startReactDsfr } from "@codegouvfr/react-dsfr/spa";
