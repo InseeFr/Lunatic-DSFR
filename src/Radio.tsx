@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { RadioButtons as RadioDSFR } from "@codegouvfr/react-dsfr/RadioButtons";
-import { LunaticError } from "@inseefr/lunatic/lib/src/use-lunatic/type";
+import { LunaticError } from "./utils/type/type";
 
 export function Radio({
     onSelect,

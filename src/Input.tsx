@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
-import { LunaticError } from "@inseefr/lunatic/lib/src/use-lunatic/type";
+import { LunaticError } from "./utils/type/type";
 
 function checkValue(value: string) {
     return value ?? "";

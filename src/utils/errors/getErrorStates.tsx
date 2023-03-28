@@ -1,4 +1,4 @@
-import { LunaticError } from "@inseefr/lunatic/lib/src/use-lunatic/type";
+import { LunaticError } from "../type/type";
 
 type TypeError = Record<string, Array<LunaticError>>;
 
