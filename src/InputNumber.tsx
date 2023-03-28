@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { useCallback, useState } from "react";
 import { NumberFormatValues, NumericFormat, NumericFormatProps } from "react-number-format";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
-import { LunaticError } from "./utils/type/type";
+import { LunaticError } from "@inseefr/lunatic/lib/src/use-lunatic/type";
 
 function checkValue(value: number) {
     return value ?? null;

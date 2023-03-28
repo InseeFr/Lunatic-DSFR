@@ -1,6 +1,6 @@
 {
     "name": "@inseefr/lunatic-dsfr",
-    "version": "0.0.5",
+    "version": "0.0.7",
     "description": "Couche graphique pour Lunatic reposant sur le Système de Design de l'État (DSFR)",
     "repository": {
         "type": "git",
@@ -45,14 +45,15 @@
     ],
     "keywords": [],
     "peerDependencies": {
-        "@codegouvfr/react-dsfr": "^0.37.0",
         "@emotion/react": "^11.10.5",
-        "react": "*"
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
     },
     "devDependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
         "@babel/core": "^7.20.12",
-        "@inseefr/lunatic": "2.4.0-fix-controls",
-        "@codegouvfr/react-dsfr": "^0.37.0",
+        "@codegouvfr/react-dsfr": "^0.41.0",
         "@emotion/react": "^11.10.5",
         "@storybook/addon-actions": "^6.5.16",
         "@storybook/addon-essentials": "^6.5.16",
@@ -74,14 +75,13 @@
         "husky": "^4.3.8",
         "lint-staged": "^11.1.1",
         "prettier": "^2.3.2",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
         "ts-node": "^10.9.1",
         "tsconfig-paths-webpack-plugin": "^4.0.0",
         "typescript": "^4.3.5"
     },
     "dependencies": {
         "classnames": "^2.3.2",
+        "@inseefr/lunatic": "2.4.0-develop",
         "react-number-format": "^5.1.4",
         "sass-loader": "^13.2.0"
     }

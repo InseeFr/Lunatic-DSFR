@@ -11,9 +11,21 @@ type OptionType = {
 
 function getOptions(options?: Array<OptionType>) {
     if (options) {
-        return options.map(function (option) {
+        const selectOption = { value: "", label: "Selectionnez une option" };
+        options[0].label != "Selectionnez une option" && options.unshift(selectOption);
+        return options.map(function (option, index) {
             const { value, label } = option;
-            return <option value={value}>{label}</option>;
+            return (
+                <option
+                    value={value}
+                    disabled={index === 0}
+                    hidden={index === 0}
+                    selected={index === 0}
+                    key={`${value}-${index}`}
+                >
+                    {label}
+                </option>
+            );
         });
     }
     return [];
@@ -49,7 +61,7 @@ export function Dropdown({
     );
     return (
         <Select
-            className={classnames("dropdown-lunatic-dsfr", className, { disabled })}
+            className={classnames("dropdown-lunatic-dsfr", className)}
             nativeSelectProps={{ onChange: handleChange }}
             disabled={disabled}
             label={label}

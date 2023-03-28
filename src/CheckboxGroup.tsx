@@ -1,7 +1,8 @@
 import classnames from "classnames";
+import { useCallback } from "react";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Checkbox as CheckboxDSFR } from "@codegouvfr/react-dsfr/Checkbox";
-import { LunaticError } from "./utils/type/type";
+import { LunaticError } from "@inseefr/lunatic/lib/src/use-lunatic/type";
 
 type OptionType = {
     label: string;
@@ -11,22 +12,29 @@ type OptionType = {
     onClick: (status: boolean) => void;
 };
 
-function getOptions(options?: Array<OptionType>) {
-    if (options) {
-        return options.map(function (option) {
-            const { label, name, checked, onClick } = option;
+function Options(options: Array<OptionType>) {
+    return options.map(function (option, index) {
+        const { label, name, description, checked, onClick } = option;
+        const checkboxId = `lunatic-dsfr-checkbox-${index}-${name}`;
 
-            return {
-                label,
-                nativeInputProps: {
-                    name,
-                    check: checked,
-                    onClick: () => onClick(!checked),
-                },
-            };
-        });
-    }
-    return [];
+        const onClickOption = useCallback(
+            function () {
+                onClick(!checked);
+            },
+            [checked, onClick],
+        );
+
+        return {
+            label: label,
+            id: checkboxId,
+            hintText: description,
+            nativeInputProps: {
+                name: checkboxId,
+                checked: checked,
+                onChange: onClickOption,
+            },
+        };
+    });
 }
 
 export function CheckboxGroup({
@@ -55,7 +63,7 @@ export function CheckboxGroup({
             disabled={disabled}
             legend={label}
             hintText={description}
-            options={getOptions(options)}
+            options={Options(options)}
             state={state}
             stateRelatedMessage={stateRelatedMessage}
         />
