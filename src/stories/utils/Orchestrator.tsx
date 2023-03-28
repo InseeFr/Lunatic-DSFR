@@ -1,6 +1,6 @@
 import { FC, useState, useCallback } from "react";
 import * as lunatic from "@inseefr/lunatic";
-import { LunaticError } from "@inseefr/lunatic/lib/src/use-lunatic/type";
+import { LunaticError } from "../../utils/type/type";
 import Waiting from "./waiting";
 import { startReactDsfr } from "@codegouvfr/react-dsfr/spa";
 startReactDsfr({ defaultColorScheme: "system" });
