@@ -4,7 +4,11 @@ export type OptionType = {
 };
 
 function DefaultOption() {
-    return <option value="">Selectionnez une option</option>;
+    return (
+        <option value="" hidden disabled selected>
+            Selectionnez une option
+        </option>
+    );
 }
 
 export function getOptions(options?: Array<OptionType>) {
