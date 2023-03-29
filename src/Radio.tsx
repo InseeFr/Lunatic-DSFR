@@ -4,6 +4,46 @@ import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates"
 import { RadioButtons as RadioDSFR } from "@codegouvfr/react-dsfr/RadioButtons";
 import { LunaticError } from "./utils/type/type";
 
+type RadioGroupType = {
+    onSelect: (value?: number | string) => void;
+    disabled?: boolean;
+    label: string;
+    description: string;
+    options: Array<{
+        value: string;
+        description?: string;
+        label: string;
+    }>;
+    id: string;
+    errors: Record<string, Array<LunaticError>>;
+    value?: number | string;
+};
+
+type OptionType = {
+    label: string;
+    value?: number | string;
+    description?: string;
+};
+
+function getOptions(
+    options: Array<OptionType>,
+    selection: string | number | undefined | null,
+    handleChange: (value?: string | number) => void,
+) {
+    return options.map(function (option) {
+        const { value, label, description } = option;
+        return {
+            label,
+            hintText: description,
+            nativeInputProps: {
+                value,
+                onChange: () => handleChange(value),
+                checked: selection === value,
+            },
+        };
+    });
+}
+
 export function Radio({
     onSelect,
     disabled,
@@ -12,53 +52,20 @@ export function Radio({
     options,
     id,
     errors,
-}: {
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    onSelect: Function;
-    disabled?: boolean;
-    label: string;
-    description: string;
-    options: Array<{
-        value: string;
-        description?: { props: { expression: string } };
-        label: { props: { expression: string } };
-        checked?: boolean;
-    }>;
-    id: string;
-    errors: Record<string, Array<LunaticError>>;
-}) {
+    value,
+}: RadioGroupType) {
     const state = getState(errors, id);
     const stateRelatedMessage = getStateRelatedMessage(errors, id);
 
     const handleChange = useCallback(
-        function (e: React.ChangeEvent<HTMLInputElement>) {
-            onSelect(e.target.value);
+        function (value?: string | number) {
+            onSelect(value);
         },
         [onSelect],
     );
-    const radioOptions = options.map(function (option) {
-        const { value, label, description, checked } = option;
-        if (description) {
-            return {
-                label: label.props.expression,
-                hintText: description.props.expression,
-                nativeInputProps: {
-                    value: value,
-                    onChange: handleChange,
-                    checked: checked,
-                },
-            };
-        } else {
-            return {
-                label: label.props.expression,
-                nativeInputProps: {
-                    value: value,
-                    onChange: handleChange,
-                    checked: checked,
-                },
-            };
-        }
-    });
+
+    const htmlOptions = getOptions(options, value, handleChange);
+
     return (
         <RadioDSFR
             disabled={disabled}
@@ -66,7 +73,7 @@ export function Radio({
             name="radio"
             hintText={description}
             className={classnames("lunatic-dsfr-radio")}
-            options={radioOptions}
+            options={htmlOptions}
             state={state}
             stateRelatedMessage={stateRelatedMessage}
         />
