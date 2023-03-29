@@ -5,7 +5,7 @@ import { RadioButtons as RadioDSFR } from "@codegouvfr/react-dsfr/RadioButtons";
 import { LunaticError } from "./utils/type/type";
 
 type RadioGroupType = {
-    onSelect: (value?: number | string) => void;
+    onSelect: (value?: unknown) => void;
     disabled?: boolean;
     label: string;
     description: string;
@@ -58,7 +58,7 @@ export function Radio({
     const stateRelatedMessage = getStateRelatedMessage(errors, id);
 
     const handleChange = useCallback(
-        function (value?: string | number) {
+        function (value?: unknown) {
             onSelect(value);
         },
         [onSelect],
