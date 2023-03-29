@@ -1,6 +1,5 @@
 {
   "branches": [
-    "develop",
-    "ci/nexus-deploy"
+    "develop"
   ]
 }
