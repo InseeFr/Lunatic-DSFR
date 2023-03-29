@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
-import Dropdown from "../../Dropdown";
+import { Dropdown } from "../../Dropdown";
 
 const stories = {
     title: "Components/Dropdown/states",
