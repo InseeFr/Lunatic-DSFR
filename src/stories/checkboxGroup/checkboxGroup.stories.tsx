@@ -18,12 +18,14 @@ Error.args = {
     id: "ErrorMessage",
     disabled: false,
     label: "Which of these cities are in France?",
+    value: { "Geneva": true },
     description: "If you select a city that is not in France, an error will appear!",
     options: [
         {
             label: "Paris",
             description: "Paris is the capital city!",
-            checked: false,
+            value: 1,
+            name: "Paris",
             onClick: () => {
                 console.log("hi");
             },
@@ -31,7 +33,8 @@ Error.args = {
         {
             label: "Bordeaux",
             description: "Bordeaux is where you can find great wine!",
-            checked: false,
+            value: 2,
+            name: "Bordeaux",
             onClick: () => {
                 console.log("hi");
             },
@@ -39,7 +42,8 @@ Error.args = {
         {
             label: "Geneva",
             description: "There is great Swiss chocolate in Geneva",
-            checked: true,
+            value: 3,
+            name: "Geneva",
             onClick: () => {
                 console.log("hi");
             },
@@ -65,7 +69,37 @@ Success.args = {
     id: "SuccessMessage",
     disabled: false,
     label: "Which of these cities are in France?",
+    value: { "Bordeaux": true, "Paris": true },
     description: "If you select a city that is not in France, an error will appear!",
+    options: [
+        {
+            label: "Paris",
+            description: "Paris is the capital city!",
+            value: 1,
+            name: "Paris",
+            onClick: () => {
+                console.log("hi");
+            },
+        },
+        {
+            label: "Bordeaux",
+            description: "Bordeaux is where you can find great wine!",
+            value: 2,
+            name: "Bordeaux",
+            onClick: () => {
+                console.log("hi");
+            },
+        },
+        {
+            label: "Geneva",
+            description: "There is great Swiss chocolate in Geneva",
+            value: 3,
+            name: "Geneva",
+            onClick: () => {
+                console.log("hi");
+            },
+        },
+    ],
     errors: {
         SuccessMessage: [
             {
@@ -78,32 +112,6 @@ Success.args = {
             },
         ],
     },
-    options: [
-        {
-            label: "Paris",
-            description: "Paris is the capital city!",
-            checked: true,
-            onClick: () => {
-                console.log("hi");
-            },
-        },
-        {
-            label: "Bordeaux",
-            description: "Bordeaux is where you can find great wine!",
-            checked: true,
-            onClick: () => {
-                console.log("hi");
-            },
-        },
-        {
-            label: "Geneva",
-            description: "There is great Swiss chocolate in Geneva",
-            checked: false,
-            onClick: () => {
-                console.log("hi");
-            },
-        },
-    ],
 };
 
 export const Disabled = Template.bind({});
@@ -114,11 +122,13 @@ Disabled.args = {
     label: "Which of these cities are in France?",
     description: "If you select a city that is not in France, an error will appear!",
     errors: {},
+    value: { "Paris": true },
     options: [
         {
             label: "Paris",
             description: "Paris is the capital city!",
-            checked: false,
+            value: 1,
+            name: "Paris",
             onClick: () => {
                 console.log("hi");
             },
@@ -126,7 +136,8 @@ Disabled.args = {
         {
             label: "Bordeaux",
             description: "Bordeaux is where you can find great wine!",
-            checked: false,
+            value: 2,
+            name: "Bordeaux",
             onClick: () => {
                 console.log("hi");
             },
@@ -134,7 +145,8 @@ Disabled.args = {
         {
             label: "Geneva",
             description: "There is great Swiss chocolate in Geneva",
-            checked: false,
+            value: 3,
+            name: "Geneva",
             onClick: () => {
                 console.log("hi");
             },
