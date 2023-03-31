@@ -45,12 +45,12 @@
     ],
     "keywords": [],
     "peerDependencies": {
-        "@emotion/react": "^11.10.5",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "@emotion/react": "^11.10.5"
     },
     "devDependencies": {
         "@babel/core": "^7.20.12",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
         "@codegouvfr/react-dsfr": "^0.41.0",
         "@emotion/react": "^11.10.5",
         "@storybook/addon-actions": "^6.5.16",
