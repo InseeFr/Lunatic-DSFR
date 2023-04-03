@@ -68,9 +68,9 @@ export function Radio({
 
     return (
         <RadioDSFR
+            name={id}
             disabled={disabled}
             legend={label}
-            name="radio"
             hintText={description}
             className={classnames("lunatic-dsfr-radio")}
             options={htmlOptions}
