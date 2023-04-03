@@ -51,7 +51,7 @@
         "@babel/core": "^7.20.12",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "@codegouvfr/react-dsfr": "^0.41.0",
+        "@codegouvfr/react-dsfr": "^0.44.0",
         "@emotion/react": "^11.10.5",
         "@storybook/addon-actions": "^6.5.16",
         "@storybook/addon-essentials": "^6.5.16",
@@ -79,7 +79,7 @@
     },
     "dependencies": {
         "classnames": "^2.3.2",
-        "@inseefr/lunatic": "2.0.7-v2",
+        "@inseefr/lunatic": "2.4.0-develop",
         "react-number-format": "^5.1.4",
         "sass-loader": "^13.2.0"
     }
