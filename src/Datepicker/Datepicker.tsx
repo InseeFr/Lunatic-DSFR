@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { DatepickerInput } from "./DatepickerInput";
+import { getState, getStateRelatedMessage } from "../utils/errors/getErrorStates";
 import { LunaticError } from "../utils/type/type";
 
 type DatepickerType = {
@@ -60,15 +61,17 @@ export function Datepicker({
             setDateValues(getDateValues(value));
         }
     }, [value]);
+    const state = getState(errors, id);
+    const stateRelatedMessage = getStateRelatedMessage(errors, id);
 
     return (
         <fieldset
-            className="fr-fieldset"
-            id="date-default-1578-fieldset"
+            className={`fr-fieldset${state ? ` fr-fieldset--${state}` : ""}`}
+            id={`${id}-fieldset`}
             role="group"
-            aria-labelledby="date-default-1578-fieldset-legend date-default-1578-fieldset-messages"
+            aria-labelledby={`${id}-fieldset-legend ${id}-fieldset-messages`}
         >
-            <legend className="fr-fieldset__legend" id="date-default-1578-fieldset-legend">
+            <legend className="fr-fieldset__legend" id={`${id}-fieldset-legend`}>
                 {label}
                 {displayDescription(description)}
             </legend>
@@ -76,9 +79,17 @@ export function Datepicker({
                 dateValues={dateValues}
                 disabled={disabled}
                 id={id}
-                errors={errors}
+                state={state}
                 onChange={onChange}
             />
+            <div className="fr-messages-group">
+                <p
+                    id={`${id}-desc-${state}`}
+                    className={`fr-message fr-message--${state} fr-col-12 fr-mt-0`}
+                >
+                    {stateRelatedMessage}
+                </p>
+            </div>
         </fieldset>
     );
 }

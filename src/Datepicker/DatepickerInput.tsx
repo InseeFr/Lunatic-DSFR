@@ -1,16 +1,15 @@
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
 import { useState, useEffect } from "react";
-import { LunaticError } from "../utils/type/type";
 
 type DatepickerInputType = {
     dateValues: Record<string, string>;
     disabled: boolean;
     id: string;
-    errors: Record<string, Array<LunaticError>>;
     onChange: (value: string) => void;
+    state?: string;
 };
 
-export function DatepickerInput({ dateValues, disabled, id, onChange }: DatepickerInputType) {
+export function DatepickerInput({ dateValues, disabled, id, onChange, state }: DatepickerInputType) {
     const [year, setYear] = useState<string>("2000");
     const [month, setMonth] = useState<string>("07");
     const [day, setDay] = useState<string>("01");
@@ -27,6 +26,7 @@ export function DatepickerInput({ dateValues, disabled, id, onChange }: Datepick
                     disabled={disabled}
                     label="Jour"
                     hintText="Exemple: 14"
+                    className={state ? `fr-input-group--${state}` : ""}
                     nativeInputProps={{
                         id: `${id}-day`,
                         value: dateValues.day,
@@ -41,6 +41,7 @@ export function DatepickerInput({ dateValues, disabled, id, onChange }: Datepick
                     disabled={disabled}
                     label="Mois"
                     hintText="Exemple: 7"
+                    className={state ? `fr-input-group--${state}` : ""}
                     nativeInputProps={{
                         id: `${id}-month`,
                         value: dateValues.month,
@@ -55,6 +56,7 @@ export function DatepickerInput({ dateValues, disabled, id, onChange }: Datepick
                     disabled={disabled}
                     label="Year"
                     hintText="Exemple: 2023"
+                    className={state ? `fr-input-group--${state}` : ""}
                     nativeInputProps={{
                         id: `${id}-year`,
                         value: dateValues.year,
