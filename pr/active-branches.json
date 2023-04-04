@@ -1,7 +1,6 @@
 {
   "branches": [
     "main",
-    "develop",
-    "fix/radio"
+    "develop"
   ]
 }
