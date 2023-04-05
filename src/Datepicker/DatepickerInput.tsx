@@ -10,9 +10,9 @@ type DatepickerInputType = {
 };
 
 export function DatepickerInput({ dateValues, disabled, id, onChange, state }: DatepickerInputType) {
-    const [year, setYear] = useState<string>("");
-    const [month, setMonth] = useState<string>("");
-    const [day, setDay] = useState<string>("");
+    const [year, setYear] = useState<string>(dateValues.year);
+    const [month, setMonth] = useState<string>(dateValues.month);
+    const [day, setDay] = useState<string>(dateValues.day);
 
     useEffect(() => {
         const newValue = `${year}-${month}-${day}`;
