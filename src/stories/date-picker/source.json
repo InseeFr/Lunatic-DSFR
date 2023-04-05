@@ -59,7 +59,7 @@
                     "typeOfControl": "CONSISTENCY",
                     "criticality": "WARN",
                     "control": {
-                        "value": "not(isnull(DATENAISS))",
+                        "value": "(DATENAISS <> \"--\")",
                         "type": "VTL"
                     },
                     "errorMessage": {
