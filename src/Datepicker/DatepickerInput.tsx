@@ -10,9 +10,9 @@ type DatepickerInputType = {
 };
 
 export function DatepickerInput({ dateValues, disabled, id, onChange, state }: DatepickerInputType) {
-    const [year, setYear] = useState<string>("2000");
-    const [month, setMonth] = useState<string>("07");
-    const [day, setDay] = useState<string>("01");
+    const [year, setYear] = useState<string>("");
+    const [month, setMonth] = useState<string>("");
+    const [day, setDay] = useState<string>("");
 
     useEffect(() => {
         const newValue = `${year}-${month}-${day}`;
@@ -54,7 +54,7 @@ export function DatepickerInput({ dateValues, disabled, id, onChange, state }: D
             <div className="fr-fieldset__element fr-fieldset__element--inline fr-fieldset__element--year">
                 <InputDSFR
                     disabled={disabled}
-                    label="Year"
+                    label="Année"
                     hintText="Exemple: 2023"
                     className={state ? `fr-input-group--${state}` : ""}
                     nativeInputProps={{
