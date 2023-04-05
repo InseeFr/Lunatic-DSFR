@@ -17,22 +17,29 @@ type DatepickerType = {
 };
 
 function getDateValues(value: string) {
-    const dateValue = new Date(value);
+    const [year, month, day] = value.split("-");
     return {
-        day:
-            value !== null && !isNaN(dateValue.getDate())
-                ? dateValue.getDate().toString()
-                : value.split("-")[2],
-        // getMonth indexes January as 0
-        month:
-            value !== null && !isNaN(dateValue.getDate())
-                ? (dateValue.getMonth() + 1).toString()
-                : value.split("-")[1],
-        year:
-            value !== null && !isNaN(dateValue.getDate())
-                ? dateValue.getFullYear().toString()
-                : value.split("-")[0],
+        day: day,
+        month: month,
+        year: year,
     };
+}
+
+function DisplayErrors({ ...props }) {
+    const { state, stateRelatedMessage, id } = props;
+    if (props.state && stateRelatedMessage) {
+        return (
+            <div className="fr-messages-group">
+                <p
+                    id={`${id}-desc-${state}`}
+                    className={`fr-message fr-message--${state} fr-col-12 fr-mt-0`}
+                >
+                    {stateRelatedMessage}
+                </p>
+            </div>
+        );
+    }
+    return null;
 }
 
 function displayDescription(description: string) {
@@ -52,9 +59,9 @@ export function Datepicker({
     description,
 }: DatepickerType) {
     const [dateValues, setDateValues] = useState<Record<string, string>>({
-        day: "1",
-        month: "7",
-        year: "2000",
+        day: "",
+        month: "",
+        year: "",
     });
     useEffect(() => {
         if (value !== null) {
@@ -82,14 +89,7 @@ export function Datepicker({
                 state={state}
                 onChange={onChange}
             />
-            <div className="fr-messages-group">
-                <p
-                    id={`${id}-desc-${state}`}
-                    className={`fr-message fr-message--${state} fr-col-12 fr-mt-0`}
-                >
-                    {stateRelatedMessage}
-                </p>
-            </div>
+            <DisplayErrors state={state} stateRelatedMessage={stateRelatedMessage} id={id} />
         </fieldset>
     );
 }
