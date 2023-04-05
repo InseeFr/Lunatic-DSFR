@@ -157,7 +157,6 @@ const Orchestrator: FC<OrchestratorProps> = ({
                         response?: string;
                         storeName?: string;
                     }) {
-                        console.log(currentErrors);
                         const { id, componentType, storeName, response, ...other } = component;
                         const Component = lunatic[componentType];
                         const storeInfo = storeName ? getStoreInfo(storeName) : {};
