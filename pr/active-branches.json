@@ -1,7 +1,6 @@
 {
   "branches": [
     "main",
-    "develop",
-    "feat/datepicker"
+    "develop"
   ]
 }
