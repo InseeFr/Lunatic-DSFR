@@ -1,0 +1,72 @@
+{
+    "maxPage": "1",
+    "suggesters": [
+        {
+            "name": "naf-rev2",
+            "fields": [
+                {
+                    "name": "label",
+                    "rules": ["[\\w]+"],
+                    "language": "French",
+                    "min": 2
+                },
+                { "name": "id" }
+            ],
+            "queryParser": {
+                "type": "tokenized",
+                "params": { "language": "French", "pattern": "[\\w.]+" }
+            },
+            "version": "1"
+        }
+    ],
+    "components": [
+        {
+            "id": "naf-rev2",
+            "componentType": "Suggester",
+            "mandatory": false,
+            "label": "\"naf-rev2\"",
+            "storeName": "naf-rev2",
+            "conditionFilter": {
+                "value": "true",
+                "type": "VTL"
+            },
+            "response": {
+                "name": "COMMUNE"
+            },
+            "page": "1",
+            "declarations": [
+                {
+                    "id": "kb9hi4j0-krnoclfe",
+                    "declarationType": "INSTRUCTION",
+                    "position": "BEFORE_QUESTION_TEXT",
+                    "label": {
+                        "value": "\"Test declaration before\"",
+                        "type": "VTL"
+                    }
+                },
+                {
+                    "id": "kb9hi4j0-krnoclfe",
+                    "declarationType": "HELP",
+                    "position": "AFTER_QUESTION_TEXT",
+                    "label": {
+                        "value": "\"Test description from declaration\"",
+                        "type": "VTL"
+                    }
+                }
+            ]
+        }
+    ],
+    "variables": [
+        {
+            "variableType": "COLLECTED",
+            "name": "COMMUNE",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        }
+    ]
+}
