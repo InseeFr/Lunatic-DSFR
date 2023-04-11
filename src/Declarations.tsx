@@ -1,4 +1,4 @@
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import { Alert as AlertDSFR } from "@codegouvfr/react-dsfr/Alert";
 
 type DeclarationsType = {
@@ -8,11 +8,19 @@ type DeclarationsType = {
 };
 
 function ComplexAlert({ label }: { label: ReactNode }) {
+    const divEl = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
-        document.querySelector("h3")?.classList.add("fr-alert__title");
+        if (divEl.current) {
+            document.querySelector("h3")?.classList.add("fr-alert__title");
+        }
     }, []);
 
-    return <div className="fr-alert fr-alert--error">{label}</div>;
+    return (
+        <div className="fr-alert fr-alert--error" ref={divEl}>
+            {label}
+        </div>
+    );
 }
 
 function RenderAlert({ label }: { label: string | ReactNode }) {
