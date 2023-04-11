@@ -1,10 +1,6 @@
 import React, { useCallback } from "react";
 import classnames from "classnames";
-
-// import * as lunatic from "@inseefr/lunatic";
-import * as custom from "../../index";
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const lunatic = require("@inseefr/lunatic");
+import * as lunatic from "@inseefr/lunatic";
 
 function getStatus(complete: boolean, partial: boolean) {
     if (complete) {
@@ -24,6 +20,22 @@ function getLabel(complete: boolean, partial: boolean) {
         return "Continuer";
     }
     return "Commencer";
+}
+
+function isDisabled({
+    status,
+    locked,
+    unnecessary,
+}: {
+    status: string;
+    locked: boolean;
+    unnecessary: boolean;
+}) {
+    if (unnecessary || (status === "complete" && locked)) {
+        return true;
+    }
+
+    return false;
 }
 
 //  When a questionnaire has been started, it shows the "complété" badge
@@ -46,16 +58,25 @@ const DisplayButton = ({
     locked,
     onClick,
     label,
+    custom,
+    unnecessary,
 }: {
     status: string;
     locked: boolean;
     onClick: React.MouseEventHandler<HTMLElement>;
     label: string;
+    custom: Record<string, unknown>;
+    unnecessary: boolean;
 }) => {
     const Button = lunatic.Button;
     if ((status !== "complete" && locked) || !locked) {
         return (
-            <Button className={classnames("roundabout-it-button")} onClick={onClick} custom={custom}>
+            <Button
+                className={classnames("roundabout-it-button")}
+                onClick={onClick}
+                custom={custom}
+                disabled={isDisabled({ status, locked, unnecessary })}
+            >
                 {label}
             </Button>
         );
@@ -70,6 +91,7 @@ export function RoundaboutItButton({
     goToIteration,
     locked,
     unnecessary,
+    custom,
 }: {
     complete: boolean;
     partial: boolean;
@@ -77,6 +99,7 @@ export function RoundaboutItButton({
     goToIteration: (iteration: number) => void;
     locked: boolean;
     unnecessary: boolean;
+    custom: Record<string, unknown>;
 }) {
     console.log(goToIteration);
     const status = getStatus(complete, partial);
@@ -93,7 +116,14 @@ export function RoundaboutItButton({
             <div className="fr-grid-row">
                 <CompleteBadge status={status} locked={locked} />
                 <div className="fr-col-12">
-                    <DisplayButton status={status} locked={locked} onClick={onClick} label={label} />
+                    <DisplayButton
+                        status={status}
+                        locked={locked}
+                        onClick={onClick}
+                        label={label}
+                        unnecessary={unnecessary}
+                        custom={custom}
+                    />
                 </div>
             </div>
         </div>

@@ -3,6 +3,7 @@ import { RoundaboutContainer } from "./roundabout-container";
 import RoundaboutItContainer from "./roundabout-it-container";
 import { RoundaboutItButton } from "./roundabout-it-button";
 import { RoundaboutItTitle } from "./roundabout-it-title";
+import * as custom from "..";
 
 export type RoundaboutType = {
     iterations: number;
@@ -35,6 +36,7 @@ function RoundaboutIteration({
                 goToIteration={goToIteration}
                 iteration={index}
                 locked={locked}
+                custom={custom}
             />
         </RoundaboutItContainer>
     );
