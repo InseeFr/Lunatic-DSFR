@@ -69,14 +69,16 @@ export function RoundaboutItButton({
     iteration,
     goToIteration,
     locked,
+    unnecessary,
 }: {
     complete: boolean;
     partial: boolean;
     iteration: number;
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    goToIteration: Function;
+    goToIteration: (iteration: number) => void;
     locked: boolean;
+    unnecessary: boolean;
 }) {
+    console.log(goToIteration);
     const status = getStatus(complete, partial);
     const label = getLabel(complete, partial);
     const onClick = useCallback(
