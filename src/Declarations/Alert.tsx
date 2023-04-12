@@ -1,4 +1,4 @@
-import { PropsWithChildren, useRef, useEffect, useState } from "react";
+import { PropsWithChildren, useRef, useEffect, useState, ReactNode, isValidElement } from "react";
 import { fr } from "@codegouvfr/react-dsfr";
 
 type AlertProps = {
@@ -28,6 +28,18 @@ function getDeclarationClassName(type: string, display: boolean) {
     return classNames.join(" ");
 }
 
+function getContent(node: ReactNode) {
+    if (isValidElement(node)) {
+        return node;
+    }
+    const typeOf = typeof node;
+    if (typeOf === "string" || typeOf === "number" || typeOf === "boolean") {
+        return <h3>{node}</h3>;
+    }
+
+    return node;
+}
+
 export function Alert(props: PropsWithChildren<AlertProps>) {
     const { type, id, children } = props;
     const containerEl = useRef<HTMLDivElement>(null);
@@ -52,7 +64,7 @@ export function Alert(props: PropsWithChildren<AlertProps>) {
             >
                 Fermer
             </button>
-            {children}
+            {getContent(children)}
         </div>
     );
 }
