@@ -1,11 +1,11 @@
 import { RoundaboutLabel } from "./roundabout-label";
-import RoundaboutContainer from "./roundabout-container";
-import RoundaboutItContainer from "./roundabout-it-container";
+import { RoundaboutContainer } from "./roundabout-container";
+import { RoundaboutItContainer } from "./roundabout-it-container";
 import { RoundaboutItButton } from "./roundabout-it-button";
 import { RoundaboutItTitle } from "./roundabout-it-title";
 import * as custom from "..";
 
-export type RoundaboutType = {
+type RoundaboutType = {
     iterations: number;
     expressions: Record<string, Array<boolean | string>>;
     goToIteration: (iteration: number) => void;
@@ -76,3 +76,5 @@ export function Roundabout({ iterations, expressions, goToIteration, label, lock
     }
     return null;
 }
+
+export default Roundabout;
