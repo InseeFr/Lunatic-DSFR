@@ -14,10 +14,10 @@ function getStatus(complete: boolean, partial: boolean) {
 
 function getLabel(complete: boolean, partial: boolean) {
     if (complete) {
-        return "Compléter";
+        return "Modifier";
     }
     if (partial) {
-        return "Continuer";
+        return "Reprendre";
     }
     return "Commencer";
 }
@@ -41,7 +41,7 @@ function isDisabled({
 //  When a questionnaire has been started, it shows the "complété" badge
 
 const CompleteBadge = ({ status, locked }: { status: string; locked: boolean }) => {
-    if (status === "complete") {
+    if (status === "complete" && locked) {
         return (
             <div className={classnames("fr-col-12", { "fr-mb-2w": !locked })}>
                 <p className="fr-badge fr-badge--success">Complété</p>
@@ -76,6 +76,7 @@ const DisplayButton = ({
                 onClick={onClick}
                 custom={custom}
                 disabled={isDisabled({ status, locked, unnecessary })}
+                priority={status === "complete" ? "secondary" : ""}
             >
                 {label}
             </Button>
