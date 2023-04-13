@@ -2,7 +2,6 @@
   "branches": [
     "main",
     "develop",
-    "fix/roundabout-buttons",
-    "feat/alert"
+    "fix/roundabout-buttons"
   ]
 }
