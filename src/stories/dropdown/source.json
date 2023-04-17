@@ -42,42 +42,42 @@
             "options": [
                 {
                     "value": "1",
-                    "label": { "value": "\"Washington\"", "type": "VTL|MD" }
+                    "label": { "value": "\"Washington\"", "type": "VTL" }
                 },
                 {
                     "value": "2",
-                    "label": { "value": "\"Kentucky\"", "type": "VTL|MD" }
+                    "label": { "value": "\"Kentucky\"", "type": "VTL" }
                 },
-                { "value": "3", "label": { "value": "\"Ohio\"", "type": "VTL|MD" } },
-                { "value": "4", "label": { "value": "\"Maine\"", "type": "VTL|MD" } },
+                { "value": "3", "label": { "value": "\"Ohio\"", "type": "VTL" } },
+                { "value": "4", "label": { "value": "\"Maine\"", "type": "VTL" } },
                 {
                     "value": "5",
-                    "label": { "value": "\"North Dakota\"", "type": "VTL|MD" }
+                    "label": { "value": "\"North Dakota\"", "type": "VTL" }
                 },
-                { "value": "6", "label": { "value": "\"Florida\"", "type": "VTL|MD" } },
+                { "value": "6", "label": { "value": "\"Florida\"", "type": "VTL" } },
                 {
                     "value": "7",
-                    "label": { "value": "\"North Takoma\"", "type": "VTL|MD" }
+                    "label": { "value": "\"North Takoma\"", "type": "VTL" }
                 },
                 {
                     "value": "8",
-                    "label": { "value": "\"California\"", "type": "VTL|MD" }
+                    "label": { "value": "\"California\"", "type": "VTL" }
                 },
-                { "value": "9", "label": { "value": "\"Texas\"", "type": "VTL|MD" } },
+                { "value": "9", "label": { "value": "\"Texas\"", "type": "VTL" } },
                 {
                     "value": "10",
-                    "label": { "value": "\"Massachusetts\"", "type": "VTL|MD" }
+                    "label": { "value": "\"Massachusetts\"", "type": "VTL" }
                 },
-                { "value": "11", "label": { "value": "\"Nevada\"", "type": "VTL|MD" } },
+                { "value": "11", "label": { "value": "\"Nevada\"", "type": "VTL" } },
                 {
                     "value": "12",
-                    "label": { "value": "\"Illinois\"", "type": "VTL|MD" }
+                    "label": { "value": "\"Illinois\"", "type": "VTL" }
                 },
                 {
                     "value": "13",
                     "label": {
                         "value": "\"Not in any state, you fool!\"",
-                        "type": "VTL|MD"
+                        "type": "VTL"
                     }
                 }
             ]

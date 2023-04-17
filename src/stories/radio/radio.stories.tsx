@@ -19,6 +19,7 @@ Success.args = {
     label: "Does Spongebob live in a pineapple under the sea?",
     description: "Spongebob works for Mr. Krabs",
     disabled: false,
+    value: "1",
     errors: {
         SuccessMessage: [
             {
@@ -34,30 +35,13 @@ Success.args = {
     options: [
         {
             value: "1",
-            description: {
-                props: {
-                    expression: "Spongebob lives in a pineapple",
-                },
-            },
-            label: {
-                props: {
-                    expression: "Yes",
-                },
-            },
-            checked: true,
+            description: "Spongebob lives in a pineapple",
+            label: "Yes",
         },
         {
             value: "2",
-            description: {
-                props: {
-                    expression: "Spongebob does not live in a pineapple",
-                },
-            },
-            label: {
-                props: {
-                    expression: "No",
-                },
-            },
+            description: "Spongebob does not live in a pineapple",
+            label: "No",
         },
     ],
 };
@@ -69,6 +53,7 @@ Error.args = {
     label: "Does Spongebob live in a pineapple under the sea?",
     description: "Spongebob works for Mr. Krabs",
     disabled: false,
+    value: "2",
     errors: {
         ErrorMessage: [
             {
@@ -84,30 +69,13 @@ Error.args = {
     options: [
         {
             value: "1",
-            description: {
-                props: {
-                    expression: "Spongebob lives in a pineapple",
-                },
-            },
-            label: {
-                props: {
-                    expression: "Yes",
-                },
-            },
+            description: "Spongebob lives in a pineapple",
+            label: "Yes",
         },
         {
             value: "2",
-            description: {
-                props: {
-                    expression: "Spongebob does not live in a pineapple",
-                },
-            },
-            label: {
-                props: {
-                    expression: "No",
-                },
-            },
-            checked: true,
+            description: "Spongebob does not live in a pineapple",
+            label: "No",
         },
     ],
 };
@@ -119,32 +87,17 @@ Disabled.args = {
     label: "Does Spongebob live in a pineapple under the sea?",
     description: "Spongebob works for Mr. Krabs",
     disabled: true,
+    value: "2",
     options: [
         {
             value: "1",
-            description: {
-                props: {
-                    expression: "Spongebob lives in a pineapple",
-                },
-            },
-            label: {
-                props: {
-                    expression: "Yes",
-                },
-            },
+            description: "Spongebob lives in a pineapple",
+            label: "Yes",
         },
         {
             value: "2",
-            description: {
-                props: {
-                    expression: "Spongebob does not live in a pineapple",
-                },
-            },
-            label: {
-                props: {
-                    expression: "No",
-                },
-            },
+            description: "Spongebob does not live in a pineapple",
+            label: "No",
         },
     ],
 };

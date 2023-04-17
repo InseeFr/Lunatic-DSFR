@@ -1,0 +1,106 @@
+{
+    "cleaning": {},
+    "variables": [
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "INPUTED": null,
+                "FORCED": null,
+                "PREVIOUS": null
+            },
+            "name": "COMMENT_QE"
+        },
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "INPUTED": null,
+                "FORCED": null,
+                "PREVIOUS": null
+            },
+            "name": "DATENAISS"
+        },
+        {
+            "variableType": "CALCULATED",
+            "expression": { "type": "VTL", "value": "true" },
+            "name": "FILTER_RESULT_DATENAISS",
+            "inFilter": "false"
+        }
+    ],
+    "components": [
+        {
+            "id": "lfwiizq2",
+            "componentType": "Datepicker",
+            "mandatory": true,
+            "page": "1",
+            "min": "1900-01-01",
+            "max": "2100-01-01",
+            "label": { "type": "VTL", "value": "\"Birthday: \"" },
+            "conditionFilter": { "type": "VTL", "value": "true" },
+            "controls": [
+                {
+                    "id": "lfwiizq2-format-borne-inf-sup",
+                    "typeOfControl": "FORMAT",
+                    "criticality": "ERROR",
+                    "control": {
+                        "value": "not(cast(DATENAISS, date, \"YYYY-MM-DD\")>cast(\"2100-01-01\", date, \"YYYY-MM-DD\") or cast(DATENAISS, date,\"YYYY-MM-DD\")<cast(\"1900-01-01\", date, \"YYYY-MM-DD\"))",
+                        "type": "VTL"
+                    },
+                    "errorMessage": {
+                        "value": "\"La date saisie doit être comprise entre 01-01-1900 et \" || cast(current_date(), string, \"DD-MM-YYYY\")",
+                        "type": "VTL|MD"
+                    }
+                },
+                {
+                    "id": "lfwiizq2-nom-null",
+                    "typeOfControl": "CONSISTENCY",
+                    "criticality": "WARN",
+                    "control": {
+                        "value": "(DATENAISS <> \"--\")",
+                        "type": "VTL"
+                    },
+                    "errorMessage": {
+                        "value": "\" Veuillez entrer une date de naissance\"",
+                        "type": "VTL"
+                    }
+                }
+            ],
+            "dateFormat": "YYYY-MM-DD",
+            "hierarchy": {
+                "sequence": {
+                    "id": "l7ovaca8",
+                    "page": "\"1\"",
+                    "label": { "type": "VTL", "value": "\"I - \" || \"S1\"" }
+                }
+            },
+            "description": {
+                "type": "VTL",
+                "value": "\"Please enter your birthday in the below field\""
+            },
+            "response": { "name": "DATENAISS" }
+        },
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": "\"Bye!\"",
+                "type": "VTL|MD"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "2"
+        }
+    ],
+    "pagination": "question",
+    "resizing": {},
+    "label": { "type": "VTL", "value": "\"Example DatePicker\"" },
+    "lunaticModelVersion": "2.2.13",
+    "modele": "DATEPICKER",
+    "enoCoreVersion": "2.3.10",
+    "generatingDate": "05-09-2022 14:37:43",
+    "missing": false,
+    "id": "l7ovbqou",
+    "maxPage": "2"
+}
