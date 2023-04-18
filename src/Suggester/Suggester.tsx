@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, SyntheticEvent, ChangeEvent } from "react";
+import { useState, useEffect, useCallback, SyntheticEvent } from "react";
 import { LunaticError } from "../utils/type/type";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
