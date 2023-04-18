@@ -1,7 +1,8 @@
-import { ChangeEvent, useState, useEffect } from "react";
+import { useState, useEffect, useCallback, SyntheticEvent, ChangeEvent } from "react";
 import { LunaticError } from "../utils/type/type";
-import { SearchBar } from "@codegouvfr/react-dsfr/SearchBar";
-import { Panel } from "./Panel";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import { RenderOption } from "./RenderOption";
 
 export type ReferentielEntity = { label: string; id: string };
 
@@ -12,7 +13,7 @@ type SearchResults = {
 export type SuggesterProps = {
     className?: string;
     placeholder?: string;
-    onSelect?: () => void;
+    onSelect?: (value: unknown) => void;
     value?: unknown;
     disabled?: boolean;
     id?: string;
@@ -26,14 +27,30 @@ async function BLANK() {
     return [];
 }
 
+function isEqualOptions(option: ReferentielEntity, value: ReferentielEntity) {
+    return option.id === value.id;
+}
+
 export function Suggester(props: SuggesterProps) {
-    const { label, id, searching = BLANK } = props;
+    const { label, id, searching = BLANK, onSelect = () => null } = props;
     const [value, setValue] = useState<string>("");
     const [suggestions, setSuggestions] = useState<Array<ReferentielEntity>>([]);
 
-    function onChange(e: ChangeEvent<HTMLInputElement>) {
-        setValue(e.target.value);
+    function onInputChange(_: unknown, newValue: string | null) {
+        setValue(newValue ?? "");
     }
+
+    const handleChange = useCallback(
+        function (_: SyntheticEvent<Element>, value: ReferentielEntity | null) {
+            if (value) {
+                const { id } = value;
+                onSelect(id);
+            } else {
+                onSelect(null);
+            }
+        },
+        [onSelect],
+    );
 
     useEffect(
         function () {
@@ -58,12 +75,20 @@ export function Suggester(props: SuggesterProps) {
     );
 
     return (
-        <>
-            <label className="fr-label" htmlFor={id}>
-                {label}
-            </label>
-            <SearchBar nativeInputProps={{ id, value, onChange }} />
-            <Panel suggestions={suggestions} />
-        </>
+        <Autocomplete
+            disablePortal
+            onInputChange={onInputChange}
+            id={id}
+            options={suggestions}
+            sx={{ width: "auto" }}
+            autoComplete
+            includeInputInList
+            filterSelectedOptions
+            onChange={handleChange}
+            filterOptions={x => x}
+            renderInput={params => <TextField {...params} label={label} value={value} />}
+            isOptionEqualToValue={isEqualOptions}
+            renderOption={RenderOption}
+        />
     );
 }

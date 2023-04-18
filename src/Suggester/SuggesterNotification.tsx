@@ -33,16 +33,21 @@ type SuggesterNotificationProps = {
 
 export function SuggesterNotification(props: PropsWithChildren<SuggesterNotificationProps>) {
     const { children, status, label } = props;
+
     if (status === STATUS.error || status === STATUS.unknown) {
         return (
-            <Alert
-                description={`Votre référentiel ${label} n'est pas disponible. Vous pouvez poursuivre sans répondre à ce champ.`}
-                severity="error"
-                closable
-                small
-            />
+            <>
+                <label>{label}</label>
+                <Alert
+                    description={`Votre référentiel ${label} n'est pas disponible. Vous pouvez poursuivre sans répondre à ce champ.`}
+                    severity="error"
+                    closable
+                    small
+                />
+            </>
         );
     }
+
     return (
         <>
             {getNotification(status)}
