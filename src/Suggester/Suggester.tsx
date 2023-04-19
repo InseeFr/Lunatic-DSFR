@@ -1,8 +1,43 @@
 import { useState, useEffect, useCallback, SyntheticEvent } from "react";
+import useAutocomplete from "@mui/material/useAutocomplete";
 import { LunaticError } from "../utils/type/type";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
-import { RenderOption } from "./RenderOption";
+import { SuggesterContainer } from "./elements/SuggesterContainer";
+import { styled } from "@mui/system";
+import InputContainer from "./elements/InputContainer";
+import { SuggesterLabel } from "./elements/SuggesterLabel";
+import { SuggesterInput } from "./elements/SuggesterInput";
+
+const Label = styled("label")({
+    display: "block",
+});
+
+const Input = styled("input")(({ theme }) => ({
+    width: 200,
+    backgroundColor: theme.palette.mode === "light" ? "#fff" : "#000",
+    color: theme.palette.mode === "light" ? "#000" : "#fff",
+}));
+
+const Listbox = styled("ul")(({ theme }) => ({
+    width: "auto",
+    margin: 0,
+    padding: 0,
+    zIndex: 1,
+    position: "absolute",
+    listStyle: "none",
+    backgroundColor: theme.palette.mode === "light" ? "#fff" : "#000",
+    overflow: "auto",
+    maxHeight: 200,
+    border: "1px solid rgba(0,0,0,.25)",
+    "& li.Mui-focused": {
+        backgroundColor: "#4a8df6",
+        color: "white",
+        cursor: "pointer",
+    },
+    "& li:active": {
+        backgroundColor: "#2977f5",
+        color: "white",
+    },
+}));
 
 export type ReferentielEntity = { label: string; id: string };
 
@@ -27,9 +62,9 @@ async function BLANK() {
     return [];
 }
 
-function isEqualOptions(option: ReferentielEntity, value: ReferentielEntity) {
-    return option.id === value.id;
-}
+// function isEqualOptions(option: ReferentielEntity, value: ReferentielEntity) {
+//     return option.id === value.id;
+// }
 
 export function Suggester(props: SuggesterProps) {
     const { label, id, searching = BLANK, onSelect = () => null } = props;
@@ -41,10 +76,10 @@ export function Suggester(props: SuggesterProps) {
     }
 
     const handleChange = useCallback(
-        function (_: SyntheticEvent<Element>, value: ReferentielEntity | null) {
-            if (value) {
-                const { id } = value;
-                onSelect(id);
+        function (_: SyntheticEvent<Element>, value: string | ReferentielEntity | null) {
+            if (value && typeof value === "object") {
+                const { id } = value as ReferentielEntity;
+                onSelect(id ?? null);
             } else {
                 onSelect(null);
             }
@@ -74,21 +109,54 @@ export function Suggester(props: SuggesterProps) {
         [searching, value],
     );
 
+    const {
+        getRootProps,
+        getInputLabelProps,
+        getInputProps,
+        getListboxProps,
+        getOptionProps,
+        groupedOptions,
+    } = useAutocomplete<ReferentielEntity, false, false, true>({
+        onInputChange,
+        id,
+        options: suggestions,
+        filterOptions: x => x,
+        onChange: handleChange,
+    });
+
     return (
-        <Autocomplete
-            disablePortal
-            onInputChange={onInputChange}
-            id={id}
-            options={suggestions}
-            sx={{ width: "auto" }}
-            autoComplete
-            includeInputInList
-            filterSelectedOptions
-            onChange={handleChange}
-            filterOptions={x => x}
-            renderInput={params => <TextField {...params} label={label} value={value} />}
-            isOptionEqualToValue={isEqualOptions}
-            renderOption={RenderOption}
-        />
+        <SuggesterContainer>
+            <InputContainer {...getRootProps()}>
+                <SuggesterLabel {...getInputLabelProps()}>{label}</SuggesterLabel>
+                <SuggesterInput {...getInputProps()} />
+            </InputContainer>
+            {groupedOptions.length > 0 ? (
+                <Listbox {...getListboxProps()}>
+                    {(groupedOptions as typeof suggestions).map((option, index) => (
+                        <li {...getOptionProps({ option, index })} key={option.id}>
+                            {option.label}
+                        </li>
+                    ))}
+                </Listbox>
+            ) : null}
+        </SuggesterContainer>
     );
+
+    // return (
+    //     <Autocomplete
+    //         disablePortal
+    //         onInputChange={onInputChange}
+    //         id={id}
+    //         options={suggestions}
+    //         sx={{ width: "auto" }}
+    //         autoComplete
+    //         includeInputInList
+    //         filterSelectedOptions
+    //         onChange={handleChange}
+    //         filterOptions={x => x}
+    //         renderInput={params => <TextField {...params} label={label} value={value} />}
+    //         isOptionEqualToValue={isEqualOptions}
+    //         renderOption={RenderOption}
+    //     />
+    // );
 }

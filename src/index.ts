@@ -7,4 +7,4 @@ export * from "./Radio";
 export * from "./Datepicker";
 
 export * from "./Suggester";
-export * as roundabout from "./roundabout";
+export * as Roundabout from "./Roundabout";
