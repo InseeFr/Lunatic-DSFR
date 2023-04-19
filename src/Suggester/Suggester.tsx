@@ -7,16 +7,6 @@ import InputContainer from "./elements/InputContainer";
 import { SuggesterLabel } from "./elements/SuggesterLabel";
 import { SuggesterInput } from "./elements/SuggesterInput";
 
-const Label = styled("label")({
-    display: "block",
-});
-
-const Input = styled("input")(({ theme }) => ({
-    width: 200,
-    backgroundColor: theme.palette.mode === "light" ? "#fff" : "#000",
-    color: theme.palette.mode === "light" ? "#000" : "#fff",
-}));
-
 const Listbox = styled("ul")(({ theme }) => ({
     width: "auto",
     margin: 0,
@@ -62,9 +52,9 @@ async function BLANK() {
     return [];
 }
 
-// function isEqualOptions(option: ReferentielEntity, value: ReferentielEntity) {
-//     return option.id === value.id;
-// }
+function isOptionEqualToValue(option: ReferentielEntity, value: ReferentielEntity) {
+    return option.id === value.id;
+}
 
 export function Suggester(props: SuggesterProps) {
     const { label, id, searching = BLANK, onSelect = () => null } = props;
@@ -122,6 +112,7 @@ export function Suggester(props: SuggesterProps) {
         options: suggestions,
         filterOptions: x => x,
         onChange: handleChange,
+        isOptionEqualToValue,
     });
 
     return (
