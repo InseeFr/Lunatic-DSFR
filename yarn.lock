@@ -1246,7 +1246,7 @@
     source-map "^0.5.7"
     stylis "4.1.3"
 
-"@emotion/cache@^11.10.5", "@emotion/cache@^11.10.7":
+"@emotion/cache@*", "@emotion/cache@^11.10.5", "@emotion/cache@^11.10.7":
   version "11.10.7"
   resolved "https://nexus.insee.fr/repository/npm-public/@emotion/cache/-/cache-11.10.7.tgz#2e3b12d3c7c74db0a020ae79eefc52a1b03a6908"
   integrity sha512-VLl1/2D6LOjH57Y8Vem1RoZ9haWF4jesHDGiHtKozDQuBIkJm2gimVo0I02sWCuzZtVACeixTVB4jeE8qvCBoQ==
@@ -1276,7 +1276,7 @@
 
 "@emotion/react@^11.10.6":
   version "11.10.6"
-  resolved "https://nexus.insee.fr/repository/npm-public/@emotion/react/-/react-11.10.6.tgz#dbe5e650ab0f3b1d2e592e6ab1e006e75fd9ac11"
+  resolved "https://registry.yarnpkg.com/@emotion/react/-/react-11.10.6.tgz#dbe5e650ab0f3b1d2e592e6ab1e006e75fd9ac11"
   integrity sha512-6HT8jBmcSkfzO7mc+N1L9uwvOnlcGoix8Zn7srt+9ga0MjREo6lRpuVX0kzo6Jp6oTqDhREOFsygN6Ew4fEQbw==
   dependencies:
     "@babel/runtime" "^7.18.3"
@@ -1288,7 +1288,7 @@
     "@emotion/weak-memoize" "^0.3.0"
     hoist-non-react-statics "^3.3.1"
 
-"@emotion/serialize@^1.1.1":
+"@emotion/serialize@*", "@emotion/serialize@^1.1.1":
   version "1.1.1"
   resolved "https://nexus.insee.fr/repository/npm-public/@emotion/serialize/-/serialize-1.1.1.tgz#0595701b1902feded8a96d293b26be3f5c1a5cf0"
   integrity sha512-Zl/0LFggN7+L1liljxXdsVSVlg6E/Z/olVWpfxUTxOAmi8NU7YoeWeLfi1RmnB2TATHoaWwIBRoL+FvAJiTUQA==
@@ -1326,7 +1326,7 @@
   resolved "https://nexus.insee.fr/repository/npm-public/@emotion/use-insertion-effect-with-fallbacks/-/use-insertion-effect-with-fallbacks-1.0.0.tgz#ffadaec35dbb7885bd54de3fa267ab2f860294df"
   integrity sha512-1eEgUGmkaljiBnRMTdksDV1W4kUnmwgp7X9G8B++9GYwl1lUdqSndSriIrTJ0N7LQaoauY9JJ2yhiOYK5+NI4A==
 
-"@emotion/utils@^1.2.0":
+"@emotion/utils@*", "@emotion/utils@^1.2.0":
   version "1.2.0"
   resolved "https://nexus.insee.fr/repository/npm-public/@emotion/utils/-/utils-1.2.0.tgz#9716eaccbc6b5ded2ea5a90d65562609aab0f561"
   integrity sha512-sn3WH53Kzpw8oQ5mgMmIzzyAaH2ZqFEbozVVBSYp538E06OSE6ytOp7pRAjNQR+Q/orwqdQYJSe2m3hCOeznkw==
@@ -11201,6 +11201,15 @@ tslib@^2.0.0, tslib@^2.0.1, tslib@^2.0.3, tslib@^2.1.0:
   version "2.5.0"
   resolved "https://nexus.insee.fr/repository/npm-public/tslib/-/tslib-2.5.0.tgz#42bfed86f5787aeb41d031866c8f402429e0fddf"
   integrity sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==
+
+tss-react@^4.8.2:
+  version "4.8.2"
+  resolved "https://registry.yarnpkg.com/tss-react/-/tss-react-4.8.2.tgz#ea424965e8a6828ac02bc8c8f2a7a75bb87cf0ac"
+  integrity sha512-VT2tvbnfyG5oEMUsJjyp9KPa/A+lahCju+usy8of9SnvNOWFhkVKOMcvTn8KF10ncBF0T+O+XlkcCR4Eoqw1mw==
+  dependencies:
+    "@emotion/cache" "*"
+    "@emotion/serialize" "*"
+    "@emotion/utils" "*"
 
 tsutils@^3.21.0:
   version "3.21.0"

@@ -2,32 +2,11 @@ import { useState, useEffect, useCallback, SyntheticEvent } from "react";
 import useAutocomplete from "@mui/material/useAutocomplete";
 import { LunaticError } from "../utils/type/type";
 import { SuggesterContainer } from "./elements/SuggesterContainer";
-import { styled } from "@mui/system";
-import InputContainer from "./elements/InputContainer";
+import { SuggesterInputContainer } from "./elements/SuggesterInputContainer";
 import { SuggesterLabel } from "./elements/SuggesterLabel";
 import { SuggesterInput } from "./elements/SuggesterInput";
-
-const Listbox = styled("ul")(({ theme }) => ({
-    width: "auto",
-    margin: 0,
-    padding: 0,
-    zIndex: 1,
-    position: "absolute",
-    listStyle: "none",
-    backgroundColor: theme.palette.mode === "light" ? "#fff" : "#000",
-    overflow: "auto",
-    maxHeight: 200,
-    border: "1px solid rgba(0,0,0,.25)",
-    "& li.Mui-focused": {
-        backgroundColor: "#4a8df6",
-        color: "white",
-        cursor: "pointer",
-    },
-    "& li:active": {
-        backgroundColor: "#2977f5",
-        color: "white",
-    },
-}));
+import { SuggesterOption } from "./elements/SuggesterOption";
+import { SuggesterListBox } from "./elements/SuggesterListBox";
 
 export type ReferentielEntity = { label: string; id: string };
 
@@ -59,6 +38,7 @@ function isOptionEqualToValue(option: ReferentielEntity, value: ReferentielEntit
 export function Suggester(props: SuggesterProps) {
     const { label, id, searching = BLANK, onSelect = () => null } = props;
     const [value, setValue] = useState<string>("");
+    const [activeId, setActiveId] = useState<unknown>(undefined);
     const [suggestions, setSuggestions] = useState<Array<ReferentielEntity>>([]);
 
     function onInputChange(_: unknown, newValue: string | null) {
@@ -70,6 +50,7 @@ export function Suggester(props: SuggesterProps) {
             if (value && typeof value === "object") {
                 const { id } = value as ReferentielEntity;
                 onSelect(id ?? null);
+                setActiveId(id);
             } else {
                 onSelect(null);
             }
@@ -117,37 +98,18 @@ export function Suggester(props: SuggesterProps) {
 
     return (
         <SuggesterContainer>
-            <InputContainer {...getRootProps()}>
+            <SuggesterInputContainer {...getRootProps()}>
                 <SuggesterLabel {...getInputLabelProps()}>{label}</SuggesterLabel>
                 <SuggesterInput {...getInputProps()} />
-            </InputContainer>
-            {groupedOptions.length > 0 ? (
-                <Listbox {...getListboxProps()}>
-                    {(groupedOptions as typeof suggestions).map((option, index) => (
-                        <li {...getOptionProps({ option, index })} key={option.id}>
-                            {option.label}
-                        </li>
-                    ))}
-                </Listbox>
-            ) : null}
+            </SuggesterInputContainer>
+            <SuggesterListBox {...getListboxProps()} display={suggestions.length > 0}>
+                {(groupedOptions as typeof suggestions).map((option, index) => {
+                    const { id, label } = option;
+                    const p = getOptionProps({ option, index });
+                    const selected = id === activeId;
+                    return <SuggesterOption {...p} label={label} key={id} selected={selected} />;
+                })}
+            </SuggesterListBox>
         </SuggesterContainer>
     );
-
-    // return (
-    //     <Autocomplete
-    //         disablePortal
-    //         onInputChange={onInputChange}
-    //         id={id}
-    //         options={suggestions}
-    //         sx={{ width: "auto" }}
-    //         autoComplete
-    //         includeInputInList
-    //         filterSelectedOptions
-    //         onChange={handleChange}
-    //         filterOptions={x => x}
-    //         renderInput={params => <TextField {...params} label={label} value={value} />}
-    //         isOptionEqualToValue={isEqualOptions}
-    //         renderOption={RenderOption}
-    //     />
-    // );
 }
