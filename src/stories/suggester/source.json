@@ -16,6 +16,7 @@
                 "type": "tokenized",
                 "params": { "language": "French", "pattern": "[\\w.]+" }
             },
+            "meloto": true,
             "version": "1"
         },
         {
