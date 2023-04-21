@@ -7,16 +7,17 @@ type SuggesterListBoxProps = {
 
 const useStyles = makeStyles()(theme => ({
     root: {
-        backgroundColor: theme.decisions.background.raised.grey.default,
+        backgroundColor: theme.decisions.background.alt.grey.default,
         width: "100%",
-        margin: 0,
+        marginRight: 0,
+        marginLeft: 0,
+        marginBottom: 0,
         padding: 0,
         zIndex: 2,
         position: "absolute",
         listStyle: "none",
         overflow: "auto",
         maxHeight: "200px",
-        border: "1px solid rgba(0,0,0,.25)",
     },
 }));
 
@@ -29,10 +30,10 @@ export const SuggesterListBox = forwardRef(function SuggesterListBox(
 
     if (display) {
         return (
-            <ul {...rest} className={cx(classes.root)} ref={ref}>
+            <ul {...rest} className={cx(classes.root, "fr-mt-0-5v")} ref={ref}>
                 {children}
             </ul>
         );
     }
-    return <ul></ul>;
+    return null;
 });

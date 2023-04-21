@@ -8,26 +8,20 @@ type SuggesterOption = {
 
 const useStyles = makeStyles()(theme => ({
     root: {
-        backgroundColor: theme.decisions.background.open.blueFrance.default,
+        "&.Mui-focused": {
+            background: theme.decisions.background.open.blueFrance.default,
+        },
+        cursor: "pointer",
     },
 }));
 
 function getStyle(selected: boolean) {
-    const color = fr.getColors(false).decisions.text.label.grey.default;
-    const cursor = "pointer";
+    const backgroundColor = fr.getColors(false).decisions.background.open.blueFrance.default;
     if (selected) {
         return {
-            color,
-            cursor,
-            backgroundColor: "yellow",
+            backgroundColor,
         };
     }
-
-    return {
-        color,
-        cursor,
-        backgroundColor: "transparent",
-    };
 }
 
 export function SuggesterOption(props: SuggesterOption) {
@@ -35,7 +29,7 @@ export function SuggesterOption(props: SuggesterOption) {
     const { classes, cx } = useStyles();
 
     return (
-        <li {...props} className={cx(classes.root)} style={getStyle(selected)}>
+        <li {...props} className={cx(classes.root, "fr-p-2w")} style={getStyle(selected)}>
             {label}
         </li>
     );
