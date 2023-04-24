@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 /**
  * Types used for source data (lunatic models and data.json)
  *
@@ -42,9 +44,9 @@ export type ValuesTypeArray<T = unknown> = {
 
 export type DeclarationType = {
     id: string;
-    declarationType: "INSTRUCTION" | "COMMENT" | "HELP" | "CODECARD" | "WARNING" | "STATEMENT";
-    position: "AFTER_QUESTION_TEXT" | "AFTER_RESPONSE" | "BEFORE_QUESTION_TEXT" | "DETACHABLE";
-    label: LabelType;
+    declarationType: "INSTRUCTION" | "HELP" | "CODECARD";
+    position: "AFTER_QUESTION_TEXT" | "BEFORE_QUESTION_TEXT";
+    label: ReactNode;
 };
 
 export type ConditionFilterType = LabelType & { bindingDependencies: string[] };

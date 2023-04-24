@@ -38,7 +38,6 @@ export function Input({
         },
         [onChange],
     );
-
     const state = getState(errors, id);
     const stateRelatedMessage = getStateRelatedMessage(errors, id);
     return (

@@ -1,0 +1,39 @@
+{
+    "maxPage": "3",
+    "components": [
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": "\"Une déclaration dans une séquence\"",
+                "type": "VTL"
+            },
+            "declarations": [
+                {
+                    "id": "lfvaiu4x-klqr18ql",
+                    "declarationType": "HELP",
+                    "label": {
+                        "value": "\"Some text\"",
+                        "type": "VTL|MD"
+                    }
+                }
+            ],
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "1"
+        }
+    ],
+    "variables": [
+        {
+            "variableType": "COLLECTED",
+            "name": "NAME",
+            "componentRef": "name",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": "BLABLA",
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        }
+    ]
+}
