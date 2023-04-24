@@ -1,0 +1,126 @@
+{
+    "cleaning": {},
+    "components": [
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": "\"Titre d'une séquence\"",
+                "type": "VTL"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "1",
+            "declarations": [
+                {
+                    "id": "lfvaiu4x-klqr18ql",
+                    "declarationType": "INSTRUCTION",
+                    "position": "AFTER_QUESTION_TEXT",
+                    "label": {
+                        "value": "\"Veuillez inscrire chaque personne qui vit habituellement dans ce logement, y compris l’occupant principal déclaré précédemment.\"",
+                        "type": "VTL|MD"
+                    }
+                },
+                {
+                    "id": "lfvaiu4x-l4shvzva",
+                    "declarationType": "HELP",
+                    "position": "AFTER_QUESTION_TEXT",
+                    "label": {
+                        "value": "\"N’oubliez pas :\"",
+                        "type": "VTL|MD"
+                    }
+                },
+                {
+                    "id": "lfvaiu4x-l4shrxkf",
+                    "declarationType": "HELP",
+                    "position": "AFTER_QUESTION_TEXT",
+                    "label": {
+                        "value": "\"- les nourrissons même encore à la maternité ;\"",
+                        "type": "VTL|MD"
+                    }
+                },
+                {
+                    "id": "lfvaiu4x-l4shkysd",
+                    "declarationType": "HELP",
+                    "position": "AFTER_QUESTION_TEXT",
+                    "label": {
+                        "value": "\"- les personnes temporairement absentes (vacances, voyage d’affaires, hospitalisation de moins d’un mois, etc. ) ;\"",
+                        "type": "VTL|MD"
+                    }
+                },
+                {
+                    "id": "lfvaiu4x-l4si1il2",
+                    "declarationType": "HELP",
+                    "position": "AFTER_QUESTION_TEXT",
+                    "label": {
+                        "value": "\"- les personnes qui vivent aussi une partie du temps ailleurs :\"",
+                        "type": "VTL|MD"
+                    }
+                },
+                {
+                    "id": "lfvaiu4x-l4shwa6f",
+                    "declarationType": "HELP",
+                    "position": "AFTER_QUESTION_TEXT",
+                    "label": {
+                        "value": "\" - enfants ou étudiants scolarisés ailleurs,\"",
+                        "type": "VTL|MD"
+                    }
+                },
+                {
+                    "id": "lfvaiu4x-l4shwnb0",
+                    "declarationType": "HELP",
+                    "position": "AFTER_QUESTION_TEXT",
+                    "label": {
+                        "value": "\" - conjoints éloignés pour raisons professionnelles,\"",
+                        "type": "VTL|MD"
+                    }
+                },
+                {
+                    "id": "lfvaiu4x-l4si279m",
+                    "declarationType": "HELP",
+                    "position": "AFTER_QUESTION_TEXT",
+                    "label": {
+                        "value": "\" - enfants en résidence alternée (garde alternée à la suite d’une séparation ou d’un divorce),\"",
+                        "type": "VTL|MD"
+                    }
+                },
+                {
+                    "id": "lfvaiu4x-l4si25kz",
+                    "declarationType": "HELP",
+                    "position": "AFTER_QUESTION_TEXT",
+                    "label": {
+                        "value": "\" - personnes âgées en institution, etc. ;\"",
+                        "type": "VTL|MD"
+                    }
+                },
+                {
+                    "id": "lfvaiu4x-l4shs71t",
+                    "declarationType": "HELP",
+                    "position": "AFTER_QUESTION_TEXT",
+                    "label": {
+                        "value": "\" les colocataires et les sous-locataires ;\"",
+                        "type": "VTL|MD"
+                    }
+                },
+                {
+                    "id": "lfvaiu4x-l4shy179",
+                    "declarationType": "HELP",
+                    "position": "AFTER_QUESTION_TEXT",
+                    "label": {
+                        "value": "\"**Ne vous oubliez pas vous-même !**\"",
+                        "type": "VTL|MD"
+                    }
+                }
+            ]
+        }
+    ],
+    "pagination": "question",
+    "resizing": {},
+    "label": { "type": "VTL", "value": "\"Example Sequence\"" },
+    "lunaticModelVersion": "2.2.13",
+    "modele": "SEQUENCE",
+    "enoCoreVersion": "2.3.10",
+    "generatingDate": "05-09-2022 14:37:43",
+    "missing": false,
+    "id": "l7ovbqou",
+    "maxPage": "2"
+}
