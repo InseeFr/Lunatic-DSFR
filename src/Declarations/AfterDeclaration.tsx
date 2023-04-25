@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { CallOut } from "@codegouvfr/react-dsfr/CallOut";
 import { fr } from "@codegouvfr/react-dsfr";
 
 type AfterDeclarationType = {

@@ -20,8 +20,48 @@
             ],
             "conditionFilter": { "value": "true", "type": "VTL" },
             "page": "1"
+        },
+        {
+            "page": "2",
+            "componentType": "Input",
+            "bindingDependencies": ["NAME"],
+            "label": { "value": "\"What's your name?\"", "type": "VTL|MD" },
+            "description": "\"This is a test description\"",
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "declarations": [
+                {
+                    "id": "lfvaiu4x-klqr18ql",
+                    "declarationType": "HELP",
+                    "position": "BEFORE_QUESTION_TEXT",
+                    "label": {
+                        "value": "\"Some text\"",
+                        "type": "VTL|MD"
+                    }
+                }
+            ],
+            "controls": [
+                {
+                    "id": "age-controls",
+                    "criticality": "ERROR",
+                    "typeOfControl": "FORMAT",
+                    "control": {
+                        "value": "false",
+                        "type": "VTL"
+                    },
+                    "errorMessage": {
+                        "value": "\"TOTO n'est pas le bienvenue ici !\"",
+                        "type": "VTL"
+                    }
+                }
+            ],
+            "maxLength": 30,
+            "id": "name",
+            "response": {
+                "name": "NAME"
+            }
         }
     ],
+
     "variables": [
         {
             "variableType": "COLLECTED",
