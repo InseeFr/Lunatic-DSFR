@@ -3,12 +3,12 @@ import { Declarations } from "@inseefr/lunatic";
 import { useColors } from "@codegouvfr/react-dsfr/useColors";
 import { DeclarationType } from "./utils/type/type-source";
 
-type SequenceType = {
+type SubsequenceType = {
     label: string;
     declarations: Array<DeclarationType>;
 };
 
-export function Sequence({ label, declarations }: SequenceType) {
+export function Subsequence({ label, declarations }: SubsequenceType) {
     const theme = useColors();
 
     return (
@@ -22,4 +22,4 @@ export function Sequence({ label, declarations }: SequenceType) {
     );
 }
 
-export default Sequence;
+export default Subsequence;

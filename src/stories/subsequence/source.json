@@ -3,7 +3,7 @@
     "components": [
         {
             "id": "seq",
-            "componentType": "Sequence",
+            "componentType": "Subsequence",
             "label": {
                 "value": "\"Liste des habitants\"",
                 "type": "VTL"
@@ -24,7 +24,7 @@
         },
         {
             "id": "seq",
-            "componentType": "Sequence",
+            "componentType": "Subsequence",
             "label": {
                 "value": "\"Bye!\"",
                 "type": "VTL"

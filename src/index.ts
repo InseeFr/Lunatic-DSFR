@@ -8,3 +8,4 @@ export * from "./Datepicker";
 export * from "./Roundabout";
 export * from "./Sequence";
 export * from "./Declaration";
+export * from "./Subsequence";
