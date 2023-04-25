@@ -1,1 +1,0 @@
-export { Declarations } from "./Declarations";

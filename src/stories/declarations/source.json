@@ -11,7 +11,8 @@
             "declarations": [
                 {
                     "id": "lfvaiu4x-klqr18ql",
-                    "declarationType": "HELP",
+                    "declarationType": "STATEMENT",
+                    "position": "BEFORE_QUESTION_TEXT",
                     "label": {
                         "value": "\"Some text\"",
                         "type": "VTL|MD"
@@ -34,8 +35,8 @@
                     "declarationType": "HELP",
                     "position": "BEFORE_QUESTION_TEXT",
                     "label": {
-                        "value": "\"Some text\"",
-                        "type": "VTL|MD"
+                        "value": "\"Some text ICI\"",
+                        "type": "VTL"
                     }
                 }
             ],

@@ -44,7 +44,7 @@ export type ValuesTypeArray<T = unknown> = {
 
 export type DeclarationType = {
     id: string;
-    declarationType: "INSTRUCTION" | "HELP" | "CODECARD";
+    declarationType: "INSTRUCTION" | "HELP" | "CODECARD" | "STATEMENT";
     position: "AFTER_QUESTION_TEXT" | "BEFORE_QUESTION_TEXT";
     label: ReactNode;
 };

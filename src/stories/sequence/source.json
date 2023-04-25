@@ -14,6 +14,7 @@
                 {
                     "id": "lfvaiu4x-klqr18ql",
                     "declarationType": "INSTRUCTION",
+                    "position": "BEFORE_QUESTION_TEXT",
                     "label": {
                         "value": "\"Veuillez inscrire chaque personne qui vit habituellement dans ce logement, y compris l’occupant principal déclaré précédemment.\"",
                         "type": "VTL|MD"
@@ -100,6 +101,16 @@
                     }
                 }
             ]
+        },
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": "\"Bye!\"",
+                "type": "VTL"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "2"
         }
     ],
     "pagination": "question",

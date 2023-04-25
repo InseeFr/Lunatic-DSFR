@@ -1,5 +1,5 @@
 import { fr } from "@codegouvfr/react-dsfr";
-import { Declarations as DeclarationsComponent } from "../src/Declarations/Declarations";
+import { Declarations } from "@inseefr/lunatic";
 import { useColors } from "@codegouvfr/react-dsfr/useColors";
 import { DeclarationType } from "./utils/type/type-source";
 
@@ -17,7 +17,7 @@ export function Sequence({ label, declarations }: SequenceType) {
             style={{ backgroundColor: theme.decisions.background.alt.grey.default }}
         >
             <h2 className={fr.cx("fr-h3", "fr-col-12")}>{label}</h2>
-            <DeclarationsComponent declarations={declarations} />
+            <Declarations type="BEFORE_QUESTION_TEXT" declarations={declarations} />
         </div>
     );
 }

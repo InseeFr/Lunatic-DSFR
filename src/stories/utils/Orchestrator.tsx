@@ -175,7 +175,6 @@ const Orchestrator: FC<OrchestratorProps> = ({
                                         shortcut={shortcut}
                                         filterDescription={filterDescription}
                                         errors={currentErrors}
-                                        // custom={custom}
                                     />
                                 </div>
                             );
