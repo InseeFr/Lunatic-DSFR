@@ -42,10 +42,16 @@ export type ValuesTypeArray<T = unknown> = {
     INPUTED: T[] | [null];
 };
 
+export enum DeclarationPositionEnum {
+    after = "AFTER_QUESTION_TEXT",
+    before = "BEFORE_QUESTION_TEXT",
+    detachable = "DETACHABLE",
+}
+
 export type DeclarationType = {
     id: string;
     declarationType: "INSTRUCTION" | "HELP" | "CODECARD" | "STATEMENT";
-    position: "AFTER_QUESTION_TEXT" | "BEFORE_QUESTION_TEXT";
+    position: DeclarationPositionEnum;
     label: ReactNode;
 };
 

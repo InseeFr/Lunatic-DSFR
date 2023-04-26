@@ -8,6 +8,12 @@ type SequenceType = {
     declarations: Array<DeclarationType>;
 };
 
+/**
+ * Plutôt que passer par une Déclaration, on aurait-pas plutôt envi d'étendre le modèle
+ * de sequence pour lui ajouter du contenu ?
+ * @param param0
+ * @returns
+ */
 export function Sequence({ label, declarations }: SequenceType) {
     const theme = useColors();
 

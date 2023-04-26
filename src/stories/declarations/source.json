@@ -12,7 +12,7 @@
                 {
                     "id": "lfvaiu4x-klqr18ql",
                     "declarationType": "STATEMENT",
-                    "position": "BEFORE_QUESTION_TEXT",
+                    "position": "DETACHABLE",
                     "label": {
                         "value": "\"Some text\"",
                         "type": "VTL|MD"

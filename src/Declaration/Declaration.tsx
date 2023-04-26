@@ -1,8 +1,9 @@
 import { PropsWithChildren } from "react";
 import { StatementDeclaration } from "./StatementDeclaration";
 import { HelpDeclaration } from "./HelpDeclaration";
+import classnames from "classnames";
 
-enum DT {
+export enum DeclarationTypeEnum {
     STATEMENT = "STATEMENT",
     HELP = "HELP",
     CODECARD = "CODECARD",
@@ -16,15 +17,13 @@ type DeclarationProps = {
 export function Declaration(props: PropsWithChildren<DeclarationProps>) {
     const { type, children } = props;
     switch (type.toUpperCase()) {
-        case DT.STATEMENT:
+        case DeclarationTypeEnum.STATEMENT:
             return <StatementDeclaration>{children}</StatementDeclaration>;
-        case DT.HELP:
+        case DeclarationTypeEnum.HELP:
             return <HelpDeclaration>{children}</HelpDeclaration>;
-        case DT.CODECARD:
-        case DT.INSTRUCTION:
-            //TODO
-            return <>{children}</>;
+        case DeclarationTypeEnum.CODECARD:
+        case DeclarationTypeEnum.INSTRUCTION:
         default:
-            return null;
+            return <div className={classnames("lunatic-declaration-dsfr", type)}>{children}</div>;
     }
 }
