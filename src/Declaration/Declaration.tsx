@@ -26,4 +26,5 @@ export function Declaration(props: PropsWithChildren<DeclarationProps>) {
         default:
             return <div className={classnames("lunatic-declaration-dsfr", type)}>{children}</div>;
     }
+    return <>{children}</>;
 }

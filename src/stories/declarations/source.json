@@ -33,7 +33,7 @@
                 {
                     "id": "lfvaiu4x-klqr18ql",
                     "declarationType": "HELP",
-                    "position": "BEFORE_QUESTION_TEXT",
+                    "position": "DETACHABLE",
                     "label": {
                         "value": "\"Some text ICI\"",
                         "type": "VTL"
