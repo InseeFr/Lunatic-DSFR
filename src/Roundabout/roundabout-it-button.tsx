@@ -27,13 +27,15 @@ function isDisabled({
     locked,
     unnecessary,
     resident,
+    underage,
 }: {
     status: string;
     locked: boolean;
     unnecessary: boolean;
     resident: boolean;
+    underage: boolean;
 }) {
-    if (unnecessary || resident || (status === "complete" && locked)) {
+    if (unnecessary || resident || underage || (status === "complete" && locked)) {
         return true;
     }
 
@@ -63,6 +65,7 @@ const DisplayButton = ({
     custom,
     unnecessary,
     resident,
+    underage,
 }: {
     status: string;
     locked: boolean;
@@ -71,9 +74,10 @@ const DisplayButton = ({
     custom: Record<string, unknown>;
     unnecessary: boolean;
     resident: boolean;
+    underage: boolean;
 }) => {
     const Button = lunatic.Button;
-    if (unnecessary || resident) {
+    if (unnecessary || resident || underage) {
         return null;
     }
     if ((status !== "complete" && locked) || !locked) {
@@ -82,7 +86,7 @@ const DisplayButton = ({
                 className={classnames("roundabout-it-button")}
                 onClick={onClick}
                 custom={custom}
-                disabled={isDisabled({ status, locked, unnecessary, resident })}
+                disabled={isDisabled({ status, locked, unnecessary, resident, underage })}
                 priority={status === "complete" ? "secondary" : ""}
             >
                 {label}
@@ -101,6 +105,7 @@ export function RoundaboutItButton({
     custom,
     unnecessary,
     resident,
+    underage,
 }: {
     complete: boolean;
     partial: boolean;
@@ -111,6 +116,7 @@ export function RoundaboutItButton({
     custom: Record<string, unknown>;
     unnecessary: boolean;
     resident: boolean;
+    underage: boolean;
 }) {
     const status = getStatus(complete, partial);
     const label = getLabel(complete, partial);
@@ -133,6 +139,7 @@ export function RoundaboutItButton({
                     label={label}
                     unnecessary={unnecessary}
                     resident={resident}
+                    underage={underage}
                 />
             </div>
         </div>

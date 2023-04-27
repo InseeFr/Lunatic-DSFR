@@ -3,16 +3,16 @@ import { useColors } from "@codegouvfr/react-dsfr/useColors";
 
 function UnnecessaryText({
     label,
-    unnecessary,
     resident,
+    underage,
 }: {
     label: string;
-    unnecessary: boolean;
     resident: boolean;
+    underage: boolean;
 }) {
     const theme = useColors();
 
-    if (unnecessary) {
+    if (underage) {
         return (
             <p style={{ color: theme.decisions.text.disabled.grey.default }}>
                 {label} n’a pas à compléter de questionnaire individuel car il est âgé de moins de 14
@@ -35,10 +35,12 @@ export function RoundaboutItTitle({
     label,
     unnecessary,
     resident,
+    underage,
 }: {
     label: string;
     unnecessary: boolean;
     resident: boolean;
+    underage: boolean;
 }) {
     const theme = useColors();
 
@@ -49,7 +51,7 @@ export function RoundaboutItTitle({
                     <h2
                         className={classnames("roundabout-it-title", "fr-h4")}
                         style={
-                            unnecessary || resident
+                            underage || resident || unnecessary
                                 ? {
                                       color: theme.decisions.text.disabled.grey.default,
                                   }
@@ -60,7 +62,7 @@ export function RoundaboutItTitle({
                     </h2>
                 </div>
                 <div className="fr-col-12">
-                    <UnnecessaryText unnecessary={unnecessary} resident={resident} label={label} />
+                    <UnnecessaryText underage={underage} resident={resident} label={label} />
                 </div>
             </div>
         </div>

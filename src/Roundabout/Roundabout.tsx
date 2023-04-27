@@ -16,6 +16,7 @@ type RoundaboutType = {
     partial: boolean;
     unnecessary: boolean;
     resident: boolean;
+    underage: boolean;
 };
 
 function RoundaboutIteration({
@@ -24,18 +25,25 @@ function RoundaboutIteration({
     complete,
     partial,
     unnecessary,
+    underage,
     goToIteration,
     locked,
     resident,
 }: RoundaboutType) {
     return (
         <RoundaboutItContainer>
-            <RoundaboutItTitle label={label} unnecessary={unnecessary} resident={resident} />
+            <RoundaboutItTitle
+                label={label}
+                unnecessary={unnecessary}
+                resident={resident}
+                underage={underage}
+            />
             <RoundaboutItButton
                 partial={partial}
                 complete={complete}
                 unnecessary={unnecessary}
                 resident={resident}
+                underage={underage}
                 goToIteration={goToIteration}
                 iteration={index}
                 locked={locked}
@@ -50,6 +58,7 @@ export function Roundabout({ iterations, expressions, goToIteration, label, lock
         complete = new Array(iterations),
         partial = new Array(iterations),
         resident = new Array(iterations),
+        underage = new Array(iterations),
         label: iterationLabels = new Array(iterations),
         unnecessary = new Array(iterations),
     } = expressions;
@@ -64,6 +73,7 @@ export function Roundabout({ iterations, expressions, goToIteration, label, lock
                     complete={complete[i]}
                     partial={partial[i]}
                     unnecessary={unnecessary[i]}
+                    underage={underage[i]}
                     resident={resident[i]}
                     goToIteration={goToIteration}
                     locked={locked}

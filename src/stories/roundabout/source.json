@@ -127,7 +127,7 @@
                     "value": "not(isnull(COLOR)) or not(isnull(SEXE)) or not(isnull(SOMETHING))",
                     "type": "VTL"
                 },
-                "unnecessary": {
+                "underage": {
                     "value": "AGES < \"14\"",
                     "type": "VTL"
                 },
