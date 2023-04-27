@@ -15,6 +15,7 @@ type RoundaboutType = {
     complete: boolean;
     partial: boolean;
     unnecessary: boolean;
+    resident: boolean;
 };
 
 function RoundaboutIteration({
@@ -25,14 +26,16 @@ function RoundaboutIteration({
     unnecessary,
     goToIteration,
     locked,
+    resident,
 }: RoundaboutType) {
     return (
         <RoundaboutItContainer>
-            <RoundaboutItTitle label={label} />
+            <RoundaboutItTitle label={label} unnecessary={unnecessary} resident={resident} />
             <RoundaboutItButton
                 partial={partial}
                 complete={complete}
                 unnecessary={unnecessary}
+                resident={resident}
                 goToIteration={goToIteration}
                 iteration={index}
                 locked={locked}
@@ -46,6 +49,7 @@ export function Roundabout({ iterations, expressions, goToIteration, label, lock
     const {
         complete = new Array(iterations),
         partial = new Array(iterations),
+        resident = new Array(iterations),
         label: iterationLabels = new Array(iterations),
         unnecessary = new Array(iterations),
     } = expressions;
@@ -60,6 +64,7 @@ export function Roundabout({ iterations, expressions, goToIteration, label, lock
                     complete={complete[i]}
                     partial={partial[i]}
                     unnecessary={unnecessary[i]}
+                    resident={resident[i]}
                     goToIteration={goToIteration}
                     locked={locked}
                     iterations={iterations}

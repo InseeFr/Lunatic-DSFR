@@ -26,12 +26,14 @@ function isDisabled({
     status,
     locked,
     unnecessary,
+    resident,
 }: {
     status: string;
     locked: boolean;
     unnecessary: boolean;
+    resident: boolean;
 }) {
-    if (unnecessary || (status === "complete" && locked)) {
+    if (unnecessary || resident || (status === "complete" && locked)) {
         return true;
     }
 
@@ -60,6 +62,7 @@ const DisplayButton = ({
     label,
     custom,
     unnecessary,
+    resident,
 }: {
     status: string;
     locked: boolean;
@@ -67,15 +70,19 @@ const DisplayButton = ({
     label: string;
     custom: Record<string, unknown>;
     unnecessary: boolean;
+    resident: boolean;
 }) => {
     const Button = lunatic.Button;
+    if (unnecessary || resident) {
+        return null;
+    }
     if ((status !== "complete" && locked) || !locked) {
         return (
             <Button
                 className={classnames("roundabout-it-button")}
                 onClick={onClick}
                 custom={custom}
-                disabled={isDisabled({ status, locked, unnecessary })}
+                disabled={isDisabled({ status, locked, unnecessary, resident })}
                 priority={status === "complete" ? "secondary" : ""}
             >
                 {label}
@@ -93,6 +100,7 @@ export function RoundaboutItButton({
     locked,
     custom,
     unnecessary,
+    resident,
 }: {
     complete: boolean;
     partial: boolean;
@@ -102,6 +110,7 @@ export function RoundaboutItButton({
     locked: boolean;
     custom: Record<string, unknown>;
     unnecessary: boolean;
+    resident: boolean;
 }) {
     const status = getStatus(complete, partial);
     const label = getLabel(complete, partial);
@@ -113,8 +122,8 @@ export function RoundaboutItButton({
     );
 
     return (
-        <div className="fr-col-12 fr-col-md-1">
-            <div className="fr-grid-row">
+        <div className="fr-col-12 fr-col-md-2">
+            <div className="fr-grid-row fr-mb-2w">
                 <CompleteBadge status={status} locked={locked} />
                 <DisplayButton
                     status={status}
@@ -123,12 +132,9 @@ export function RoundaboutItButton({
                     custom={custom}
                     label={label}
                     unnecessary={unnecessary}
+                    resident={resident}
                 />
             </div>
         </div>
     );
 }
-
-RoundaboutItButton.defaultProps = {
-    locked: true,
-};

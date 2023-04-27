@@ -40,7 +40,7 @@
             },
             "components": [
                 {
-                    "id": "kmno1n7m",
+                    "id": "kmno1n7m1",
                     "componentType": "Input",
                     "mandatory": false,
                     "maxLength": 20,
@@ -55,7 +55,7 @@
                     "response": { "name": "PRENOMS" }
                 },
                 {
-                    "id": "kmno1n7m",
+                    "id": "kmno1n7m2",
                     "componentType": "Input",
                     "mandatory": false,
                     "maxLength": 20,
@@ -68,6 +68,45 @@
                         "type": "VTL"
                     },
                     "response": { "name": "NOMS" }
+                },
+                {
+                    "id": "kmno1n7m3",
+                    "componentType": "InputNumber",
+                    "mandatory": false,
+                    "maxLength": 20,
+                    "label": {
+                        "value": "\"Age\"))",
+                        "type": "VTL|MD"
+                    },
+                    "conditionFilter": {
+                        "value": "true",
+                        "type": "VTL"
+                    },
+                    "response": { "name": "AGES" }
+                },
+                {
+                    "id": "kmno1n7m4",
+                    "componentType": "Radio",
+                    "mandatory": false,
+                    "label": {
+                        "value": "\"Resident\"))",
+                        "type": "VTL|MD"
+                    },
+                    "conditionFilter": {
+                        "value": "true",
+                        "type": "VTL"
+                    },
+                    "options": [
+                        {
+                            "value": "1",
+                            "label": { "value": "\"Oui\"", "type": "VTL|MD" }
+                        },
+                        {
+                            "value": "2",
+                            "label": { "value": "\"Non\"", "type": "VTL|MD" }
+                        }
+                    ],
+                    "response": { "name": "RESIDENTS" }
                 }
             ]
         },
@@ -81,11 +120,19 @@
             "locked": true,
             "expressions": {
                 "complete": {
-                    "value": "not(isnull(AGE)) and not(isnull(SEXE)) and not(isnull(SOMETHING))",
+                    "value": "not(isnull(COLOR)) and not(isnull(SEXE)) and not(isnull(SOMETHING))",
                     "type": "VTL"
                 },
                 "partial": {
-                    "value": "not(isnull(AGE)) or not(isnull(SEXE)) or not(isnull(SOMETHING))",
+                    "value": "not(isnull(COLOR)) or not(isnull(SEXE)) or not(isnull(SOMETHING))",
+                    "type": "VTL"
+                },
+                "unnecessary": {
+                    "value": "AGES < \"14\"",
+                    "type": "VTL"
+                },
+                "resident": {
+                    "value": "RESIDENTS = \"2\"",
                     "type": "VTL"
                 },
                 "label": {
@@ -106,20 +153,18 @@
                 },
                 {
                     "id": "kmno1n7m",
-                    "componentType": "InputNumber",
+                    "componentType": "Input",
                     "maxLength": 3,
                     "page": "4.1",
-                    "min": 0,
-                    "max": 125,
                     "label": {
-                        "value": "\"Age\"))",
+                        "value": "\"colour?\"))",
                         "type": "VTL|MD"
                     },
                     "conditionFilter": {
                         "value": "true",
                         "type": "VTL"
                     },
-                    "response": { "name": "AGE" }
+                    "response": { "name": "COLOR" }
                 },
                 {
                     "id": "jsygk7m7",
@@ -219,7 +264,7 @@
         },
         {
             "variableType": "COLLECTED",
-            "name": "AGE",
+            "name": "COLOR",
             "values": {
                 "PREVIOUS": [null],
                 "COLLECTED": [null],
@@ -262,6 +307,28 @@
             }
         },
         {
+            "variableType": "COLLECTED",
+            "name": "AGES",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "RESIDENTS",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
             "variableType": "CALCULATED",
             "name": "PRENOMREF",
             "expression": { "value": "first_value(PRENOMS over())", "type": "VTL" },
@@ -272,7 +339,7 @@
     "resizing": {
         "NB_HAB": {
             "size": "NB_HAB",
-            "variables": ["PRENOMS", "AGE", "SEXE", "SOMETHING"]
+            "variables": ["PRENOMS", "COLOR", "SEXE", "SOMETHING"]
         }
     }
 }
