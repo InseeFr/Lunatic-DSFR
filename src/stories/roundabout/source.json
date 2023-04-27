@@ -53,6 +53,21 @@
                         "type": "VTL"
                     },
                     "response": { "name": "PRENOMS" }
+                },
+                {
+                    "id": "kmno1n7m",
+                    "componentType": "Input",
+                    "mandatory": false,
+                    "maxLength": 20,
+                    "label": {
+                        "value": "\"Nom de famille\"))",
+                        "type": "VTL|MD"
+                    },
+                    "conditionFilter": {
+                        "value": "true",
+                        "type": "VTL"
+                    },
+                    "response": { "name": "NOMS" }
                 }
             ]
         },
@@ -62,7 +77,7 @@
             "page": "4",
             "conditionFilter": { "value": "true", "type": "VTL" },
             "iterations": { "value": "NB_HAB", "type": "VTL" },
-            "label": { "value": "\"Un rond point\"", "type": "VTL" },
+            "label": { "value": "\"Les questionnaires individuels\"", "type": "VTL" },
             "locked": true,
             "expressions": {
                 "complete": {
@@ -74,7 +89,7 @@
                     "type": "VTL"
                 },
                 "label": {
-                    "value": "\"Série de question pour \" || PRENOMS",
+                    "value": "PRENOMS || \" \" || NOMS",
                     "type": "VTL"
                 }
             },
@@ -227,6 +242,17 @@
         {
             "variableType": "COLLECTED",
             "name": "PRENOMS",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "NOMS",
             "values": {
                 "PREVIOUS": [null],
                 "COLLECTED": [null],
