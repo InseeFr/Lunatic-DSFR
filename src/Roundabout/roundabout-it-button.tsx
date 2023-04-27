@@ -113,19 +113,17 @@ export function RoundaboutItButton({
     );
 
     return (
-        <div className="fr-col">
+        <div className="fr-col-12 fr-col-md-1">
             <div className="fr-grid-row">
                 <CompleteBadge status={status} locked={locked} />
-                <div className="fr-col-12">
-                    <DisplayButton
-                        status={status}
-                        locked={locked}
-                        onClick={onClick}
-                        custom={custom}
-                        label={label}
-                        unnecessary={unnecessary}
-                    />
-                </div>
+                <DisplayButton
+                    status={status}
+                    locked={locked}
+                    onClick={onClick}
+                    custom={custom}
+                    label={label}
+                    unnecessary={unnecessary}
+                />
             </div>
         </div>
     );
