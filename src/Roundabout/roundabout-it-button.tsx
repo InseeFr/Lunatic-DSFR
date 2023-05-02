@@ -28,16 +28,12 @@ function isDisabled({
     status,
     locked,
     unnecessary,
-    resident,
-    underage,
 }: {
     status: string;
     locked: boolean;
-    unnecessary: boolean;
-    resident: boolean;
-    underage: boolean;
+    unnecessary: string;
 }) {
-    if (unnecessary || resident || underage || (status === "complete" && locked)) {
+    if (unnecessary || (status === "complete" && locked)) {
         return true;
     }
 
@@ -49,7 +45,7 @@ function isDisabled({
 const CompleteBadge = ({ status, locked }: { status: string; locked: boolean }) => {
     if (status === "complete" && locked) {
         return (
-            <div className={classnames("fr-col-12", { "fr-mb-2w": !locked })}>
+            <div className={classnames({ "fr-mb-2w": !locked })}>
                 <p className="fr-badge fr-badge--success">Complété</p>
             </div>
         );
@@ -66,20 +62,16 @@ const DisplayButton = ({
     label,
     custom,
     unnecessary,
-    resident,
-    underage,
 }: {
     status: string;
     locked: boolean;
     onClick: React.MouseEventHandler<HTMLElement>;
     label: string;
     custom: Record<string, unknown>;
-    unnecessary: boolean;
-    resident: boolean;
-    underage: boolean;
+    unnecessary: string;
 }) => {
     const Button = lunatic.Button;
-    if (unnecessary || resident || underage) {
+    if (unnecessary) {
         return null;
     }
     if ((status !== "complete" && locked) || !locked) {
@@ -88,7 +80,7 @@ const DisplayButton = ({
                 className={classnames("roundabout-it-button")}
                 onClick={onClick}
                 custom={custom}
-                disabled={isDisabled({ status, locked, unnecessary, resident, underage })}
+                disabled={isDisabled({ status, locked, unnecessary })}
                 priority={status === "complete" ? "secondary" : ""}
             >
                 {label}
@@ -106,8 +98,6 @@ export function RoundaboutItButton({
     locked,
     custom,
     unnecessary,
-    resident,
-    underage,
 }: {
     complete: boolean;
     partial: boolean;
@@ -116,9 +106,7 @@ export function RoundaboutItButton({
     goToIteration: Function;
     locked: boolean;
     custom: Record<string, unknown>;
-    unnecessary: boolean;
-    resident: boolean;
-    underage: boolean;
+    unnecessary: string;
 }) {
     const status = getStatus(complete, partial);
     const label = getLabel(complete, partial);
@@ -129,15 +117,14 @@ export function RoundaboutItButton({
         [iteration, goToIteration],
     );
     const { css } = useStyles();
-
-    if (resident || underage) {
+    console.log(unnecessary ? "true" : false);
+    if (unnecessary) {
         return null;
     }
     return (
         <div className="fr-col-12 fr-col-md-6">
             <div
                 className={css({
-                    // border: "solid black 1px",
                     [fr.breakpoints.up("md")]: {
                         justifyContent: "flex-end",
                         display: "flex",
@@ -152,8 +139,6 @@ export function RoundaboutItButton({
                     custom={custom}
                     label={label}
                     unnecessary={unnecessary}
-                    resident={resident}
-                    underage={underage}
                 />
             </div>
         </div>
