@@ -1,6 +1,7 @@
 {
   "branches": [
     "main",
-    "feat-sequence-subsequence-components"
+    "feat-sequence-subsequence-components",
+    "fix/roundabout-style"
   ]
 }
