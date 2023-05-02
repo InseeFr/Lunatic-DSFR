@@ -1,4 +1,6 @@
 import React, { useCallback } from "react";
+import { useStyles } from "tss-react/dsfr";
+import { fr } from "@codegouvfr/react-dsfr";
 import classnames from "classnames";
 import * as lunatic from "@inseefr/lunatic";
 
@@ -126,10 +128,22 @@ export function RoundaboutItButton({
         },
         [iteration, goToIteration],
     );
+    const { css } = useStyles();
 
+    if (resident || underage) {
+        return null;
+    }
     return (
-        <div className="fr-col-12 fr-col-md-2">
-            <div className="fr-grid-row fr-mb-2w">
+        <div className="fr-col-12 fr-col-md-6">
+            <div
+                className={css({
+                    // border: "solid black 1px",
+                    [fr.breakpoints.up("md")]: {
+                        justifyContent: "flex-end",
+                        display: "flex",
+                    },
+                })}
+            >
                 <CompleteBadge status={status} locked={locked} />
                 <DisplayButton
                     status={status}
