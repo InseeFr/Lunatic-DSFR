@@ -1,6 +1,7 @@
 {
   "branches": [
     "main",
-    "fix/roundabout-style"
+    "fix/roundabout-style",
+    "feat/component-set"
   ]
 }
