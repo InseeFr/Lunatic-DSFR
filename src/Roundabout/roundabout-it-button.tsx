@@ -24,24 +24,14 @@ function getLabel(complete: boolean, partial: boolean) {
     return "Commencer";
 }
 
-function isDisabled({
-    status,
-    locked,
-    unnecessary,
-}: {
-    status: string;
-    locked: boolean;
-    unnecessary: string;
-}) {
-    if (unnecessary || (status === "complete" && locked)) {
+function isDisabled({ status, locked }: { status: string; locked: boolean }) {
+    if (status === "complete" && locked) {
         return true;
     }
-
     return false;
 }
 
 //  When a questionnaire has been started, it shows the "complété" badge
-
 const CompleteBadge = ({ status, locked }: { status: string; locked: boolean }) => {
     if (status === "complete" && locked) {
         return (
@@ -61,26 +51,22 @@ const DisplayButton = ({
     onClick,
     label,
     custom,
-    unnecessary,
 }: {
     status: string;
     locked: boolean;
     onClick: React.MouseEventHandler<HTMLElement>;
     label: string;
     custom: Record<string, unknown>;
-    unnecessary: string;
 }) => {
     const Button = lunatic.Button;
-    if (unnecessary) {
-        return null;
-    }
+
     if ((status !== "complete" && locked) || !locked) {
         return (
             <Button
                 className={classnames("roundabout-it-button")}
                 onClick={onClick}
                 custom={custom}
-                disabled={isDisabled({ status, locked, unnecessary })}
+                disabled={isDisabled({ status, locked })}
                 priority={status === "complete" ? "secondary" : ""}
             >
                 {label}
@@ -138,7 +124,6 @@ export function RoundaboutItButton({
                     onClick={onClick}
                     custom={custom}
                     label={label}
-                    unnecessary={unnecessary}
                 />
             </div>
         </div>
