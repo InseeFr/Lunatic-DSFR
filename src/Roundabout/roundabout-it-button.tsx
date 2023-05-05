@@ -117,7 +117,7 @@ export function RoundaboutItButton({
         [iteration, goToIteration],
     );
     const { css } = useStyles();
-    console.log(unnecessary ? "true" : false);
+
     if (unnecessary) {
         return null;
     }
