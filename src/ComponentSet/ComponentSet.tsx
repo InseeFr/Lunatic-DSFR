@@ -1,4 +1,5 @@
 import { PropsWithChildren } from "react";
+import classnames from "classnames";
 import Legend from "./html/legend";
 import { LunaticError } from "../utils/type/type";
 
@@ -27,7 +28,7 @@ export function ComponentSet({
     }
 
     return (
-        <fieldset className="lunatic-dsfr-component-set">
+        <fieldset className={classnames("lunatic-dsfr-component-set", "fr-fieldset")}>
             <Legend id={labelId} description={description} className={className}>
                 {legendText}
             </Legend>

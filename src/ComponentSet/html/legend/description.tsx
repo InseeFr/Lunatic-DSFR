@@ -8,7 +8,9 @@ type DescriptionType = {
 
 function OneDescription({ value, className }: DescriptionType) {
     if ((typeof value === "string" && value.length > 0) || React.isValidElement(value)) {
-        return <span className={classnames("label-description", className)}>{value}</span>;
+        return (
+            <span className={classnames("label-description", "fr-hint-text", className)}>{value}</span>
+        );
     }
     return null;
 }
