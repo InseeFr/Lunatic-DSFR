@@ -1,8 +1,14 @@
 import classnames from "classnames";
+import { PropsWithChildren } from "react";
 
-export function ComponentSetComponentContainer(props) {
-    const { children, className } = props;
-    console.log(className);
+type ComponentSetComponentContainerType = {
+    className?: string;
+};
+
+export function ComponentSetComponentContainer({
+    className,
+    children,
+}: PropsWithChildren<ComponentSetComponentContainerType>) {
     return (
         <div
             className={classnames("lunatic-component-set-component", "fr-fieldset__element", className)}
