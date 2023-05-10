@@ -11,7 +11,11 @@ export function ComponentSetComponentContainer({
 }: PropsWithChildren<ComponentSetComponentContainerType>) {
     return (
         <div
-            className={classnames("lunatic-component-set-component", "fr-fieldset__element", className)}
+            className={classnames(
+                "lunatic-dsfr-component-set-component",
+                "fr-fieldset__element",
+                className,
+            )}
         >
             {children}
         </div>
