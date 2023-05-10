@@ -1,7 +1,6 @@
 {
   "branches": [
     "main",
-    "fix/roundabout-style",
     "feat/component-set",
     "fix/datepicker-value"
   ]
