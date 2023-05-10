@@ -49,4 +49,4 @@ jspm_packages
 
 *.tgz
 
-/storybook-static/**
+storybook-static/

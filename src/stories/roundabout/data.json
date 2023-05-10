@@ -5,14 +5,35 @@
             "FORCED": null,
             "INPUTED": null,
             "PREVIOUS": null,
-            "COLLECTED": 2
+            "COLLECTED": 4
         },
         "PRENOMS": {
             "EDITED": [null],
             "FORCED": [null],
             "INPUTED": [null],
             "PREVIOUS": [null],
-            "COLLECTED": ["Fanny", "Ines"]
+            "COLLECTED": ["Pierre", "Louise", "Maxime", "Spongebob"]
+        },
+        "NOMS": {
+            "EDITED": [null],
+            "FORCED": [null],
+            "INPUTED": [null],
+            "PREVIOUS": [null],
+            "COLLECTED": ["Dupont", "Dupont", "Dupont", "Squarepants"]
+        },
+        "AGES": {
+            "EDITED": [null],
+            "FORCED": [null],
+            "INPUTED": [null],
+            "PREVIOUS": [null],
+            "COLLECTED": ["30", "35", "12", "99"]
+        },
+        "RESIDENTS": {
+            "EDITED": [null],
+            "FORCED": [null],
+            "INPUTED": [null],
+            "PREVIOUS": [null],
+            "COLLECTED": ["1", "1", "1", "2"]
         }
     }
 }
