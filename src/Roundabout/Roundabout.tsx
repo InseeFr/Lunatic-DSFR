@@ -14,7 +14,7 @@ type RoundaboutType = {
     index: number;
     complete: boolean;
     partial: boolean;
-    unnecessary: boolean;
+    unnecessary: string;
 };
 
 function RoundaboutIteration({
@@ -28,7 +28,7 @@ function RoundaboutIteration({
 }: RoundaboutType) {
     return (
         <RoundaboutItContainer>
-            <RoundaboutItTitle label={label} />
+            <RoundaboutItTitle label={label} unnecessary={unnecessary} />
             <RoundaboutItButton
                 partial={partial}
                 complete={complete}
