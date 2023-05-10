@@ -127,12 +127,8 @@
                     "value": "not(isnull(COLOR)) or not(isnull(SEXE)) or not(isnull(SOMETHING))",
                     "type": "VTL"
                 },
-                "underage": {
-                    "value": "AGES < \"14\"",
-                    "type": "VTL"
-                },
-                "resident": {
-                    "value": "RESIDENTS = \"2\"",
+                "unnecessary": {
+                    "value": "if (AGES < \"14\") or (RESIDENTS = \"2\") then (PRENOMS || \" \" || NOMS ||if AGES < \"14\" then \" n’a pas à compléter de questionnaire individuel car il est âgé de moins de 14 ans.\" else \" n’a pas à compléter de questionnaire individuel car il n’est pas catégoriser comme un résident permanent de ce logement.\") else \"\"",
                     "type": "VTL"
                 },
                 "label": {

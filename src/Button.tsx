@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import classnames from "classnames";
 import { isElement } from "./utils/is-element";
 import { Button as ButtonDSFR } from "@codegouvfr/react-dsfr/Button";
+import { ButtonProps } from "@codegouvfr/react-dsfr/Button";
 
 export function Button({
     children,
@@ -13,7 +14,7 @@ export function Button({
     children: string | React.ReactNode;
     disabled: boolean;
     className: string;
-    priority?: "primary" | "secondary" | "tertiary" | "tertiary no outline" | undefined;
+    priority: ButtonProps.Common["priority"];
     onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }) {
     const handleClick = useCallback(

@@ -3,6 +3,9 @@ import { useStyles } from "tss-react/dsfr";
 import { fr } from "@codegouvfr/react-dsfr";
 import classnames from "classnames";
 import * as lunatic from "@inseefr/lunatic";
+import { BUTTON_PRIORITIES } from "../utils/constants/buttonConstants";
+
+const { PRIMARY, SECONDARY } = BUTTON_PRIORITIES;
 
 function getStatus(complete: boolean, partial: boolean) {
     if (complete) {
@@ -24,7 +27,7 @@ function getLabel(complete: boolean, partial: boolean) {
     return "Commencer";
 }
 
-function isDisabled({ status, locked }: { status: string; locked: boolean }) {
+function isCompleteAndLocked({ status, locked }: { status: string; locked: boolean }) {
     if (status === "complete" && locked) {
         return true;
     }
@@ -66,8 +69,8 @@ const DisplayButton = ({
                 className={classnames("roundabout-it-button")}
                 onClick={onClick}
                 custom={custom}
-                disabled={isDisabled({ status, locked })}
-                priority={status === "complete" ? "secondary" : ""}
+                disabled={isCompleteAndLocked({ status, locked })}
+                priority={status === "complete" ? SECONDARY : PRIMARY}
             >
                 {label}
             </Button>
