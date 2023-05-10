@@ -2,6 +2,9 @@
 import Button from "../../Button";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
+import { BUTTON_PRIORITIES } from "../../utils/constants/buttonConstants";
+
+const { PRIMARY, SECONDARY, TERTIARY, TERTIARY_NO_OUTLINE } = BUTTON_PRIORITIES;
 
 const stories = {
     title: "Components/Button",
@@ -36,19 +39,19 @@ Default.args = {};
 
 export const Primary = Template.bind({});
 
-Primary.args = { priority: "primary" };
+Primary.args = { priority: PRIMARY };
 
 export const Secondary = Template.bind({});
 
-Secondary.args = { priority: "secondary" };
+Secondary.args = { priority: SECONDARY };
 
 export const Tertiary = Template.bind({});
 
-Tertiary.args = { priority: "tertiary" };
+Tertiary.args = { priority: TERTIARY };
 
 export const TertiaryNoOutline = Template.bind({});
 
-TertiaryNoOutline.args = { priority: "tertiary no outline" };
+TertiaryNoOutline.args = { priority: TERTIARY_NO_OUTLINE };
 
 export const Disabled = Template.bind({});
 

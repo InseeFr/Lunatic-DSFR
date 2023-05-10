@@ -6,3 +6,4 @@ export * from "./CheckboxGroup";
 export * from "./Radio";
 export * from "./Datepicker";
 export * from "./Roundabout";
+export * from "./ComponentSet";
