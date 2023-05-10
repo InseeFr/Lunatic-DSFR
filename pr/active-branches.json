@@ -1,7 +1,6 @@
 {
   "branches": [
     "main",
-    "feat/component-set",
     "fix/datepicker-value"
   ]
 }
