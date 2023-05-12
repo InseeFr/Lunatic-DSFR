@@ -8,7 +8,7 @@ type SubsequenceType = {
 const afterPostion = "AFTER_QUESTION_TEXT";
 export function Subsequence({ label, declarations }: SubsequenceType) {
     return (
-        <div>
+        <div className="subsequence-lunatic-dsfr">
             <h2 className={fr.cx("fr-h4", "fr-col-12")}>{label}</h2>
             <Declarations type={afterPostion} declarations={declarations} />
         </div>
