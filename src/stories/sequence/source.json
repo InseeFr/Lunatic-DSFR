@@ -1,0 +1,55 @@
+{
+    "cleaning": {},
+    "components": [
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": "\"Liste des habitants\"",
+                "type": "VTL"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "1",
+            "declarations": [
+                {
+                    "declarationType": "HELP",
+                    "id": "jruq5os5-kqhuxnyt",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": "\"Première ligne de déclaration\""
+                    },
+                    "position": "AFTER_QUESTION_TEXT"
+                },
+                {
+                    "declarationType": "INSTRUCTION",
+                    "id": "jruq5os5-kwgh1n9c",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": "\"Il faut manger pour vivre   \n  sur 2 lignes\""
+                    },
+                    "position": "AFTER_QUESTION_TEXT"
+                }
+            ]
+        },
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": "\"Bye!\"",
+                "type": "VTL"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "2"
+        }
+    ],
+    "pagination": "question",
+    "resizing": {},
+    "label": { "type": "VTL", "value": "\"Example Sequence\"" },
+    "lunaticModelVersion": "2.2.13",
+    "modele": "SEQUENCE",
+    "enoCoreVersion": "2.3.10",
+    "generatingDate": "05-09-2022 14:37:43",
+    "missing": false,
+    "id": "l7ovbqou",
+    "maxPage": "2"
+}
