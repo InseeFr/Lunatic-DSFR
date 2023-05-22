@@ -6,7 +6,7 @@
             "componentType": "Sequence",
             "label": {
                 "value": "\"Description des individus de votre logement\"",
-                "type": "VTL|MD"
+                "type": "VTL"
             },
             "conditionFilter": { "value": "true", "type": "VTL" },
             "page": "1"
@@ -143,7 +143,7 @@
                     "page": "4.1",
                     "label": {
                         "value": "\"Première page de questions pour \" || PRENOMS",
-                        "type": "VTL|MD"
+                        "type": "VTL"
                     },
                     "conditionFilter": { "value": "true", "type": "VTL" }
                 },
@@ -168,7 +168,7 @@
                     "page": "4.2",
                     "label": {
                         "value": "\"Deuxième page de questions pour \"|| PRENOMS",
-                        "type": "VTL|MD"
+                        "type": "VTL"
                     },
                     "conditionFilter": { "value": "true", "type": "VTL" }
                 },
@@ -202,7 +202,7 @@
                     "page": "4.3",
                     "label": {
                         "value": "\"Troisième page de questions \" || PRENOMS",
-                        "type": "VTL|MD"
+                        "type": "VTL"
                     },
                     "conditionFilter": { "value": "true", "type": "VTL" }
                 },
