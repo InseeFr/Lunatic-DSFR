@@ -18,6 +18,18 @@
             },
             "components": [
                 {
+                    "id": "kkxugktl-title",
+                    "componentType": "Sequence",
+                    "conditionFilter": {
+                        "value": "true",
+                        "type": "VTL"
+                    },
+                    "questionInformation": {
+                        "value": "\"Question Information\"",
+                        "type": "VTL|MD"
+                    }
+                },
+                {
                     "id": "prenom",
                     "componentType": "Input",
                     "mandatory": false,
