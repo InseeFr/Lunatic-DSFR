@@ -6,7 +6,7 @@
             "componentType": "Sequence",
             "label": {
                 "value": "\"Description des individus de votre logement\"",
-                "type": "VTL|MD"
+                "type": "VTL"
             },
             "conditionFilter": { "value": "true", "type": "VTL" },
             "page": "1"
