@@ -5,7 +5,9 @@ type SubsequenceType = {
     label: string;
     declarations: Array<DeclarationType>;
 };
+
 const detachable = "DETACHABLE";
+
 export function Subsequence({ label, declarations }: SubsequenceType) {
     return (
         <div className="subsequence-lunatic-dsfr">

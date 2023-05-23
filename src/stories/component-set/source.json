@@ -12,6 +12,10 @@
                 "value": "\"Who are you?\"",
                 "type": "VTL"
             },
+            "description": {
+                "value": "\"This is a description that tells us lots of interesting information!!\"",
+                "type": "VTL"
+            },
             "components": [
                 {
                     "id": "prenom",
