@@ -5,12 +5,14 @@ type SubsequenceType = {
     label: string;
     declarations: Array<DeclarationType>;
 };
-const afterPostion = "AFTER_QUESTION_TEXT";
+
+const detachable = "DETACHABLE";
+
 export function Subsequence({ label, declarations }: SubsequenceType) {
     return (
         <div className="subsequence-lunatic-dsfr">
             <h2 className={fr.cx("fr-h4", "fr-col-12")}>{label}</h2>
-            <Declarations type={afterPostion} declarations={declarations} />
+            <Declarations type={detachable} declarations={declarations} />
         </div>
     );
 }

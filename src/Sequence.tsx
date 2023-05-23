@@ -8,7 +8,7 @@ type SequenceType = {
     declarations: Array<DeclarationType>;
 };
 
-const afterPostion = "AFTER_QUESTION_TEXT";
+const detachable = "DETACHABLE";
 
 export function Sequence({ label, declarations }: SequenceType) {
     const theme = useColors();
@@ -18,7 +18,7 @@ export function Sequence({ label, declarations }: SequenceType) {
             style={{ backgroundColor: theme.decisions.background.alt.grey.default }}
         >
             <h2 className={fr.cx("fr-h3", "fr-col-12")}>{label}</h2>
-            <Declarations type={afterPostion} declarations={declarations} />
+            <Declarations type={detachable} declarations={declarations} />
         </div>
     );
 }
