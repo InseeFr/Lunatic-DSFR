@@ -10,7 +10,6 @@ type SequenceType = {
 
 const detachable = "DETACHABLE";
 
-
 export function Sequence({ label, declarations }: SequenceType) {
     const theme = useColors();
     return (
