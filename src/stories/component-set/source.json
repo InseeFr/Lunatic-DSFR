@@ -26,8 +26,7 @@
                 {
                     "componentType": "QuestionInformation",
                     "label": { "value": "\"Question Information\"", "type": "VTL|MD" },
-                    "description": { "value": "\"Question Information description\"", "type": "VTL|MD" },
-                    "page": "1"
+                    "description": { "value": "\"Question Information description\"", "type": "VTL|MD" }
                 },
                 {
                     "id": "prenom",
