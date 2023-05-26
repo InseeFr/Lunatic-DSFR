@@ -1,6 +1,5 @@
 {
   "branches": [
-    "main",
-    "fix/sequence-with-declaration"
+    "main"
   ]
 }
