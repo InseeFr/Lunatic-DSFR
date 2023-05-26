@@ -18,7 +18,7 @@
                         "type": "VTL|MD",
                         "value": "\"Première ligne de déclaration\""
                     },
-                    "position": "AFTER_QUESTION_TEXT"
+                    "position": "DETACHABLE"
                 },
                 {
                     "declarationType": "INSTRUCTION",
@@ -27,7 +27,7 @@
                         "type": "VTL|MD",
                         "value": "\"Il faut manger pour vivre   \n  sur 2 lignes\""
                     },
-                    "position": "AFTER_QUESTION_TEXT"
+                    "position": "DETACHABLE"
                 }
             ]
         },
