@@ -2,6 +2,12 @@
     "maxPage": "5",
     "components": [
         {
+            "componentType": "QuestionContext",
+            "label": { "value": "\"Question Context\"", "type": "VTL|MD" },
+            "description": { "value": "\"Question Context description\"", "type": "VTL|MD" },
+            "page": "1"
+        },
+        {
             "id": "component-set",
             "componentType": "ComponentSet",
             "page": "1",
@@ -18,16 +24,10 @@
             },
             "components": [
                 {
-                    "id": "kkxugktl-title",
-                    "componentType": "Sequence",
-                    "conditionFilter": {
-                        "value": "true",
-                        "type": "VTL"
-                    },
-                    "questionInformation": {
-                        "value": "\"Question Information\"",
-                        "type": "VTL|MD"
-                    }
+                    "componentType": "QuestionInformation",
+                    "label": { "value": "\"Question Information\"", "type": "VTL|MD" },
+                    "description": { "value": "\"Question Information description\"", "type": "VTL|MD" },
+                    "page": "1"
                 },
                 {
                     "id": "prenom",
