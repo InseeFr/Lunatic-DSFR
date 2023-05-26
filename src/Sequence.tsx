@@ -1,24 +1,43 @@
 import { fr } from "@codegouvfr/react-dsfr";
 import { useColors } from "@codegouvfr/react-dsfr/useColors";
-import { Declarations } from "@inseefr/lunatic";
 import { DeclarationType } from "./utils/type/type-source";
 import classnames from "classnames";
+
 type SequenceType = {
     label: string;
-    declarations: Array<DeclarationType>;
+    description?: Array<DeclarationType>;
 };
 
-const detachable = "DETACHABLE";
+function Description({ description }: { description?: DeclarationType[] }) {
+    if (description) {
+        return (
+            <>
+                {description.map(({ label, id: idD }) => {
+                    if (typeof label === "string") {
+                        return (
+                            <p className="fr-mb-0" key={idD}>
+                                {label}
+                            </p>
+                        );
+                    }
+                    return <>{label}</>;
+                })}
+            </>
+        );
+    }
+    return null;
+}
 
-export function Sequence({ label, declarations }: SequenceType) {
+export function Sequence({ label, description }: SequenceType) {
     const theme = useColors();
+
     return (
         <div
             className={classnames("sequence-lunatic-dsfr", fr.cx("fr-grid-row", "fr-p-4w"))}
             style={{ backgroundColor: theme.decisions.background.alt.grey.default }}
         >
             <h2 className={fr.cx("fr-h3", "fr-col-12")}>{label}</h2>
-            <Declarations type={detachable} declarations={declarations} />
+            <Description description={description} />
         </div>
     );
 }
