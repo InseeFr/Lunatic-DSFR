@@ -7,5 +7,6 @@ export * from "./Radio";
 export * from "./Datepicker";
 export * from "./Roundabout";
 export * from "./ComponentSet";
+export * from "./Questions";
 export * from "./Sequence";
 export * from "./Subsequence";

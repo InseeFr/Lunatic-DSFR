@@ -2,6 +2,12 @@
     "maxPage": "5",
     "components": [
         {
+            "componentType": "QuestionContext",
+            "label": { "value": "\"Question Context\"", "type": "VTL|MD" },
+            "description": { "value": "\"Question Context description\"", "type": "VTL|MD" },
+            "page": "1"
+        },
+        {
             "id": "component-set",
             "componentType": "ComponentSet",
             "page": "1",
@@ -17,6 +23,11 @@
                 "type": "VTL"
             },
             "components": [
+                {
+                    "componentType": "QuestionInformation",
+                    "label": { "value": "\"Question Information\"", "type": "VTL|MD" },
+                    "description": { "value": "\"Question Information description\"", "type": "VTL|MD" }
+                },
                 {
                     "id": "prenom",
                     "componentType": "Input",
