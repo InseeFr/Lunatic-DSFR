@@ -5,6 +5,9 @@ export * from "./InputNumber";
 export * from "./CheckboxGroup";
 export * from "./Radio";
 export * from "./Datepicker";
-
 export * from "./Suggester";
-export * as Roundabout from "./Roundabout";
+export * from "./Roundabout";
+export * from "./ComponentSet";
+export * from "./Questions";
+export * from "./Sequence";
+export * from "./Subsequence";

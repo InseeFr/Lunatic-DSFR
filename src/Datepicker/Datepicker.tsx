@@ -17,7 +17,7 @@ type DatepickerType = {
 };
 
 function getDateValues(value: string) {
-    if (value !== null && value[0] !== null) {
+    if (value && value !== null && value[0] !== null) {
         const [year, month, day] = value.split("-");
         return {
             day: day,
@@ -71,7 +71,7 @@ export function Datepicker({
         year: getDateValues(value).year,
     });
     useEffect(() => {
-        if (value !== null && value !== "--") {
+        if (value && value !== null && value !== "--") {
             setDateValues(getDateValues(value));
         }
     }, [value]);

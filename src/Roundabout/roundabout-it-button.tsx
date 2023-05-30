@@ -1,6 +1,11 @@
 import React, { useCallback } from "react";
+import { useStyles } from "tss-react/dsfr";
+import { fr } from "@codegouvfr/react-dsfr";
 import classnames from "classnames";
 import * as lunatic from "@inseefr/lunatic";
+import { BUTTON_PRIORITIES } from "../utils/constants/buttonConstants";
+
+const { PRIMARY, SECONDARY } = BUTTON_PRIORITIES;
 
 function getStatus(complete: boolean, partial: boolean) {
     if (complete) {
@@ -22,28 +27,18 @@ function getLabel(complete: boolean, partial: boolean) {
     return "Commencer";
 }
 
-function isDisabled({
-    status,
-    locked,
-    unnecessary,
-}: {
-    status: string;
-    locked: boolean;
-    unnecessary: boolean;
-}) {
-    if (unnecessary || (status === "complete" && locked)) {
+function isCompleteAndLocked({ status, locked }: { status: string; locked: boolean }) {
+    if (status === "complete" && locked) {
         return true;
     }
-
     return false;
 }
 
 //  When a questionnaire has been started, it shows the "complété" badge
-
 const CompleteBadge = ({ status, locked }: { status: string; locked: boolean }) => {
     if (status === "complete" && locked) {
         return (
-            <div className={classnames("fr-col-12", { "fr-mb-2w": !locked })}>
+            <div className={classnames({ "fr-mb-2w": !locked })}>
                 <p className="fr-badge fr-badge--success">Complété</p>
             </div>
         );
@@ -59,24 +54,23 @@ const DisplayButton = ({
     onClick,
     label,
     custom,
-    unnecessary,
 }: {
     status: string;
     locked: boolean;
     onClick: React.MouseEventHandler<HTMLElement>;
     label: string;
     custom: Record<string, unknown>;
-    unnecessary: boolean;
 }) => {
     const Button = lunatic.Button;
+
     if ((status !== "complete" && locked) || !locked) {
         return (
             <Button
                 className={classnames("roundabout-it-button")}
                 onClick={onClick}
                 custom={custom}
-                disabled={isDisabled({ status, locked, unnecessary })}
-                priority={status === "complete" ? "secondary" : ""}
+                disabled={isCompleteAndLocked({ status, locked })}
+                priority={status === "complete" ? SECONDARY : PRIMARY}
             >
                 {label}
             </Button>
@@ -101,7 +95,7 @@ export function RoundaboutItButton({
     goToIteration: Function;
     locked: boolean;
     custom: Record<string, unknown>;
-    unnecessary: boolean;
+    unnecessary: string;
 }) {
     const status = getStatus(complete, partial);
     const label = getLabel(complete, partial);
@@ -111,26 +105,30 @@ export function RoundaboutItButton({
         },
         [iteration, goToIteration],
     );
+    const { css } = useStyles();
 
+    if (unnecessary) {
+        return null;
+    }
     return (
-        <div className="fr-col">
-            <div className="fr-grid-row">
+        <div className="fr-col-12 fr-col-md-6">
+            <div
+                className={css({
+                    [fr.breakpoints.up("md")]: {
+                        justifyContent: "flex-end",
+                        display: "flex",
+                    },
+                })}
+            >
                 <CompleteBadge status={status} locked={locked} />
-                <div className="fr-col-12">
-                    <DisplayButton
-                        status={status}
-                        locked={locked}
-                        onClick={onClick}
-                        custom={custom}
-                        label={label}
-                        unnecessary={unnecessary}
-                    />
-                </div>
+                <DisplayButton
+                    status={status}
+                    locked={locked}
+                    onClick={onClick}
+                    custom={custom}
+                    label={label}
+                />
             </div>
         </div>
     );
 }
-
-RoundaboutItButton.defaultProps = {
-    locked: true,
-};
