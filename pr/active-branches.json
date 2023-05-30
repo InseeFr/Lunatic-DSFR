@@ -1,5 +1,6 @@
 {
   "branches": [
-    "main"
+    "main",
+    "fix/input-number"
   ]
 }
