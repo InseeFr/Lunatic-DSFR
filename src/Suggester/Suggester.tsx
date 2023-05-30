@@ -41,9 +41,15 @@ export function Suggester(props: SuggesterProps) {
     const [activeId, setActiveId] = useState<unknown>(undefined);
     const [suggestions, setSuggestions] = useState<Array<ReferentielEntity>>([]);
 
-    function onInputChange(_: unknown, newValue: string | null) {
-        setValue(newValue ?? "");
-    }
+    const onInputChange = useCallback(
+        (_: unknown, newValue: string | null) => {
+            setValue(newValue ?? "");
+            if (newValue?.length) {
+                onSelect(newValue);
+            }
+        },
+        [onSelect],
+    );
 
     const handleChange = useCallback(
         function (_: SyntheticEvent<Element>, value: string | ReferentielEntity | null) {
