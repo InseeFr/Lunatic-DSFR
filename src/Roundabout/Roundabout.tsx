@@ -3,7 +3,6 @@ import { RoundaboutContainer } from "./roundabout-container";
 import { RoundaboutItContainer } from "./roundabout-it-container";
 import { RoundaboutItButton } from "./roundabout-it-button";
 import { RoundaboutItTitle } from "./roundabout-it-title";
-import * as custom from "..";
 
 type RoundaboutType = {
     iterations: number;
@@ -14,7 +13,7 @@ type RoundaboutType = {
     index: number;
     complete: boolean;
     partial: boolean;
-    unnecessary: string;
+    unnecessary?: string | boolean;
 };
 
 function RoundaboutIteration({
@@ -36,7 +35,6 @@ function RoundaboutIteration({
                 goToIteration={goToIteration}
                 iteration={index}
                 locked={locked}
-                custom={custom}
             />
         </RoundaboutItContainer>
     );

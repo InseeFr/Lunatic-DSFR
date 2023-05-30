@@ -2,12 +2,12 @@ import React, { useCallback } from "react";
 import { useStyles } from "tss-react/dsfr";
 import { fr } from "@codegouvfr/react-dsfr";
 import classnames from "classnames";
-import * as lunatic from "@inseefr/lunatic";
+import { Button } from "../Button";
 import { BUTTON_PRIORITIES } from "../utils/constants/buttonConstants";
 
 const { PRIMARY, SECONDARY } = BUTTON_PRIORITIES;
 
-function getStatus(complete: boolean, partial: boolean) {
+function getStatus(complete?: boolean, partial?: boolean) {
     if (complete) {
         return "complete";
     }
@@ -17,7 +17,7 @@ function getStatus(complete: boolean, partial: boolean) {
     return "unstarted";
 }
 
-function getLabel(complete: boolean, partial: boolean) {
+function getLabel(complete?: boolean, partial?: boolean) {
     if (complete) {
         return "Modifier";
     }
@@ -27,7 +27,7 @@ function getLabel(complete: boolean, partial: boolean) {
     return "Commencer";
 }
 
-function isCompleteAndLocked({ status, locked }: { status: string; locked: boolean }) {
+function isCompleteAndLocked({ status, locked }: { status: string; locked?: boolean }) {
     if (status === "complete" && locked) {
         return true;
     }
@@ -35,7 +35,7 @@ function isCompleteAndLocked({ status, locked }: { status: string; locked: boole
 }
 
 //  When a questionnaire has been started, it shows the "complété" badge
-const CompleteBadge = ({ status, locked }: { status: string; locked: boolean }) => {
+const CompleteBadge = ({ status, locked }: { status: string; locked?: boolean }) => {
     if (status === "complete" && locked) {
         return (
             <div className={classnames({ "fr-mb-2w": !locked })}>
@@ -53,22 +53,17 @@ const DisplayButton = ({
     locked,
     onClick,
     label,
-    custom,
 }: {
     status: string;
-    locked: boolean;
+    locked?: boolean;
     onClick: React.MouseEventHandler<HTMLElement>;
     label: string;
-    custom: Record<string, unknown>;
 }) => {
-    const Button = lunatic.Button;
-
     if ((status !== "complete" && locked) || !locked) {
         return (
             <Button
-                className={classnames("roundabout-it-button")}
+                className={classnames("lunatic-dsfr-roundabout-it-button", "roundabout-it-button")}
                 onClick={onClick}
-                custom={custom}
                 disabled={isCompleteAndLocked({ status, locked })}
                 priority={status === "complete" ? SECONDARY : PRIMARY}
             >
@@ -79,24 +74,23 @@ const DisplayButton = ({
     return null;
 };
 
+type Props = {
+    complete?: boolean;
+    partial?: boolean;
+    iteration: number;
+    unnecessary?: string | boolean;
+    goToIteration: (n: number) => void;
+    locked?: boolean;
+};
+
 export function RoundaboutItButton({
     complete,
     partial,
     iteration,
     goToIteration,
     locked,
-    custom,
     unnecessary,
-}: {
-    complete: boolean;
-    partial: boolean;
-    iteration: number;
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    goToIteration: Function;
-    locked: boolean;
-    custom: Record<string, unknown>;
-    unnecessary: string;
-}) {
+}: Props) {
     const status = getStatus(complete, partial);
     const label = getLabel(complete, partial);
     const onClick = useCallback(
@@ -121,13 +115,7 @@ export function RoundaboutItButton({
                 })}
             >
                 <CompleteBadge status={status} locked={locked} />
-                <DisplayButton
-                    status={status}
-                    locked={locked}
-                    onClick={onClick}
-                    custom={custom}
-                    label={label}
-                />
+                <DisplayButton status={status} locked={locked} onClick={onClick} label={label} />
             </div>
         </div>
     );
