@@ -2,6 +2,7 @@ import { fr } from "@codegouvfr/react-dsfr";
 import { useColors } from "@codegouvfr/react-dsfr/useColors";
 import { DeclarationType } from "./utils/type/type-source";
 import classnames from "classnames";
+import React from "react";
 
 type SequenceType = {
     label: string;
@@ -20,7 +21,11 @@ function Description({ description }: { description?: DeclarationType[] }) {
                             </p>
                         );
                     }
-                    return <>{label}</>;
+                    return (
+                        <React.Fragment key={idD}>
+                            <>{label}</>
+                        </React.Fragment>
+                    );
                 })}
             </>
         );
