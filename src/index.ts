@@ -5,6 +5,7 @@ export * from "./InputNumber";
 export * from "./CheckboxGroup";
 export * from "./Radio";
 export * from "./Datepicker";
+export * from "./Suggester";
 export * from "./Roundabout";
 export * from "./ComponentSet";
 export * from "./Questions";
