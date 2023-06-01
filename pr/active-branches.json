@@ -1,7 +1,6 @@
 {
   "branches": [
     "main",
-    "fix/roundabout-it-button-style",
-    "develop"
+    "fix/roundabout-it-button-style"
   ]
 }
