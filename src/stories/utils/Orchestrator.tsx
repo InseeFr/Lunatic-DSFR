@@ -28,6 +28,7 @@ export interface OrchestratorProps {
     // eslint-disable-next-line @typescript-eslint/ban-types
     custom?: object;
     filterDescription: boolean;
+    getReferentiel?: (name: string) => Promise<Record<string, unknown>>;
 }
 
 function getStoreInfoRequired() {
@@ -101,6 +102,7 @@ const Orchestrator: FC<OrchestratorProps> = ({
     preferences,
     custom,
     filterDescription = true,
+    getReferentiel,
     ...rest
 }) => {
     const { maxPage } = source;
@@ -127,6 +129,7 @@ const Orchestrator: FC<OrchestratorProps> = ({
         suggesterFetcher,
         management,
         activeControls,
+        getReferentiel,
         custom,
     });
 
