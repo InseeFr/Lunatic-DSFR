@@ -1,8 +1,8 @@
+import { ReactNode } from "react";
 import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Checkbox as CheckboxDSFR } from "@codegouvfr/react-dsfr/Checkbox";
 import { LunaticError } from "./utils/type/type";
-import { ReactNode, useState } from "react";
 
 type CheckboxGroupOption = {
     label: ReactNode;
@@ -23,25 +23,34 @@ type Props = {
     className?: string;
 };
 
-const [state, setState] = useState<"error" | "success" | "default" | undefined>(undefined);
-const [stateRelatedMessage, setStateRelatedMessage] = useState<null | string>(null);
-
-export function CheckboxGroup({ label, description, id, disabled, className, options, errors }: Props) {
-    if (errors) {
-        setState(getState(errors, id));
-        console.log(getStateRelatedMessage(errors, id));
-        setStateRelatedMessage("toto");
+function getOptions(options: Array<CheckboxGroupOption>) {
+    if (options) {
+        return options.map(function (option) {
+            const { label, description, name, onClick, checked } = option;
+            return {
+                label,
+                hintText: description,
+                nativeInputProps: {
+                    name,
+                    checked,
+                    onChange: () => onClick(!checked),
+                },
+            };
+        });
     }
-    console.log(options);
+    return [];
+}
+
+export function CheckboxGroup({ label, description, id, disabled, className, errors, options }: Props) {
     return (
         <CheckboxDSFR
             className={classnames("dropdown-lunatic-dsfr", className, id)}
             disabled={disabled}
             legend={label}
             hintText={description}
-            options={[]}
-            state={state}
-            stateRelatedMessage={stateRelatedMessage}
+            options={getOptions(options)}
+            state={errors ? getState(errors, id) : undefined}
+            stateRelatedMessage={errors ? getStateRelatedMessage(errors, id) : undefined}
         />
     );
 }
