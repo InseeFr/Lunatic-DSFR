@@ -2,6 +2,7 @@
   "branches": [
     "main",
     "fix/roundabout-it-button-style",
-    "fix/checkbox-group"
+    "fix/checkbox-group",
+    "fix/datepicker"
   ]
 }
