@@ -24,9 +24,9 @@ function getDateValues(value: string) {
     if (value && value !== null && value[0] !== null) {
         const [year, month, day] = value.split("-");
         return {
-            day: day,
-            month: month,
-            year: year,
+            day: day === "NaN" ? "00" : day,
+            month: month === "NaN" ? "00" : month,
+            year: year === "NaN" ? "00" : year,
         };
     }
     return {
