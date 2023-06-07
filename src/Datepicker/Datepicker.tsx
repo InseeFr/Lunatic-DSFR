@@ -16,6 +16,10 @@ type DatepickerType = {
     description: string;
 };
 
+function checkValue(value: string) {
+    return value && value !== "0000-00-00" ? value : "0000-00-00";
+}
+
 function getDateValues(value: string) {
     if (value && value !== null && value[0] !== null) {
         const [year, month, day] = value.split("-");
@@ -26,9 +30,9 @@ function getDateValues(value: string) {
         };
     }
     return {
-        day: "",
-        month: "",
-        year: "",
+        day: "00",
+        month: "00",
+        year: "0000",
     };
 }
 
@@ -58,7 +62,7 @@ function displayDescription(description: string) {
 
 export function Datepicker({
     disabled,
-    value = "",
+    value = "0000-00-00",
     onChange,
     id,
     label,
@@ -71,9 +75,7 @@ export function Datepicker({
         year: getDateValues(value).year,
     });
     useEffect(() => {
-        if (value && value !== null && value !== "--") {
-            setDateValues(getDateValues(value));
-        }
+        setDateValues(getDateValues(checkValue(value)));
     }, [value]);
     const state = getState(errors, id);
     const stateRelatedMessage = getStateRelatedMessage(errors, id);

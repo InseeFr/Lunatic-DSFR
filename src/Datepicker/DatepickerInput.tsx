@@ -15,6 +15,12 @@ export function DatepickerInput({ dateValues, disabled, id, onChange, state }: D
     const [day, setDay] = useState<string>(dateValues.day);
 
     useEffect(() => {
+        setYear(dateValues.year);
+        setMonth(dateValues.month);
+        setDay(dateValues.day);
+    }, [dateValues]);
+
+    useEffect(() => {
         const newValue = `${year}-${month}-${day}`;
         onChange(newValue);
     }, [year, month, day]);
@@ -29,7 +35,7 @@ export function DatepickerInput({ dateValues, disabled, id, onChange, state }: D
                     className={state ? `fr-input-group--${state}` : ""}
                     nativeInputProps={{
                         id: `${id}-day`,
-                        value: dateValues.day,
+                        value: dateValues.day == "00" ? "" : dateValues.day,
                         onChange: e => {
                             setDay(e.target.value);
                         },
@@ -44,7 +50,7 @@ export function DatepickerInput({ dateValues, disabled, id, onChange, state }: D
                     className={state ? `fr-input-group--${state}` : ""}
                     nativeInputProps={{
                         id: `${id}-month`,
-                        value: dateValues.month,
+                        value: dateValues.month == "00" ? "" : dateValues.month,
                         onChange: e => {
                             setMonth(e.target.value);
                         },
@@ -59,7 +65,7 @@ export function DatepickerInput({ dateValues, disabled, id, onChange, state }: D
                     className={state ? `fr-input-group--${state}` : ""}
                     nativeInputProps={{
                         id: `${id}-year`,
-                        value: dateValues.year,
+                        value: dateValues.year == "0000" ? "" : dateValues.year,
                         onChange: e => {
                             setYear(e.target.value);
                         },

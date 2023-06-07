@@ -1,0 +1,272 @@
+{
+    "maxPage": "3",
+    "components": [
+        {
+            "id": "j6q9h8tj-input",
+            "componentType": "InputNumber",
+            "mandatory": true,
+            "decimals": 0,
+            "min": 1,
+            "max": 20,
+            "page": "1",
+            "label": {
+                "value": "\"Nombre d'habitants\"",
+                "type": "VTL"
+            },
+            "conditionFilter": {
+                "value": "true",
+                "type": "VTL"
+            },
+            "response": {
+                "name": "COUNT_PERSONS"
+            }
+        },
+        {
+            "id": "loop",
+            "componentType": "Loop",
+            "loopDependencies": ["COUNT_PERSONS"],
+            "iterations": {
+                "value": "COUNT_PERSONS",
+                "type": "VTL"
+            },
+            "page": "2",
+            "maxPage": "1",
+            "depth": 1,
+            "paginatedLoop": true,
+            "conditionFilter": {
+                "value": "true",
+                "type": "VTL"
+            },
+            "components": [
+                {
+                    "id": "lfwg2ny2",
+                    "componentType": "ComponentSet",
+                    "page": "2.1",
+                    "className": "ComponentSet",
+                    "conditionFilter": {
+                        "value": "(COUNT_PERSONS >= 1)",
+                        "type": "VTL",
+                        "bindingDependencies": ["COUNT_PERSONS"]
+                    },
+                    "label": {
+                        "value": "\"Description de l’habitant\"",
+                        "type": "VTL"
+                    },
+                    "components": [
+                        {
+                            "id": "lfwg2ny2-noms",
+                            "componentType": "Input",
+                            "mandatory": true,
+                            "maxLength": 249,
+                            "label": {
+                                "value": "\"Nom\"",
+                                "type": "VTL"
+                            },
+                            "controls": [
+                                {
+                                    "id": "lfwiyuih-nom-null",
+                                    "typeOfControl": "CONSISTENCY",
+                                    "criticality": "WARN",
+                                    "control": {
+                                        "value": "not(isnull(NOMS))",
+                                        "type": "VTL"
+                                    },
+                                    "errorMessage": {
+                                        "value": "\" Veuillez entrer un nom\"",
+                                        "type": "VTL"
+                                    }
+                                }
+                            ],
+                            "bindingDependencies": ["NOMS"],
+                            "response": {
+                                "name": "NOMS"
+                            }
+                        },
+                        {
+                            "id": "lfwg2ny2-prenoms",
+                            "label": {
+                                "value": "\"Prénom\"",
+                                "type": "VTL"
+                            },
+                            "conditionFilter": {
+                                "value": "true",
+                                "type": "VTL"
+                            },
+                            "componentType": "Input",
+                            "response": {
+                                "name": "PRENOMS"
+                            }
+                        },
+                        {
+                            "id": "lfvahf2g",
+                            "componentType": "Radio",
+                            "mandatory": true,
+                            "label": {
+                                "value": "\"Sexe\"",
+                                "type": "VTL"
+                            },
+                            "bindingDependencies": ["SEXES"],
+                            "controls": [
+                                {
+                                    "id": "lfvahf2g-nom-null",
+                                    "typeOfControl": "CONSISTENCY",
+                                    "criticality": "WARN",
+                                    "control": {
+                                        "value": "not(isnull(SEXES))",
+                                        "type": "VTL"
+                                    },
+                                    "errorMessage": {
+                                        "value": "\" Veuillez sélectionner un sexe\"",
+                                        "type": "VTL"
+                                    }
+                                }
+                            ],
+                            "options": [
+                                {
+                                    "value": "1",
+                                    "label": {
+                                        "value": "\"Homme\"",
+                                        "type": "VTL"
+                                    }
+                                },
+                                {
+                                    "value": "2",
+                                    "label": {
+                                        "value": "\"Femme\"",
+                                        "type": "VTL"
+                                    }
+                                }
+                            ],
+                            "response": {
+                                "name": "SEXES"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "lfwiizq2-dob",
+                    "componentType": "Datepicker",
+                    "mandatory": true,
+                    "page": "2.1",
+                    "min": "1900-01-01",
+                    "max": "format-date(current-date(),'[Y0001]-[M01]-[D01]')",
+                    "label": {
+                        "value": " \"Date de naissance\"",
+                        "type": "VTL"
+                    },
+                    "controls": [
+                        {
+                            "id": "lfwiizq2-format-borne-inf-sup",
+                            "typeOfControl": "FORMAT",
+                            "criticality": "ERROR",
+                            "control": {
+                                "value": "not(DATENAISS = \"--\")",
+                                "type": "VTL"
+                            },
+                            "errorMessage": {
+                                "value": "\"La date saisie doit être comprise entre 1900-01-01 et \" || cast(cast(current_date(), date, \"YYYY-MM-DD\"), string, \"YYYY-MM-DD\") || \".\"",
+                                "type": "VTL"
+                            }
+                        },
+                        {
+                            "id": "lfwiizq2-nom-null",
+                            "typeOfControl": "CONSISTENCY",
+                            "criticality": "WARN",
+                            "control": {
+                                "value": "not(isnull(DATENAISS))",
+                                "type": "VTL"
+                            },
+                            "errorMessage": {
+                                "value": "\" Veuillez entrer une date de naissance\"",
+                                "type": "VTL"
+                            }
+                        }
+                    ],
+                    "bindingDependencies": ["DATENAISS"],
+                    "dateFormat": "YYYY-MM-DD",
+                    "response": {
+                        "name": "DATENAISS"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": "\"Bye!\"",
+                "type": "VTL"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "3"
+        }
+    ],
+    "variables": [
+        {
+            "variableType": "COLLECTED",
+            "name": "COUNT_PERSONS",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "NOMS",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "PRENOMS",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "DATENAISS",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "SEXES",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "VIVEZVOUSDS",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        }
+    ]
+}
