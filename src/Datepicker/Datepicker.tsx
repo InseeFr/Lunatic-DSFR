@@ -21,7 +21,7 @@ function checkValue(value: string) {
 }
 
 function getDateValues(value: string) {
-    if (value && value !== null && value[0] !== null) {
+    if (typeof value === "string" && value) {
         const [year, month, day] = value.split("-");
         return {
             day: day === "NaN" ? "00" : day,
