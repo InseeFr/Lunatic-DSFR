@@ -3,6 +3,7 @@
     "main",
     "fix/roundabout-it-button-style",
     "fix/datepicker",
-    "fix/input-cursor-jump"
+    "fix/input-cursor-jump",
+    "develop"
   ]
 }
