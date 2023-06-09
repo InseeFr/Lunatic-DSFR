@@ -35,15 +35,34 @@ function isOptionEqualToValue(option: ReferentielEntity, value: ReferentielEntit
     return option.id === value.id;
 }
 
+function toStringValue(value: unknown) {
+    if (value) {
+        if (Array.isArray(value)) {
+            return "array";
+        }
+        const type = typeof value;
+        switch (type) {
+            case "object":
+                return JSON.stringify(value);
+            case "function":
+                return "function";
+
+            default:
+                return `${value}`;
+        }
+    }
+    return undefined;
+}
+
 export function Suggester(props: SuggesterProps) {
-    const { label, id, searching = BLANK, onSelect = () => null } = props;
-    const [value, setValue] = useState<string>("");
+    const { label, id, searching = BLANK, onSelect = () => null, value } = props;
+    const [search, setSearch] = useState<string>(toStringValue(value) || "");
     const [activeId, setActiveId] = useState<unknown>(undefined);
     const [suggestions, setSuggestions] = useState<Array<ReferentielEntity>>([]);
 
     const onInputChange = useCallback(
         (_: unknown, newValue: string | null) => {
-            setValue(newValue ?? "");
+            setSearch(newValue ?? "");
             if (newValue?.length) {
                 onSelect(newValue);
             }
@@ -66,10 +85,10 @@ export function Suggester(props: SuggesterProps) {
 
     useEffect(
         function () {
-            if (value.trim().length) {
+            if (search.trim().length) {
                 (async function () {
                     try {
-                        const response = await searching(value);
+                        const response = await searching(search);
                         if ("results" in response) {
                             setSuggestions(response.results);
                         } else {
@@ -83,7 +102,7 @@ export function Suggester(props: SuggesterProps) {
                 setSuggestions([]);
             }
         },
-        [searching, value],
+        [searching, search],
     );
 
     const {
@@ -106,7 +125,7 @@ export function Suggester(props: SuggesterProps) {
         <SuggesterContainer>
             <SuggesterInputContainer {...getRootProps()}>
                 <SuggesterLabel {...getInputLabelProps()}>{label}</SuggesterLabel>
-                <SuggesterInput {...getInputProps()} />
+                <SuggesterInput {...getInputProps()} value={search} />
             </SuggesterInputContainer>
             <SuggesterListBox {...getListboxProps()} display={suggestions.length > 0}>
                 {(groupedOptions as typeof suggestions).map((option, index) => {

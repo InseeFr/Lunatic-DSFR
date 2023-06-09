@@ -1,5 +1,5 @@
 {
-    "maxPage": "1",
+    "maxPage": "3",
     "suggesters": [
         {
             "name": "naf-rev2",
@@ -79,9 +79,9 @@
                 "type": "VTL"
             },
             "response": {
-                "name": "NAF"
+                "name": "COMMUNE"
             },
-            "page": "1",
+            "page": "2",
             "declarations": [
                 {
                     "id": "kb9hi4j0-krnoclfe",
@@ -116,7 +116,7 @@
             "response": {
                 "name": "NAF"
             },
-            "page": "1",
+            "page": "3",
             "declarations": [
                 {
                     "id": "kb9hi4j0-krnoclfe",
