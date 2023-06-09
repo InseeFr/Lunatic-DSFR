@@ -3,6 +3,7 @@
     "main",
     "fix/roundabout-it-button-style",
     "fix/datepicker",
-    "develop"
+    "develop",
+    "fix/checkbox-group"
   ]
 }
