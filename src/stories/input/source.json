@@ -14,7 +14,7 @@
                     "criticality": "ERROR",
                     "typeOfControl": "FORMAT",
                     "control": {
-                        "value": "false",
+                        "value": "NAME = \"BLABLA\"",
                         "type": "VTL"
                     },
                     "errorMessage": {
@@ -27,6 +27,14 @@
             "id": "name",
             "response": {
                 "name": "NAME"
+            },
+            "questionInformation": {
+                "value": "\"Question Information\"",
+                "type": "VTL"
+            },
+            "questionContext": {
+                "value": "\"Question Context\"",
+                "type": "VTL"
             }
         },
         {
@@ -37,7 +45,15 @@
                 "type": "VTL|MD"
             },
             "conditionFilter": { "value": "true", "type": "VTL" },
-            "page": "2"
+            "page": "2",
+            "questionInformation": {
+                "value": "\"Question Information\"",
+                "type": "VTL|MD"
+            },
+            "questionContext": {
+                "value": "\"Question Context\"",
+                "type": "VTL|MD"
+            }
         }
     ],
     "variables": [

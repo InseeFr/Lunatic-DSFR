@@ -20,7 +20,6 @@ function getStateRelatedMessage(errors: TypeError, id: string) {
     if (errors && errors[id as keyof typeof errors] && errors[id as keyof typeof errors][0]) {
         return errors[id as keyof typeof errors][0].errorMessage;
     }
-    return "";
 }
 
 export { getState, getStateRelatedMessage };

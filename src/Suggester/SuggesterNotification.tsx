@@ -1,20 +1,6 @@
 import { PropsWithChildren } from "react";
 import { Alert } from "@codegouvfr/react-dsfr/Alert";
 
-function getNotification(status: number) {
-    if (status === STATUS.idle || status === STATUS.pending) {
-        return (
-            <Alert
-                description="Votre référentiel est encore en cours de chargement. Les propositions pourraient être incomplètes."
-                severity="info"
-                closable
-                small
-            />
-        );
-    }
-    return null;
-}
-
 const STATUS = {
     unused: 0,
     idle: 1,
@@ -48,10 +34,5 @@ export function SuggesterNotification(props: PropsWithChildren<SuggesterNotifica
         );
     }
 
-    return (
-        <>
-            {getNotification(status)}
-            {children}
-        </>
-    );
+    return <>{children}</>;
 }

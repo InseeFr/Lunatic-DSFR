@@ -60,17 +60,16 @@ export function InputNumber({
     const isAllowed = useCallback(
         (values: NumberFormatValues) => {
             const { floatValue } = values;
-            if (floatValue && Number.isInteger(min) && Number.isInteger(max))
-                return (floatValue >= min && floatValue <= max) || floatValue === undefined;
+            if (Number.isInteger(max) && floatValue && max) return floatValue <= max || false;
             return true;
         },
-        [max, min],
+        [max],
     );
 
     const handleChange = useCallback(
         function (values: NumberFormatValues) {
-            const value = values.floatValue;
-            if (value) onChange(isNaN(value) ? null : value);
+            const val = values.floatValue ?? null;
+            onChange(Number.isNaN(val) ? null : val);
         },
         [onChange],
     );
