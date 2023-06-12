@@ -9,10 +9,10 @@ type RoundaboutType = {
     expressions: Record<string, Array<boolean | string>>;
     goToIteration: (iteration: number) => void;
     label: string;
-    locked: boolean;
+    locked?: boolean;
     index: number;
-    complete: boolean;
-    partial: boolean;
+    complete?: boolean;
+    partial?: boolean;
     unnecessary?: string | boolean;
 };
 
