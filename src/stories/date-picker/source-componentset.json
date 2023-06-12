@@ -229,7 +229,7 @@
                                 "type": "VTL"
                             },
                             "errorMessage": {
-                                "value": "\"Veuillez entrer un date valide.",
+                                "value": "\"Veuillez entrer un date valide.\"",
                                 "type": "VTL"
                             }
                         },
@@ -238,7 +238,7 @@
                             "typeOfControl": "CONSISTENCY",
                             "criticality": "WARN",
                             "control": {
-                                "value": "cast(DATENAISS, date) < cast(current_date(), date) and cast(DATENAISS, date) < cast(\"1900-01-01\", date)",
+                                "value": "cast(DATENAISS, date) < cast(current_date(), date) and cast(DATENAISS, date) > cast(\"1900-01-01\", date)",
                                 "type": "VTL"
                             },
                             "errorMessage": {
