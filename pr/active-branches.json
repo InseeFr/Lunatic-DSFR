@@ -4,7 +4,6 @@
     "fix/roundabout-it-button-style",
     "fix/datepicker",
     "develop",
-    "fix/checkbox-group",
     "feat/suggester"
   ]
 }
