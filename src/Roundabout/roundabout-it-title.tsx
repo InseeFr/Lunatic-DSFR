@@ -3,7 +3,7 @@ import { useColors } from "@codegouvfr/react-dsfr/useColors";
 import { useStyles } from "tss-react/dsfr";
 import { fr } from "@codegouvfr/react-dsfr";
 
-function UnnecessaryText({ unnecessary }: { unnecessary: string }) {
+function UnnecessaryText({ unnecessary }: { unnecessary?: string | boolean }) {
     const theme = useColors();
 
     if (unnecessary) {
@@ -18,7 +18,13 @@ function UnnecessaryText({ unnecessary }: { unnecessary: string }) {
     return null;
 }
 
-export function RoundaboutItTitle({ label, unnecessary }: { label: string; unnecessary: string }) {
+export function RoundaboutItTitle({
+    label,
+    unnecessary,
+}: {
+    label: string;
+    unnecessary?: string | boolean;
+}) {
     const theme = useColors();
     const { css } = useStyles();
 
