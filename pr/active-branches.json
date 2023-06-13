@@ -2,7 +2,6 @@
   "branches": [
     "main",
     "fix/datepicker",
-    "feat/suggester",
-    "fix/roundabout-it-button-style"
+    "feat/suggester"
   ]
 }
