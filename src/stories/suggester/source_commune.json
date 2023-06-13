@@ -1,0 +1,97 @@
+{
+    "maxPage": "1",
+    "suggesters": [
+        {
+            "name": "naf-rev2",
+            "fields": [
+                {
+                    "name": "label",
+                    "rules": ["[\\w]+"],
+                    "language": "French",
+                    "min": 2
+                },
+                { "name": "id" }
+            ],
+            "queryParser": {
+                "type": "tokenized",
+                "params": { "language": "French", "pattern": "[\\w.]+" }
+            },
+            "meloto": true,
+            "version": "1"
+        },
+        {
+            "name": "communes-2019",
+            "fields": [
+                { "name": "label", "rules": "soft" },
+                { "name": "nccenr", "rules": "soft" },
+                { "name": "id", "rules": "soft" }
+            ],
+            "queryParser": { "type": "soft" },
+            "version": "1",
+            "order": { "type": "ascending", "field": "nccenr" },
+            "max": 100
+        }
+    ],
+    "components": [
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": "\"Dans quelle commune habitez-vous ?\"",
+                "type": "VTL"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "1",
+            "declarations": [
+                {
+                    "declarationType": "INSTRUCTION",
+                    "id": "jruq5os5-kqhuxnyt",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": "\"Votre commune apparaitra dans la liste déroulante ci-dessous quand vous commecer entrer le nom de votre commune dans le champs de saisie. {TODO: Turn this sequence into a ComponentSet}\""
+                    },
+                    "position": "AFTER_QUESTION_TEXT"
+                }
+            ]
+        },
+        {
+            "id": "communes-2019",
+            "componentType": "Suggester",
+            "mandatory": false,
+            "label": { "value": "\"Cherchez votre commmune:\"", "type": "VTL" },
+            "storeName": "communes-2019",
+            "conditionFilter": {
+                "value": "true",
+                "type": "VTL"
+            },
+            "response": {
+                "name": "NAF"
+            },
+            "page": "1"
+        }
+    ],
+    "variables": [
+        {
+            "variableType": "COLLECTED",
+            "name": "NAF",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "COMMUNE",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        }
+    ]
+}
