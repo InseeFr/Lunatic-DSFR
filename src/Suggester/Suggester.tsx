@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, SyntheticEvent, MouseEventHandler } from "react";
+import { useState, useEffect, useCallback, SyntheticEvent } from "react";
 import useAutocomplete from "@mui/material/useAutocomplete";
 import { LunaticError } from "../utils/type/type";
 import { SuggesterContainer } from "./elements/SuggesterContainer";
