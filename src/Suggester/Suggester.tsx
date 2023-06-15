@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, SyntheticEvent } from "react";
+import { useState, useEffect, useCallback, SyntheticEvent, MouseEventHandler } from "react";
 import useAutocomplete from "@mui/material/useAutocomplete";
 import { LunaticError } from "../utils/type/type";
 import { SuggesterContainer } from "./elements/SuggesterContainer";
@@ -7,6 +7,7 @@ import { SuggesterLabel } from "./elements/SuggesterLabel";
 import { SuggesterInput } from "./elements/SuggesterInput";
 import { SuggesterOption } from "./elements/SuggesterOption";
 import { SuggesterListBox } from "./elements/SuggesterListBox";
+import { SuggesterSelection } from "./elements/SuggesterSelection";
 
 export type ReferentielEntity = { label: string; id: string };
 
@@ -105,6 +106,11 @@ export function Suggester(props: SuggesterProps) {
         [searching, search],
     );
 
+    const onClick = function (value: string) {
+        setActiveId(null);
+        setSearch(value);
+    };
+
     const {
         getRootProps,
         getInputLabelProps,
@@ -121,11 +127,24 @@ export function Suggester(props: SuggesterProps) {
         isOptionEqualToValue,
     });
 
+    const suggestionsIds = suggestions.map(s => s.id);
+
     return (
         <SuggesterContainer>
             <SuggesterInputContainer {...getRootProps()}>
                 <SuggesterLabel {...getInputLabelProps()}>{label}</SuggesterLabel>
-                <SuggesterInput {...getInputProps()} value={search} />
+                <SuggesterSelection
+                    value={search}
+                    activeid={activeId}
+                    suggestions={suggestions}
+                    onClick={onClick}
+                />
+                <SuggesterInput
+                    {...getInputProps()}
+                    value={search}
+                    activeid={activeId}
+                    suggestionsids={suggestionsIds}
+                />
             </SuggesterInputContainer>
             <SuggesterListBox {...getListboxProps()} display={suggestions.length > 0}>
                 {(groupedOptions as typeof suggestions).map((option, index) => {

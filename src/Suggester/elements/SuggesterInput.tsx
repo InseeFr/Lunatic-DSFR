@@ -1,6 +1,10 @@
 import { LegacyRef, forwardRef } from "react";
 
-type SuggesterInputProps = Record<string, unknown>;
+type SuggesterInputProps = {
+    suggestionsids: Array<string>;
+    value: string;
+    activeid: unknown;
+} & Record<string, unknown>;
 
 /**
  *
@@ -11,5 +15,10 @@ export const SuggesterInput = forwardRef(function SuggesterInput(
     props: SuggesterInputProps,
     ref: LegacyRef<HTMLInputElement>,
 ) {
+    const { activeid, value, suggestionsids } = props;
+
+    if (activeid || (suggestionsids.length && suggestionsids.includes(value))) {
+        return null;
+    }
     return <input className="fr-input" type="text" {...props} ref={ref} />;
 });
