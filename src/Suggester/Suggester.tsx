@@ -7,11 +7,17 @@ import { SuggesterLabel } from "./elements/SuggesterLabel";
 import { SuggesterInput } from "./elements/SuggesterInput";
 import { SuggesterOption } from "./elements/SuggesterOption";
 import { SuggesterListBox } from "./elements/SuggesterListBox";
-
-export type ReferentielEntity = { label: string; id: string };
+import {
+    ComboBox,
+    DefaultOptionRenderer,
+    DefaultLabelRenderer,
+    // createCustomizableLunaticField,
+} from "../commons";
+import { ComboBoxOption } from "../commons/combo-box.type";
+import { LunaticComponentProps } from "../type";
 
 type SearchResults = {
-    results: Array<ReferentielEntity>;
+    results: Array<ComboBoxOption>;
 };
 
 export type SuggesterProps = {
@@ -25,24 +31,38 @@ export type SuggesterProps = {
     label?: string;
     description?: string;
     errors: Record<string, Array<LunaticError>>;
+    labelRenderer: LunaticComponentProps<"Suggester">["labelRenderer"];
+    optionRenderer: LunaticComponentProps<"Suggester">["optionRenderer"];
 };
 
 async function BLANK() {
     return [];
 }
 
-function isOptionEqualToValue(option: ReferentielEntity, value: ReferentielEntity) {
+function isOptionEqualToValue(option: ComboBoxOption, value: ComboBoxOption) {
     return option.id === value.id;
 }
 
 export function Suggester(props: SuggesterProps) {
-    const { label, id, searching = BLANK, onSelect = () => null } = props;
+    const {
+        label,
+        id,
+        searching = BLANK,
+        onSelect = () => null,
+        description,
+        className,
+        disabled,
+        labelRenderer = DefaultLabelRenderer,
+        optionRenderer = DefaultOptionRenderer,
+        placeholder = "toto",
+    } = props;
     const [value, setValue] = useState<string>("");
+    const [search, setSearch] = useState("");
     const [activeId, setActiveId] = useState<unknown>(undefined);
-    const [suggestions, setSuggestions] = useState<Array<ReferentielEntity>>([]);
+    const [suggestions, setSuggestions] = useState<Array<ComboBoxOption>>([]);
 
     const onInputChange = useCallback(
-        (_: unknown, newValue: string | null) => {
+        (newValue: string | null) => {
             setValue(newValue ?? "");
             if (newValue?.length) {
                 onSelect(newValue);
@@ -51,10 +71,17 @@ export function Suggester(props: SuggesterProps) {
         [onSelect],
     );
 
+    const handleSelect = useCallback(
+        function (id: string | null) {
+            onSelect(id ? id : null);
+        },
+        [onSelect],
+    );
+
     const handleChange = useCallback(
-        function (_: SyntheticEvent<Element>, value: string | ReferentielEntity | null) {
+        function (value: string | ComboBoxOption | null) {
             if (value && typeof value === "object") {
-                const { id } = value as ReferentielEntity;
+                const { id } = value as ComboBoxOption;
                 onSelect(id ?? null);
                 setActiveId(id);
             } else {
@@ -86,25 +113,51 @@ export function Suggester(props: SuggesterProps) {
         [searching, value],
     );
 
-    const {
-        getRootProps,
-        getInputLabelProps,
-        getInputProps,
-        getListboxProps,
-        getOptionProps,
-        groupedOptions,
-    } = useAutocomplete<ReferentielEntity, false, false, true>({
-        onInputChange,
-        id,
-        options: suggestions,
-        filterOptions: x => x,
-        onChange: handleChange,
-        isOptionEqualToValue,
-    });
+    // const {
+    //     getRootProps,
+    //     getInputLabelProps,
+    //     getInputProps,
+    //     getListboxProps,
+    //     getOptionProps,
+    //     groupedOptions,
+    // } = useAutocomplete<ComboBoxOption, false, false, true>({
+    //     onInputChange,
+    //     id,
+    //     options: suggestions,
+    //     filterOptions: x => x,
+    //     // onChange: handleChange,
+    //     isOptionEqualToValue,
+    // });
+
+    function getSearch(search: string, value: string | null) {
+        if (!search.length && value) {
+            return value;
+        }
+
+        return "";
+    }
+
+    const defaultSearch = getSearch(search, value);
 
     return (
         <SuggesterContainer>
-            <SuggesterInputContainer {...getRootProps()}>
+            <ComboBox
+                id={id}
+                className={className}
+                onChange={onInputChange}
+                disabled={disabled}
+                options={suggestions}
+                editable={true}
+                onSelect={handleSelect}
+                value={value}
+                search={defaultSearch}
+                optionRenderer={optionRenderer}
+                labelRenderer={labelRenderer}
+                placeholder={placeholder}
+                label={label}
+                description={description}
+            />
+            {/* <SuggesterInputContainer {...getRootProps()}>
                 <SuggesterLabel {...getInputLabelProps()}>{label}</SuggesterLabel>
                 <SuggesterInput {...getInputProps()} />
             </SuggesterInputContainer>
@@ -115,7 +168,7 @@ export function Suggester(props: SuggesterProps) {
                     const selected = id === activeId;
                     return <SuggesterOption {...p} label={label} key={id} selected={selected} />;
                 })}
-            </SuggesterListBox>
+            </SuggesterListBox> */}
         </SuggesterContainer>
     );
 }

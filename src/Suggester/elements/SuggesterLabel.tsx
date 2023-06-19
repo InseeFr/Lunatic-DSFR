@@ -2,6 +2,7 @@ import { PropsWithChildren } from "react";
 
 type SuggesterLabelProps = {
     id?: string;
+    description?: string;
 };
 
 export function SuggesterLabel(props: PropsWithChildren<SuggesterLabelProps>) {
@@ -11,6 +12,7 @@ export function SuggesterLabel(props: PropsWithChildren<SuggesterLabelProps>) {
         return (
             <label className="fr-label" htmlFor={id}>
                 {children}
+                <span className="fr-hint-text">Texte de description additionnel</span>
             </label>
         );
     }
