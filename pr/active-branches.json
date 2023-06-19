@@ -3,7 +3,6 @@
     "main",
     "feat/suggester",
     "feat/summary",
-    "fix/datepicker",
-    "develop"
+    "fix/datepicker"
   ]
 }
