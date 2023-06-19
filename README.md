@@ -11,9 +11,10 @@ This library is designed to be an opt-in solution to replace the native style of
 
 **To visualise the Storybook**
 
-Currently the storybook is not deployed. In order to visualise and test the components you can launch the storybook locally. It is also recommended that any proposed changes to any components or any new components be tested in the storybook before proposing a PR. 
+Currently the storybook is not deployed. In order to visualise and test the components you can launch the storybook locally. It is also recommended that any proposed changes to any components or any new components be tested in the storybook before proposing a PR.
 
-To launch the storybook locally, ensure that you have cloned the repository. 
+To launch the storybook locally, ensure that you have cloned the repository.
+
 ```bash
 git clone https://github.com/InseeFr/Lunatic-DSFR.git
 ```
@@ -22,53 +23,48 @@ Once you have the repository cloned locally, navigate to the folder containing t
 
 ```bash
 cd lunatic-dsfr
-yarn install 
+yarn install
 ```
 
 Now you are ready to launch the storybook, which will be accessible at [localhost:6006](http://localhost:6006/)
 
-
 **Connect Lunatic-DSFR with `useLunatic()`**
 
-In any application that uses the [Lunatic components library](https://github.com/InseeFr/Lunatic), it is possible to over-ride the native Lunatic components by injecting **Lunatic-DSFR** as an argument in the `uselunatic()` function. 
+In any application that uses the [Lunatic components library](https://github.com/InseeFr/Lunatic), it is possible to over-ride the native Lunatic components by injecting **Lunatic-DSFR** as an argument in the `uselunatic()` function.
 
 To use Lunatic-DSFR, first install the package into your application that calls `useLunatic()`:
 
 ```bash
 yarn add @inseefr/lunatic-dsfr
 ```
-Import the Lunatic-DSFR components in the file where you call `useLunatic()`: 
+
+Import the Lunatic-DSFR components in the file where you call `useLunatic()`:
 
 ```js
-import * as custom from '@inseefr/lunatic-dsfr'
+import * as custom from "@inseefr/lunatic-dsfr";
 ```
- 
-Then inject `custom` as an argument of the `useLunatic()` function: 
+
+Then inject `custom` as an argument of the `useLunatic()` function:
 
 ```js
 const {
-  getComponents,
-	goPreviousPage,
-	goNextPage,
-	isFirstPage,
-	isLastPage,
-	goToPage,
-	getData,
-	Provider,
-	compileControls,
-	pageTag,
-} = useLunatic(
-  source, 
-  data, 
-  {
-    getReferentiel, 
-    preferences, 
-    features, 
-    savingType, 
-    autoSuggesterloading, 
-    onChange, 
-    custom, 
-   }
-  )
+    getComponents,
+    goPreviousPage,
+    goNextPage,
+    isFirstPage,
+    isLastPage,
+    goToPage,
+    getData,
+    Provider,
+    compileControls,
+    pageTag,
+} = useLunatic(source, data, {
+    getReferentiel,
+    preferences,
+    features,
+    savingType,
+    autoSuggesterloading,
+    onChange,
+    custom,
+});
 ```
-
