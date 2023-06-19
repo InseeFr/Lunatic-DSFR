@@ -225,7 +225,7 @@
                             "typeOfControl": "CONSISTENCY",
                             "criticality": "WARN",
                             "control": {
-                                "value": "if (substr(DATENAISS, 6, 2) = \"04\" or substr(DATENAISS, 6, 2) = \"06\" or substr(DATENAISS, 6, 2) = \"09\" or substr(DATENAISS, 6, 2) = \"11\") then (substr(DATENAISS, 9, 2) <> \"31\") else (if (substr(DATENAISS, 6, 2) = \"02\" and mod(cast(substr(DATENAISS, 1, 4), integer), 4) = 0) then (substr(DATENAISS, 9, 2) <> \"30\" and substr(DATENAISS, 9, 2) <> \"31\") else (substr(DATENAISS, 9, 2) <> \"30\" and substr(DATENAISS, 9, 2) <> \"29\" and substr(DATENAISS, 9, 2) <> \"31\"))",
+                                "value": "if (substr(DATENAISS, 6, 2) = \"04\" or substr(DATENAISS, 6, 2) = \"06\" or substr(DATENAISS, 6, 2) = \"09\" or substr(DATENAISS, 6, 2) = \"11\") then (substr(DATENAISS, 9, 2) <> \"31\") else (if (substr(DATENAISS, 6, 2) = \"02\" and mod(cast(substr(DATENAISS, 1, 4), integer), 4) = 0) then (substr(DATENAISS, 9, 2) <> \"30\" and substr(DATENAISS, 9, 2) <> \"31\") else (if (substr(DATENAISS, 6, 2) = \"02\") then (substr(DATENAISS, 9, 2) <> \"30\" and substr(DATENAISS, 9, 2) <> \"29\" and substr(DATENAISS, 9, 2) <> \"31\") else true))",
                                 "type": "VTL"
                             },
                             "errorMessage": {
