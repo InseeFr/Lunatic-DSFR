@@ -2,6 +2,7 @@
   "branches": [
     "main",
     "feat/suggester",
-    "feat/summary"
+    "feat/summary",
+    "fix/datepicker"
   ]
 }
