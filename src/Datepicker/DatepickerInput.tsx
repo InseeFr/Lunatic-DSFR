@@ -1,5 +1,6 @@
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
 import { useState, useEffect } from "react";
+import classnames from "classnames";
 
 type DatepickerInputType = {
     dateValues: Record<string, string>;
@@ -40,12 +41,18 @@ export function DatepickerInput({ dateValues, disabled, id, onChange, state }: D
 
     return (
         <>
-            <div className="fr-fieldset__element fr-fieldset__element--inline fr-fieldset__element--number">
+            <div
+                className={classnames(
+                    "fr-fieldset__element",
+                    "fr-fieldset__element--inline",
+                    "fr-fieldset__element--number",
+                )}
+            >
                 <InputDSFR
                     disabled={disabled}
                     label="Jour"
                     hintText="Exemple: 14"
-                    className={state ? `fr-input-group--${state}` : ""}
+                    className={classnames({ state: `fr-input-group--${state}` })}
                     nativeInputProps={{
                         id: `${id}-day`,
                         value: dateValues.day === "00" ? "" : dateValues.day,
@@ -55,12 +62,18 @@ export function DatepickerInput({ dateValues, disabled, id, onChange, state }: D
                     }}
                 />
             </div>
-            <div className="fr-fieldset__element fr-fieldset__element--inline fr-fieldset__element--number">
+            <div
+                className={classnames(
+                    "fr-fieldset__element",
+                    "fr-fieldset__element--inline",
+                    "fr-fieldset__element--number",
+                )}
+            >
                 <InputDSFR
                     disabled={disabled}
                     label="Mois"
                     hintText="Exemple: 7"
-                    className={state ? `fr-input-group--${state}` : ""}
+                    className={classnames({ state: `fr-input-group--${state}` })}
                     nativeInputProps={{
                         id: `${id}-month`,
                         value: dateValues.month === "00" ? "" : dateValues.month,
@@ -70,12 +83,18 @@ export function DatepickerInput({ dateValues, disabled, id, onChange, state }: D
                     }}
                 />
             </div>
-            <div className="fr-fieldset__element fr-fieldset__element--inline fr-fieldset__element--year">
+            <div
+                className={classnames(
+                    "fr-fieldset__element",
+                    "fr-fieldset__element--inline",
+                    "fr-fieldset__element--year",
+                )}
+            >
                 <InputDSFR
                     disabled={disabled}
                     label="Année"
                     hintText="Exemple: 2023"
-                    className={state ? `fr-input-group--${state}` : ""}
+                    className={classnames({ state: `fr-input-group--${state}` })}
                     nativeInputProps={{
                         id: `${id}-year`,
                         value: dateValues.year === "0000" ? "" : dateValues.year,

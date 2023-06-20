@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import classnames from "classnames";
 import { DatepickerInput } from "./DatepickerInput";
 import { getState, getStateRelatedMessage } from "../utils/errors/getErrorStates";
 import { LunaticError } from "../utils/type/type";
@@ -82,7 +83,7 @@ export function Datepicker({
 
     return (
         <fieldset
-            className={`fr-fieldset${state ? ` fr-fieldset--${state}` : ""}`}
+            className={classnames("fr-fieldset", { state: `fr-fieldset--${state}` })}
             id={`${id}-fieldset`}
             role="group"
             aria-labelledby={`${id}-fieldset-legend ${id}-fieldset-messages`}
