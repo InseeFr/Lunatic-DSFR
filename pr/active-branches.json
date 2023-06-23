@@ -3,6 +3,7 @@
     "main",
     "feat/suggester",
     "fix/datepicker",
-    "fix/question-information-without-title"
+    "fix/question-information-without-title",
+    "develop"
   ]
 }
