@@ -2,7 +2,6 @@
   "branches": [
     "main",
     "feat/suggester",
-    "feat/summary",
     "fix/datepicker",
     "fix/question-information-without-title"
   ]
