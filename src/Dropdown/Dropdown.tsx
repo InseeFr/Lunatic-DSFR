@@ -4,6 +4,7 @@ import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "../utils/errors/getErrorStates";
 import { LunaticError } from "../utils/type/type";
 import { getOptions, OptionType } from "./getOptions";
+import { descriptionAsString } from "@inseefr/lunatic";
 
 type DropdownType = {
     disabled: boolean;
@@ -44,7 +45,7 @@ export function Dropdown({
             label={label}
             state={state}
             stateRelatedMessage={stateRelatedMessage}
-            hint={description}
+            hint={descriptionAsString(description)}
             disabled={disabled ?? false}
         >
             {getOptions(options)}

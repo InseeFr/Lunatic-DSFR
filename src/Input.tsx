@@ -3,12 +3,19 @@ import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
 import { LunaticError } from "./utils/type/type";
+import { LunaticComponentProps } from "./type";
+import { descriptionAsString } from "@inseefr/lunatic";
 
 function checkValue(value: string) {
     return value ?? "";
 }
 
 export type TypeError = Record<string, Array<LunaticError>>;
+
+type Props = Pick<
+    LunaticComponentProps<"Input">,
+    "value" | "disabled" | "required" | "maxLength" | "label" | "description" | "id" | "errors"
+> & { onChange: (v: string) => void };
 
 export function Input({
     value,
@@ -20,22 +27,11 @@ export function Input({
     description,
     id,
     errors,
-}: {
-    value: string;
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    onChange: Function;
-    disabled: boolean;
-    required: boolean;
-    maxLength: number;
-    label: string;
-    description: string;
-    id: string;
-    errors: Record<string, Array<LunaticError>>;
-}) {
-    const [localValue, setLocalValue] = useState<string>(value);
+}: Props) {
+    const [localValue, setLocalValue] = useState<string>(value ?? "");
 
     useEffect(() => {
-        setLocalValue(value);
+        setLocalValue(value ?? "");
     }, [value]);
 
     const handleChange = useCallback(
@@ -60,7 +56,7 @@ export function Input({
                 required: required,
                 onChange: handleChange,
             }}
-            hintText={description}
+            hintText={descriptionAsString(description)}
             state={state}
             stateRelatedMessage={stateRelatedMessage}
         />
