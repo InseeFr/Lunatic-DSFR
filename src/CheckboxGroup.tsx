@@ -3,6 +3,7 @@ import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Checkbox as CheckboxDSFR } from "@codegouvfr/react-dsfr/Checkbox";
 import { LunaticError } from "./utils/type/type";
+import { descriptionAsString } from "@inseefr/lunatic";
 
 type CheckboxGroupOption = {
     label: ReactNode;
@@ -47,7 +48,7 @@ export function CheckboxGroup({ label, description, id, disabled, className, err
             className={classnames("dropdown-lunatic-dsfr", className, id)}
             disabled={disabled}
             legend={label}
-            hintText={description}
+            hintText={descriptionAsString(description)}
             options={getOptions(options)}
             state={errors ? getState(errors, id) : undefined}
             stateRelatedMessage={errors ? getStateRelatedMessage(errors, id) : undefined}

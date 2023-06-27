@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 import { NumberFormatValues, NumericFormat, NumericFormatProps } from "react-number-format";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { LunaticError } from "./utils/type/type";
+import { descriptionAsString } from "@inseefr/lunatic";
 
 function checkValue(value: number) {
     return value ?? null;
@@ -83,7 +84,7 @@ export function InputNumber({
                 DSFRProps={{
                     label: label,
                     disabled: disabled,
-                    hintText: description,
+                    hintText: descriptionAsString(description),
                     className: classNames("lunatic-dsfr-input-number", {
                         "fr-col-11": unit !== undefined,
                         "fr-col-12": unit === undefined,

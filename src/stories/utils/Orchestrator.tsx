@@ -133,6 +133,8 @@ const Orchestrator: FC<OrchestratorProps> = ({
         custom,
     });
 
+    console.log(custom);
+
     const components = getComponents();
     const [currentErrors, setCurrentErrors] = useState<Record<string, Array<LunaticError>>>();
 

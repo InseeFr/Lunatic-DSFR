@@ -1,6 +1,6 @@
-import { LunaticError } from "../type/type";
+import { LunaticBaseProps } from "../../type";
 
-type TypeError = Record<string, Array<LunaticError>>;
+type TypeError = LunaticBaseProps["errors"];
 
 function getState(errors: TypeError, id: string) {
     if (errors && errors[id as keyof typeof errors] && errors[id as keyof typeof errors][0]) {
