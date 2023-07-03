@@ -42,6 +42,7 @@ export function Selection({
                 options={options}
                 search={search}
                 disabled={disabled}
+                focused={focused}
             />
             <Input
                 id={`combobox-input-${id}`}

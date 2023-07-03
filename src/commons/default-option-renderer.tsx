@@ -7,13 +7,11 @@ type Props = {
 };
 
 function DefaultOptionRenderer({ option, selected }: Props) {
-    const { id, value, label } = option;
+    const { id, label } = option;
 
     if (label && typeof label === "string" && label.length) {
         return (
             <div className={classnames("lunatic-combo-box-option", { selected })}>
-                <span className="id">{id || value}</span>
-                <span> - </span>
                 <span className="label">{label}</span>
             </div>
         );

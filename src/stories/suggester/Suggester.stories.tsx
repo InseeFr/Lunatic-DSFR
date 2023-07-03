@@ -2,6 +2,7 @@ import Orchestrator from "../utils/Orchestrator";
 import source from "./source.json";
 import sourceCommune from "./source_commune.json";
 import sourceError from "./source_error.json";
+import data from "./data.json";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 import * as custom from "../..";
@@ -66,7 +67,7 @@ Default.args = { source, data: {} };
 
 export const Communes = Template.bind({});
 
-Communes.args = { source: sourceCommune, data: {} };
+Communes.args = { source: sourceCommune, data };
 
 export const Failedload = Template.bind({});
 

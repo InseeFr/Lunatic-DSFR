@@ -14,6 +14,7 @@ export type LabelSelectionProps = {
     options: Array<ComboBoxOption>;
     search?: string;
     disabled?: boolean;
+    focused?: boolean;
 };
 
 export function LabelSelection({
@@ -23,18 +24,22 @@ export function LabelSelection({
     options,
     search,
     disabled,
+    focused,
 }: LabelSelectionProps) {
     const option = selectedIndex !== undefined ? options[selectedIndex] : undefined;
-
-    return (
-        <div
-            className={classnames("lunatic-combo-box-selected", "fr-input", {
-                disabled,
-            })}
-        >
-            <Renderer option={option} placeholder={placeholder} search={search} />
-        </div>
-    );
+    if (focused) {
+        return null;
+    } else {
+        return (
+            <div
+                className={classnames("lunatic-combo-box-selected", "fr-input", {
+                    disabled,
+                })}
+            >
+                <Renderer option={option} placeholder={placeholder} search={search} />
+            </div>
+        );
+    }
 }
 
 export default displayLabelOrInput(LabelSelection, "LabelSelection");

@@ -20,6 +20,7 @@ export function reducer(state: ComboBoxState, action: ComboAction): ComboBoxStat
                 ...state,
                 selectedIndex: action.payload.selectedIndex,
                 expanded: false,
+                focused: false,
             };
         case ComboActionKind.ON_DELETE:
             return {

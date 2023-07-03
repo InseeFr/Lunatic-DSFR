@@ -1,5 +1,5 @@
 {
-    "maxPage": "1",
+    "maxPage": "2",
     "suggesters": [
         {
             "name": "naf-rev2",
@@ -68,6 +68,16 @@
                 "name": "NAF"
             },
             "page": "1"
+        },
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": "\"Bye!\"",
+                "type": "VTL"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "2"
         }
     ],
     "variables": [

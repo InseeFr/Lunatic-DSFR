@@ -1,18 +1,7 @@
-import { useState, useEffect, useCallback, SyntheticEvent } from "react";
-import useAutocomplete from "@mui/material/useAutocomplete";
+import { useState, useEffect, useCallback } from "react";
 import { LunaticError } from "../utils/type/type";
 import { SuggesterContainer } from "./elements/SuggesterContainer";
-import { SuggesterInputContainer } from "./elements/SuggesterInputContainer";
-import { SuggesterLabel } from "./elements/SuggesterLabel";
-import { SuggesterInput } from "./elements/SuggesterInput";
-import { SuggesterOption } from "./elements/SuggesterOption";
-import { SuggesterListBox } from "./elements/SuggesterListBox";
-import {
-    ComboBox,
-    DefaultOptionRenderer,
-    DefaultLabelRenderer,
-    // createCustomizableLunaticField,
-} from "../commons";
+import { ComboBox, DefaultOptionRenderer, DefaultLabelRenderer } from "../commons";
 import { ComboBoxOption } from "../commons/combo-box.type";
 import { LunaticComponentProps } from "../type";
 
@@ -24,7 +13,7 @@ export type SuggesterProps = {
     className?: string;
     placeholder?: string;
     onSelect?: (value: unknown) => void;
-    value?: unknown;
+    value: string | null;
     disabled?: boolean;
     id?: string;
     searching?: (search: string) => Promise<SearchResults>;
@@ -39,10 +28,6 @@ async function BLANK() {
     return [];
 }
 
-function isOptionEqualToValue(option: ComboBoxOption, value: ComboBoxOption) {
-    return option.id === value.id;
-}
-
 export function Suggester(props: SuggesterProps) {
     const {
         label,
@@ -54,17 +39,18 @@ export function Suggester(props: SuggesterProps) {
         disabled,
         labelRenderer = DefaultLabelRenderer,
         optionRenderer = DefaultOptionRenderer,
-        placeholder = "toto",
+        placeholder,
+        value,
     } = props;
-    const [value, setValue] = useState<string>("");
-    const [search, setSearch] = useState("");
-    const [activeId, setActiveId] = useState<unknown>(undefined);
+    console.log(value);
+    const [localValue, setLocalValue] = useState<string | null>(value);
+    const [search, setSearch] = useState<string | null>("");
     const [suggestions, setSuggestions] = useState<Array<ComboBoxOption>>([]);
-
     const onInputChange = useCallback(
         (newValue: string | null) => {
-            setValue(newValue ?? "");
-            if (newValue?.length) {
+            setLocalValue(newValue ?? newValue);
+            setSearch(newValue ?? "");
+            if (typeof newValue === "string" && newValue) {
                 onSelect(newValue);
             }
         },
@@ -72,20 +58,13 @@ export function Suggester(props: SuggesterProps) {
     );
 
     const handleSelect = useCallback(
-        function (id: string | null) {
-            onSelect(id ? id : null);
-        },
-        [onSelect],
-    );
-
-    const handleChange = useCallback(
         function (value: string | ComboBoxOption | null) {
             if (value && typeof value === "object") {
                 const { id } = value as ComboBoxOption;
-                onSelect(id ?? null);
-                setActiveId(id);
+                onSelect(id ?? "");
             } else {
-                onSelect(null);
+                onSelect(value);
+                setLocalValue(value);
             }
         },
         [onSelect],
@@ -93,7 +72,7 @@ export function Suggester(props: SuggesterProps) {
 
     useEffect(
         function () {
-            if (value.trim().length) {
+            if (value && value.trim().length) {
                 (async function () {
                     try {
                         const response = await searching(value);
@@ -113,31 +92,15 @@ export function Suggester(props: SuggesterProps) {
         [searching, value],
     );
 
-    // const {
-    //     getRootProps,
-    //     getInputLabelProps,
-    //     getInputProps,
-    //     getListboxProps,
-    //     getOptionProps,
-    //     groupedOptions,
-    // } = useAutocomplete<ComboBoxOption, false, false, true>({
-    //     onInputChange,
-    //     id,
-    //     options: suggestions,
-    //     filterOptions: x => x,
-    //     // onChange: handleChange,
-    //     isOptionEqualToValue,
-    // });
-
-    function getSearch(search: string, value: string | null) {
-        if (!search.length && value) {
+    function getSearch(search: string | null, value: string | null) {
+        if (search && !search.length && value) {
             return value;
         }
 
         return "";
     }
 
-    const defaultSearch = getSearch(search, value);
+    const defaultSearch = getSearch(search, localValue);
 
     return (
         <SuggesterContainer>
@@ -149,7 +112,7 @@ export function Suggester(props: SuggesterProps) {
                 options={suggestions}
                 editable={true}
                 onSelect={handleSelect}
-                value={value}
+                value={value ? value : localValue}
                 search={defaultSearch}
                 optionRenderer={optionRenderer}
                 labelRenderer={labelRenderer}
@@ -157,18 +120,6 @@ export function Suggester(props: SuggesterProps) {
                 label={label}
                 description={description}
             />
-            {/* <SuggesterInputContainer {...getRootProps()}>
-                <SuggesterLabel {...getInputLabelProps()}>{label}</SuggesterLabel>
-                <SuggesterInput {...getInputProps()} />
-            </SuggesterInputContainer>
-            <SuggesterListBox {...getListboxProps()} display={suggestions.length > 0}>
-                {(groupedOptions as typeof suggestions).map((option, index) => {
-                    const { id, label } = option;
-                    const p = getOptionProps({ option, index });
-                    const selected = id === activeId;
-                    return <SuggesterOption {...p} label={label} key={id} selected={selected} />;
-                })}
-            </SuggesterListBox> */}
         </SuggesterContainer>
     );
 }

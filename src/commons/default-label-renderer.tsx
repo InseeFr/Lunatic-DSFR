@@ -1,4 +1,4 @@
-import { SuggesterOption } from "../../type";
+import { SuggesterOption } from "../type";
 
 type Props = {
     option?: SuggesterOption | null;
@@ -9,9 +9,8 @@ type Props = {
 function getContent(option: Props["option"], search: Props["search"]) {
     if (option) {
         const { id, value, label } = option;
-        return label ? `${id || value} - ${label}` : id || value;
-    }
-    if (search && search.trim().length) {
+        return label ? `${label}` : id || value;
+    } else if (search && search.trim().length) {
         return search;
     }
     return null;

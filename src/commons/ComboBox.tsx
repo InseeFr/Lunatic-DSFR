@@ -26,7 +26,7 @@ type Props = SelectionProps &
 
 function ComboBox({
     className,
-    placeholder = "Please, do something...",
+    placeholder = "Veuillez chercher votre réponse",
     editable = false,
     disabled,
     id,
