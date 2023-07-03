@@ -42,7 +42,7 @@ export function Suggester(props: SuggesterProps) {
         placeholder,
         value,
     } = props;
-    console.log(value);
+
     const [localValue, setLocalValue] = useState<string | null>(value);
     const [search, setSearch] = useState<string | null>("");
     const [suggestions, setSuggestions] = useState<Array<ComboBoxOption>>([]);
