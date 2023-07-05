@@ -1,7 +1,7 @@
 import { HTMLAttributes } from "react";
-import { ReferentielEntity } from "./Suggester";
+import { SuggesterOption } from "../type";
 
-export function RenderOption(props: HTMLAttributes<HTMLLIElement>, option: ReferentielEntity) {
+export function RenderOption(props: HTMLAttributes<HTMLLIElement>, option: SuggesterOption) {
     const { id, label } = option;
     return (
         <li {...props} key={id}>

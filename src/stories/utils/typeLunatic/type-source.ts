@@ -272,7 +272,7 @@ export type Variable =
       };
 
 export type LunaticSource = {
-    id: string;
+    id?: string;
     modele?: string;
     enoCoreVersion?: string;
     lunaticModelVersion?: string;
@@ -280,19 +280,19 @@ export type LunaticSource = {
     missing?: boolean;
     pagination?: boolean;
     maxPage: string;
-    label: LabelType;
+    label?: LabelType;
     components: ComponentType[];
     variables: Variable[];
     suggesters: SuggesterType[];
-    cleaning: {
+    cleaning?: {
         [variableName: string]: {
             [variableName: string]: string;
         };
     };
-    missingBlock: {
+    missingBlock?: {
         [variableName: string]: string[];
     };
-    resizing: {
+    resizing?: {
         [variableName: string]: {
             // VTL Expression
             size: string;

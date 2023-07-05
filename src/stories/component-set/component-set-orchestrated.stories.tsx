@@ -20,12 +20,16 @@ export default stories;
 const Template: ComponentStory<typeof Orchestrator> = args => <Orchestrator {...args} custom={custom} />;
 export const Default = Template.bind({});
 
-Default.args = { id: "component-set", source, data };
+Default.args = {
+    // id: "component-set",
+    source,
+    data,
+};
 
 export const InRoundabout = Template.bind({});
 
 InRoundabout.args = {
-    id: "component-set-roundabout",
+    // id: "component-set-roundabout",
     source: sourceRoundabout,
     data: dataRoundabout,
 };
@@ -33,7 +37,7 @@ InRoundabout.args = {
 export const InLoop = Template.bind({});
 
 InLoop.args = {
-    id: "component-set-loop",
+    // id: "component-set-loop",
     source: sourceLoop,
     data: dataLoop,
 };

@@ -1,7 +1,7 @@
 import type { LunaticData, LunaticError } from "../typeLunatic/type";
 import { ComponentType } from "../typeLunatic/type-source";
-import { HeaderType } from "../components/Header/HeaderType";
-import { FooterType } from "../components/footer/FooterType";
+// import { HeaderType } from "../components/Header/HeaderType";
+// import { FooterType } from "../components/footer/FooterType";
 
 export type StateData = {
     // 'INIT' | 'COMPLETED' | 'VALIDATED' | 'TOEXTRACT' | 'EXTRACTED' | null;
@@ -81,8 +81,8 @@ export type SubmitType = {
     Results: LinkType;
 };
 
-export interface MetadataSurvey {
-    Header: HeaderType;
-    Footer: FooterType;
-    Submit: SubmitType;
-}
+// export interface MetadataSurvey {
+//     Header: HeaderType;
+//     Footer: FooterType;
+//     Submit: SubmitType;
+// }

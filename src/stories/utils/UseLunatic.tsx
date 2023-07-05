@@ -23,7 +23,8 @@ export function UseLunatic(props: PropsWithChildren<OrchestratorProps>) {
     const { currentPage } = stateData;
     const [currentChange, setCurrentChange] = useState<{ name: string }>();
 
-    const onChange = useCallback(({ name }: { name: string }, value: unknown) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const onChange = useCallback(({ name }: { name: string }, _value: unknown) => {
         setCurrentChange({ name });
     }, []);
 

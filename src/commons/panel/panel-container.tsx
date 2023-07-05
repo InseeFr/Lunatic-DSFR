@@ -31,11 +31,14 @@ export function PanelContainer({ children, focused, expanded, id }: Props) {
         <ul
             id={`lunatic-combo-box-panel-${id}`}
             aria-label="suggestions"
-            // className={classnames('lunatic-combo-box-panel', {
-            // 	focused,
-            // 	expanded,
-            // })}
-            className={cx(classes.root, "fr-mt-0-5v")}
+            className={cx(
+                classes.root,
+                "fr-mt-0-5v",
+                classnames("lunatic-combo-box-panel", {
+                    focused,
+                    expanded,
+                }),
+            )}
             role="listbox"
         >
             {children}

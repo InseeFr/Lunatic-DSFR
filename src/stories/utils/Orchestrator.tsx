@@ -1,35 +1,37 @@
-import { FC, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import * as lunatic from "@inseefr/lunatic";
 import { LunaticError } from "../../utils/type/type";
 import Waiting from "./waiting";
 import { startReactDsfr } from "@codegouvfr/react-dsfr/spa";
+// import { LunaticSource } from "./typeLunatic/type-source";
+import { SurveyUnitData } from "./typeStromae/type";
+// import { LunaticData } from "./typeLunatic/type";
 startReactDsfr({ defaultColorScheme: "system" });
 
-export interface OrchestratorProps {
-    id: string;
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    source: { maxPage?: string; components?: {}; variables?: {} };
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    data: object;
+export type OrchestratorProps = {
+    source?: Record<string, unknown>;
+    data?: { data: Record<string, unknown> } | Record<string, unknown>;
+    surveyUnitData?: SurveyUnitData;
+    suggesterFetcher?: any;
+    onChange?: (...args: any) => void;
+    autoSuggesterLoading?: boolean;
+    features?: Array<string>;
+    preferences?: Array<string>;
+    savingType?: string;
+    paginated?: boolean;
+    disabled?: boolean;
+    initialPage?: string;
+    activeGoNextForMissing: boolean;
+    suggesters: [];
     management?: boolean;
     activeControls?: boolean;
-    features?: [];
-    initialPage?: string;
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    getStoreInfo?: Function;
+    getReferentiel?: (name: string) => Promise<Record<string, unknown>>;
+    custom?: Record<string, unknown>;
+    getStoreInfo?: (storeName: string) => void;
     missing?: boolean;
     shortcut?: boolean;
-    activeGoNextForMissing?: boolean;
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    suggesterFetcher: Function;
-    autoSuggesterLoading: boolean;
-    suggesters: [];
-    preferences: [];
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    custom?: object;
     filterDescription: boolean;
-    getReferentiel?: (name: string) => Promise<Record<string, unknown>>;
-}
+};
 
 function getStoreInfoRequired() {
     return {};
@@ -83,29 +85,30 @@ function onLogChange(res: any, value: any, args: any) {
     console.log("onChange", { res, value, args });
 }
 
-const Orchestrator: FC<OrchestratorProps> = ({
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    id,
+export default function Orchestrator({
     source,
     data,
+    features,
+    preferences,
+    initialPage = "1",
+    activeGoNextForMissing = false,
+    autoSuggesterLoading,
+    suggesters,
+    suggesterFetcher,
     management = false,
     activeControls = true,
-    features,
-    initialPage = "1",
+    getReferentiel,
+    custom,
     getStoreInfo = getStoreInfoRequired,
     missing = false,
     shortcut = false,
-    activeGoNextForMissing = false,
-    suggesterFetcher,
-    autoSuggesterLoading,
-    suggesters,
-    preferences,
-    custom,
     filterDescription = true,
-    getReferentiel,
     ...rest
-}) => {
-    const { maxPage } = source;
+}: OrchestratorProps) {
+    let maxPage = "";
+    if (source && source.maxPage && typeof source.maxPage === "string") {
+        maxPage = source.maxPage;
+    }
     const {
         getComponents,
         goPreviousPage,
@@ -207,6 +210,4 @@ const Orchestrator: FC<OrchestratorProps> = ({
             </div>
         </Provider>
     );
-};
-
-export default Orchestrator;
+}

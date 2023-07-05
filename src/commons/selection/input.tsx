@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, HTMLAttributes, KeyboardEventHandler } from "react";
+import { useRef, useEffect, HTMLAttributes, KeyboardEventHandler } from "react";
 import classnames from "classnames";
 import { displayLabelOrInput } from "./displayLabelOrInput";
 
