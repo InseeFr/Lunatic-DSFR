@@ -342,6 +342,7 @@
     "@babel/helper-plugin-utils" "^7.18.6"
 
 "@babel/plugin-proposal-decorators@^7.12.12":
+
   version "7.22.6"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-decorators/-/plugin-proposal-decorators-7.22.6.tgz#47fd392abe90f715708dc9aaeafc1f09d8db3fc4"
   integrity sha512-cgskJ9W7kxTk/wBM16JNHhlTkeyDK6slMJg1peaI4LM3y2HtTv+6I85sW9UXSUZilndIBvDBETA1BRoOYdxWKw==
@@ -1482,7 +1483,7 @@
   resolved "https://registry.yarnpkg.com/@inseefr/lunatic/-/lunatic-2.4.9.tgz#788892acc94e3a52dd4f1b4a02ea702b2ab4405f"
   integrity sha512-qQDnARkPVHjMD/xlIRVPdizTjqZKNFT9Ws4P9Yy6hfEELnOrUemMBgKqmydiHazNhYX4BN5Kdn1dn0AbfBCYjQ==
   dependencies:
-    "@inseefr/trevas" "^0.1.17"
+    "@inseefr/trevas" "^0.1.18"
     "@inseefr/vtl-2.0-antlr-tools" "^0.1.0-bundle"
     antlr4 "4.11.0"
     classnames "^2.3.1"
@@ -1500,7 +1501,7 @@
     sass "^1.58.3"
     snowball "^0.3.1"
     string-tokenizer "^0.0.8"
-
+    
 "@inseefr/trevas@^0.1.17":
   version "0.1.18"
   resolved "https://registry.yarnpkg.com/@inseefr/trevas/-/trevas-0.1.18.tgz#f6872fdc7a6181d04614fc100d8e3e315c799116"
