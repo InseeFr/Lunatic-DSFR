@@ -59,6 +59,7 @@
             "componentType": "Suggester",
             "mandatory": false,
             "label": { "value": "\"Cherchez votre commmune:\"", "type": "VTL" },
+            "description": { "value": "\"description lorem ipsum lorem ipsum lorem\"", "type": "VTL" },
             "storeName": "communes-2019",
             "conditionFilter": {
                 "value": "true",

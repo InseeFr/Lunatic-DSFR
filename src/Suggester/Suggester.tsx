@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 import { LunaticError } from "../utils/type/type";
 import { SuggesterContainer } from "./elements/SuggesterContainer";
-import { ComboBox, DefaultOptionRenderer, DefaultLabelRenderer } from "../commons";
+import { ComboBox, DefaultLabelRenderer } from "../commons";
 import { ComboBoxOption } from "../commons/combo-box.type";
 import { LunaticComponentProps } from "../type";
+import { SuggesterOption } from "./elements/SuggesterOption";
 
 type SearchResults = {
     results: Array<ComboBoxOption>;
@@ -38,7 +39,7 @@ export function Suggester(props: SuggesterProps) {
         className,
         disabled,
         labelRenderer = DefaultLabelRenderer,
-        optionRenderer = DefaultOptionRenderer,
+        optionRenderer = SuggesterOption,
         placeholder,
         value,
     } = props;

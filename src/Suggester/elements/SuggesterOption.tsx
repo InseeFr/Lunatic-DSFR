@@ -1,14 +1,15 @@
 import { makeStyles } from "@codegouvfr/react-dsfr/tss";
 import { fr } from "@codegouvfr/react-dsfr";
+import { SuggesterOption as SuggesterOptionType } from "../../type";
 
-type SuggesterOption = {
-    label: string;
-    selected: boolean;
+type Props = {
+    option: SuggesterOptionType;
+    selected?: boolean;
 };
 
 const useStyles = makeStyles()(theme => ({
     root: {
-        "&.Mui-focused": {
+        "&:hover": {
             background: theme.decisions.background.open.blueFrance.default,
         },
         cursor: "pointer",
@@ -24,12 +25,12 @@ function getStyle(selected: boolean) {
     }
 }
 
-export function SuggesterOption(props: SuggesterOption) {
-    const { label, selected } = props;
+export function SuggesterOption({ option, selected }: Props) {
+    const { label } = option;
     const { classes, cx } = useStyles();
 
     return (
-        <li {...props} className={cx(classes.root, "fr-p-2w")} style={getStyle(selected)}>
+        <li className={cx(classes.root, "fr-p-2w")} style={getStyle(selected ? selected : false)}>
             {label}
         </li>
     );
