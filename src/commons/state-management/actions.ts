@@ -24,10 +24,10 @@ export const onChange = (search: string | null) =>
         payload: { search },
     } as const);
 
-export const onSelect = (selectedIndex: number) =>
+export const onSelect = (selectedIndex: number, searchProps: string) =>
     ({
         type: ComboActionKind.ON_SELECT,
-        payload: { selectedIndex },
+        payload: { selectedIndex, searchProps },
     } as const);
 
 export const onKeydown = (key: string, nbOptions: number) =>
@@ -38,7 +38,8 @@ export const onKeydown = (key: string, nbOptions: number) =>
 
 export const onDelete = () => ({ type: ComboActionKind.ON_DELETE } as const);
 
-export const onFocus = () => ({ type: ComboActionKind.ON_FOCUS } as const);
+export const onFocus = (search: string) =>
+    ({ type: ComboActionKind.ON_FOCUS, payload: { search } } as const);
 
 export const onBlur = () => ({ type: ComboActionKind.ON_BLUR } as const);
 
@@ -50,13 +51,13 @@ export const onInit = ({ ...payload }: ComboAction<ComboActionKind.ON_INIT>["pay
 
 export type ComboAction<T extends ComboActionKind = ComboActionKind> = (
     | { type: ComboActionKind.ON_CHANGE; payload: { search: string | null } }
-    | { type: ComboActionKind.ON_SELECT; payload: { selectedIndex: number } }
+    | { type: ComboActionKind.ON_SELECT; payload: { selectedIndex: number; searchProps: string } }
     | {
           type: ComboActionKind.ON_KEYDOWN;
           payload: { nbOptions: number; key: string };
       }
     | { type: ComboActionKind.ON_DELETE }
-    | { type: ComboActionKind.ON_FOCUS }
+    | { type: ComboActionKind.ON_FOCUS; payload: { search: string | null } }
     | { type: ComboActionKind.ON_BLUR }
     | {
           type: ComboActionKind.ON_INIT;

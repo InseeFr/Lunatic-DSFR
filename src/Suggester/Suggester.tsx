@@ -94,14 +94,15 @@ export function Suggester(props: SuggesterProps) {
     );
 
     function getSearch(search: string | null, value: string | null) {
-        if (search && !search.length && value) {
-            return value;
+        if (search && search.length) {
+            return search;
         }
 
-        return "";
+        return value ? value : "";
     }
 
     const defaultSearch = getSearch(search, localValue);
+    console.log(defaultSearch);
 
     return (
         <SuggesterContainer>

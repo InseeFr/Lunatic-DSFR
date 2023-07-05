@@ -56,9 +56,13 @@ function ComboBox({
         [options, value, getOptionValue],
     );
 
-    const onFocus = useCallback(function () {
-        dispatch(actions.onFocus());
-    }, []);
+    const onFocus = useCallback(
+        function () {
+            dispatch(actions.onFocus(searchProps));
+            onChange?.(searchProps);
+        },
+        [searchProps, onChange],
+    );
 
     const onBlur = useCallback(function () {
         dispatch(actions.onBlur());
@@ -68,7 +72,7 @@ function ComboBox({
         (index: string) => {
             const indexNumber = parseInt(index, 10);
             const option = options[indexNumber];
-            dispatch(actions.onSelect(indexNumber));
+            dispatch(actions.onSelect(indexNumber, searchProps));
             onSelect(getOptionValue(option));
         },
         [options, onSelect, getOptionValue],
