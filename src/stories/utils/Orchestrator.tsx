@@ -12,7 +12,9 @@ export type OrchestratorProps = {
     source?: Record<string, unknown>;
     data?: { data: Record<string, unknown> } | Record<string, unknown>;
     surveyUnitData?: SurveyUnitData;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     suggesterFetcher?: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onChange?: (...args: any) => void;
     autoSuggesterLoading?: boolean;
     features?: Array<string>;

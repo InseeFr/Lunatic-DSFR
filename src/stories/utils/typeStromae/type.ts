@@ -44,6 +44,7 @@ export type OrchestratedElement = {
     readonly getCurrentErrors?: () => Record<string, Array<LunaticError>>;
     readonly isFirstPage?: boolean;
     readonly isLastPage?: boolean;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     readonly onChange?: (...args: any) => void;
     readonly getData?: (refreshCalculated: boolean) => VariablesType;
     readonly compileControls?: () => {
