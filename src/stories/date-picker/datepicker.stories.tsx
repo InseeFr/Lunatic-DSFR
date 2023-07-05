@@ -19,10 +19,8 @@ const Template: ComponentStory<typeof Orchestrator> = args => <Orchestrator {...
 
 export const Default = Template.bind({});
 
-
 Default.args = { source, data };
 
 export const InComponentSet = Template.bind({});
 
-InComponentSet.args = { id: "input", source: sourceInComponentSet, data: dataInComponentSet };
-
+InComponentSet.args = { source: sourceInComponentSet, data: dataInComponentSet };
