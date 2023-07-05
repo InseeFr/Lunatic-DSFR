@@ -12,3 +12,4 @@ export * from "./Questions";
 export * from "./Sequence";
 export * from "./Subsequence";
 export * from "./Summary";
+export * from "./Accordion";
