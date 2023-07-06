@@ -6,7 +6,6 @@ import { ComboBoxState } from "./index";
 export function reducer(state: ComboBoxState, action: ComboAction): ComboBoxState {
     switch (action.type) {
         case ComboActionKind.ON_FOCUS:
-            console.log(state, action.payload.search);
             return {
                 ...state,
                 search: action.payload.search ? action.payload.search : "",
@@ -40,7 +39,6 @@ export function reducer(state: ComboBoxState, action: ComboAction): ComboBoxStat
         case ComboActionKind.ON_KEYDOWN:
             return reduceOnKeydown(state, action);
         case ComboActionKind.ON_INIT:
-            console.log("toto");
             return reduceOnInit(state, action);
         default:
             return state;

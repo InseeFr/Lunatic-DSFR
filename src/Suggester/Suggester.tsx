@@ -102,7 +102,6 @@ export function Suggester(props: SuggesterProps) {
     }
 
     const defaultSearch = getSearch(search, localValue);
-    console.log(defaultSearch);
 
     return (
         <SuggesterContainer>
