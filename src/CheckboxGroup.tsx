@@ -1,46 +1,37 @@
+import { ReactNode } from "react";
 import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Checkbox as CheckboxDSFR } from "@codegouvfr/react-dsfr/Checkbox";
 import { LunaticError } from "./utils/type/type";
 
-type OptionType = {
-    id?: string;
-    label: string;
-    value?: unknown;
-    description?: string;
+type CheckboxGroupOption = {
+    label: ReactNode;
     name: string;
-    onClick: (checked: boolean) => void;
+    checked: boolean;
+    description?: ReactNode;
+    onClick: (b: boolean) => void;
 };
 
-type CheckboxGroupType = {
-    disabled: boolean;
-    label: string;
-    description: string;
+type Props = {
+    options: CheckboxGroupOption[];
+    errors?: Record<string, LunaticError[]>;
     id: string;
-    className: string;
-    options: Array<OptionType>;
-    errors: Record<string, Array<LunaticError>>;
-    value: Record<string, boolean | undefined>;
+    label?: ReactNode;
+    description?: ReactNode;
+    shortcut?: boolean;
+    disabled?: boolean;
+    className?: string;
 };
 
-function getValue(value: Record<string, boolean | undefined>, name: string) {
-    if (name in value) {
-        return value[name] ?? false;
-    }
-    return false;
-}
-
-function getOptions(options: Array<OptionType>, value: Record<string, boolean | undefined>) {
+function getOptions(options: Array<CheckboxGroupOption>) {
     if (options) {
         return options.map(function (option) {
-            const { label, id, description, name, onClick } = option;
-            const checked = getValue(value, name);
+            const { label, description, name, onClick, checked } = option;
             return {
                 label,
-                id,
                 hintText: description,
                 nativeInputProps: {
-                    name: id,
+                    name,
                     checked,
                     onChange: () => onClick(!checked),
                 },
@@ -50,28 +41,16 @@ function getOptions(options: Array<OptionType>, value: Record<string, boolean | 
     return [];
 }
 
-export function CheckboxGroup({
-    label,
-    description,
-    id,
-    disabled,
-    className,
-    options,
-    errors,
-    value,
-}: CheckboxGroupType) {
-    const state = getState(errors, id);
-    const stateRelatedMessage = getStateRelatedMessage(errors, id);
-
+export function CheckboxGroup({ label, description, id, disabled, className, errors, options }: Props) {
     return (
         <CheckboxDSFR
             className={classnames("dropdown-lunatic-dsfr", className, id)}
             disabled={disabled}
             legend={label}
             hintText={description}
-            options={getOptions(options, value)}
-            state={state}
-            stateRelatedMessage={stateRelatedMessage}
+            options={getOptions(options)}
+            state={errors ? getState(errors, id) : undefined}
+            stateRelatedMessage={errors ? getStateRelatedMessage(errors, id) : undefined}
         />
     );
 }

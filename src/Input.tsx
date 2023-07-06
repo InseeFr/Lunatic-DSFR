@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState, useEffect } from "react";
 import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
@@ -32,8 +32,15 @@ export function Input({
     id: string;
     errors: Record<string, Array<LunaticError>>;
 }) {
+    const [localValue, setLocalValue] = useState<string>(value);
+
+    useEffect(() => {
+        setLocalValue(value);
+    }, [value]);
+
     const handleChange = useCallback(
         function (e: React.ChangeEvent<HTMLInputElement>) {
+            setLocalValue(e.target.value);
             onChange(e.target.value);
         },
         [onChange],
@@ -49,7 +56,7 @@ export function Input({
             nativeInputProps={{
                 id: id,
                 maxLength: maxLength,
-                value: checkValue(value),
+                value: checkValue(localValue),
                 required: required,
                 onChange: handleChange,
             }}
