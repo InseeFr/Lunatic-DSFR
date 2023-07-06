@@ -1,7 +1,20 @@
 import { PropsWithChildren } from "react";
-import classnames from "classnames";
 import Legend from "./html/legend";
 import { LunaticError } from "../utils/type/type";
+import { makeStyles } from "@codegouvfr/react-dsfr/tss";
+
+const useStyles = makeStyles()({
+    root: {
+        "> .fr-fieldset__element:last-child": {
+            marginBottom: "0",
+        },
+        "> .fr-fieldset__element": {
+            ".fr-fieldset, .fr-fieldset__element": {
+                marginBottom: "0",
+            },
+        },
+    },
+});
 
 type ComponentSetType = {
     id: string;
@@ -20,6 +33,7 @@ export function ComponentSet({
     children,
 }: PropsWithChildren<ComponentSetType>) {
     const labelId = `label-${id}`;
+    const { classes, cx } = useStyles();
 
     if (errors && id in errors) {
         console.warn(
@@ -28,7 +42,7 @@ export function ComponentSet({
     }
 
     return (
-        <fieldset className={classnames("lunatic-dsfr-component-set", "fr-fieldset")}>
+        <fieldset className={cx(classes.root, "lunatic-dsfr-component-set", "fr-fieldset")}>
             <Legend id={labelId} description={description} className={className}>
                 {legendText}
             </Legend>
