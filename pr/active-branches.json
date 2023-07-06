@@ -5,7 +5,6 @@
     "feat/suggester-2",
     "fix/datepicker",
     "fix/question-information-without-title",
-    "feat_389/accordion-component",
-    "fix/margin-ComponentSet"
+    "feat_389/accordion-component"
   ]
 }
