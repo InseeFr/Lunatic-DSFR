@@ -35,7 +35,7 @@
                     "maxLength": 20,
                     "label": {
                         "value": "\"Prénom\"))",
-                        "type": "VTL|MD"
+                        "type": "VTL"
                     },
                     "conditionFilter": {
                         "value": "true",
@@ -64,13 +64,83 @@
                     "maxLength": 3,
                     "label": {
                         "value": "\"Age\"))",
-                        "type": "VTL|MD"
+                        "type": "VTL"
                     },
                     "conditionFilter": {
                         "value": "true",
                         "type": "VTL"
                     },
                     "response": { "name": "AGE" }
+                },
+                {
+                    "id": "radiototo",
+                    "bindingDependencies": ["Q1"],
+                    "componentType": "Radio",
+                    "mandatory": false,
+                    "label": {
+                        "value": "\"Does Spongebob live in a pineapple under the sea?\"",
+                        "type": "VTL"
+                    },
+                    "description": {
+                        "value": "\"Spongebob works for Mr. Krabs\"",
+                        "type": "VTL"
+                    },
+                    "conditionFilter": { "value": "true", "type": "VTL" },
+                    "controls": [
+                        {
+                            "id": "radio",
+                            "typeOfControl": "CONSISTENCY",
+                            "criticality": "WARN",
+                            "control": { "value": "not(Q1= \"2\")", "type": "VTL" },
+                            "errorMessage": {
+                                "value": "\"What else would Spongebob live in?\"",
+                                "type": "VTL"
+                            },
+                            "bindingDependencies": ["Q1"]
+                        }
+                    ],
+                    "options": [
+                        {
+                            "value": "1",
+                            "description": {
+                                "value": "\"Spongebob lives in a pineapple\"",
+                                "type": "VTL"
+                            },
+                            "label": { "value": "\"Yes\"", "type": "VTL" }
+                        },
+                        {
+                            "value": "2",
+                            "description": {
+                                "value": "\"Spongebob does not live in a pineapple\"",
+                                "type": "VTL"
+                            },
+                            "label": { "value": "\"No\"", "type": "VTL" }
+                        }
+                    ],
+                    "response": { "name": "Q1" }
+                },
+                {
+                    "id": "lfwiizq2",
+                    "componentType": "Datepicker",
+                    "mandatory": true,
+                    "page": "1",
+                    "min": "1900-01-01",
+                    "max": "2100-01-01",
+                    "label": { "type": "VTL", "value": "\"Birthday: \"" },
+                    "conditionFilter": { "type": "VTL", "value": "true" },
+                    "dateFormat": "YYYY-MM-DD",
+                    "hierarchy": {
+                        "sequence": {
+                            "id": "l7ovaca8",
+                            "page": "\"1\"",
+                            "label": { "type": "VTL", "value": "\"I - \" || \"S1\"" }
+                        }
+                    },
+                    "description": {
+                        "type": "VTL",
+                        "value": "\"Please enter your birthday in the below field\""
+                    },
+                    "response": { "name": "DATENAISS" }
                 }
             ]
         },
@@ -99,6 +169,18 @@
         },
         {
             "variableType": "COLLECTED",
+            "name": "Q1",
+            "componentRef": "radio",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        },
+        {
+            "variableType": "COLLECTED",
             "name": "PRENOMS",
             "values": {
                 "PREVIOUS": null,
@@ -107,6 +189,17 @@
                 "EDITED": null,
                 "INPUTED": null
             }
+        },
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "INPUTED": null,
+                "FORCED": null,
+                "PREVIOUS": null
+            },
+            "name": "DATENAISS"
         }
     ]
 }
