@@ -1,0 +1,89 @@
+{
+    "name": "@inseefr/lunatic-dsfr",
+    "version": "0.0.18",
+    "description": "Couche graphique pour Lunatic reposant sur le Système de Design de l'État (DSFR)",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/Inseefr/lunatic-dsfr.git"
+    },
+    "author": "INSEE (http://www.insee.fr)",
+    "license": "MIT",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "test": "echo DODO",
+        "build": "tsc",
+        "lint:check": "eslint . --ext .ts,.tsx",
+        "lint": "npm run lint:check -- --fix",
+        "_format": "prettier \"**/*.{ts,tsx,json,md}\"",
+        "format": "npm run _format -- --write",
+        "format:check": "npm run _format -- --list-different",
+        "link-in-main-project": "ts-node --skipProject src/scripts/link-in-main-project.ts",
+        "storybook": "copy-dsfr-to-public && start-storybook -p 6006 -s ./public",
+        "build-storybook": "build-storybook",
+        "prestart": "only-include-used-icons",
+        "prebuild": "only-include-used-icons"
+    },
+    "lint-staged": {
+        "*.{ts,tsx}": [
+            "eslint --fix"
+        ],
+        "*.{ts,tsx,json,md}": [
+            "prettier --write"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged -v"
+        }
+    },
+    "files": [
+        "src/",
+        "!src/scripts/",
+        "dist/",
+        "!dist/tsconfig.tsbuildinfo"
+    ],
+    "keywords": [],
+    "peerDependencies": {
+        "@emotion/react": "^11.10.5"
+    },
+    "devDependencies": {
+        "@codegouvfr/react-dsfr": "^0.63.0",
+        "@emotion/react": "^11.10.6",
+        "@storybook/addon-actions": "^6.5.16",
+        "@storybook/addon-essentials": "^6.5.16",
+        "@storybook/addon-interactions": "^6.5.16",
+        "@storybook/addon-links": "^6.5.16",
+        "@storybook/builder-webpack5": "^6.5.15",
+        "@storybook/manager-webpack5": "^6.5.15",
+        "@storybook/react": "^6.5.16",
+        "@storybook/testing-library": "^0.0.13",
+        "@types/node": "^16.4.9",
+        "@types/react": "^18.0.27",
+        "@types/react-dom": "^18.0.10",
+        "@typescript-eslint/eslint-plugin": "^4.28.5",
+        "@typescript-eslint/parser": "^4.28.5",
+        "babel-loader": "^8.3.0",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-storybook": "^0.6.10",
+        "husky": "^4.3.8",
+        "lint-staged": "^11.1.1",
+        "prettier": "^2.3.2",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "ts-node": "^10.9.1",
+        "tsconfig-paths-webpack-plugin": "^4.0.0",
+        "typescript": "^4.3.5"
+    },
+    "dependencies": {
+        "@babel/core": "^7.22.5",
+        "@emotion/styled": "^11.10.6",
+        "@inseefr/lunatic": "2.4.8-beta",
+        "@mui/material": "^5.12.0",
+        "classnames": "^2.3.2",
+        "react-number-format": "^5.1.4",
+        "sass-loader": "^13.2.0",
+        "tss-react": "^4.8.3"
+    }
+}
