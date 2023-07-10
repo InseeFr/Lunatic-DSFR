@@ -4,7 +4,7 @@ export function themeStringToVariable(
     theme: ColorTheme,
     themeString: string | undefined,
     defaultIfInvalid: string,
-) {
+): string {
     if (!themeString) {
         return defaultIfInvalid;
     }
