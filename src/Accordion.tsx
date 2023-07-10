@@ -1,4 +1,6 @@
 import { Accordion as AccordionDSFR } from "@codegouvfr/react-dsfr/Accordion";
+import { useColors } from "@codegouvfr/react-dsfr/useColors";
+import { themeStringToVariable } from "./utils/themeStringToVariable";
 
 type AccordionType = {
     label: string;
@@ -7,10 +9,15 @@ type AccordionType = {
 };
 
 export function Accordion({ label, description, bgColor }: AccordionType) {
-    const defaultBgcolor = "#FFFFFF";
+    const theme = useColors();
+    const backgroundColor = themeStringToVariable(
+        theme,
+        bgColor,
+        theme.decisions.background.default.grey.default,
+    );
 
     return (
-        <div style={{ backgroundColor: bgColor ? bgColor : defaultBgcolor }}>
+        <div style={{ backgroundColor }}>
             <AccordionDSFR label={label}>{description}</AccordionDSFR>
         </div>
     );
