@@ -1,0 +1,17 @@
+{
+    "components": [
+        {
+            "id": "question-explication",
+            "componentType": "QuestionExplication",
+            "label": {
+                "value": "\"QuestionExplication label\"",
+                "type": "VTL"
+            },
+            "description": {
+                "value": "\"QuestionExplication content\"",
+                "type": "VTL"
+            },
+            "bgColor": "purpleGlycine.default"
+        }
+    ]
+}
