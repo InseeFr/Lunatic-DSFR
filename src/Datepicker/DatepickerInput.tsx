@@ -1,5 +1,5 @@
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 type DatepickerInputType = {
     dateValues: Record<string, string>;
@@ -33,10 +33,28 @@ export function DatepickerInput({ dateValues, disabled, id, onChange, state }: D
         setDay(dateValues.day);
     }, [dateValues]);
 
-    useEffect(() => {
-        const newValue = `${year}-${month}-${day}`;
-        onChange(newValue);
-    }, [year, month, day]);
+    const changeDay = useCallback(
+        (e: React.ChangeEvent<HTMLInputElement>) => {
+            setDay(checkSubValue(2, e.target.value));
+            console.log(`${year}-${month}-${day}`);
+            onChange(`${year}-${month}-${e.target.value}`);
+        },
+        [year, month],
+    );
+    const changeMonth = useCallback(
+        (e: React.ChangeEvent<HTMLInputElement>) => {
+            setMonth(checkSubValue(2, e.target.value));
+            onChange(`${year}-${e.target.value}-${day}`);
+        },
+        [year, day],
+    );
+    const changeYear = useCallback(
+        (e: React.ChangeEvent<HTMLInputElement>) => {
+            setYear(checkSubValue(4, e.target.value));
+            onChange(`${e.target.value}-${month}-${day}`);
+        },
+        [month, day],
+    );
 
     return (
         <>
@@ -49,9 +67,7 @@ export function DatepickerInput({ dateValues, disabled, id, onChange, state }: D
                     nativeInputProps={{
                         id: `${id}-day`,
                         value: dateValues.day === "00" ? "" : dateValues.day,
-                        onChange: e => {
-                            setDay(checkSubValue(2, e.target.value));
-                        },
+                        onChange: changeDay,
                     }}
                 />
             </div>
@@ -64,9 +80,7 @@ export function DatepickerInput({ dateValues, disabled, id, onChange, state }: D
                     nativeInputProps={{
                         id: `${id}-month`,
                         value: dateValues.month === "00" ? "" : dateValues.month,
-                        onChange: e => {
-                            setMonth(checkSubValue(2, e.target.value));
-                        },
+                        onChange: changeMonth,
                     }}
                 />
             </div>
@@ -79,9 +93,7 @@ export function DatepickerInput({ dateValues, disabled, id, onChange, state }: D
                     nativeInputProps={{
                         id: `${id}-year`,
                         value: dateValues.year === "0000" ? "" : dateValues.year,
-                        onChange: e => {
-                            setYear(checkSubValue(4, e.target.value));
-                        },
+                        onChange: changeYear,
                     }}
                 />
             </div>
