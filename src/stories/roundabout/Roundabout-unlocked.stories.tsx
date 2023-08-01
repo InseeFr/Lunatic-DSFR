@@ -3,7 +3,7 @@ import source from "./source1.json";
 import data from "./data.json";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
-import "../../../public/dsfr/dsfr.min.css";
+import "@codegouvfr/react-dsfr/dsfr/dsfr.min.css";
 import * as custom from "../..";
 
 const stories = {
