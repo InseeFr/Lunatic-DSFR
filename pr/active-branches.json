@@ -5,7 +5,6 @@
     "feat/suggester-2",
     "fix/question-information-without-title",
     "feat_389/accordion-component",
-    "fix/datePicker-init",
-    "develop"
+    "fix/datePicker-init"
   ]
 }
