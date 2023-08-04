@@ -15,14 +15,13 @@ export function QuestionExplication({ label, description, bgColor }: QuestionExp
         bgColor,
         theme.decisions.background.default.grey.default,
     );
-    const boxShadowColor = theme.decisions.border.default.grey.default;
 
     return (
         <div
             style={{
                 backgroundColor,
-                boxShadow: `inset 0 1px 0 0 ${boxShadowColor}, 0 1px 0 0 ${boxShadowColor}`,
             }}
+            className="fr-py-2w"
         >
             <div className={"fr-container fr-grid-row fr-grid-row--center fr-grid-row--middle fr-px-1w"}>
                 <AccordionDSFR label={label} className={"fr-col-lg-6 fr-col-md-9 fr-col-12"}>
