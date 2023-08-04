@@ -6,15 +6,26 @@ function QuestionInformation(props: LunaticComponentProps<"Question">) {
     if (!label && !description) {
         return null;
     }
-    return (
-        <Alert
-            description={description ? description : ""}
-            severity="info"
-            small={false}
-            closable={false}
-            title={label ? label : ""}
-        />
-    );
+    if (!label) {
+        return (
+            <Alert
+                description={description ? description : ""}
+                severity="info"
+                closable={false}
+                small
+                title={undefined}
+            />
+        );
+    } else {
+        return (
+            <Alert
+                description={description ? description : ""}
+                severity="info"
+                closable={false}
+                title={label}
+            />
+        );
+    }
 }
 
 export default QuestionInformation;
