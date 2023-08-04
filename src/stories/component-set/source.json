@@ -3,8 +3,7 @@
     "components": [
         {
             "componentType": "QuestionContext",
-            "label": { "value": "\"Question Context\"", "type": "VTL|MD" },
-            "description": { "value": "\"Question Context description\"", "type": "VTL|MD" },
+            "description": { "value": "\"Question Context description\"", "type": "VTL" },
             "page": "1"
         },
         {
@@ -25,8 +24,8 @@
             "components": [
                 {
                     "componentType": "QuestionInformation",
-                    "label": { "value": "\"Question Information\"", "type": "VTL|MD" },
-                    "description": { "value": "\"Question Information description\"", "type": "VTL|MD" }
+                    "label": { "value": "\"This is the questionInformation title\"", "type": "VTL" },
+                    "description": { "value": "\"Question Information description\"", "type": "VTL" }
                 },
                 {
                     "id": "prenom",
