@@ -3,6 +3,7 @@
     "main",
     "feat/suggester",
     "feat/suggester-2",
-    "fix/datePicker-init"
+    "fix/datePicker-init",
+    "fix-check-value"
   ]
 }
