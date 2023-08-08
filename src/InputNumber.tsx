@@ -6,9 +6,9 @@ import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates"
 import { LunaticError } from "./utils/type/type";
 
 function checkValue(value: number) {
-    if (!value && value != 0 ) {
-        return null
-    } 
+    if (!value && value != 0) {
+        return null;
+    }
     return value;
 }
 
