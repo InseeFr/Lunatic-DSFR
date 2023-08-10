@@ -186,6 +186,12 @@ type ComponentPropsByType = {
         focused: boolean;
         response: { name: string };
     };
+    Modal: LunaticBaseProps<string | null> & {
+        goToPage: (payload: Record<string, unknown>) => void;
+        page: string;
+        goNextPage?: () => void;
+        goPreviousPage?: () => void;
+    };
 };
 
 export type LunaticComponentType = keyof ComponentPropsByType;
