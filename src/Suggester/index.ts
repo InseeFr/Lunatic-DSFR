@@ -6,4 +6,5 @@ export {
     ComboboxOption,
     ComboboxClearButton,
     Label,
+    ComboboxContentBox,
 } from "./elements";

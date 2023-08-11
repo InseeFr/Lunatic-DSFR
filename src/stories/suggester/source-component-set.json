@@ -38,7 +38,6 @@
                     "id": "communes-2023",
                     "componentType": "Suggester",
                     "label": { "value": "\"NAF\"", "type": "VTL" },
-                    "className": "lunatic-dsfr",
                     "description": "\"industrie\"",
                     "storeName": "naf-rev2",
                     "conditionFilter": {

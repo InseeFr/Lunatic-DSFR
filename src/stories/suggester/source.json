@@ -39,7 +39,6 @@
             "mandatory": false,
             "label": { "value": "\"Nomenclature d'activité\"", "type": "VTL" },
             "storeName": "naf-rev2",
-            "className": "lunatic-dsfr",
             "conditionFilter": {
                 "value": "true",
                 "type": "VTL"

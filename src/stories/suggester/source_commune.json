@@ -58,7 +58,6 @@
             "id": "communes-2019",
             "componentType": "Suggester",
             "mandatory": false,
-            "className": "lunatic-dsfr",
             "label": { "value": "\"Cherchez votre commmune:\"", "type": "VTL" },
             "storeName": "communes-2019",
             "conditionFilter": {

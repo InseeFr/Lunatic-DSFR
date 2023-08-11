@@ -58,7 +58,6 @@
             "id": "en-carton",
             "componentType": "Suggester",
             "mandatory": false,
-            "className": "lunatic-dsfr",
             "label": { "value": "\"Cherchez votre commmune:\"", "type": "VTL" },
             "storeName": "en-carton",
             "conditionFilter": {
