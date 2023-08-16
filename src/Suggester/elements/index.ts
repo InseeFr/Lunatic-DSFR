@@ -5,3 +5,4 @@ export { ComboboxClearButton } from "./ComboBoxClearButton";
 export { Label } from "./Label";
 export { ComboboxContentBox } from "./ComboBoxContentBox";
 export { ComboboxContainer } from "./ComboBoxContainer";
+export { ComboboxPanelContainer } from "./ComboBoxPanelContainer";

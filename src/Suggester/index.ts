@@ -8,4 +8,5 @@ export {
     Label,
     ComboboxContentBox,
     ComboboxContainer,
+    ComboboxPanelContainer,
 } from "./elements";
