@@ -49,22 +49,24 @@ export function ComboboxLabelSelection({ option, placeholder, search, disabled =
     const { classes, cx } = useStyles();
 
     return (
-        <div
-            className={classNames("lunatic-dsfr-combo-box-selected", cx(classes.root), "fr-input", {
-                disabled,
-            })}
-        >
-            <span
-                className={classNames(
-                    {
-                        placeholder: isPh,
-                        selection: !isPh,
-                    },
-                    isPh ? cx(classes.placeholder) : null,
-                )}
+        <div className="fr-input-wrap fr-icon-arrow-down-s-line">
+            <div
+                className={classNames("lunatic-dsfr-combo-box-selected", cx(classes.root), "fr-input", {
+                    disabled,
+                })}
             >
-                {getContent(option, search, placeholder)}
-            </span>
+                <span
+                    className={classNames(
+                        {
+                            placeholder: isPh,
+                            selection: !isPh,
+                        },
+                        isPh ? cx(classes.placeholder) : null,
+                    )}
+                >
+                    {getContent(option, search, placeholder)}
+                </span>
+            </div>
         </div>
     );
 }

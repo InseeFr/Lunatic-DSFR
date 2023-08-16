@@ -1,5 +1,5 @@
 {
-    "maxPage": "1",
+    "maxPage": "2",
     "suggesters": [
         {
             "name": "naf-rev2",
@@ -67,7 +67,33 @@
             "response": {
                 "name": "NAF"
             },
-            "page": "1"
+            "page": "1",
+            "controls": [
+                {
+                    "id": "age-controls",
+                    "criticality": "ERROR",
+                    "typeOfControl": "FORMAT",
+                    "control": {
+                        "value": "not(isnull(NAF))",
+                        "type": "VTL"
+                    },
+                    "errorMessage": {
+                        "value": "\"Veuillez selectionner quelquechose\"",
+                        "type": "VTL"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "toto",
+            "componentType": "Sequence",
+            "mandatory": false,
+            "label": { "value": "\"BYE!\"", "type": "VTL" },
+            "conditionFilter": {
+                "value": "true",
+                "type": "VTL"
+            },
+            "page": "2"
         }
     ],
     "variables": [
