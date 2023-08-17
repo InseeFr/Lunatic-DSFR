@@ -55,32 +55,47 @@
             ]
         },
         {
-            "id": "communes-2019",
-            "componentType": "Suggester",
-            "mandatory": false,
-            "label": { "value": "\"Cherchez votre commmune:\"", "type": "VTL" },
-            "storeName": "communes-2019",
+            "id": "lfwg2ny2",
+            "componentType": "ComponentSet",
+            "page": "1",
+            "className": "ComponentSet",
             "conditionFilter": {
                 "value": "true",
                 "type": "VTL"
             },
-            "response": {
-                "name": "NAF"
+            "label": {
+                "value": "\"Chercher votre activité principale.\"",
+                "type": "VTL"
             },
-            "page": "1",
-            "controls": [
+            "components": [
                 {
-                    "id": "age-controls",
-                    "criticality": "ERROR",
-                    "typeOfControl": "FORMAT",
-                    "control": {
-                        "value": "not(isnull(NAF))",
+                    "id": "communes-2019",
+                    "componentType": "Suggester",
+                    "mandatory": false,
+                    "label": { "value": "\"Cherchez votre commmune:\"", "type": "VTL" },
+                    "storeName": "communes-2019",
+                    "conditionFilter": {
+                        "value": "true",
                         "type": "VTL"
                     },
-                    "errorMessage": {
-                        "value": "\"Veuillez selectionner quelquechose\"",
-                        "type": "VTL"
-                    }
+                    "response": {
+                        "name": "NAF"
+                    },
+                    "controls": [
+                        {
+                            "id": "age-controls",
+                            "criticality": "ERROR",
+                            "typeOfControl": "FORMAT",
+                            "control": {
+                                "value": "not(isnull(NAF))",
+                                "type": "VTL"
+                            },
+                            "errorMessage": {
+                                "value": "\"Veuillez selectionner quelquechose\"",
+                                "type": "VTL"
+                            }
+                        }
+                    ]
                 }
             ]
         },

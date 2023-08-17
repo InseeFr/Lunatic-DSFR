@@ -36,7 +36,7 @@ const useStyles = makeStyles()({
 function getContent(option: Props["option"], search?: Props["search"], placeholder?: string) {
     if (option) {
         const { id, value, label } = option;
-        return label ? `${id || value} - ${label}` : id || value;
+        return label ? `${label}` : id || value;
     }
     if (search && search.trim().length) {
         return search;

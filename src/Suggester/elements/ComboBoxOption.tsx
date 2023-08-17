@@ -35,7 +35,7 @@ function getStyle(selected?: boolean) {
 }
 
 export function ComboboxOption({ option, selected }: Props) {
-    const { id, value, label } = option;
+    const { id, label } = option;
     const { classes, cx } = useStyles();
 
     if (label && typeof label === "string" && label.length) {
@@ -48,8 +48,6 @@ export function ComboboxOption({ option, selected }: Props) {
                 )}
                 style={getStyle(selected)}
             >
-                <span className="id">{id || value}</span>
-                <span> - </span>
                 <span className="label">{label}</span>
             </div>
         );
