@@ -16,14 +16,12 @@ type Props = {
     selected?: boolean;
 };
 
-const useStyles = makeStyles()(theme => ({
+const useStyles = makeStyles()({
     root: {
-        "&.Mui-focused": {
-            background: theme.decisions.background.open.blueFrance.default,
-        },
         cursor: "pointer",
+        padding: "0.25rem",
     },
-}));
+});
 
 function getStyle(selected?: boolean) {
     const backgroundColor = fr.getColors(false).decisions.background.open.blueFrance.default;

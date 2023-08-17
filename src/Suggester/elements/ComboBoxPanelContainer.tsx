@@ -12,10 +12,10 @@ const useStyles = makeStyles()(theme => ({
     root: {
         "> li": {
             "listStyle": "none",
-            "padding": "0.25rem",
             background: theme.decisions.background.contrast.grey.default,
+            padding: 0,
             ":hover": {
-                background: theme.decisions.background.contrast.grey.active,
+                background: theme.decisions.background.open.blueFrance.default,
             },
         },
     },
