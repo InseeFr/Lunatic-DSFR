@@ -51,7 +51,14 @@ export function ComboboxOption({ option, selected }: Props) {
         );
     }
     return (
-        <div className={classnames("lunatic-dsfr-combo-box-option", { selected })}>
+        <div
+            className={classnames(
+                "lunatic-dsfr-combo-box-option",
+                { selected },
+                cx(classes.root, "fr-p-2w"),
+            )}
+            style={getStyle(selected)}
+        >
             <span className="id">{id}</span>
         </div>
     );

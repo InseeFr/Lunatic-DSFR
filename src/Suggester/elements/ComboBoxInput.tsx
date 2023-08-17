@@ -1,5 +1,4 @@
 import { useRef, useEffect, HTMLAttributes, KeyboardEventHandler } from "react";
-import { fr } from "@codegouvfr/react-dsfr";
 import classnames from "classnames";
 
 export type InputProps = {
@@ -35,25 +34,23 @@ export function ComboboxInput({
     };
 
     return (
-        <div className={fr.cx("fr-input-wrap", "fr-icon-arrow-down-s-line")}>
-            <input
-                ref={inputEl}
-                id={id}
-                className={classnames("lunatic-dsfr-combo-box-input", "fr-input")}
-                type="text"
-                onChange={onChange}
-                value={value}
-                aria-label="lunatic-combo-box"
-                title="combo-box"
-                autoComplete="off"
-                autoCapitalize="off"
-                autoCorrect="off"
-                spellCheck="false"
-                placeholder={placeholder}
-                disabled={disabled}
-                aria-labelledby={labelledBy}
-                onKeyDown={onKeydown}
-            />
-        </div>
+        <input
+            ref={inputEl}
+            id={id}
+            className={classnames("lunatic-dsfr-combo-box-input", "fr-input")}
+            type="text"
+            onChange={onChange}
+            value={value}
+            aria-label="lunatic-combo-box"
+            title="combo-box"
+            autoComplete="off"
+            autoCapitalize="off"
+            autoCorrect="off"
+            spellCheck="false"
+            placeholder={placeholder}
+            disabled={disabled}
+            aria-labelledby={labelledBy}
+            onKeyDown={onKeydown}
+        />
     );
 }

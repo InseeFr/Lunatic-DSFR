@@ -10,6 +10,8 @@ type Props = PropsWithChildren<{
 
 const useStyles = makeStyles()(theme => ({
     root: {
+        "maxHeight": "20rem",
+        overflow: "scroll",
         "> li": {
             "listStyle": "none",
             background: theme.decisions.background.contrast.grey.default,
