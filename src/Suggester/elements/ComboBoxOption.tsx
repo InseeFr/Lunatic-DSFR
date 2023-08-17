@@ -42,7 +42,7 @@ export function ComboboxOption({ option, selected }: Props) {
                 className={classnames(
                     "lunatic-dsfr-combo-box-option",
                     { selected },
-                    cx(classes.root, "fr-p-1v"),
+                    cx(classes.root, "fr-p-2w"),
                 )}
                 style={getStyle(selected)}
             >
