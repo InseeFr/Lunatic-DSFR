@@ -26,7 +26,7 @@
             "components": [
                 {
                     "componentType": "Input",
-                    "label": { "value": "\"Prénom\"", "type": "VTL|MD" },
+                    "label": { "value": "\"Prénom\"", "type": "VTL" },
                     "conditionFilter": { "value": "true", "type": "VTL" },
                     "maxLength": 30,
                     "bindingDependencies": ["PRENOM"],
@@ -93,7 +93,7 @@
                     "conditionFilter": { "value": "xAxis <> yAxis", "type": "VTL" },
                     "label": {
                         "value": "\"Qui est \" || yAxis || \" pour \" || xAxis || \" ?\"",
-                        "type": "VTL|MD"
+                        "type": "VTL"
                     },
                     "response": {
                         "name": "LINKS"
@@ -142,13 +142,12 @@
                 },
                 {
                     "componentType": "Textarea",
-
                     "label": {
                         "value": "\"Pouvez-vous décrire le lien entre \" || xAxis || \" et \" || yAxis || \" ?\"",
                         "type": "VTL|MD"
                     },
                     "conditionFilter": {
-                        "value": "LINKS = \"17\"",
+                        "value": "false",
                         "type": "VTL"
                     },
                     "id": "other",
