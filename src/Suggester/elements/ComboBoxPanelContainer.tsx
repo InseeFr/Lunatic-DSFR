@@ -19,6 +19,9 @@ const useStyles = makeStyles()(theme => ({
             ":hover": {
                 background: theme.decisions.background.open.blueFrance.default,
             },
+            ".selected": {
+                background: theme.decisions.background.open.blueFrance.default,
+            },
         },
     },
 }));
