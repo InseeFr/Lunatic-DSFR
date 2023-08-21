@@ -34,21 +34,18 @@ export function DatepickerInput({ dateValues, disabled, id, onChange, state }: D
 
     const changeDay = useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
-            setDay(checkSubValue(2, e.target.value));
             onChange(`${year}-${month}-${checkSubValue(2, e.target.value)}`);
         },
         [year, month],
     );
     const changeMonth = useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
-            setMonth(checkSubValue(2, e.target.value));
             onChange(`${year}-${checkSubValue(2, e.target.value)}-${day}`);
         },
         [year, day],
     );
     const changeYear = useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
-            setYear(checkSubValue(4, e.target.value));
             onChange(`${checkSubValue(4, e.target.value)}-${month}-${day}`);
         },
         [month, day],
