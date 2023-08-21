@@ -1,0 +1,44 @@
+{
+    "maxPage": "1",
+    "suggesters": [
+        {
+            "name": "communes-2023",
+            "fields": [{ "name": "label", "rules": "soft" }],
+            "queryParser": { "type": "soft" },
+            "version": "1",
+            "order": { "type": "ascending", "field": "label" },
+            "max": 100
+        }
+    ],
+    "components": [
+        {
+            "id": "communes-2023",
+            "componentType": "Suggester",
+            "mandatory": false,
+            "label": { "value": "\"Rechechez votre communes dans le COG 2023\"", "type": "VTL" },
+            "description": "\"Le nom de votre commune\"",
+            "storeName": "communes-2023",
+            "conditionFilter": {
+                "value": "true",
+                "type": "VTL"
+            },
+            "response": {
+                "name": "COMMUNE"
+            },
+            "page": "1"
+        }
+    ],
+    "variables": [
+        {
+            "variableType": "COLLECTED",
+            "name": "COMMUNE",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        }
+    ]
+}

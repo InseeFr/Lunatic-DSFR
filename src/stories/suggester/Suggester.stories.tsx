@@ -2,6 +2,7 @@ import Orchestrator from "../utils/Orchestrator";
 import source from "./source.json";
 import sourceCommune from "./source_commune.json";
 import sourceError from "./source_error.json";
+import sourcePays from "./source-pays.json";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 import * as custom from "../..";
@@ -20,6 +21,8 @@ async function getReferentiel(name: string) {
             return fetch("/json/naf-rev2.json").then(r => r.json());
         case "communes-2019":
             return fetch("/json/communes-2019.json").then(r => r.json());
+        case "pays":
+            return fetch("/json/pays.json").then(r => r.json());
         default:
             throw new Error(`Référentiel inconnu : ${name}`);
     }
@@ -71,3 +74,7 @@ Communes.args = { source: sourceCommune, data: {} };
 export const Failedload = Template.bind({});
 
 Failedload.args = { source: sourceError, data: {} };
+
+export const Pays = Template.bind({});
+
+Pays.args = { source: sourcePays, data: {} };
