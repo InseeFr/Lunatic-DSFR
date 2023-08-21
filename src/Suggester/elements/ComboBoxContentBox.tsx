@@ -10,24 +10,12 @@ type Props = PropsWithChildren<{
     ref: React.RefObject<HTMLDivElement>;
 }>;
 
-export function ComboboxContentBox({
-    children,
-    className,
-    onFocus,
-    handleKeyDown,
-    focused,
-    ref,
-}: Props) {
+export function ComboboxContentBox({ children, className, focused }: Props) {
     return (
         <div
             className={classnames(`${className ?? "lunatic"}-dsfr-combo-box`, {
                 focused,
             })}
-            onFocus={onFocus}
-            onClick={onFocus}
-            onKeyDown={handleKeyDown}
-            ref={ref}
-            tabIndex={0}
         >
             {children}
         </div>
