@@ -1,0 +1,44 @@
+{
+    "maxPage": "1",
+    "suggesters": [
+        {
+            "name": "pays",
+            "fields": [{ "name": "id", "rules": "soft" }],
+            "queryParser": { "type": "soft" },
+            "version": "1",
+            "order": { "type": "ascending", "field": "label" },
+            "max": 100
+        }
+    ],
+    "components": [
+        {
+            "id": "pays",
+            "componentType": "Suggester",
+            "mandatory": false,
+            "label": { "value": "\"Rechechez votre pays\"", "type": "VTL" },
+            "description": "\"Le nom de votre pays\"",
+            "storeName": "pays",
+            "conditionFilter": {
+                "value": "true",
+                "type": "VTL"
+            },
+            "response": {
+                "name": "PAYS"
+            },
+            "page": "1"
+        }
+    ],
+    "variables": [
+        {
+            "variableType": "COLLECTED",
+            "name": "PAYS",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        }
+    ]
+}
