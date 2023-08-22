@@ -1250,12 +1250,12 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@codegouvfr/react-dsfr@^0.44.0":
-  version "0.44.3"
-  resolved "https://registry.yarnpkg.com/@codegouvfr/react-dsfr/-/react-dsfr-0.44.3.tgz#21a3e7e0fd1323af4911187936f18cefb5a10909"
-  integrity sha512-Jk7kp7uNDtJx2KCHaN5GzqLHdzx1CszW1K66erCFRYmk0Kp8niPdjmDjnN7X8scCxv/rRQ5f2VLeuNKwGsKABA==
+"@codegouvfr/react-dsfr@^0.75.0":
+  version "0.75.0"
+  resolved "https://registry.yarnpkg.com/@codegouvfr/react-dsfr/-/react-dsfr-0.75.0.tgz#87258a9df77b0855c7b02c1cfca1c418ebd0f646"
+  integrity sha512-0n+3PmmpFQskD/xuVPq9fw0ejcBR5a8D5A5DnvdPUIg79qxu90EkR0Ar/7jAJCk1gMM71hiphU3TjevxVTbjRg==
   dependencies:
-    tsafe "^1.6.0"
+    tsafe "^1.6.3"
 
 "@colors/colors@1.5.0":
   version "1.5.0"
@@ -1473,10 +1473,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@inseefr/lunatic@2.5.1-panelContainer":
-  version "2.5.1-panelContainer"
-  resolved "https://registry.yarnpkg.com/@inseefr/lunatic/-/lunatic-2.5.1-panelContainer.tgz#a18e55515292be65b45d4f8d60f89db69f12508a"
-  integrity sha512-R/ZqRt+w75UmrTyknf+mrilUdq+pl+CHWpZqQ+mcObktnGuCHjLB70ZP8C54LGdSoRIOVa5oXPDpGUhug6OJBg==
+"@inseefr/lunatic@^2.5.2-beta":
+  version "2.5.2-beta"
+  resolved "https://registry.yarnpkg.com/@inseefr/lunatic/-/lunatic-2.5.2-beta.tgz#12680a41d2aa3e8bc68ff2f8a36d08d94fd50f3c"
+  integrity sha512-+hxfp66PplG7DaD/Apnm0QHSb7UEakryWKRl6kqhTxx96+Ufve/eLeCZq87q7y/QD94og60YslgAUyet2tfmlA==
   dependencies:
     "@inseefr/trevas" "^0.1.19"
     "@inseefr/vtl-2.0-antlr-tools" "^0.1.0-bundle"
@@ -11268,7 +11268,7 @@ ts-pnp@^1.1.6:
   resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
   integrity sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==
 
-tsafe@^1.6.0:
+tsafe@^1.6.3:
   version "1.6.4"
   resolved "https://registry.yarnpkg.com/tsafe/-/tsafe-1.6.4.tgz#048a114761714538c72f16abd25bb247d4e3780e"
   integrity sha512-l4Z54QFGHO8GF0gBpb3yPGHjkIkIirl8rwW+lMBmtEMzOJeRs8BdjkDEx6nU8Ak9PQVp/KNDtECxTja8MMIDoA==

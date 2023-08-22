@@ -1,6 +1,6 @@
 import classnames from "classnames";
 import { makeStyles } from "@codegouvfr/react-dsfr/tss";
-import { fr } from "@codegouvfr/react-dsfr";
+import { fr } from "@codegouvfr/react-dsfr/";
 import { ReactNode } from "react";
 
 type ComboBoxOptionType = {
@@ -24,7 +24,7 @@ const useStyles = makeStyles()({
 });
 
 function getStyle(selected?: boolean) {
-    const backgroundColor = fr.getColors(false).decisions.background.open.blueFrance.default;
+    const backgroundColor = fr.colors.decisions.background.open.blueFrance.default;
     if (selected) {
         return {
             backgroundColor,
