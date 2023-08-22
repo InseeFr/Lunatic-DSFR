@@ -16,7 +16,7 @@ const useStyles = makeStyles()(theme => ({
 }));
 
 function getStyle(selected: boolean) {
-    const backgroundColor = fr.getColors(false).decisions.background.open.blueFrance.default;
+    const backgroundColor = fr.colors.decisions.background.open.blueFrance.default;
     if (selected) {
         return {
             backgroundColor,
