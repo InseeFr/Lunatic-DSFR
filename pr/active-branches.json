@@ -2,6 +2,7 @@
   "branches": [
     "main",
     "feat/suggester",
-    "feat/suggester-2"
+    "feat/suggester-2",
+    "jdirand-patch-1"
   ]
 }
