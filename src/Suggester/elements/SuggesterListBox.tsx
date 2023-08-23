@@ -1,5 +1,5 @@
 import { PropsWithChildren, LegacyRef, forwardRef } from "react";
-import { makeStyles } from "@codegouvfr/react-dsfr/tss";
+import { makeStyles } from "tss-react/dsfr";
 
 type SuggesterListBoxProps = {
     display: boolean;
