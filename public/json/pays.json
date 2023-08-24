@@ -1,0 +1,593 @@
+[
+    {
+        "id": "AFGHANISTAN"
+    },
+    {
+        "id": "ANGOLA"
+    },
+    {
+        "id": "ALBANIE"
+    },
+    {
+        "id": "ANDORRE"
+    },
+    {
+        "id": "APATRIDE"
+    },
+    {
+        "id": "EMIRATS ARABES UNIS"
+    },
+    {
+        "id": "ARGENTINE"
+    },
+    {
+        "id": "ARMENIE, EX-URSS"
+    },
+    {
+        "id": "ANTIGUA-ET-BARBUDA"
+    },
+    {
+        "id": "AUSTRALIE"
+    },
+    {
+        "id": "AUTRICHE"
+    },
+    {
+        "id": "AZERBAIDJAN, EX-URSS"
+    },
+    {
+        "id": "BURUNDI, URUNDI"
+    },
+    {
+        "id": "BELGIQUE"
+    },
+    {
+        "id": "BENIN, DAHOMEY"
+    },
+    {
+        "id": "BURKINA FASO, HAUTE-VOLTA"
+    },
+    {
+        "id": "BANGLADESH, PAKISTAN ORIENTAL"
+    },
+    {
+        "id": "BULGARIE"
+    },
+    {
+        "id": "BAHREIN"
+    },
+    {
+        "id": "BAHAMAS, ILES LUCAYES"
+    },
+    {
+        "id": "BOSNIE-HERZEGOVINE, EX-YOUGOSLAVIE"
+    },
+    {
+        "id": "BIELORUSSIE, BELARUS, EX-URSS"
+    },
+    {
+        "id": "BELIZE, HONDURAS BRITANNIQUE"
+    },
+    {
+        "id": "BOLIVIE, REPUBLIQUE DE BOLIVIE"
+    },
+    {
+        "id": "BRESIL"
+    },
+    {
+        "id": "BARBADE"
+    },
+    {
+        "id": "BRUNEI, BORNEO BRITANNIQUE"
+    },
+    {
+        "id": "BHOUTAN"
+    },
+    {
+        "id": "BOTSWANA, BECHUANALAND"
+    },
+    {
+        "id": "CENTRAFRICAINE (REPUBLIQUE), OUBANGUI-CHARI"
+    },
+    {
+        "id": "CANADA"
+    },
+    {
+        "id": "SUISSE"
+    },
+    {
+        "id": "CHILI"
+    },
+    {
+        "id": "CHINE"
+    },
+    {
+        "id": "COTE D'IVOIRE"
+    },
+    {
+        "id": "CAMEROUN"
+    },
+    {
+        "id": "CONGO (REPUBLIQUE DEMOCRATIQUE), ZAIRE"
+    },
+    {
+        "id": "CONGO, CONGO-BRAZZAVILLE"
+    },
+    {
+        "id": "COLOMBIE"
+    },
+    {
+        "id": "COMORES"
+    },
+    {
+        "id": "CAP-VERT"
+    },
+    {
+        "id": "COSTA RICA"
+    },
+    {
+        "id": "CUBA"
+    },
+    {
+        "id": "CHYPRE"
+    },
+    {
+        "id": "TCHEQUE (REPUBLIQUE), EX-TCHECOSLOVAQUIE"
+    },
+    {
+        "id": "ALLEMAGNE"
+    },
+    {
+        "id": "DJIBOUTI, AFARS ET ISSAS"
+    },
+    {
+        "id": "DOMINIQUE"
+    },
+    {
+        "id": "DANEMARK"
+    },
+    {
+        "id": "DOMINICAINE (REPUBLIQUE), SAINT-DOMINGUE"
+    },
+    {
+        "id": "ALGERIE"
+    },
+    {
+        "id": "EQUATEUR"
+    },
+    {
+        "id": "EGYPTE"
+    },
+    {
+        "id": "ERYTHREE"
+    },
+    {
+        "id": "ESPAGNE"
+    },
+    {
+        "id": "ESTONIE, EX-URSS"
+    },
+    {
+        "id": "ETHIOPIE, ABYSSINIE"
+    },
+    {
+        "id": "FINLANDE"
+    },
+    {
+        "id": "FIDJI"
+    },
+    {
+        "id": "MICRONESIE (ETATS FEDERES DE)"
+    },
+    {
+        "id": "GABON"
+    },
+    {
+        "id": "ROYAUME-UNI, GRANDE-BRETAGNE, ANGLETERRE, ECOSSE, PAYS DE GALLES, IRLANDE DU NORD"
+    },
+    {
+        "id": "GEORGIE, EX-URSS"
+    },
+    {
+        "id": "GHANA, COTE-DE-L'OR"
+    },
+    {
+        "id": "GUINEE, GUINEE FRANCAISE"
+    },
+    {
+        "id": "GAMBIE"
+    },
+    {
+        "id": "GUINEE-BISSAU, GUINEE PORTUGAISE"
+    },
+    {
+        "id": "GUINEE EQUATORIALE, GUINEE ESPAGNOLE"
+    },
+    {
+        "id": "GRECE"
+    },
+    {
+        "id": "GRENADE"
+    },
+    {
+        "id": "GUATEMALA"
+    },
+    {
+        "id": "GUYANA, GUYANE BRITANNIQUE"
+    },
+    {
+        "id": "HONDURAS"
+    },
+    {
+        "id": "CROATIE, EX-YOUGOSLAVIE"
+    },
+    {
+        "id": "HAITI"
+    },
+    {
+        "id": "HONGRIE"
+    },
+    {
+        "id": "INDONESIE, INDES NEERLANDAISES ET PORTUGAISES"
+    },
+    {
+        "id": "INDE"
+    },
+    {
+        "id": "IRLANDE, EIRE"
+    },
+    {
+        "id": "IRAN, PERSE"
+    },
+    {
+        "id": "IRAQ"
+    },
+    {
+        "id": "ISLANDE"
+    },
+    {
+        "id": "ISRAEL"
+    },
+    {
+        "id": "ITALIE"
+    },
+    {
+        "id": "JAMAIQUE"
+    },
+    {
+        "id": "JORDANIE, TRANSJORDANIE"
+    },
+    {
+        "id": "JAPON"
+    },
+    {
+        "id": "KAZAKHSTAN, EX-URSS"
+    },
+    {
+        "id": "KENYA"
+    },
+    {
+        "id": "KIRGHIZISTAN, EX-URSS"
+    },
+    {
+        "id": "CAMBODGE, KAMPUCHEA DEMOCRATIQUE"
+    },
+    {
+        "id": "KIRIBATI, ILES GILBERT"
+    },
+    {
+        "id": "SAINT-CHRISTOPHE-ET-NIEVES"
+    },
+    {
+        "id": "COREE (REPUBLIQUE DE)"
+    },
+    {
+        "id": "KOSOVO, EX-YOUGOSLAVIE"
+    },
+    {
+        "id": "KOWEIT"
+    },
+    {
+        "id": "LAOS"
+    },
+    {
+        "id": "LIBAN"
+    },
+    {
+        "id": "LIBERIA"
+    },
+    {
+        "id": "LIBYE, CYRENAIQUE"
+    },
+    {
+        "id": "SAINTE-LUCIE"
+    },
+    {
+        "id": "LIECHTENSTEIN"
+    },
+    {
+        "id": "SRI LANKA, CEYLAN"
+    },
+    {
+        "id": "LESOTHO, BASUTOLAND"
+    },
+    {
+        "id": "LITUANIE, EX-URSS"
+    },
+    {
+        "id": "LUXEMBOURG"
+    },
+    {
+        "id": "LETTONIE, EX-URSS"
+    },
+    {
+        "id": "MAROC"
+    },
+    {
+        "id": "MONACO"
+    },
+    {
+        "id": "MOLDAVIE, EX-URSS"
+    },
+    {
+        "id": "MADAGASCAR"
+    },
+    {
+        "id": "MALDIVES"
+    },
+    {
+        "id": "MEXIQUE"
+    },
+    {
+        "id": "MARSHALL (ILES)"
+    },
+    {
+        "id": "EX-REPUBLIQUE YOUGOSLAVE DE MACEDOINE, MACEDOINE DU NORD, EX-YOUGOSLAVIE"
+    },
+    {
+        "id": "MALI, SOUDAN FRANCAIS"
+    },
+    {
+        "id": "MALTE"
+    },
+    {
+        "id": "BIRMANIE"
+    },
+    {
+        "id": "MONTENEGRO, EX-YOUGOSLAVIE"
+    },
+    {
+        "id": "MONGOLIE, MONGOLIE EXTERIEURE"
+    },
+    {
+        "id": "MOZAMBIQUE"
+    },
+    {
+        "id": "MAURITANIE"
+    },
+    {
+        "id": "MAURICE"
+    },
+    {
+        "id": "MALAWI, NYASSALAND"
+    },
+    {
+        "id": "MALAISIE"
+    },
+    {
+        "id": "NAMIBIE"
+    },
+    {
+        "id": "NIGER"
+    },
+    {
+        "id": "NIGERIA"
+    },
+    {
+        "id": "NICARAGUA"
+    },
+    {
+        "id": "PAYS-BAS, HOLLANDE"
+    },
+    {
+        "id": "NORVEGE"
+    },
+    {
+        "id": "NEPAL"
+    },
+    {
+        "id": "NAURU"
+    },
+    {
+        "id": "NOUVELLE-ZELANDE"
+    },
+    {
+        "id": "OMAN, MASCATE-ET-OMAN"
+    },
+    {
+        "id": "PAKISTAN"
+    },
+    {
+        "id": "PANAMA"
+    },
+    {
+        "id": "PEROU"
+    },
+    {
+        "id": "PHILIPPINES"
+    },
+    {
+        "id": "PALAOS (ILES), BELAU"
+    },
+    {
+        "id": "PAPOUASIE-NOUVELLE-GUINEE"
+    },
+    {
+        "id": "POLOGNE"
+    },
+    {
+        "id": "COREE (REPUBLIQUE POPULAIRE DEMOCRATIQUE DE)"
+    },
+    {
+        "id": "PORTUGAL"
+    },
+    {
+        "id": "PARAGUAY"
+    },
+    {
+        "id": "PALESTINE (Etat de), PALESTINE (Territoire de)"
+    },
+    {
+        "id": "QATAR"
+    },
+    {
+        "id": "ROUMANIE"
+    },
+    {
+        "id": "RUSSIE, EX-URSS"
+    },
+    {
+        "id": "RWANDA, RUANDA"
+    },
+    {
+        "id": "ARABIE SAOUDITE"
+    },
+    {
+        "id": "SOUDAN"
+    },
+    {
+        "id": "SENEGAL"
+    },
+    {
+        "id": "SINGAPOUR"
+    },
+    {
+        "id": "SALOMON (ILES), ILES SALOMON DU SUD"
+    },
+    {
+        "id": "SIERRA LEONE"
+    },
+    {
+        "id": "EL SALVADOR"
+    },
+    {
+        "id": "SAINT-MARIN"
+    },
+    {
+        "id": "SOMALIE"
+    },
+    {
+        "id": "SERBIE, EX-YOUGOSLAVIE"
+    },
+    {
+        "id": "SOUDAN DU SUD"
+    },
+    {
+        "id": "SAO TOME-ET-PRINCIPE"
+    },
+    {
+        "id": "SURINAME, GUYANE NEERLANDAISE"
+    },
+    {
+        "id": "SLOVAQUIE, EX-TCHECOSLOVAQUIE"
+    },
+    {
+        "id": "SLOVENIE"
+    },
+    {
+        "id": "SUEDE"
+    },
+    {
+        "id": "ESWATINI, SWAZILAND"
+    },
+    {
+        "id": "SEYCHELLES"
+    },
+    {
+        "id": "SYRIE"
+    },
+    {
+        "id": "TCHAD"
+    },
+    {
+        "id": "TOGO"
+    },
+    {
+        "id": "THAILANDE, SIAM"
+    },
+    {
+        "id": "TADJIKISTAN, EX-URSS"
+    },
+    {
+        "id": "TURKMENISTAN, EX-URSS"
+    },
+    {
+        "id": "TIMOR ORIENTAL"
+    },
+    {
+        "id": "TONGA"
+    },
+    {
+        "id": "TRINITE-ET-TOBAGO"
+    },
+    {
+        "id": "TUNISIE"
+    },
+    {
+        "id": "TURQUIE"
+    },
+    {
+        "id": "TUVALU, ILES ELLICE"
+    },
+    {
+        "id": "TAIWAN"
+    },
+    {
+        "id": "TANZANIE, TANGANYIKA, ZANZIBAR"
+    },
+    {
+        "id": "OUGANDA"
+    },
+    {
+        "id": "UKRAINE, EX-URSS"
+    },
+    {
+        "id": "URUGUAY"
+    },
+    {
+        "id": "ETATS-UNIS"
+    },
+    {
+        "id": "OUZBEKISTAN, EX-URSS"
+    },
+    {
+        "id": "VATICAN, SAINT-SIEGE"
+    },
+    {
+        "id": "SAINT-VINCENT-ET-LES GRENADINES"
+    },
+    {
+        "id": "VENEZUELA, REPUBLIQUE DU VENEZUELA"
+    },
+    {
+        "id": "VIET NAM"
+    },
+    {
+        "id": "VANUATU, NOUVELLES-HEBRIDES"
+    },
+    {
+        "id": "SAMOA OCCIDENTALES"
+    },
+    {
+        "id": "YEMEN"
+    },
+    {
+        "id": "AFRIQUE DU SUD, UNION SUD-AFRICAINE"
+    },
+    {
+        "id": "ZAMBIE, RHODESIE DU NORD"
+    },
+    {
+        "id": "ZIMBABWE, RHODESIE DU SUD"
+    }
+]
