@@ -33,6 +33,8 @@ jobs:
               with:
                   node-version: ${{ matrix.node }}
             - uses: bahmutov/npm-install@v1
+              with: 
+                install-command: yarn --frozen-lockfile --silent
             - run: yarn build
             - run: yarn test
 
