@@ -13,3 +13,4 @@ export * from "./Sequence";
 export * from "./Subsequence";
 export * from "./Summary";
 export * from "./QuestionExplication";
+export * from "./Modal";

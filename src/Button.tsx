@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { PropsWithChildren, useCallback } from "react";
 import classnames from "classnames";
 import { isElement } from "./utils/is-element";
 import { Button as ButtonDSFR } from "@codegouvfr/react-dsfr/Button";
@@ -10,13 +10,12 @@ export function Button({
     className,
     priority,
     onClick,
-}: {
-    children: string | React.ReactNode;
+}: PropsWithChildren<{
     disabled: boolean;
-    className: string;
+    className?: string;
     priority: ButtonProps.Common["priority"];
     onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-}) {
+}>) {
     const handleClick = useCallback(
         function (e: React.MouseEvent<HTMLButtonElement>) {
             e.stopPropagation();
