@@ -189,8 +189,8 @@ type ComponentPropsByType = {
     Modal: LunaticBaseProps<string | null> & {
         goToPage: (payload: Record<string, unknown>) => void;
         page: string;
-        goNextPage?: () => void;
-        goPreviousPage?: () => void;
+        goNextPage: () => void;
+        goPreviousPage: () => void;
     };
 };
 

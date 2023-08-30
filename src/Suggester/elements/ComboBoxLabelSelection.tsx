@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { ReactNode } from "react";
-import { makeStyles } from "tss-react/dsfr";
+import { makeStyles } from "@codegouvfr/react-dsfr/tss";
 
 type ComboBoxOptionType = {
     id?: string;
@@ -25,6 +25,9 @@ const useStyles = makeStyles()({
     root: {
         "margin": "none",
         "padding": "none",
+        "overflow-y": "hidden",
+        "overflow-x": "auto",
+        "white-space": "nowrap",
     },
     placeholder: {
         "opacity": 1,

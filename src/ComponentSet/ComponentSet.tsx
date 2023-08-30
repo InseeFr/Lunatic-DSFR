@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 import Legend from "./html/legend";
 import { LunaticError } from "../utils/type/type";
-import { makeStyles } from "tss-react/dsfr";
+import { makeStyles } from "@codegouvfr/react-dsfr/tss";
 
 const useStyles = makeStyles()({
     root: {
