@@ -3,6 +3,16 @@ import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
 import { LunaticError } from "./utils/type/type";
+import { makeStyles } from "tss-react/dsfr";
+
+const useStyles = makeStyles()({
+    readOnly: {
+        ".fr-input:read-only": {
+            "color": "var(--text-disabled-grey)",
+            "box-shadow": "inset 0 -2px 0 0 var(--border-disabled-grey)",
+        },
+    },
+});
 
 function checkValue(value: string) {
     return value ?? "";
@@ -20,6 +30,7 @@ export function Input({
     description,
     id,
     errors,
+    readOnly,
 }: {
     value: string;
     // eslint-disable-next-line @typescript-eslint/ban-types
@@ -31,7 +42,9 @@ export function Input({
     description: string;
     id: string;
     errors: Record<string, Array<LunaticError>>;
+    readOnly?: boolean;
 }) {
+    const { classes, cx } = useStyles();
     const [localValue, setLocalValue] = useState<string>(value);
 
     useEffect(() => {
@@ -52,13 +65,14 @@ export function Input({
         <InputDSFR
             label={label}
             disabled={disabled}
-            className={classnames("lunatic-dsfr-input")}
+            className={classnames("lunatic-dsfr-input", cx(classes.readOnly))}
             nativeInputProps={{
                 id: id,
                 maxLength: maxLength,
                 value: checkValue(localValue),
                 required: required,
                 onChange: handleChange,
+                readOnly: readOnly,
             }}
             hintText={description}
             state={state}

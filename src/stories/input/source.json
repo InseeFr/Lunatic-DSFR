@@ -8,6 +8,10 @@
             "label": { "value": "\"What's your name?\"", "type": "VTL|MD" },
             "description": "\"This is a test description\"",
             "conditionFilter": { "value": "true", "type": "VTL" },
+            "readOnly": {
+                "value": "false",
+                "type": "VTL"
+            },
             "controls": [
                 {
                     "id": "age-controls",
