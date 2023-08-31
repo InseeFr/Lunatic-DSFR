@@ -1,6 +1,6 @@
 import classnames from "classnames";
 import { PropsWithChildren } from "react";
-import { makeStyles } from "tss-react/dsfr";
+import { makeStyles } from "@codegouvfr/react-dsfr/tss";
 
 type Props = PropsWithChildren<{
     focused?: boolean;

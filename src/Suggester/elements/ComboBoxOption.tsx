@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import { makeStyles } from "tss-react/dsfr";
+import { makeStyles } from "@codegouvfr/react-dsfr/tss";
 import { fr } from "@codegouvfr/react-dsfr/";
 import { ReactNode } from "react";
 
