@@ -77,6 +77,7 @@ export function Datepicker({
     useEffect(() => {
         setDateValues(getDateValues(checkValue(value)));
     }, [value]);
+
     const state = getState(errors, id);
     const stateRelatedMessage = getStateRelatedMessage(errors, id);
 
@@ -94,6 +95,7 @@ export function Datepicker({
             <DatepickerInput
                 dateValues={dateValues}
                 disabled={disabled}
+                setDateValues={setDateValues}
                 id={id}
                 state={state}
                 onChange={onChange}
