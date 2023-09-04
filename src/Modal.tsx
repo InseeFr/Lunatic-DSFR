@@ -55,7 +55,7 @@ export function Modal(
         <dialog
             aria-labelledby={`${id}-title`}
             id={id}
-            className={classnames("lunatic-modal", "fr-modal", "fr-modal--opened")}
+            className={classnames("fr-modal", "fr-modal--opened")}
             open={true}
         >
             <div className="fr-container fr-container--fluid fr-container-md" onKeyDown={onKeyDown}>
