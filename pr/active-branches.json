@@ -2,7 +2,6 @@
   "branches": [
     "main",
     "feat/suggester",
-    "feat/suggester-2",
-    "fix/modal-class"
+    "feat/suggester-2"
   ]
 }
