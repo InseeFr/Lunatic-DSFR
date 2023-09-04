@@ -1,5 +1,5 @@
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 type DatepickerInputType = {
     dateValues: Record<string, string>;
@@ -11,14 +11,21 @@ type DatepickerInputType = {
 };
 
 function checkSubValue(i: number, v: string) {
+    // i represents the length of the day/month/year value. eg: year => 4, month => 2, day => 2
+    // v is the value of the input
+
+    // checks if the length of v is not bigger than i
     if (v.replace(/^0+/, "").replace(/[^0-9]/g, "").length <= i) {
+        // returns a value of length i comprised of just `0`
         return `${Array(i)
             .fill("0")
             .join("")
+            // replaces the last v.length characters with v if v is comprised of numbers
             .substring(0, i - v.replace(/^0+/, "").replace(/[^0-9]/g, "").length)}${
             !isNaN(parseInt(v.replace(/^0+/, ""))) ? parseInt(v.replace(/^0+/, "")) : ""
         }`;
     } else {
+        // if length of v is bigger than i, return the first i characters of v
         return `${parseInt(v.substring(0, i))}`;
     }
 }
@@ -41,7 +48,6 @@ export function DatepickerInput({
     }, [dateValues]);
 
     useEffect(() => {
-        console.log("changing day, month or year", day, month, year);
         setDateValues({
             day: day,
             month: month,
@@ -49,42 +55,32 @@ export function DatepickerInput({
         });
     }, [day, month, year]);
 
-    const changeDay = useCallback(
-        (e: React.ChangeEvent<HTMLInputElement>) => {
-            // setDay(checkSubValue(2, e.target.value))
-            setDateValues({
-                day: checkSubValue(2, e.target.value),
-                month: month,
-                year: year,
-            });
-            onChange(`${year}-${month}-${checkSubValue(2, e.target.value)}`);
-        },
-        [year, month],
-    );
-    const changeMonth = useCallback(
-        (e: React.ChangeEvent<HTMLInputElement>) => {
-            // setMonth(checkSubValue(2, e.target.value))
-            setDateValues({
-                day: day,
-                month: checkSubValue(2, e.target.value),
-                year: year,
-            });
-            onChange(`${year}-${checkSubValue(2, e.target.value)}-${day}`);
-        },
-        [year, day],
-    );
-    const changeYear = useCallback(
-        (e: React.ChangeEvent<HTMLInputElement>) => {
-            // setYear(checkSubValue(4, e.target.value))
-            setDateValues({
-                day: day,
-                month: month,
-                year: checkSubValue(4, e.target.value),
-            });
-            onChange(`${checkSubValue(4, e.target.value)}-${month}-${day}`);
-        },
-        [month, day],
-    );
+    const changeDay = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setDateValues({
+            day: checkSubValue(2, e.target.value),
+            month: month,
+            year: year,
+        });
+        onChange(`${year}-${month}-${checkSubValue(2, e.target.value)}`);
+    };
+
+    const changeMonth = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setDateValues({
+            day: day,
+            month: checkSubValue(2, e.target.value),
+            year: year,
+        });
+        onChange(`${year}-${checkSubValue(2, e.target.value)}-${day}`);
+    };
+
+    const changeYear = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setDateValues({
+            day: day,
+            month: month,
+            year: checkSubValue(4, e.target.value),
+        });
+        onChange(`${checkSubValue(4, e.target.value)}-${month}-${day}`);
+    };
 
     return (
         <>

@@ -78,10 +78,6 @@ export function Datepicker({
         setDateValues(getDateValues(checkValue(value)));
     }, [value]);
 
-    useEffect(() => {
-        console.log(dateValues, value);
-    }, [dateValues]);
-
     const state = getState(errors, id);
     const stateRelatedMessage = getStateRelatedMessage(errors, id);
 
