@@ -84,20 +84,20 @@ export function Modal(
                                 <ul className="fr-btns-group fr-btns-group--right fr-btns-group--inline-reverse fr-btns-group--inline-lg fr-btns-group--icon-left">
                                     <li>
                                         <Button
-                                            onClick={handlePreviousClick}
-                                            disabled={false}
-                                            priority={"secondary"}
-                                        >
-                                            Annuler
-                                        </Button>
-                                    </li>
-                                    <li>
-                                        <Button
                                             onClick={handleNextClick}
                                             disabled={false}
                                             priority={"primary"}
                                         >
                                             Je confirme
+                                        </Button>
+                                    </li>
+                                    <li>
+                                        <Button
+                                            onClick={handlePreviousClick}
+                                            disabled={false}
+                                            priority={"secondary"}
+                                        >
+                                            Annuler
                                         </Button>
                                     </li>
                                 </ul>
