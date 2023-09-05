@@ -5,11 +5,19 @@ import { makeStyles } from "@codegouvfr/react-dsfr/tss";
 
 const useStyles = makeStyles()({
     root: {
+        ".lunatic-dsfr-component-set-component:last-child": {
+            ".fr-fieldset__element": {
+                marginBottom: "0",
+            },
+            ".fr-fieldset--error > .fr-fieldset__element": {
+                marginBottom: "1rem",
+            },
+        },
         "> .fr-fieldset__element:last-child": {
             marginBottom: "0",
         },
         "> .fr-fieldset__element": {
-            ".fr-fieldset, .fr-fieldset__element": {
+            ".fr-fieldset": {
                 marginBottom: "0",
             },
         },

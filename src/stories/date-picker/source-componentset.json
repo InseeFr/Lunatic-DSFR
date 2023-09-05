@@ -42,7 +42,6 @@
                     "id": "lfwg2ny2",
                     "componentType": "ComponentSet",
                     "page": "2.1",
-                    "className": "ComponentSet",
                     "conditionFilter": {
                         "value": "(COUNT_PERSONS >= 1)",
                         "type": "VTL",
@@ -140,118 +139,118 @@
                             "response": {
                                 "name": "SEXES"
                             }
+                        },
+                        {
+                            "id": "lfwiizq2-dob",
+                            "componentType": "Datepicker",
+                            "mandatory": true,
+                            "page": "2.1",
+                            "min": "1900-01-01",
+                            "max": "format-date(current-date(),'[Y0001]-[M01]-[D01]')",
+                            "label": {
+                                "value": " \"Date de naissance\"",
+                                "type": "VTL"
+                            },
+                            "controls": [
+                                {
+                                    "id": "lfwiizq2-format-borne-inf-sup",
+                                    "typeOfControl": "FORMAT",
+                                    "criticality": "ERROR",
+                                    "control": {
+                                        "value": "not(DATENAISS = \"--\")",
+                                        "type": "VTL"
+                                    },
+                                    "errorMessage": {
+                                        "value": "\"La date saisie doit être comprise entre 1900-01-01 et \" || cast(cast(current_date(), date, \"YYYY-MM-DD\"), string, \"YYYY-MM-DD\") || \".\"",
+                                        "type": "VTL"
+                                    }
+                                },
+                                {
+                                    "id": "lfwiizq2-nom-null",
+                                    "typeOfControl": "CONSISTENCY",
+                                    "criticality": "WARN",
+                                    "control": {
+                                        "value": "(DATENAISS <> \"0000-00-00\") and not(isnull(DATENAISS))",
+                                        "type": "VTL"
+                                    },
+                                    "errorMessage": {
+                                        "value": "\"Veuillez entrer une date de naissance\" ",
+                                        "type": "VTL"
+                                    }
+                                },
+                                {
+                                    "id": "lfwiizq2-day-null",
+                                    "typeOfControl": "CONSISTENCY",
+                                    "criticality": "WARN",
+                                    "control": {
+                                        "value": "substr(DATENAISS, 9, 2) <> \"00\" and cast(substr(DATENAISS, 9, 2), integer) > 0 and cast(substr(DATENAISS, 9, 2), integer) < 32",
+                                        "type": "VTL"
+                                    },
+                                    "errorMessage": {
+                                        "value": "\"Veuillez entrer un chiffre entre 01 et 31 dans le champs 'Jour'.\" ",
+                                        "type": "VTL"
+                                    }
+                                },
+                                {
+                                    "id": "lfwiizq2-month-null",
+                                    "typeOfControl": "CONSISTENCY",
+                                    "criticality": "WARN",
+                                    "control": {
+                                        "value": "substr(DATENAISS, 6, 2) <> \"00\" and cast(substr(DATENAISS, 6, 2), integer) > 0 and cast(substr(DATENAISS, 6, 2), integer) < 13",
+                                        "type": "VTL"
+                                    },
+                                    "errorMessage": {
+                                        "value": "\"Veuillez entrer un chiffre entre 01 et 12 dans le champs 'Mois'.\" ",
+                                        "type": "VTL"
+                                    }
+                                },
+                                {
+                                    "id": "lfwiizq2-year-null",
+                                    "typeOfControl": "CONSISTENCY",
+                                    "criticality": "WARN",
+                                    "control": {
+                                        "value": "substr(DATENAISS, 1, 4) <> \"0000\" and cast(substr(DATENAISS, 1, 4), integer) > 1899 and cast(substr(DATENAISS, 1, 4), integer) <= cast(substr(cast(cast(current_date(), date, \"YYYY-MM-DD\"), string, \"YYYY-MM-DD\"), 1, 4), integer)",
+                                        "type": "VTL"
+                                    },
+                                    "errorMessage": {
+                                        "value": "\"Veuillez entrer un chiffre entre 1900 et \" || substr(cast(cast(current_date(), date, \"YYYY-MM-DD\"), string, \"YYYY-MM-DD\"), 1, 4) || \" dans le champs 'Year'.\" ",
+                                        "type": "VTL"
+                                    }
+                                },
+                                {
+                                    "id": "lfwiizq2-invalid-date-month",
+                                    "typeOfControl": "CONSISTENCY",
+                                    "criticality": "WARN",
+                                    "control": {
+                                        "value": "if (substr(DATENAISS, 6, 2) = \"04\" or substr(DATENAISS, 6, 2) = \"06\" or substr(DATENAISS, 6, 2) = \"09\" or substr(DATENAISS, 6, 2) = \"11\") then (substr(DATENAISS, 9, 2) <> \"31\") else (if (substr(DATENAISS, 6, 2) = \"02\" and mod(cast(substr(DATENAISS, 1, 4), integer), 4) = 0) then (substr(DATENAISS, 9, 2) <> \"30\" and substr(DATENAISS, 9, 2) <> \"31\") else (substr(DATENAISS, 9, 2) <> \"30\" and substr(DATENAISS, 9, 2) <> \"29\" and substr(DATENAISS, 9, 2) <> \"31\"))",
+                                        "type": "VTL"
+                                    },
+                                    "errorMessage": {
+                                        "value": "\"Veuillez entrer un date valide.\"",
+                                        "type": "VTL"
+                                    }
+                                },
+                                {
+                                    "id": "lfwiizq2-invalid-date",
+                                    "typeOfControl": "CONSISTENCY",
+                                    "criticality": "WARN",
+                                    "control": {
+                                        "value": "cast(DATENAISS, date) < cast(current_date(), date) and cast(DATENAISS, date) > cast(\"1900-01-01\", date)",
+                                        "type": "VTL"
+                                    },
+                                    "errorMessage": {
+                                        "value": "\"La date saisie doit être comprise entre 01-01-1900 et \" || cast(cast(current_date(), date, \"YYYY-MM-DD\"), string, \"DD-MM-YYYY\") || \".\"",
+                                        "type": "VTL"
+                                    }
+                                }
+                            ],
+                            "bindingDependencies": ["DATENAISS"],
+                            "dateFormat": "YYYY-MM-DD",
+                            "response": {
+                                "name": "DATENAISS"
+                            }
                         }
                     ]
-                },
-                {
-                    "id": "lfwiizq2-dob",
-                    "componentType": "Datepicker",
-                    "mandatory": true,
-                    "page": "2.1",
-                    "min": "1900-01-01",
-                    "max": "format-date(current-date(),'[Y0001]-[M01]-[D01]')",
-                    "label": {
-                        "value": " \"Date de naissance\"",
-                        "type": "VTL"
-                    },
-                    "controls": [
-                        {
-                            "id": "lfwiizq2-format-borne-inf-sup",
-                            "typeOfControl": "FORMAT",
-                            "criticality": "ERROR",
-                            "control": {
-                                "value": "not(DATENAISS = \"--\")",
-                                "type": "VTL"
-                            },
-                            "errorMessage": {
-                                "value": "\"La date saisie doit être comprise entre 1900-01-01 et \" || cast(cast(current_date(), date, \"YYYY-MM-DD\"), string, \"YYYY-MM-DD\") || \".\"",
-                                "type": "VTL"
-                            }
-                        },
-                        {
-                            "id": "lfwiizq2-nom-null",
-                            "typeOfControl": "CONSISTENCY",
-                            "criticality": "WARN",
-                            "control": {
-                                "value": "(DATENAISS <> \"0000-00-00\") and not(isnull(DATENAISS))",
-                                "type": "VTL"
-                            },
-                            "errorMessage": {
-                                "value": "\"Veuillez entrer une date de naissance\" ",
-                                "type": "VTL"
-                            }
-                        },
-                        {
-                            "id": "lfwiizq2-day-null",
-                            "typeOfControl": "CONSISTENCY",
-                            "criticality": "WARN",
-                            "control": {
-                                "value": "substr(DATENAISS, 9, 2) <> \"00\" and cast(substr(DATENAISS, 9, 2), integer) > 0 and cast(substr(DATENAISS, 9, 2), integer) < 32",
-                                "type": "VTL"
-                            },
-                            "errorMessage": {
-                                "value": "\"Veuillez entrer un chiffre entre 01 et 31 dans le champs 'Jour'.\" ",
-                                "type": "VTL"
-                            }
-                        },
-                        {
-                            "id": "lfwiizq2-month-null",
-                            "typeOfControl": "CONSISTENCY",
-                            "criticality": "WARN",
-                            "control": {
-                                "value": "substr(DATENAISS, 6, 2) <> \"00\" and cast(substr(DATENAISS, 6, 2), integer) > 0 and cast(substr(DATENAISS, 6, 2), integer) < 13",
-                                "type": "VTL"
-                            },
-                            "errorMessage": {
-                                "value": "\"Veuillez entrer un chiffre entre 01 et 12 dans le champs 'Mois'.\" ",
-                                "type": "VTL"
-                            }
-                        },
-                        {
-                            "id": "lfwiizq2-year-null",
-                            "typeOfControl": "CONSISTENCY",
-                            "criticality": "WARN",
-                            "control": {
-                                "value": "substr(DATENAISS, 1, 4) <> \"0000\" and cast(substr(DATENAISS, 1, 4), integer) > 1899 and cast(substr(DATENAISS, 1, 4), integer) <= cast(substr(cast(cast(current_date(), date, \"YYYY-MM-DD\"), string, \"YYYY-MM-DD\"), 1, 4), integer)",
-                                "type": "VTL"
-                            },
-                            "errorMessage": {
-                                "value": "\"Veuillez entrer un chiffre entre 1900 et \" || substr(cast(cast(current_date(), date, \"YYYY-MM-DD\"), string, \"YYYY-MM-DD\"), 1, 4) || \" dans le champs 'Year'.\" ",
-                                "type": "VTL"
-                            }
-                        },
-                        {
-                            "id": "lfwiizq2-invalid-date-month",
-                            "typeOfControl": "CONSISTENCY",
-                            "criticality": "WARN",
-                            "control": {
-                                "value": "if (substr(DATENAISS, 6, 2) = \"04\" or substr(DATENAISS, 6, 2) = \"06\" or substr(DATENAISS, 6, 2) = \"09\" or substr(DATENAISS, 6, 2) = \"11\") then (substr(DATENAISS, 9, 2) <> \"31\") else (if (substr(DATENAISS, 6, 2) = \"02\" and mod(cast(substr(DATENAISS, 1, 4), integer), 4) = 0) then (substr(DATENAISS, 9, 2) <> \"30\" and substr(DATENAISS, 9, 2) <> \"31\") else (substr(DATENAISS, 9, 2) <> \"30\" and substr(DATENAISS, 9, 2) <> \"29\" and substr(DATENAISS, 9, 2) <> \"31\"))",
-                                "type": "VTL"
-                            },
-                            "errorMessage": {
-                                "value": "\"Veuillez entrer un date valide.\"",
-                                "type": "VTL"
-                            }
-                        },
-                        {
-                            "id": "lfwiizq2-invalid-date",
-                            "typeOfControl": "CONSISTENCY",
-                            "criticality": "WARN",
-                            "control": {
-                                "value": "cast(DATENAISS, date) < cast(current_date(), date) and cast(DATENAISS, date) > cast(\"1900-01-01\", date)",
-                                "type": "VTL"
-                            },
-                            "errorMessage": {
-                                "value": "\"La date saisie doit être comprise entre 01-01-1900 et \" || cast(cast(current_date(), date, \"YYYY-MM-DD\"), string, \"DD-MM-YYYY\") || \".\"",
-                                "type": "VTL"
-                            }
-                        }
-                    ],
-                    "bindingDependencies": ["DATENAISS"],
-                    "dateFormat": "YYYY-MM-DD",
-                    "response": {
-                        "name": "DATENAISS"
-                    }
                 }
             ]
         },

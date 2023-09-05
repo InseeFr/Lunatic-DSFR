@@ -48,11 +48,11 @@ export function Label({ children, id, htmlFor, className, style, description }: 
             <label
                 htmlFor={htmlFor}
                 id={id}
-                className={classnames("lunatic-dsfr-label fr-label", className)}
+                className={classnames("lunatic-dsfr-label fr-label fr-mb-1w", className)}
                 style={style}
             >
                 {children}
-                <Description value={description} />
+                <Description className="fr-mb-1w" value={description} />
             </label>
         );
     }

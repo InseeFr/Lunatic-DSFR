@@ -23,16 +23,14 @@ function isPlaceholder(option: Props["option"], search: Props["search"]) {
 
 const useStyles = makeStyles()({
     root: {
-        "margin": "none",
-        "padding": "none",
-        "overflow-y": "hidden",
-        "overflow-x": "auto",
-        "white-space": "nowrap",
+        overflow: "hidden",
+        whiteSpace: "nowrap",
+        textOverflow: "ellipsis",
     },
     placeholder: {
-        "opacity": 1,
-        "fontStyle": "italic",
-        "color": "var(--text-mention-grey)",
+        opacity: 1,
+        fontStyle: "italic",
+        color: "var(--text-mention-grey)",
     },
 });
 

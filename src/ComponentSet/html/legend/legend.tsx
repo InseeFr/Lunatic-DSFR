@@ -14,7 +14,13 @@ function Legend({ children, id, className, description }: LegendType) {
             <>
                 <legend
                     id={id}
-                    className={classnames("lunatic-legend", "fr-fieldset__legend", "fr-h3", className)}
+                    className={classnames(
+                        "lunatic-legend",
+                        "fr-fieldset__legend",
+                        "fr-h3",
+                        "fr-mb-0",
+                        className,
+                    )}
                 >
                     {children}
                     <Description value={description} className={className} />
