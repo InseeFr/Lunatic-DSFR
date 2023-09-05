@@ -10,14 +10,20 @@ type Props = PropsWithChildren<{
 
 const useStyles = makeStyles()(theme => ({
     root: {
-        "maxHeight": "20rem",
+        maxHeight: "20rem",
         overflow: "scroll",
         "> li": {
-            "listStyle": "none",
+            listStyle: "none",
+            boxSizing: "border-box",
             background: theme.decisions.background.contrast.grey.default,
             padding: 0,
             ":hover": {
                 background: theme.decisions.background.open.blueFrance.default,
+            },
+            ":focus": {
+                borderColor: "blue",
+                borderWidth: "2px",
+                borderStyle: "solid",
             },
             ".selected": {
                 background: theme.decisions.background.open.blueFrance.default,
@@ -36,6 +42,7 @@ export function ComboboxPanelContainer({ children, focused, expanded, id }: Prop
                 "lunatic-combo-box-panel",
                 "fr-select",
                 "fr-p-0",
+                "fr-mb-0",
                 "fr-mt-0",
                 {
                     focused,
