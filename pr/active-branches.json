@@ -2,7 +2,6 @@
   "branches": [
     "main",
     "feat/suggester",
-    "feat/suggester-2",
-    "fix-minor-style-inconsistencies"
+    "feat/suggester-2"
   ]
 }
