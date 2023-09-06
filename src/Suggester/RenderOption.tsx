@@ -5,7 +5,7 @@ export function RenderOption(props: HTMLAttributes<HTMLLIElement>, option: Refer
     const { id, label } = option;
     return (
         <li {...props} key={id}>
-            {label}
+            {label ?? id}
         </li>
     );
 }
