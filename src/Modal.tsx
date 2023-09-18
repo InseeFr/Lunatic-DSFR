@@ -1,17 +1,16 @@
-import { ReactEventHandler, MouseEventHandler, RefObject } from "react";
+import { type ReactEventHandler, MouseEventHandler, RefObject } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "./Button";
-import { LunaticComponentProps } from "./type";
+import { type LunaticComponentProps } from "./type";
 
 type Props = Pick<LunaticComponentProps<"Modal">, "id" | "label" | "description"> & {
-    onClose: ReactEventHandler<HTMLButtonElement>;
-    onCancel: ReactEventHandler<HTMLButtonElement>;
+    onClose: ReactEventHandler<HTMLDialogElement>;
+    onCancel: ReactEventHandler<HTMLDialogElement>;
     onClick: MouseEventHandler<HTMLDialogElement>;
     dialogRef: RefObject<HTMLDialogElement>;
 };
 
 export function Modal(props: Props) {
-    console.log(props);
     const { id, label, description, onClose, onCancel, onClick, dialogRef } = props;
 
     return createPortal(
@@ -19,17 +18,20 @@ export function Modal(props: Props) {
             className="lunatic-dsfr-modal fr-modal fr-modal--opened"
             ref={dialogRef}
             id={id}
+            onClose={onClose}
+            onCancel={onCancel}
             onClick={onClick}
         >
             <div className="fr-container fr-container--fluid fr-container-md">
                 <div className="fr-grid-row fr-grid-row--center">
                     <div className="fr-col-12 fr-col-md-8 fr-col-lg-6">
-                        <div className="fr-modal__body">
+                        <form method="dialog" className="fr-modal__body">
                             <div className="fr-modal__header">
                                 <Button
                                     className={"fr-btn--close"}
-                                    onClick={onClose}
                                     disabled={false}
+                                    type="submit"
+                                    value="cancel"
                                     priority={"tertiary no outline"}
                                 >
                                     Fermer
@@ -46,14 +48,20 @@ export function Modal(props: Props) {
                             <div className="fr-modal__footer">
                                 <ul className="fr-btns-group fr-btns-group--right fr-btns-group--inline-reverse fr-btns-group--inline-lg fr-btns-group--icon-left">
                                     <li>
-                                        <Button onClick={onClose} disabled={false} priority={"primary"}>
+                                        <Button
+                                            value="default"
+                                            disabled={false}
+                                            type="submit"
+                                            priority={"primary"}
+                                        >
                                             Je confirme
                                         </Button>
                                     </li>
                                     <li>
                                         <Button
-                                            onClick={onCancel}
+                                            value="cancel"
                                             disabled={false}
+                                            type="submit"
                                             priority={"secondary"}
                                         >
                                             Annuler
@@ -61,7 +69,7 @@ export function Modal(props: Props) {
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
