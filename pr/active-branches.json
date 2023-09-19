@@ -4,7 +4,6 @@
     "feat/suggester",
     "feat/suggester-2",
     "fix/modal-refacto",
-    "fix/question-explication-expanded",
-    "develop"
+    "fix/question-explication-expanded"
   ]
 }
