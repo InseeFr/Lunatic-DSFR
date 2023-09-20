@@ -3,7 +3,6 @@
     "main",
     "feat/suggester",
     "feat/suggester-2",
-    "fix/question-explication-expanded",
-    "fix/component-set-wrapper"
+    "fix/question-explication-expanded"
   ]
 }
