@@ -10,17 +10,23 @@ export function Button({
     className,
     priority,
     onClick,
+    type,
+    value,
 }: PropsWithChildren<{
     disabled: boolean;
     className?: string;
     priority: ButtonProps.Common["priority"];
-    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    type?: "button" | "submit" | "reset";
+    value?: string;
 }>) {
     const handleClick = useCallback(
         function (e: React.MouseEvent<HTMLButtonElement>) {
-            e.stopPropagation();
-            e.preventDefault();
-            onClick(e);
+            if (onClick) {
+                e.stopPropagation();
+                e.preventDefault();
+                onClick(e);
+            }
         },
         [onClick],
     );
@@ -32,6 +38,8 @@ export function Button({
                 className={classnames("button-lunatic-dsfr", className)}
                 priority={priority}
                 onClick={handleClick}
+                type={type}
+                value={value}
             >
                 {children}
             </ButtonDSFR>
@@ -43,6 +51,8 @@ export function Button({
             className={classnames("button-lunatic-dsfr", className)}
             priority={priority}
             onClick={handleClick}
+            type={type}
+            value={value}
         >
             {children}
         </ButtonDSFR>

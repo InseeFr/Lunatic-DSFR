@@ -5,7 +5,7 @@ type ComponentSetComponentContainerType = {
     className?: string;
 };
 
-export function ComponentSetComponentContainer({
+export function ComponentSetWrapper({
     className,
     children,
 }: PropsWithChildren<ComponentSetComponentContainerType>) {
@@ -22,4 +22,4 @@ export function ComponentSetComponentContainer({
     );
 }
 
-export default ComponentSetComponentContainer;
+export default ComponentSetWrapper;
