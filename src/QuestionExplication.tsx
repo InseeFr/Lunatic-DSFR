@@ -20,8 +20,8 @@ export function QuestionExplication({ label, description, bgColor }: QuestionExp
     }, [label]);
 
     const handleExpandedChange = useCallback(() => {
-        setExpanded(!expanded);
-    }, [label, expanded]);
+        setExpanded(expanded => !expanded);
+    }, [expanded]);
 
     const backgroundColor = themeStringToVariable(
         theme,
