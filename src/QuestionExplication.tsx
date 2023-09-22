@@ -1,6 +1,6 @@
 import { useColors } from "@codegouvfr/react-dsfr/useColors";
 import { themeStringToVariable } from "./utils/themeStringToVariable";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { fr } from "@codegouvfr/react-dsfr";
 
 type QuestionExplicationType = {
@@ -11,17 +11,16 @@ type QuestionExplicationType = {
 
 export function QuestionExplication({ label, description, bgColor }: QuestionExplicationType) {
     const theme = useColors();
-    const [expanded, setExpanded] = useState<boolean>(false);
 
-    useEffect(() => {
-        if (expanded === true) {
-            setExpanded(false);
-        }
-    }, [label]);
+    const [expandedDescription, setExpandedDescription] = useState<string | null>(null);
 
     const handleExpandedChange = useCallback(() => {
-        setExpanded(expanded => !expanded);
-    }, [expanded]);
+        // toggle expandedDescription between null and current description
+        setExpandedDescription(v => (v === description ? null : description));
+    }, [description]);
+
+    // accordion expands if expandedDescription corresponds to current description
+    const isExpanded = expandedDescription === description;
 
     const backgroundColor = themeStringToVariable(
         theme,
@@ -41,7 +40,7 @@ export function QuestionExplication({ label, description, bgColor }: QuestionExp
                     <h3 className={fr.cx("fr-accordion__title")}>
                         <button
                             className={fr.cx("fr-accordion__btn")}
-                            aria-expanded={expanded}
+                            aria-expanded={isExpanded}
                             aria-controls="accordion-106"
                             onClick={handleExpandedChange}
                         >
