@@ -1,14 +1,30 @@
 {
+    "maxPage": "3",
     "components": [
         {
+            "page": "1",
             "id": "question-explication",
             "componentType": "QuestionExplication",
             "label": {
-                "value": "\"QuestionExplication label\"",
+                "value": "\"QuestionExplication label 1\"",
                 "type": "VTL"
             },
             "description": {
-                "value": "\"QuestionExplication content\"",
+                "value": "\"QuestionExplication content 1\"",
+                "type": "VTL"
+            },
+            "bgColor": "purpleGlycine.default"
+        },
+        {
+            "page": "2",
+            "id": "question-explication",
+            "componentType": "QuestionExplication",
+            "label": {
+                "value": "\"QuestionExplication label 2\"",
+                "type": "VTL"
+            },
+            "description": {
+                "value": "\"QuestionExplication content 2\"",
                 "type": "VTL"
             },
             "bgColor": "purpleGlycine.default"
