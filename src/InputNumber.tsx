@@ -4,6 +4,8 @@ import { useCallback, useState } from "react";
 import { NumberFormatValues, NumericFormat, NumericFormatProps } from "react-number-format";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { LunaticError } from "./utils/type/type";
+import { fr } from "@codegouvfr/react-dsfr";
+import classnames from "classnames";
 
 function checkValue(value: number) {
     if (!value && value != 0) {
@@ -81,7 +83,12 @@ export function InputNumber({
     const stateRelatedMessage = getStateRelatedMessage(errors, id);
 
     return (
-        <div className="lunatic-input-number-container fr-grid-row fr-grid-row--middle">
+        <div
+            className={classnames(
+                "lunatic-input-number-container",
+                fr.cx("fr-grid-row", "fr-grid-row--middle"),
+            )}
+        >
             <NumberFormatDSFR
                 DSFRProps={{
                     label: label,

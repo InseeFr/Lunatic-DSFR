@@ -16,7 +16,7 @@ function Description({ description }: { description?: DeclarationType[] }) {
                 {description.map(({ label, id: idD }) => {
                     if (typeof label === "string") {
                         return (
-                            <p className="fr-mb-0" key={idD}>
+                            <p className={fr.cx("fr-mb-0")} key={idD}>
                                 {label}
                             </p>
                         );

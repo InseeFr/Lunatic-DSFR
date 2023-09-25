@@ -1,3 +1,4 @@
+import { fr } from "@codegouvfr/react-dsfr";
 import { LegacyRef, forwardRef } from "react";
 
 type SuggesterInputProps = Record<string, unknown>;
@@ -11,5 +12,5 @@ export const SuggesterInput = forwardRef(function SuggesterInput(
     props: SuggesterInputProps,
     ref: LegacyRef<HTMLInputElement>,
 ) {
-    return <input className="fr-input" type="text" {...props} ref={ref} />;
+    return <input className={fr.cx("fr-input")} type="text" {...props} ref={ref} />;
 });

@@ -1,10 +1,12 @@
+import { fr } from "@codegouvfr/react-dsfr";
+import classnames from "classnames";
 import { PropsWithChildren, ReactNode } from "react";
 
 function ListResponses({ title, children }: PropsWithChildren<{ title: ReactNode }>) {
     return (
-        <div className="lunatic-dsfr-summary-responses-iteration fr-pb-2w">
-            <hr className="fr-pb-2w" />
-            <h6 className="fr-mb-0">{title}</h6>
+        <div className={classnames("lunatic-dsfr-summary-responses-iteration", fr.cx("fr-pb-2w"))}>
+            <hr className={fr.cx("fr-pb-2w")} />
+            <h6 className={fr.cx("fr-mb-0")}>{title}</h6>
             {children}
         </div>
     );
@@ -26,7 +28,7 @@ function Responses({
             {values.map(({ label, value }, index) => {
                 return (
                     <div key={index}>
-                        <p className="fr-mb-0">
+                        <p className={fr.cx("fr-mb-0")}>
                             {label} {value}
                         </p>
                     </div>

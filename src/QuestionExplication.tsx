@@ -33,9 +33,17 @@ export function QuestionExplication({ label, description, bgColor }: QuestionExp
             style={{
                 backgroundColor,
             }}
-            className="fr-py-2w"
+            className={fr.cx("fr-py-2w")}
         >
-            <div className={"fr-container fr-grid-row fr-grid-row--center fr-grid-row--middle fr-px-1w"}>
+            <div
+                className={fr.cx(
+                    "fr-container",
+                    "fr-grid-row",
+                    "fr-grid-row--center",
+                    "fr-grid-row--middle",
+                    "fr-px-1w",
+                )}
+            >
                 <section className={fr.cx("fr-accordion", "fr-col-lg-6", "fr-col-md-9", "fr-col-12")}>
                     <h3 className={fr.cx("fr-accordion__title")}>
                         <button
