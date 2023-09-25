@@ -3,7 +3,6 @@
     "main",
     "feat/suggester",
     "feat/suggester-2",
-    "feat/tests",
-    "fix/style-suggester-overflow"
+    "feat/tests"
   ]
 }
