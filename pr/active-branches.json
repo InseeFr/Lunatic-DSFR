@@ -3,7 +3,6 @@
     "main",
     "feat/suggester",
     "feat/suggester-2",
-    "fix/question-explication-expanded",
     "feat/tests"
   ]
 }
