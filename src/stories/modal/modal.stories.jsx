@@ -4,9 +4,6 @@ import Orchestrator from "../utils/Orchestrator";
 import source from "./source.json";
 import * as custom from "../..";
 
-// eslint-disable-next-line no-undef
-console.log(custom);
-
 const stories = {
     title: "Components/Modal",
     component: Orchestrator,
