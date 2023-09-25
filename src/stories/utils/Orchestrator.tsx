@@ -3,6 +3,8 @@ import * as lunatic from "@inseefr/lunatic";
 import { LunaticError } from "../../utils/type/type";
 import Waiting from "./waiting";
 import { startReactDsfr } from "@codegouvfr/react-dsfr/spa";
+import classnames from "classnames";
+import { fr } from "@codegouvfr/react-dsfr";
 startReactDsfr({ defaultColorScheme: "system" });
 
 export interface OrchestratorProps {
@@ -165,7 +167,10 @@ const Orchestrator: FC<OrchestratorProps> = ({
                         const storeInfo = storeName ? getStoreInfo(storeName) : {};
                         if (Component) {
                             return (
-                                <div className="lunatic-component-dsfr fr-mb-2w" key={`component-${id}`}>
+                                <div
+                                    className={classnames("lunatic-component-dsfr", fr.cx("fr-mb-2w"))}
+                                    key={`component-${id}`}
+                                >
                                     <Component
                                         id={id}
                                         response={response}

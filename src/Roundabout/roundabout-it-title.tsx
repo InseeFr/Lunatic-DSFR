@@ -8,8 +8,11 @@ function UnnecessaryText({ unnecessary }: { unnecessary?: string | boolean }) {
 
     if (unnecessary) {
         return (
-            <div className="fr-col-12 fr-mt-1w">
-                <p className="fr-mb-0" style={{ color: theme.decisions.text.disabled.grey.default }}>
+            <div className={fr.cx("fr-col-12", "fr-mt-1w")}>
+                <p
+                    className={fr.cx("fr-mb-0")}
+                    style={{ color: theme.decisions.text.disabled.grey.default }}
+                >
                     {unnecessary}
                 </p>
             </div>
@@ -37,14 +40,14 @@ export function RoundaboutItTitle({
                         margin: "auto",
                     },
                 }),
-                "fr-col-12",
-                !unnecessary ? "fr-col-md-6" : "",
+                fr.cx("fr-col-12"),
+                !unnecessary ? fr.cx("fr-col-md-6") : "",
             )}
         >
-            <div className="fr-grid-row">
-                <div className="fr-col-12">
+            <div className={fr.cx("fr-grid-row")}>
+                <div className={fr.cx("fr-col-12")}>
                     <h2
-                        className={classnames("roundabout-it-title", "fr-h4", "fr-mb-0")}
+                        className={classnames("roundabout-it-title", fr.cx("fr-h4", "fr-mb-0"))}
                         style={unnecessary ? { color: theme.decisions.text.disabled.grey.default } : {}}
                     >
                         {label}

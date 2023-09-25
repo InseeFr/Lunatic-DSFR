@@ -1,3 +1,4 @@
+import { fr } from "@codegouvfr/react-dsfr";
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
 import { useState, useEffect } from "react";
 
@@ -84,7 +85,13 @@ export function DatepickerInput({
 
     return (
         <>
-            <div className="fr-fieldset__element fr-fieldset__element--inline fr-fieldset__element--number">
+            <div
+                className={fr.cx(
+                    "fr-fieldset__element",
+                    "fr-fieldset__element--inline",
+                    "fr-fieldset__element--number",
+                )}
+            >
                 <InputDSFR
                     disabled={disabled}
                     label="Jour"
@@ -97,7 +104,13 @@ export function DatepickerInput({
                     }}
                 />
             </div>
-            <div className="fr-fieldset__element fr-fieldset__element--inline fr-fieldset__element--number">
+            <div
+                className={fr.cx(
+                    "fr-fieldset__element",
+                    "fr-fieldset__element--inline",
+                    "fr-fieldset__element--number",
+                )}
+            >
                 <InputDSFR
                     disabled={disabled}
                     label="Mois"
@@ -110,7 +123,13 @@ export function DatepickerInput({
                     }}
                 />
             </div>
-            <div className="fr-fieldset__element fr-fieldset__element--inline fr-fieldset__element--year">
+            <div
+                className={fr.cx(
+                    "fr-fieldset__element",
+                    "fr-fieldset__element--inline",
+                    "fr-fieldset__element--year",
+                )}
+            >
                 <InputDSFR
                     disabled={disabled}
                     label="Année"

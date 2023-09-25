@@ -39,7 +39,7 @@ const CompleteBadge = ({ status, locked }: { status: string; locked?: boolean })
     if (status === "complete" && locked) {
         return (
             <div className={classnames({ "fr-mb-2w": !locked })}>
-                <p className="fr-badge fr-badge--success">Complété</p>
+                <p className={fr.cx("fr-badge", "fr-badge--success")}>Complété</p>
             </div>
         );
     }
@@ -105,7 +105,7 @@ export function RoundaboutItButton({
         return null;
     }
     return (
-        <div className="fr-col-12 fr-col-md-6">
+        <div className={fr.cx("fr-col-12", "fr-col-md-6")}>
             <div
                 className={css({
                     [fr.breakpoints.up("md")]: {

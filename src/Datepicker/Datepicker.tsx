@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { DatepickerInput } from "./DatepickerInput";
 import { getState, getStateRelatedMessage } from "../utils/errors/getErrorStates";
 import { LunaticError } from "../utils/type/type";
+import { fr } from "@codegouvfr/react-dsfr";
 
 type DatepickerType = {
     disabled: boolean;
@@ -40,10 +41,10 @@ function DisplayErrors({ ...props }) {
     const { state, stateRelatedMessage, id } = props;
     if (props.state && stateRelatedMessage) {
         return (
-            <div className="fr-messages-group">
+            <div className={fr.cx("fr-messages-group")}>
                 <p
                     id={`${id}-desc-${state}`}
-                    className={`fr-message fr-message--${state} fr-col-12 fr-mt-0`}
+                    className={`fr-message--${state} ${fr.cx("fr-message", "fr-col-12", "fr-mt-0")}`}
                 >
                     {stateRelatedMessage}
                 </p>
@@ -55,7 +56,7 @@ function DisplayErrors({ ...props }) {
 
 function displayDescription(description: string) {
     if (description) {
-        return <span className="fr-hint-text">{description}</span>;
+        return <span className={fr.cx("fr-hint-text")}>{description}</span>;
     }
     return null;
 }
@@ -88,7 +89,7 @@ export function Datepicker({
             role="group"
             aria-labelledby={`${id}-fieldset-legend ${id}-fieldset-messages`}
         >
-            <legend className="fr-fieldset__legend" id={`${id}-fieldset-legend`}>
+            <legend className={fr.cx("fr-fieldset__legend")} id={`${id}-fieldset-legend`}>
                 {label}
                 {displayDescription(description)}
             </legend>

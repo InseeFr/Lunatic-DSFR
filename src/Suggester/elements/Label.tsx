@@ -1,6 +1,7 @@
 import { CSSProperties, PropsWithChildren, ReactNode } from "react";
 import classnames from "classnames";
 import React from "react";
+import { fr } from "@codegouvfr/react-dsfr";
 
 type Props = PropsWithChildren<{
     id?: string;
@@ -18,7 +19,9 @@ type DescriptionProps = {
 function OneDescription({ value, className }: { value?: ReactNode; className?: string }) {
     if ((typeof value === "string" && value.length > 0) || React.isValidElement(value)) {
         return (
-            <span className={classnames("label-description", "fr-hint-text", className)}>{value}</span>
+            <span className={classnames("label-description", fr.cx("fr-hint-text"), className)}>
+                {value}
+            </span>
         );
     }
 
@@ -48,11 +51,11 @@ export function Label({ children, id, htmlFor, className, style, description }: 
             <label
                 htmlFor={htmlFor}
                 id={id}
-                className={classnames("lunatic-dsfr-label fr-label fr-mb-1w", className)}
+                className={classnames("lunatic-dsfr-label", fr.cx("fr-label", "fr-mb-1w"), className)}
                 style={style}
             >
                 {children}
-                <Description className="fr-mb-1w" value={description} />
+                <Description className={fr.cx("fr-mb-1w")} value={description} />
             </label>
         );
     }

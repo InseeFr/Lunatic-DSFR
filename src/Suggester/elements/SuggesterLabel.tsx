@@ -1,3 +1,4 @@
+import { fr } from "@codegouvfr/react-dsfr";
 import { PropsWithChildren } from "react";
 
 type SuggesterLabelProps = {
@@ -9,7 +10,7 @@ export function SuggesterLabel(props: PropsWithChildren<SuggesterLabelProps>) {
 
     if (children) {
         return (
-            <label className="fr-label" htmlFor={id}>
+            <label className={fr.cx("fr-label")} htmlFor={id}>
                 {children}
             </label>
         );
