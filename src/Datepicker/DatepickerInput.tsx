@@ -114,7 +114,7 @@ export function DatepickerInput({
                 <InputDSFR
                     disabled={disabled}
                     label="Mois"
-                    hintText="Exemple: 7"
+                    hintText="Exemple: 07"
                     className={state ? `fr-input-group--${state}` : ""}
                     nativeInputProps={{
                         id: `${id}-month`,
