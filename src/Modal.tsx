@@ -2,6 +2,8 @@ import { type ReactEventHandler, MouseEventHandler, RefObject } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "./Button";
 import { type LunaticComponentProps } from "./type";
+import { fr } from "@codegouvfr/react-dsfr";
+import classnames from "classnames";
 
 type Props = Pick<LunaticComponentProps<"Modal">, "id" | "label" | "description"> & {
     onClose: ReactEventHandler<HTMLDialogElement>;
@@ -15,20 +17,20 @@ export function Modal(props: Props) {
 
     return createPortal(
         <dialog
-            className="lunatic-dsfr-modal fr-modal fr-modal--opened"
+            className={classnames("lunatic-dsfr-modal", fr.cx("fr-modal", "fr-modal--opened"))}
             ref={dialogRef}
             id={id}
             onClose={onClose}
             onCancel={onCancel}
             onClick={onClick}
         >
-            <div className="fr-container fr-container--fluid fr-container-md">
-                <div className="fr-grid-row fr-grid-row--center">
-                    <div className="fr-col-12 fr-col-md-8 fr-col-lg-6">
-                        <form method="dialog" className="fr-modal__body">
-                            <div className="fr-modal__header">
+            <div className={fr.cx("fr-container", "fr-container--fluid", "fr-container-md")}>
+                <div className={fr.cx("fr-grid-row", "fr-grid-row--center")}>
+                    <div className={fr.cx("fr-col-12", "fr-col-md-8", "fr-col-lg-6")}>
+                        <form method="dialog" className={fr.cx("fr-modal__body")}>
+                            <div className={fr.cx("fr-modal__header")}>
                                 <Button
-                                    className={"fr-btn--close"}
+                                    className={fr.cx("fr-btn--close")}
                                     disabled={false}
                                     type="submit"
                                     value="cancel"
@@ -37,16 +39,24 @@ export function Modal(props: Props) {
                                     Fermer
                                 </Button>
                             </div>
-                            <div className="fr-modal__content">
-                                <span id={`${id}-title`} className="fr-modal__title">
+                            <div className={fr.cx("fr-modal__content")}>
+                                <span id={`${id}-title`} className={fr.cx("fr-modal__title")}>
                                     {/* Label is defined in the source.json, and we can accept VTL|MD or VTL */}
                                     {label}
                                 </span>
                                 {/* Label is defined in the source.json, and we can accept VTL|MD or VTL */}
                                 <span>{description}</span>
                             </div>
-                            <div className="fr-modal__footer">
-                                <ul className="fr-btns-group fr-btns-group--right fr-btns-group--inline-reverse fr-btns-group--inline-lg fr-btns-group--icon-left">
+                            <div className={fr.cx("fr-modal__footer")}>
+                                <ul
+                                    className={fr.cx(
+                                        "fr-btns-group",
+                                        "fr-btns-group--right",
+                                        "fr-btns-group--inline-reverse",
+                                        "fr-btns-group--inline-lg",
+                                        "fr-btns-group--icon-left",
+                                    )}
+                                >
                                     <li>
                                         <Button
                                             value="default"

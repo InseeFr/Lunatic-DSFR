@@ -11,7 +11,8 @@ type Props = PropsWithChildren<{
 const useStyles = makeStyles()(theme => ({
     root: {
         maxHeight: "20rem",
-        overflow: "scroll",
+        overflowX: "hidden",
+        overflowY: "scroll",
         "> li": {
             listStyle: "none",
             boxSizing: "border-box",
@@ -34,25 +35,29 @@ const useStyles = makeStyles()(theme => ({
 
 export function ComboboxPanelContainer({ children, focused, expanded, id }: Props) {
     const { classes, cx } = useStyles();
-    return (
-        <ul
-            id={`lunatic-combo-box-panel-${id}`}
-            aria-label="suggestions"
-            className={classnames(
-                "lunatic-combo-box-panel",
-                "fr-select",
-                "fr-p-0",
-                "fr-mb-0",
-                "fr-mt-0",
-                {
-                    focused,
-                    expanded,
-                },
-                cx(classes.root),
-            )}
-            role="listbox"
-        >
-            {children}
-        </ul>
-    );
+
+    if (Array.isArray(children) && children.length > 0) {
+        return (
+            <ul
+                id={`lunatic-combo-box-panel-${id}`}
+                aria-label="suggestions"
+                className={classnames(
+                    "lunatic-combo-box-panel",
+                    "fr-select",
+                    "fr-p-0",
+                    "fr-mb-0",
+                    "fr-mt-0",
+                    {
+                        focused,
+                        expanded,
+                    },
+                    cx(classes.root),
+                )}
+                role="listbox"
+            >
+                {children}
+            </ul>
+        );
+    }
+    return null;
 }
