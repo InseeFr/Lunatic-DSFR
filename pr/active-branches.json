@@ -3,6 +3,7 @@
     "main",
     "feat/suggester",
     "feat/suggester-2",
-    "feat/tests"
+    "feat/tests",
+    "feat/upgrade-storybook-and-stories"
   ]
 }
