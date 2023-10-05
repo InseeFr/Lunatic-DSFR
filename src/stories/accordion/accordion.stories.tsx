@@ -1,19 +1,17 @@
-import Orchestrator from "../utils/Orchestrator";
-import source from "./source.json";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
-import * as custom from "../..";
+import Accordion from "../../Accordion";
 
 const stories = {
-    title: "Components/Accordion",
-    component: Orchestrator,
+    title: "Atoms/Accordion",
+    component: Accordion,
     argTypes: defaultArgTypes,
-} as ComponentMeta<typeof Orchestrator>;
+} as ComponentMeta<typeof Accordion>;
 
 export default stories;
 
-const Template: ComponentStory<typeof Orchestrator> = args => <Orchestrator {...args} custom={custom} />;
+const Template: ComponentStory<typeof Accordion> = args => <Accordion {...args} />;
 
 export const Default = Template.bind({});
 
-Default.args = { id: "accordion", source };
+Default.args = { label: "test", description: "test", bgColor: "purpleGlycine.default" };

@@ -7,7 +7,7 @@ import { BUTTON_PRIORITIES } from "../../utils/constants/buttonConstants";
 const { PRIMARY, SECONDARY, TERTIARY, TERTIARY_NO_OUTLINE } = BUTTON_PRIORITIES;
 
 const stories = {
-    title: "Components/Button",
+    title: "Atoms/Button",
     component: Button,
     argTypes: defaultArgTypes,
 } as ComponentMeta<typeof Button>;
