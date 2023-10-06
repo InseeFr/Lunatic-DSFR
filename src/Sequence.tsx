@@ -42,7 +42,9 @@ export function Sequence({ label, description }: SequenceType) {
             style={{ backgroundColor: theme.decisions.background.alt.grey.default }}
         >
             <h2 className={fr.cx("fr-h3", "fr-col-12")}>{label}</h2>
-            <Description description={description} />
+            <div className={fr.cx("fr-col-12")}>
+                <Description description={description} />
+            </div>
         </div>
     );
 }

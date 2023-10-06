@@ -1,5 +1,4 @@
 const fields = [
-    "source",
     "id",
     "pagination",
     "data",
@@ -12,6 +11,12 @@ const fields = [
     "shortcut",
     "activeGoNextForMissing",
     "filterDescription",
+    "custom",
+    "suggesterFetcher",
+    "autoSuggesterLoading",
+    "suggesters",
+    "preferences",
+    "getReferentiel",
 ];
 
 const defaultArgTypes = fields.reduce(

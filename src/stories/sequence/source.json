@@ -5,11 +5,7 @@
             "id": "seq",
             "componentType": "Sequence",
             "label": {
-                "value": "\"Liste des habitants\"",
-                "type": "VTL|MD"
-            },
-            "description": {
-                "value": "\"Liste des habitants\"",
+                "value": "\"Un titre\"",
                 "type": "VTL"
             },
             "conditionFilter": { "value": "true", "type": "VTL" },
@@ -20,18 +16,18 @@
                     "id": "jruq5os5-kqhuxnyt",
                     "label": {
                         "type": "VTL|MD",
-                        "value": "\"Il faut manger pour vivre   \n  sur 2 lignes\""
+                        "value": "\"\n\n Avec une image!\""
                     },
-                    "position": "DETACHABLE"
+                    "position": "AFTER_QUESTION_TEXT"
                 },
                 {
                     "declarationType": "INSTRUCTION",
-                    "id": "jruq5os5-kqhuxnjkbyt",
+                    "id": "jruq5os5-kqhuxnyt",
                     "label": {
                         "type": "VTL|MD",
-                        "value": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\""
+                        "value": "\"![Texte alternatif](https://i.ytimg.com/vi/tlgTegVjFCk/hqdefault.jpg)\""
                     },
-                    "position": "DETACHABLE"
+                    "position": "AFTER_QUESTION_TEXT"
                 }
             ]
         },

@@ -1,39 +1,41 @@
 import Orchestrator from "../utils/Orchestrator";
 import source from "./source.json";
+import source1 from "./source1.json";
 import data from "./data.json";
-import sourceLoop from "./source1.json";
-import dataLoop from "./data1.json";
-import sourceRoundabout from "./source2.json";
-import dataRoundabout from "./data2.json";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import data1 from "./data1.json";
+import { StoryObj, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 import * as custom from "../..";
 
-const stories = {
-    title: "Components/ComponentSet",
+const meta: Meta<typeof Orchestrator> = {
+    title: "OrchestratedComponents/ComponentSet",
     component: Orchestrator,
     argTypes: defaultArgTypes,
-} as ComponentMeta<typeof Orchestrator>;
-
-export default stories;
-
-const Template: ComponentStory<typeof Orchestrator> = args => <Orchestrator {...args} custom={custom} />;
-export const Default = Template.bind({});
-
-Default.args = { id: "component-set", source, data };
-
-export const InRoundabout = Template.bind({});
-
-InRoundabout.args = {
-    id: "component-set-roundabout",
-    source: sourceRoundabout,
-    data: dataRoundabout,
+    parameters: {
+        docs: {
+            description: {
+                story: "This component should be used when you want to display multiple component in one page.",
+            },
+        },
+    },
+    args: { custom },
 };
 
-export const InLoop = Template.bind({});
+export default meta;
 
-InLoop.args = {
-    id: "component-set-loop",
-    source: sourceLoop,
-    data: dataLoop,
+type Story = StoryObj<typeof Orchestrator>;
+
+export const Default: Story = {
+    args: { source: source, data: data },
+};
+
+export const WithError: Story = {
+    parameters: {
+        docs: {
+            description: {
+                story: "Click next to make the error appear",
+            },
+        },
+    },
+    args: { source: source1, data: data1 },
 };

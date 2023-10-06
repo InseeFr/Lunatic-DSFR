@@ -6,7 +6,7 @@ import defaultArgTypes from "../utils/default-arg-types";
 import * as custom from "../..";
 
 const stories = {
-    title: "Components/Summary",
+    title: "OrchestratedComponents/Summary",
     component: Orchestrator,
     argTypes: defaultArgTypes,
 };

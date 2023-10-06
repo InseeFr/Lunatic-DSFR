@@ -1,6 +1,8 @@
 {
+    "maxPage": "2",
     "components": [
         {
+            "page": "1",
             "id": "radiototo",
             "bindingDependencies": ["Q1"],
             "componentType": "Radio",
@@ -46,6 +48,16 @@
                 }
             ],
             "response": { "name": "Q1" }
+        },
+        {
+            "page": "2",
+            "id": "sequence",
+            "componentType": "Sequence",
+            "mandatory": false,
+            "label": {
+                "value": "\"Bye\"",
+                "type": "VTL|MD"
+            }
         }
     ],
     "variables": [

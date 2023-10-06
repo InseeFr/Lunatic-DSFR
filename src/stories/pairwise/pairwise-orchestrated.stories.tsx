@@ -1,20 +1,28 @@
+import Orchestrator from "../utils/Orchestrator";
 import source from "./source.json";
 import data from "./data.json";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { StoryObj, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
-import Orchestrator from "../utils/Orchestrator";
 import * as custom from "../..";
 
-const stories = {
-    title: "Components/Pairwise/orchestrated",
+const meta: Meta<typeof Orchestrator> = {
+    title: "OrchestratedComponents/Pairwise",
     component: Orchestrator,
     argTypes: defaultArgTypes,
-} as ComponentMeta<typeof Orchestrator>;
+    parameters: {
+        docs: {
+            description: {
+                story: "This component allows you to pass symetric links.",
+            },
+        },
+    },
+    args: { custom },
+};
 
-export default stories;
+export default meta;
 
-const Template: ComponentStory<typeof Orchestrator> = args => <Orchestrator {...args} custom={custom} />;
+type Story = StoryObj<typeof Orchestrator>;
 
-export const Default = Template.bind({});
-
-Default.args = { source, data };
+export const Default: Story = {
+    args: { source: source, data: data },
+};

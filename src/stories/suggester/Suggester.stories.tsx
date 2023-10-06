@@ -3,15 +3,15 @@ import source from "./source.json";
 import sourceCommune from "./source_commune.json";
 import sourceError from "./source_error.json";
 import sourcePays from "./source-pays.json";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { StoryFn, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 import * as custom from "../..";
 
 const stories = {
-    title: "Components/Suggester/orchestrated",
+    title: "OrchestratedComponents/Suggester",
     component: Orchestrator,
     argTypes: defaultArgTypes,
-} as ComponentMeta<typeof Orchestrator>;
+} as Meta<typeof Orchestrator>;
 
 export default stories;
 
@@ -40,7 +40,7 @@ function LoremIpsum() {
     );
 }
 
-const OrchestratedTemplate: ComponentStory<typeof Orchestrator> = args => (
+const OrchestratedTemplate: StoryFn<typeof Orchestrator> = args => (
     <>
         <Orchestrator
             {...args}
@@ -52,7 +52,7 @@ const OrchestratedTemplate: ComponentStory<typeof Orchestrator> = args => (
     </>
 );
 
-const Template: ComponentStory<typeof Orchestrator> = args => (
+const Template: StoryFn<typeof Orchestrator> = args => (
     <>
         <Orchestrator
             {...args}
