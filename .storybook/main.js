@@ -26,13 +26,7 @@ export const framework = {
     name: "@storybook/react-webpack5",
     options: { fastRefresh: true },
 };
-export async function webpackFinal(
-    config: {
-        module: { rules: { test: RegExp; use: string[]; include: string }[] };
-        resolve: { modules: any; plugins: any; extensions: any; fallback?: any };
-    },
-    { configType }: any,
-) {
+export async function webpackFinal(config, { configType }) {
     config.module.rules.push({
         test: /\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"],
