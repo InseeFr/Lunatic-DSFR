@@ -12,14 +12,6 @@
             "id": "name",
             "response": {
                 "name": "NAME"
-            },
-            "questionInformation": {
-                "value": "\"Question Information\"",
-                "type": "VTL"
-            },
-            "questionContext": {
-                "value": "\"Question Context\"",
-                "type": "VTL"
             }
         }
     ],
