@@ -27,21 +27,6 @@
             "response": { "name": "NB_HAB" }
         },
         {
-            "id": "hoew",
-            "componentType": "InputNumber",
-            "mandatory": false,
-            "page": "2",
-            "min": 42,
-            "max": 42,
-            "decimals": 0,
-            "label": {
-                "value": "\"Qu'est-ce que zéro divisé par zéro ?\"",
-                "type": "VTL|MD"
-            },
-            "conditionFilter": { "value": "true", "type": "VTL" },
-            "response": { "name": "ZERO" }
-        },
-        {
             "id": "loop",
             "componentType": "Loop",
             "loopDependencies": ["NB_HAB"],
@@ -314,180 +299,6 @@
             ],
             "conditionFilter": { "value": "true", "type": "VTL" },
             "page": "4"
-        },
-        {
-            "id": "roundabout",
-            "componentType": "Roundabout",
-            "page": "5",
-            "conditionFilter": { "value": "true", "type": "VTL" },
-            "iterations": { "value": "NB_HAB", "type": "VTL" },
-            "label": { "value": "\"Libellé du rondpoint\"", "type": "VTL" },
-            "locked": true,
-            "expressions": {
-                "unnecessary": {
-                    "value": "AGE < 13",
-                    "type": "VTL"
-                },
-                "complete": {
-                    "value": "not(isnull(KNOWREC)) and not(isnull(SEXES)) and not(isnull(SOMETHING))",
-                    "type": "VTL"
-                },
-                "partial": {
-                    "value": "not(isnull(KNOWREC)) or not(isnull(SEXES)) or not(isnull(SOMETHING))",
-                    "type": "VTL"
-                },
-                "label": {
-                    "value": "\"Série de question pour \" || PRENOMS",
-                    "type": "VTL"
-                }
-            },
-            "controls": [
-                {
-                    "id": "roundabout-Carefull",
-                    "criticality": "WARN",
-                    "control": {
-                        "value": "not(isnull(KNOWREC)) and not(isnull(SEXES)) and not(isnull(SOMETHING))",
-                        "type": "VTL"
-                    },
-                    "type": "roundabout",
-                    "iterations": { "value": "NB_HAB", "type": "VTL" },
-                    "errorMessage": {
-                        "value": "\"Le formulaire n'est pas complet pour \" || PRENOMS",
-                        "type": "VTL|MD"
-                    }
-                }
-            ],
-            "components": [
-                {
-                    "id": "radio",
-                    "componentType": "Radio",
-                    "mandatory": false,
-                    "page": "5.1",
-                    "label": {
-                        "value": "\"Connaissez-vous le recensement de la population ?\"",
-                        "type": "VTL|MD"
-                    },
-
-                    "conditionFilter": { "value": "true", "type": "VTL" },
-
-                    "options": [
-                        { "value": "1", "label": { "value": "\"oui\"", "type": "VTL|MD" } },
-
-                        { "value": "2", "label": { "value": "\"non\"", "type": "VTL|MD" } }
-                    ],
-                    "response": { "name": "KNOWREC" }
-                },
-                {
-                    "id": "jsygk7m7",
-                    "componentType": "Subsequence",
-                    "page": "5.2",
-                    "label": {
-                        "value": "\"Deuxième page de questions pour \"|| PRENOMS",
-                        "type": "VTL|MD"
-                    },
-                    "conditionFilter": { "value": "true", "type": "VTL" }
-                },
-                {
-                    "id": "birth-country",
-                    "componentType": "Radio",
-                    "page": "5.2",
-                    "label": {
-                        "value": "\"Pays de Naissance\"",
-                        "type": "VTL"
-                    },
-                    "conditionFilter": {
-                        "value": "true",
-                        "type": "VTL"
-                    },
-                    "options": [
-                        {
-                            "value": "1",
-                            "label": { "value": "\"En France\"", "type": "VTL|MD" }
-                        },
-                        {
-                            "value": "2",
-                            "label": { "value": "\"À l'étranger\"", "type": "VTL|MD" }
-                        }
-                    ],
-                    "response": { "name": "PAYSNAISS" }
-                },
-                {
-                    "id": "jsygk7m7",
-                    "componentType": "Subsequence",
-                    "page": "4.3",
-                    "label": {
-                        "value": "\"Troisième page de questions \" || PRENOMS",
-                        "type": "VTL|MD"
-                    },
-                    "conditionFilter": { "value": "true", "type": "VTL" }
-                },
-                {
-                    "id": "kmno1n7m",
-                    "componentType": "Input",
-                    "maxLength": 30,
-                    "page": "5.3",
-                    "label": {
-                        "value": "\"Dites quelque chose.\"))",
-                        "type": "VTL|MD"
-                    },
-                    "conditionFilter": {
-                        "value": "true",
-                        "type": "VTL"
-                    },
-                    "response": { "name": "SOMETHING" }
-                }
-            ]
-        },
-        {
-            "id": "Summary",
-            "componentType": "Summary",
-            "label": {
-                "value": "\"## Vos réponses.\"",
-                "type": "VTL|MD"
-            },
-            "sections": [
-                {
-                    "iterations": { "value": "NB_HAB", "type": "VTL" },
-                    "title": {
-                        "value": "\"### Le bulletin individuel de \" || PRENOMS",
-                        "type": "VTL|MD"
-                    },
-                    "responses": [
-                        {
-                            "label": { "value": "\"L'age de \" || PRENOMS", "type": "VTL" },
-                            "value": { "value": "cast(AGE,string) || \" ans\"", "type": "VTL" }
-                        },
-                        {
-                            "label": { "value": "\"Le sexe de \" || PRENOMS", "type": "VTL" },
-                            "value": {
-                                "value": "if(SEXES = \"1\") then \"Masculin\" else \"Féminin\"",
-                                "type": "VTL"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "title": {
-                        "value": "\"### La feuille logement\"",
-                        "type": "VTL|MD"
-                    },
-                    "responses": [
-                        {
-                            "label": { "value": "\"Zéro divisé par zéro \"", "type": "VTL" },
-                            "value": {
-                                "value": "cast(ZERO,string) || \", mais ça tu savais déjà !\"",
-                                "type": "VTL"
-                            }
-                        },
-                        {
-                            "label": { "value": "\"Nombre d'habitants \"", "type": "VTL" },
-                            "value": { "value": "cast(NB_HAB,string) || \" personnes\"", "type": "VTL" }
-                        }
-                    ]
-                }
-            ],
-            "conditionFilter": { "value": "true", "type": "VTL" },
-            "page": "6"
         }
     ],
     "variables": [
@@ -500,28 +311,6 @@
                 "FORCED": null,
                 "EDITED": null,
                 "INPUTED": null
-            }
-        },
-        {
-            "variableType": "COLLECTED",
-            "name": "ZERO",
-            "values": {
-                "PREVIOUS": null,
-                "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTED": null
-            }
-        },
-        {
-            "variableType": "COLLECTED",
-            "name": "SOMETHING",
-            "values": {
-                "PREVIOUS": [null],
-                "COLLECTED": [null],
-                "FORCED": [null],
-                "EDITED": [null],
-                "INPUTED": [null]
             }
         },
         {
@@ -578,30 +367,12 @@
                 "EDITED": [null],
                 "INPUTED": [null]
             }
-        },
-        {
-            "variableType": "COLLECTED",
-            "name": "KNOWREC",
-            "values": {
-                "PREVIOUS": [null],
-                "COLLECTED": [null],
-                "FORCED": [null],
-                "EDITED": [null],
-                "INPUTED": [null]
-            }
-        },
-        {
-            "variableType": "CALCULATED",
-            "name": "PRENOMREF",
-            "expression": { "value": "first_value(PRENOMS over())", "type": "VTL" },
-            "bindingDependencies": ["PRENOMS"],
-            "inFilter": "true"
         }
     ],
     "resizing": {
         "NB_HAB": {
             "size": "NB_HAB",
-            "variables": ["PRENOMS", "AGE", "SEXES", "SOMETHING", "DATNAIS"]
+            "variables": ["PRENOMS", "SEXES", "DATENAISS"]
         }
     }
 }

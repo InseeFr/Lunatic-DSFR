@@ -20,5 +20,4 @@ Default.args = {
     id: "Summary",
     source,
     data,
-    pagination: true,
 };

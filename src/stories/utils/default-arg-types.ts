@@ -17,6 +17,7 @@ const fields = [
     "suggesters",
     "preferences",
     "getReferentiel",
+    "source",
 ];
 
 const defaultArgTypes = fields.reduce(
