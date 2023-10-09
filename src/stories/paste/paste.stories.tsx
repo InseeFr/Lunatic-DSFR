@@ -7,10 +7,15 @@ import source from "./source.json";
 const meta: Meta<typeof Orchestrator> = {
     title: "Test/Paste",
     component: Orchestrator,
-    argTypes: defaultArgTypes,
     args: {
         source: source,
         custom,
+    },
+    argTypes: {
+        ...defaultArgTypes,
+        source: {
+            control: "object",
+        },
     },
     parameters: {
         docs: {
