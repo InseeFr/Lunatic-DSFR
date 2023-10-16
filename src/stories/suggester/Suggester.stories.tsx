@@ -1,17 +1,21 @@
 import Orchestrator from "../utils/Orchestrator";
 import source from "./source.json";
-import sourceCommune from "./source_commune.json";
+import sourceNaf from "./source_naf.json";
 import sourceError from "./source_error.json";
-import sourcePays from "./source-pays.json";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import sourceDisabled from "./sourceDisabled.json";
+import { StoryFn, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 import * as custom from "../..";
 
 const stories = {
-    title: "Components/Suggester/orchestrated",
+    title: "OrchestratedComponents/Suggester",
     component: Orchestrator,
     argTypes: defaultArgTypes,
-} as ComponentMeta<typeof Orchestrator>;
+    args: {
+        getReferentiel: getReferentiel,
+        autoSuggesterLoading: true,
+    },
+} as Meta<typeof Orchestrator>;
 
 export default stories;
 
@@ -19,8 +23,6 @@ async function getReferentiel(name: string) {
     switch (name) {
         case "naf-rev2":
             return fetch("/json/naf-rev2.json").then(r => r.json());
-        case "communes-2019":
-            return fetch("/json/communes-2019.json").then(r => r.json());
         case "pays":
             return fetch("/json/pays.json").then(r => r.json());
         default:
@@ -28,53 +30,20 @@ async function getReferentiel(name: string) {
     }
 }
 
-function LoremIpsum() {
-    return (
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-    );
-}
+const Template: StoryFn<typeof Orchestrator> = args => <Orchestrator {...args} custom={custom} />;
 
-const OrchestratedTemplate: ComponentStory<typeof Orchestrator> = args => (
-    <>
-        <Orchestrator
-            {...args}
-            getReferentiel={getReferentiel}
-            autoSuggesterLoading={true}
-            custom={custom}
-        />
-        <LoremIpsum />
-    </>
-);
+export const Default = Template.bind({});
 
-const Template: ComponentStory<typeof Orchestrator> = args => (
-    <>
-        <Orchestrator
-            {...args}
-            getReferentiel={getReferentiel}
-            autoSuggesterLoading={true}
-            custom={custom}
-        />
-    </>
-);
+Default.args = { source: source };
 
-export const Default = OrchestratedTemplate.bind({});
+export const NotLoading = Template.bind({});
 
-Default.args = { source, data: {} };
+NotLoading.args = { source: sourceError };
 
-export const Communes = Template.bind({});
+export const InComponentSet = Template.bind({});
 
-Communes.args = { source: sourceCommune, data: {} };
+InComponentSet.args = { source: sourceNaf };
 
-export const Failedload = Template.bind({});
+export const Disabled = Template.bind({});
 
-Failedload.args = { source: sourceError, data: {} };
-
-export const Pays = Template.bind({});
-
-Pays.args = { source: sourcePays, data: {} };
+Disabled.args = { source: sourceDisabled };

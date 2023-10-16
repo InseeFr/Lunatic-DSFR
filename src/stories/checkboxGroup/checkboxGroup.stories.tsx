@@ -1,16 +1,16 @@
 import CheckboxGroup from "../../CheckboxGroup";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { StoryFn, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 
 const stories = {
-    title: "Components/CheckboxGroup/states",
+    title: "Components/Checkbox",
     component: CheckboxGroup,
     argTypes: defaultArgTypes,
-} as ComponentMeta<typeof CheckboxGroup>;
+} as Meta<typeof CheckboxGroup>;
 
 export default stories;
 
-const Template: ComponentStory<typeof CheckboxGroup> = args => <CheckboxGroup {...args} />;
+const Template: StoryFn<typeof CheckboxGroup> = args => <CheckboxGroup {...args} />;
 
 export const Error = Template.bind({});
 

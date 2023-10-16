@@ -1,5 +1,6 @@
 import { useRef, useEffect, HTMLAttributes, KeyboardEventHandler } from "react";
 import classnames from "classnames";
+import { fr } from "@codegouvfr/react-dsfr";
 
 export type InputProps = {
     placeholder?: string;
@@ -37,7 +38,7 @@ export function ComboboxInput({
         <input
             ref={inputEl}
             id={id}
-            className={classnames("lunatic-dsfr-combo-box-input", "fr-input")}
+            className={classnames("lunatic-dsfr-combo-box-input", fr.cx("fr-input"))}
             type="text"
             onChange={onChange}
             value={value}

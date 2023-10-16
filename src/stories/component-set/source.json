@@ -1,5 +1,5 @@
 {
-    "maxPage": "5",
+    "maxPage": "1",
     "components": [
         {
             "componentType": "QuestionContext",
@@ -24,8 +24,8 @@
             "components": [
                 {
                     "componentType": "QuestionInformation",
-                    "label": { "value": "\"This is the questionInformation title\"", "type": "VTL" },
-                    "description": { "value": "\"Question Information description\"", "type": "VTL" }
+                    "label": { "value": "\"This is the QuestionInformation title\"", "type": "VTL" },
+                    "description": { "value": "\"QuestionInformation description\"", "type": "VTL" }
                 },
                 {
                     "id": "prenom",
@@ -40,21 +40,6 @@
                         "value": "true",
                         "type": "VTL"
                     },
-                    "controls": [
-                        {
-                            "id": "prenom",
-                            "criticality": "ERROR",
-                            "typeOfControl": "FORMAT",
-                            "control": {
-                                "value": "false",
-                                "type": "VTL"
-                            },
-                            "errorMessage": {
-                                "value": "\"TOTO n'est pas le bienvenue ici !\"",
-                                "type": "VTL"
-                            }
-                        }
-                    ],
                     "response": { "name": "PRENOMS" }
                 },
                 {
@@ -75,7 +60,6 @@
                     "id": "radiototo",
                     "bindingDependencies": ["Q1"],
                     "componentType": "Radio",
-                    "mandatory": false,
                     "label": {
                         "value": "\"Does Spongebob live in a pineapple under the sea?\"",
                         "type": "VTL"
@@ -125,16 +109,9 @@
                     "page": "1",
                     "min": "1900-01-01",
                     "max": "2100-01-01",
-                    "label": { "type": "VTL", "value": "\"Birthday: \"" },
+                    "label": { "type": "VTL", "value": "\"Birthday \"" },
                     "conditionFilter": { "type": "VTL", "value": "true" },
                     "dateFormat": "YYYY-MM-DD",
-                    "hierarchy": {
-                        "sequence": {
-                            "id": "l7ovaca8",
-                            "page": "\"1\"",
-                            "label": { "type": "VTL", "value": "\"I - \" || \"S1\"" }
-                        }
-                    },
                     "description": {
                         "type": "VTL",
                         "value": "\"Please enter your birthday in the below field\""
@@ -142,16 +119,6 @@
                     "response": { "name": "DATENAISS" }
                 }
             ]
-        },
-        {
-            "id": "seq",
-            "componentType": "Sequence",
-            "label": {
-                "value": "\"Merci !\"",
-                "type": "VTL|MD"
-            },
-            "conditionFilter": { "value": "true", "type": "VTL" },
-            "page": "2"
         }
     ],
     "variables": [

@@ -1,16 +1,16 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { StoryFn, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 import { Dropdown } from "../../Dropdown";
 
 const stories = {
-    title: "Components/Dropdown/states",
+    title: "Components/Dropdown",
     component: Dropdown,
     argTypes: defaultArgTypes,
-} as ComponentMeta<typeof Dropdown>;
+} as Meta<typeof Dropdown>;
 
 export default stories;
 
-const Template: ComponentStory<typeof Dropdown> = args => <Dropdown {...args} />;
+const Template: StoryFn<typeof Dropdown> = args => <Dropdown {...args} />;
 
 export const Error = Template.bind({});
 

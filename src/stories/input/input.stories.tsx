@@ -1,16 +1,16 @@
 import Input from "../../Input";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { StoryFn, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 
 const stories = {
-    title: "Components/Input/states",
+    title: "Components/Input",
     component: Input,
     argTypes: defaultArgTypes,
-} as ComponentMeta<typeof Input>;
+} as Meta<typeof Input>;
 
 export default stories;
 
-const Template: ComponentStory<typeof Input> = args => <Input {...args} />;
+const Template: StoryFn<typeof Input> = args => <Input {...args} />;
 
 export const Error = Template.bind({});
 

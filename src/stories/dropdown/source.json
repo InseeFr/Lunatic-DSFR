@@ -5,40 +5,10 @@
             "componentType": "Dropdown",
             "mandatory": false,
             "label": { "value": "\"In which state do The Simpsons reside?\"", "type": "VTL|MD" },
-            "description": "\"This is a test description\"",
+            "description": "\"The state is within the USA\"",
             "response": {
                 "name": "STATE"
             },
-            "controls": [
-                {
-                    "id": "j4nw5cqz",
-                    "typeOfControl": "CONSISTENCY",
-                    "criticality": "WARN",
-                    "control": {
-                        "value": "not(nvl(STATE,\"\") = \"13\")",
-                        "type": "VTL"
-                    },
-                    "errorMessage": {
-                        "value": "\"Please choose a state!\"",
-                        "type": "VTL|MD"
-                    },
-                    "bindingDependencies": ["STATE"]
-                },
-                {
-                    "id": "j4nw5cqz",
-                    "typeOfControl": "CONSISTENCY",
-                    "criticality": "INFO",
-                    "control": {
-                        "value": "not(nvl(STATE,\"\") = \"4\")",
-                        "type": "VTL"
-                    },
-                    "errorMessage": {
-                        "value": "\"Idk if this is right, I'm just testing error messages!!\"",
-                        "type": "VTL|MD"
-                    },
-                    "bindingDependencies": ["STATE"]
-                }
-            ],
             "options": [
                 {
                     "value": "1",
