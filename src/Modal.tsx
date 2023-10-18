@@ -40,12 +40,12 @@ export function Modal(props: Props) {
                                 </Button>
                             </div>
                             <div className={fr.cx("fr-modal__content")}>
-                                <span id={`${id}-title`} className={fr.cx("fr-modal__title")}>
+                                <h1 id={`${id}-title`} className={fr.cx("fr-modal__title")}>
                                     {/* Label is defined in the source.json, and we can accept VTL|MD or VTL */}
                                     {label}
-                                </span>
+                                </h1>
                                 {/* Label is defined in the source.json, and we can accept VTL|MD or VTL */}
-                                <span>{description}</span>
+                                <p>{description}</p>
                             </div>
                             <div className={fr.cx("fr-modal__footer")}>
                                 <ul
