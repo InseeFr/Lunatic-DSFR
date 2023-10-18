@@ -1,20 +1,12 @@
 import classnames from "classnames";
-import { useColors } from "@codegouvfr/react-dsfr/useColors";
 import { useStyles } from "tss-react/dsfr";
 import { fr } from "@codegouvfr/react-dsfr";
 
 function UnnecessaryText({ unnecessary }: { unnecessary?: string | boolean }) {
-    const theme = useColors();
-
     if (unnecessary) {
         return (
             <div className={fr.cx("fr-col-12", "fr-mt-1w")}>
-                <p
-                    className={fr.cx("fr-mb-0")}
-                    style={{ color: theme.decisions.text.disabled.grey.default }}
-                >
-                    {unnecessary}
-                </p>
+                <p className={fr.cx("fr-mb-0")}>{unnecessary}</p>
             </div>
         );
     }
@@ -28,7 +20,6 @@ export function RoundaboutItTitle({
     label: string;
     unnecessary?: string | boolean;
 }) {
-    const theme = useColors();
     const { css } = useStyles();
 
     return (
@@ -46,10 +37,7 @@ export function RoundaboutItTitle({
         >
             <div className={fr.cx("fr-grid-row")}>
                 <div className={fr.cx("fr-col-12")}>
-                    <h2
-                        className={classnames("roundabout-it-title", fr.cx("fr-h4", "fr-mb-0"))}
-                        style={unnecessary ? { color: theme.decisions.text.disabled.grey.default } : {}}
-                    >
+                    <h2 className={classnames("roundabout-it-title", fr.cx("fr-h4", "fr-mb-0"))}>
                         {label}
                     </h2>
                 </div>
