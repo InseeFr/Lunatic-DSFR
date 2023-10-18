@@ -1,6 +1,6 @@
 // import React from 'react';
 import Button from "../../Button";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { StoryFn, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 import { BUTTON_PRIORITIES } from "../../utils/constants/buttonConstants";
 
@@ -10,7 +10,7 @@ const stories = {
     title: "Components/Button",
     component: Button,
     argTypes: defaultArgTypes,
-} as ComponentMeta<typeof Button>;
+} as Meta<typeof Button>;
 
 export default stories;
 
@@ -27,7 +27,7 @@ function ButtonName(disabled?: boolean, priority?: string) {
     }
 }
 
-const Template: ComponentStory<typeof Button> = args => (
+const Template: StoryFn<typeof Button> = args => (
     <>
         <Button {...args}>{ButtonName(args.disabled, args.priority)} Button</Button>
     </>

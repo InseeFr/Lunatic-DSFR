@@ -4,33 +4,13 @@
             "id": "kze792d8",
             "componentType": "InputNumber",
             "mandatory": false,
-            "page": "2",
+            "page": "1",
             "min": 0,
             "max": 10,
-            "decimals": 0,
+            "decimals": 2,
             "label": { "value": "\"What is your favourite number?\"", "type": "VTL|MD" },
-            "description": "\"It must be a prime number bigger than 3\"",
+            "description": "\"A number between 0 and 10 with 2 decimals maximum.\"",
             "conditionFilter": { "value": "true", "type": "VTL" },
-            "controls": [
-                {
-                    "id": "kze792d8",
-                    "typeOfControl": "CONSISTENCY",
-                    "criticality": "WARN",
-                    "control": { "value": "NB = 5", "type": "VTL" },
-                    "errorMessage": {
-                        "value": "\"Maybe try 5\"",
-                        "type": "VTL|MD"
-                    },
-                    "bindingDependencies": ["NB"]
-                }
-            ],
-            "hierarchy": {
-                "sequence": {
-                    "id": "ksyjs7vy",
-                    "page": "1",
-                    "label": { "value": "S0", "type": "VTL|MD" }
-                }
-            },
             "bindingDependencies": ["NB"],
             "response": { "name": "NB" }
         }

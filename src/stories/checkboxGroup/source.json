@@ -1,4 +1,5 @@
 {
+    "maxPage": "2",
     "components": [
         {
             "id": "checkboxgroup",
@@ -16,7 +17,7 @@
                     "id": "checkboxgroup",
                     "typeOfControl": "CONSISTENCY",
                     "criticality": "WARN",
-                    "control": { "value": "OPT3 = false", "type": "VTL" },
+                    "control": { "value": "OPT3 = false or isnull(OPT3)", "type": "VTL" },
                     "errorMessage": {
                         "value": "\"Take another guess\"",
                         "type": "VTL|MD"
@@ -37,7 +38,6 @@
                     },
                     "response": { "name": "OPT1" }
                 },
-
                 {
                     "id": "opt2",
                     "description": {
@@ -50,7 +50,6 @@
                     },
                     "response": { "name": "OPT2" }
                 },
-
                 {
                     "id": "opt3",
                     "description": {
@@ -64,6 +63,24 @@
                     "response": { "name": "OPT3" }
                 }
             ]
+        },
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": "\"Bye!\"",
+                "type": "VTL|MD"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "2",
+            "questionInformation": {
+                "value": "\"Question Information\"",
+                "type": "VTL|MD"
+            },
+            "questionContext": {
+                "value": "\"Question Context\"",
+                "type": "VTL|MD"
+            }
         }
     ],
     "variables": [

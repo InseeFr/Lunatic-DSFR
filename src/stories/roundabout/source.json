@@ -45,8 +45,8 @@
                     "mandatory": false,
                     "maxLength": 20,
                     "label": {
-                        "value": "\"Prénom\"))",
-                        "type": "VTL|MD"
+                        "value": "\"Prénom\"",
+                        "type": "VTL"
                     },
                     "conditionFilter": {
                         "value": "true",
@@ -60,7 +60,7 @@
                     "mandatory": false,
                     "maxLength": 20,
                     "label": {
-                        "value": "\"Nom de famille\"))",
+                        "value": "\"Nom de famille\"",
                         "type": "VTL|MD"
                     },
                     "conditionFilter": {
@@ -76,7 +76,7 @@
                     "maxLength": 20,
                     "label": {
                         "value": "\"Age\"))",
-                        "type": "VTL|MD"
+                        "type": "VTL"
                     },
                     "conditionFilter": {
                         "value": "true",
@@ -89,8 +89,8 @@
                     "componentType": "Radio",
                     "mandatory": false,
                     "label": {
-                        "value": "\"Resident\"))",
-                        "type": "VTL|MD"
+                        "value": "\"Resident\"",
+                        "type": "VTL"
                     },
                     "conditionFilter": {
                         "value": "true",
@@ -99,11 +99,11 @@
                     "options": [
                         {
                             "value": "1",
-                            "label": { "value": "\"Oui\"", "type": "VTL|MD" }
+                            "label": { "value": "\"Oui\"", "type": "VTL" }
                         },
                         {
                             "value": "2",
-                            "label": { "value": "\"Non\"", "type": "VTL|MD" }
+                            "label": { "value": "\"Non\"", "type": "VTL" }
                         }
                     ],
                     "response": { "name": "RESIDENTS" }
@@ -154,7 +154,7 @@
                     "page": "4.1",
                     "label": {
                         "value": "\"colour?\"))",
-                        "type": "VTL|MD"
+                        "type": "VTL"
                     },
                     "conditionFilter": {
                         "value": "true",
@@ -187,11 +187,11 @@
                     "options": [
                         {
                             "value": "1",
-                            "label": { "value": "\"Homme\"", "type": "VTL|MD" }
+                            "label": { "value": "\"Homme\"", "type": "VTL" }
                         },
                         {
                             "value": "2",
-                            "label": { "value": "\"Femme\"", "type": "VTL|MD" }
+                            "label": { "value": "\"Femme\"", "type": "VTL" }
                         }
                     ],
                     "response": { "name": "SEXE" }
@@ -213,7 +213,7 @@
                     "page": "4.3",
                     "label": {
                         "value": "\"Dites quelque chose.\"))",
-                        "type": "VTL|MD"
+                        "type": "VTL"
                     },
                     "conditionFilter": {
                         "value": "true",
@@ -229,7 +229,7 @@
             "componentType": "Sequence",
             "label": {
                 "value": "\"Merci !\"",
-                "type": "VTL|MD"
+                "type": "VTL"
             },
             "conditionFilter": { "value": "true", "type": "VTL" },
             "page": "5"

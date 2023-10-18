@@ -2,158 +2,40 @@
     "maxPage": "1",
     "suggesters": [
         {
-            "name": "naf-rev2",
+            "name": "pays",
             "fields": [
                 {
-                    "name": "label",
-                    "rules": ["[\\w]+"],
-                    "language": "French",
-                    "min": 2
-                },
-                { "name": "id" }
+                    "name": "id",
+                    "rules": "soft"
+                }
             ],
             "queryParser": {
-                "type": "tokenized",
-                "params": { "language": "French", "pattern": "[\\w.]+" }
+                "type": "soft"
             },
-            "meloto": true,
             "version": "1"
-        },
-        {
-            "name": "communes-2019",
-            "fields": [
-                { "name": "label", "rules": "soft" },
-                { "name": "nccenr", "rules": "soft" },
-                { "name": "id", "rules": "soft" }
-            ],
-            "queryParser": { "type": "soft" },
-            "version": "1",
-            "order": { "type": "ascending", "field": "nccenr" },
-            "max": 100
         }
     ],
     "components": [
         {
-            "id": "naf-rev2",
+            "id": "pays",
             "componentType": "Suggester",
             "mandatory": false,
-            "label": { "value": "\"Nomenclature d'activité\"", "type": "VTL" },
-            "storeName": "naf-rev2",
+            "label": { "value": "\"Pays\"", "type": "VTL" },
+            "storeName": "pays",
             "conditionFilter": {
                 "value": "true",
                 "type": "VTL"
             },
             "response": {
-                "name": "NAF"
+                "name": "PAYS"
             },
-            "page": "1",
-            "declarations": [
-                {
-                    "id": "kb9hi4j0-krnoclfe",
-                    "declarationType": "INSTRUCTION",
-                    "position": "BEFORE_QUESTION_TEXT",
-                    "label": {
-                        "value": "\"Test declaration before\"",
-                        "type": "VTL"
-                    }
-                },
-                {
-                    "id": "kb9hi4j0-krnoclfe",
-                    "declarationType": "HELP",
-                    "position": "AFTER_QUESTION_TEXT",
-                    "label": {
-                        "value": "\"Test description from declaration\"",
-                        "type": "VTL"
-                    }
-                }
-            ]
-        },
-        {
-            "id": "communes-2019",
-            "componentType": "Suggester",
-            "mandatory": false,
-            "label": { "value": "\"Communes 2019\"", "type": "VTL" },
-            "storeName": "communes-2019",
-            "conditionFilter": {
-                "value": "true",
-                "type": "VTL"
-            },
-            "response": {
-                "name": "NAF"
-            },
-            "page": "1",
-            "declarations": [
-                {
-                    "id": "kb9hi4j0-krnoclfe",
-                    "declarationType": "INSTRUCTION",
-                    "position": "BEFORE_QUESTION_TEXT",
-                    "label": {
-                        "value": "\"Test declaration before\"",
-                        "type": "VTL"
-                    }
-                },
-                {
-                    "id": "kb9hi4j0-krnoclfe",
-                    "declarationType": "HELP",
-                    "position": "AFTER_QUESTION_TEXT",
-                    "label": {
-                        "value": "\"Test description from declaration\"",
-                        "type": "VTL"
-                    }
-                }
-            ]
-        },
-        {
-            "id": "en-carton",
-            "componentType": "Suggester",
-            "mandatory": false,
-            "label": { "value": "\"en carton\"", "type": "VTL" },
-            "storeName": "en-carton",
-            "conditionFilter": {
-                "value": "true",
-                "type": "VTL"
-            },
-            "response": {
-                "name": "NAF"
-            },
-            "page": "1",
-            "declarations": [
-                {
-                    "id": "kb9hi4j0-krnoclfe",
-                    "declarationType": "INSTRUCTION",
-                    "position": "BEFORE_QUESTION_TEXT",
-                    "label": {
-                        "value": "\"Test declaration before\"",
-                        "type": "VTL"
-                    }
-                },
-                {
-                    "id": "kb9hi4j0-krnoclfe",
-                    "declarationType": "HELP",
-                    "position": "AFTER_QUESTION_TEXT",
-                    "label": {
-                        "value": "\"Test description from declaration\"",
-                        "type": "VTL"
-                    }
-                }
-            ]
+            "page": "1"
         }
     ],
     "variables": [
         {
             "variableType": "COLLECTED",
-            "name": "NAF",
-            "values": {
-                "PREVIOUS": null,
-                "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTED": null
-            }
-        },
-        {
-            "variableType": "COLLECTED",
-            "name": "COMMUNE",
+            "name": "PAYS",
             "values": {
                 "PREVIOUS": null,
                 "COLLECTED": null,

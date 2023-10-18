@@ -1,26 +1,46 @@
+import sourceInComponentSet from "./source-componentset.json";
 import Orchestrator from "../utils/Orchestrator";
 import source from "./source.json";
-import sourceInComponentSet from "./source-componentset.json";
+import sourceWithError from "./sourceWithError.json";
 import data from "./data.json";
-import dataInComponentSet from "./data-componentset.json";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import dataWithError from "./dataWithError.json";
+import { StoryObj, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 import * as custom from "../..";
 
-const stories = {
-    title: "Components/DatePicker",
+const meta: Meta<typeof Orchestrator> = {
+    title: "OrchestratedComponents/DatePicker",
     component: Orchestrator,
     argTypes: defaultArgTypes,
-} as ComponentMeta<typeof Orchestrator>;
+    parameters: {
+        docs: {
+            description: {
+                story: "This component should be used when you want the user to enter a date.",
+            },
+        },
+    },
+    args: { custom },
+};
 
-export default stories;
+export default meta;
 
-const Template: ComponentStory<typeof Orchestrator> = args => <Orchestrator {...args} custom={custom} />;
+type Story = StoryObj<typeof Orchestrator>;
 
-export const Default = Template.bind({});
+export const Default: Story = {
+    args: { source: source, data: data },
+};
 
-Default.args = { id: "input", source, data };
+export const Error: Story = {
+    args: { source: sourceWithError, data: dataWithError },
+    parameters: {
+        docs: {
+            description: {
+                story: "This component should be used when you want to display multiple component in one page.",
+            },
+        },
+    },
+};
 
-export const InComponentSet = Template.bind({});
-
-InComponentSet.args = { id: "input", source: sourceInComponentSet, data: dataInComponentSet };
+export const InComponentSet: Story = {
+    args: { source: sourceInComponentSet },
+};

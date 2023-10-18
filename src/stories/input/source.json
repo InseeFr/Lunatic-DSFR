@@ -1,62 +1,17 @@
 {
-    "maxPage": "2",
+    "maxPage": "1",
     "components": [
         {
             "page": "1",
             "componentType": "Input",
             "bindingDependencies": ["NAME"],
             "label": { "value": "\"What's your name?\"", "type": "VTL|MD" },
-            "description": "\"This is a test description\"",
+            "description": "\"No more than 30 characters\"",
             "conditionFilter": { "value": "true", "type": "VTL" },
-            "readOnly": {
-                "value": "false",
-                "type": "VTL"
-            },
-            "controls": [
-                {
-                    "id": "age-controls",
-                    "criticality": "ERROR",
-                    "typeOfControl": "FORMAT",
-                    "control": {
-                        "value": "NAME = \"BLABLA\"",
-                        "type": "VTL"
-                    },
-                    "errorMessage": {
-                        "value": "\"TOTO n'est pas le bienvenue ici !\"",
-                        "type": "VTL"
-                    }
-                }
-            ],
             "maxLength": 30,
             "id": "name",
             "response": {
                 "name": "NAME"
-            },
-            "questionInformation": {
-                "value": "\"Question Information\"",
-                "type": "VTL"
-            },
-            "questionContext": {
-                "value": "\"Question Context\"",
-                "type": "VTL"
-            }
-        },
-        {
-            "id": "seq",
-            "componentType": "Sequence",
-            "label": {
-                "value": "\"Bye!\"",
-                "type": "VTL|MD"
-            },
-            "conditionFilter": { "value": "true", "type": "VTL" },
-            "page": "2",
-            "questionInformation": {
-                "value": "\"Question Information\"",
-                "type": "VTL|MD"
-            },
-            "questionContext": {
-                "value": "\"Question Context\"",
-                "type": "VTL|MD"
             }
         }
     ],
@@ -67,7 +22,7 @@
             "componentRef": "name",
             "values": {
                 "PREVIOUS": null,
-                "COLLECTED": "BLABLA",
+                "COLLECTED": null,
                 "FORCED": null,
                 "EDITED": null,
                 "INPUTED": null

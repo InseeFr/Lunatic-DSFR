@@ -1,33 +1,74 @@
 {
-    "maxPage": "3",
+    "maxPage": "2",
     "components": [
+        {
+            "page": "1",
+            "id": "wine",
+            "componentType": "InputNumber",
+            "label": {
+                "value": "\"How many bottle of wine do you drink per week ?\"",
+                "type": "VTL"
+            },
+            "description": {
+                "value": "\"Enter a number\"",
+                "type": "VTL"
+            },
+            "response": {
+                "name": "WINE"
+            }
+        },
         {
             "page": "1",
             "id": "question-explication",
             "componentType": "QuestionExplication",
             "label": {
-                "value": "\"QuestionExplication label 1\"",
+                "value": "\"Why are you asking me this question ?\"",
                 "type": "VTL"
             },
             "description": {
-                "value": "\"QuestionExplication content 1\"",
+                "value": "\"We are counting the number of bottle of wine people drink per week.\"",
                 "type": "VTL"
             },
             "bgColor": "purpleGlycine.default"
         },
         {
             "page": "2",
-            "id": "question-explication",
-            "componentType": "QuestionExplication",
+            "componentType": "InputNumber",
             "label": {
-                "value": "\"QuestionExplication label 2\"",
+                "value": "\"How many can of beers do you drink per week ?\"",
                 "type": "VTL"
             },
             "description": {
-                "value": "\"QuestionExplication content 2\"",
+                "value": "\"Enter a number\"",
                 "type": "VTL"
             },
-            "bgColor": "purpleGlycine.default"
+            "response": {
+                "name": "BEERS"
+            }
+        }
+    ],
+    "variables": [
+        {
+            "variableType": "COLLECTED",
+            "name": "WINE",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "BEERS",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
         }
     ]
 }

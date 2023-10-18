@@ -1,16 +1,16 @@
 import Radio from "../../Radio";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { StoryFn, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 
 const stories = {
-    title: "Components/Radio/states",
+    title: "Components/Radio",
     component: Radio,
     argTypes: defaultArgTypes,
-} as ComponentMeta<typeof Radio>;
+} as Meta<typeof Radio>;
 
 export default stories;
 
-const Template: ComponentStory<typeof Radio> = args => <Radio {...args} />;
+const Template: StoryFn<typeof Radio> = args => <Radio {...args} />;
 
 export const Success = Template.bind({});
 

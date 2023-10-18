@@ -6,7 +6,7 @@ import defaultArgTypes from "../utils/default-arg-types";
 import * as custom from "../..";
 
 const stories = {
-    title: "Components/Summary",
+    title: "OrchestratedComponents/Summary",
     component: Orchestrator,
     argTypes: defaultArgTypes,
 };
@@ -20,5 +20,4 @@ Default.args = {
     id: "Summary",
     source,
     data,
-    pagination: true,
 };

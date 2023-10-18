@@ -1,9 +1,9 @@
 {
-    "maxPage": "5",
+    "maxPage": "3",
     "components": [
         {
             "id": "seq",
-            "componentType": "Sequence",
+            "componentType": "Subsequence",
             "label": {
                 "value": "\"Description des individus de votre logement\"",
                 "type": "VTL"
@@ -38,32 +38,12 @@
             ]
         },
         {
-            "id": "age-loop",
-            "componentType": "Loop",
-            "paginatedLoop": true,
-            "iterations": { "value": "count(PRENOM)", "type": "VTL" },
-            "page": "2",
-            "maxPage": "1",
-            "conditionFilter": { "value": "true", "type": "VTL" },
-            "loopDependencies": ["PRENOM"],
-            "components": [
-                {
-                    "id": "age-quest",
-                    "label": { "value": "\"Âge de \" || PRENOM", "type": "VTL|MD" },
-                    "conditionFilter": { "type": "VTL", "value": "true" },
-                    "componentType": "InputNumber",
-                    "page": "2.1",
-                    "response": { "name": "AGE" }
-                }
-            ]
-        },
-        {
             "id": "pairwise-links",
             "componentType": "PairwiseLinks",
             "conditionFilter": { "value": "true" },
             "xAxisIterations": { "value": "count(PRENOM)", "type": "VTL" },
             "yAxisIterations": { "value": "count(PRENOM)", "type": "VTL" },
-            "page": "3",
+            "page": "2",
             "symLinks": {
                 "LINKS": {
                     "1": "1",
@@ -141,13 +121,13 @@
                     ]
                 },
                 {
-                    "componentType": "Textarea",
+                    "componentType": "Input",
                     "label": {
                         "value": "\"Pouvez-vous décrire le lien entre \" || xAxis || \" et \" || yAxis || \" ?\"",
                         "type": "VTL|MD"
                     },
                     "conditionFilter": {
-                        "value": "false",
+                        "value": "not(nvl(cast(LINKS, string), \"\") = \"\") and cast(LINKS, string) = \"18\"",
                         "type": "VTL"
                     },
                     "id": "other",
@@ -158,50 +138,20 @@
             ]
         },
         {
-            "id": "pariwise-block",
-            "componentType": "Loop",
-            "paginatedLoop": true,
-            "iterations": { "value": "count(PRENOM)", "type": "VTL" },
-            "page": "4",
-            "maxPage": "1",
+            "id": "seq",
+            "componentType": "Subsequence",
+            "label": {
+                "value": "\"Bye !\"",
+                "type": "VTL"
+            },
             "conditionFilter": { "value": "true", "type": "VTL" },
-            "loopDependencies": ["PRENOM"],
-            "components": [
-                {
-                    "componentType": "Textarea",
-                    "page": "4.1",
-                    "label": {
-                        "value": "PRENOM || \", why do you live without your parents?\"",
-                        "type": "VTL|MD"
-                    },
-                    "conditionFilter": {
-                        "value": "\"3\" not_in LINKS and AGE < 18",
-                        "type": "VTL"
-                    },
-                    "id": "why",
-                    "response": {
-                        "name": "WHY"
-                    }
-                }
-            ]
-        },
-        { "componentType": "Sequence", "label": "\"END\"", "page": 5 }
+            "page": "3"
+        }
     ],
     "variables": [
         {
             "variableType": "COLLECTED",
             "name": "PRENOM",
-            "values": {
-                "PREVIOUS": [null],
-                "COLLECTED": [null],
-                "FORCED": [null],
-                "EDITED": [null],
-                "INPUTED": [null]
-            }
-        },
-        {
-            "variableType": "COLLECTED",
-            "name": "AGE",
             "values": {
                 "PREVIOUS": [null],
                 "COLLECTED": [null],
@@ -230,17 +180,6 @@
                 "FORCED": [[null]],
                 "EDITED": [[null]],
                 "INPUTED": [[null]]
-            }
-        },
-        {
-            "variableType": "COLLECTED",
-            "name": "WHY",
-            "values": {
-                "PREVIOUS": [null],
-                "COLLECTED": [null],
-                "FORCED": [null],
-                "EDITED": [null],
-                "INPUTED": [null]
             }
         },
         {

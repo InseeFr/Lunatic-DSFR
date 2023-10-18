@@ -1,0 +1,72 @@
+{
+    "components": [
+        {
+            "id": "lfwg2ny2",
+            "componentType": "ComponentSet",
+            "page": "1",
+            "conditionFilter": {
+                "value": "true",
+                "type": "VTL"
+            },
+            "label": {
+                "value": "\"What is your favourite number and your date of birth?\"",
+                "type": "VTL"
+            },
+            "components": [
+                {
+                    "id": "kze792d8",
+                    "componentType": "InputNumber",
+                    "mandatory": false,
+                    "min": 0,
+                    "max": 10,
+                    "decimals": 2,
+                    "label": { "value": "\"Your favourite number\"", "type": "VTL|MD" },
+                    "description": "\"A number between 0 and 10 with 2 decimals maximum.\"",
+                    "conditionFilter": { "value": "true", "type": "VTL" },
+                    "bindingDependencies": ["NB"],
+                    "response": { "name": "NB" }
+                },
+                {
+                    "id": "lfwiizq2-dob",
+                    "componentType": "Datepicker",
+                    "mandatory": true,
+                    "min": "1900-01-01",
+                    "max": "format-date(current-date(),'[Y0001]-[M01]-[D01]')",
+                    "label": {
+                        "value": " \"Date de naissance\"",
+                        "type": "VTL"
+                    },
+                    "bindingDependencies": ["DATENAISS"],
+                    "dateFormat": "YYYY-MM-DD",
+                    "response": {
+                        "name": "DATENAISS"
+                    }
+                }
+            ]
+        }
+    ],
+    "variables": [
+        {
+            "variableType": "COLLECTED",
+            "name": "NB",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "DATENAISS",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        }
+    ]
+}
