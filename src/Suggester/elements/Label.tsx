@@ -5,7 +5,6 @@ import { fr } from "@codegouvfr/react-dsfr";
 
 type Props = PropsWithChildren<{
     id?: string;
-    htmlFor?: string;
     className?: string;
     style?: CSSProperties;
     description?: ReactNode | Array<{ label: ReactNode; declarationType: string }>;
@@ -45,11 +44,10 @@ function Description({ value, className }: DescriptionProps) {
     return <OneDescription value={value} className={classnames(className)} />;
 }
 
-export function Label({ children, id, htmlFor, className, style, description }: Props) {
+export function Label({ children, id, className, style, description }: Props) {
     if (children) {
         return (
             <label
-                htmlFor={htmlFor}
                 id={id}
                 className={classnames("lunatic-dsfr-label", fr.cx("fr-label", "fr-mb-1w"), className)}
                 style={style}
