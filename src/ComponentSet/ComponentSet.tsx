@@ -13,6 +13,17 @@ const useStyles = makeStyles()({
                 marginBottom: "1rem",
             },
         },
+        ".lunatic-dsfr-component-set-component": {
+            ".checkbox-lunatic-dsfr, .lunatic-dsfr-radio": {
+                "> legend": {
+                    fontSize: "1rem !important",
+                    lineHeight: "2.25rem !important",
+                    padding: "0",
+                    margin: "0 0 1.5rem 0.25rem",
+                    fontWeight: "700 !important",
+                },
+            },
+        },
         "> .fr-fieldset__element:last-child": {
             marginBottom: "0",
         },
