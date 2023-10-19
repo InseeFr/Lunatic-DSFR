@@ -50,7 +50,7 @@
                                 "type": "VTL"
                             },
                             "errorMessage": {
-                                "value": "\"Prénom cannot be null\"",
+                                "value": "\"Veuillez renseigner un prénom\"",
                                 "type": "VTL|MD"
                             },
                             "bindingDependencies": ["PRENOMS"]
@@ -85,6 +85,22 @@
                         "type": "VTL"
                     },
                     "conditionFilter": { "value": "true", "type": "VTL" },
+                    "controls": [
+                        {
+                            "id": "prenom",
+                            "typeOfControl": "CONSISTENCY",
+                            "criticality": "WARN",
+                            "control": {
+                                "value": "not(nvl(Q1, \"\") = \"\")",
+                                "type": "VTL"
+                            },
+                            "errorMessage": {
+                                "value": "\"Veuillez répondre à cette question\"",
+                                "type": "VTL|MD"
+                            },
+                            "bindingDependencies": ["Q1"]
+                        }
+                    ],
                     "options": [
                         {
                             "value": "1",
@@ -115,6 +131,22 @@
                     "label": { "type": "VTL", "value": "\"Birthday \"" },
                     "conditionFilter": { "type": "VTL", "value": "true" },
                     "dateFormat": "YYYY-MM-DD",
+                    "controls": [
+                        {
+                            "id": "prenom",
+                            "typeOfControl": "CONSISTENCY",
+                            "criticality": "WARN",
+                            "control": {
+                                "value": "not(nvl(DATENAISS, \"\") = \"\")",
+                                "type": "VTL"
+                            },
+                            "errorMessage": {
+                                "value": "\"Veuillez renseigner une date de naissance\"",
+                                "type": "VTL|MD"
+                            },
+                            "bindingDependencies": ["DATENAISS"]
+                        }
+                    ],
                     "description": {
                         "type": "VTL",
                         "value": "\"Please enter your birthday in the below field\""
