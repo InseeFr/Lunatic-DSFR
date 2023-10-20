@@ -7,10 +7,13 @@ import { makeStyles } from "tss-react/dsfr";
 const useStyles = makeStyles()({
     root: {
         "> legend": {
+            paddingBottom: "1rem",
+            paddingLeft: "0.75rem",
+            paddingRight: "0.75rem",
+            marginLeft: "-0.25rem",
+            marginRight: "-0.25rem",
             fontSize: "1.75rem !important",
             lineHeight: "2.25rem !important",
-            padding: "0",
-            margin: "0 0 1.5rem 0.25rem",
             fontWeight: "700 !important",
         },
     },
