@@ -14,6 +14,7 @@ const useStyles = makeStyles()({
             paddingRight: "0.75rem",
             marginLeft: "-0.25rem",
             marginRight: "-0.25rem",
+            fontWeight: "700 !important",
         },
     },
 });
