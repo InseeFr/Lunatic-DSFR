@@ -1,4 +1,5 @@
 {
+    "maxPage": "2",
     "suggesters": [
         {
             "name": "naf-rev2",
@@ -76,6 +77,12 @@
                     ]
                 }
             ]
+        },
+        {
+            "page": "2",
+            "componentType": "Sequence",
+            "label": { "value": "\"Bravo\"", "type": "VTL|MD" },
+            "conditionFilter": { "value": "true", "type": "VTL" }
         }
     ],
     "variables": [

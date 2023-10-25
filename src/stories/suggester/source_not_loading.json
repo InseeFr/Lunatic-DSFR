@@ -1,32 +1,13 @@
 {
     "maxPage": "2",
-    "suggesters": [
-        {
-            "name": "naf-rev2",
-            "fields": [
-                {
-                    "name": "label",
-                    "rules": ["[\\w]+"],
-                    "language": "French",
-                    "min": 2
-                },
-                { "name": "id" }
-            ],
-            "queryParser": {
-                "type": "tokenized",
-                "params": { "language": "French", "pattern": "[\\w.]+" }
-            },
-            "meloto": true,
-            "version": "1"
-        }
-    ],
+    "suggesters": [],
     "components": [
         {
             "id": "en-carton",
             "componentType": "Suggester",
             "mandatory": false,
             "label": { "value": "\"Commmune:\"", "type": "VTL" },
-            "storeName": "naf-rev2",
+            "storeName": "en-carton",
             "conditionFilter": {
                 "value": "true",
                 "type": "VTL"
@@ -50,12 +31,6 @@
                 }
             ],
             "page": "1"
-        },
-        {
-            "page": "2",
-            "componentType": "Sequence",
-            "label": { "value": "\"Bravo\"", "type": "VTL|MD" },
-            "conditionFilter": { "value": "true", "type": "VTL" }
         }
     ],
     "variables": [

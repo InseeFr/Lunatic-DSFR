@@ -2,6 +2,7 @@ import Orchestrator from "../utils/Orchestrator";
 import source from "./source.json";
 import sourceNaf from "./source_naf.json";
 import sourceError from "./source_error.json";
+import sourceNotLoading from "./source_not_loading.json";
 import sourceDisabled from "./sourceDisabled.json";
 import { StoryFn, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
@@ -38,7 +39,11 @@ Default.args = { source: source };
 
 export const NotLoading = Template.bind({});
 
-NotLoading.args = { source: sourceError };
+NotLoading.args = { source: sourceNotLoading };
+
+export const Error = Template.bind({});
+
+Error.args = { source: sourceError };
 
 export const InComponentSet = Template.bind({});
 

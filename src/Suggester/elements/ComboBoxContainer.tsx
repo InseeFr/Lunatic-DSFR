@@ -16,7 +16,7 @@ function Errors({ ...props }) {
         return null;
     }
     return (
-        <p id={`${id}-desc-${state}`} className={`fr-message fr-message--${state}`}>
+        <p id={`${id}-desc-${state}`} className={`fr-${state}-text`}>
             {stateRelatedMessage}
         </p>
     );
