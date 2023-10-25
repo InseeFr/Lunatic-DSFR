@@ -26,8 +26,6 @@ async function getReferentiel(name: string) {
             return fetch("/json/naf-rev2.json").then(r => r.json());
         case "pays":
             return fetch("/json/pays.json").then(r => r.json());
-        default:
-            throw new Error(`Référentiel inconnu : ${name}`);
     }
 }
 
