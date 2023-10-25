@@ -5,8 +5,8 @@
             "id": "seq",
             "componentType": "Subsequence",
             "label": {
-                "value": "\"Liste des habitants\"",
-                "type": "VTL"
+                "value": "\"### Liste des habitants\"",
+                "type": "VTL|MD"
             },
             "conditionFilter": { "value": "true", "type": "VTL" },
             "page": "1",

@@ -11,7 +11,7 @@ const detachable = "DETACHABLE";
 export function Subsequence({ label, declarations }: SubsequenceType) {
     return (
         <div className="subsequence-lunatic-dsfr">
-            <h2 className={fr.cx("fr-h4", "fr-col-12")}>{label}</h2>
+            <div className={fr.cx("fr-col-12")}>{label}</div>
             <Declarations type={detachable} declarations={declarations} />
         </div>
     );
