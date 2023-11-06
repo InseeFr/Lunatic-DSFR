@@ -1,13 +1,13 @@
 import type { PropsWithChildren } from "react";
 import classnames from "classnames";
-import { LunaticBaseProps } from "../../type";
 import { getState, getStateRelatedMessage } from "../../utils/errors/getErrorStates";
+import { LunaticError } from "../../utils/type/type";
 
 type Props = PropsWithChildren<{
     className?: string;
     id?: string;
     classStyle?: string;
-    errors?: LunaticBaseProps["errors"];
+    errors?: LunaticError[];
 }>;
 
 function Errors({ ...props }) {
@@ -32,8 +32,8 @@ export function ComboboxContainer({
     let state = undefined;
     let stateRelatedMessage = undefined;
     if (errors && id) {
-        state = getState(errors, id);
-        stateRelatedMessage = getStateRelatedMessage(errors, id);
+        state = getState(errors);
+        stateRelatedMessage = getStateRelatedMessage(errors);
     }
     return (
         <div

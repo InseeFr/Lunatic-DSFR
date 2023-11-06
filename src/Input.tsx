@@ -41,7 +41,7 @@ export function Input({
     label: string;
     description: string;
     id: string;
-    errors: Record<string, Array<LunaticError>>;
+    errors: Array<LunaticError>;
     readOnly?: boolean;
 }) {
     const { classes, cx } = useStyles();
@@ -59,8 +59,8 @@ export function Input({
         [onChange],
     );
 
-    const state = getState(errors, id);
-    const stateRelatedMessage = getStateRelatedMessage(errors, id);
+    const state = getState(errors);
+    const stateRelatedMessage = getStateRelatedMessage(errors);
     return (
         <InputDSFR
             label={label}
