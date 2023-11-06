@@ -73,6 +73,7 @@ export function Input({
                 required: required,
                 onChange: handleChange,
                 readOnly: readOnly,
+                "aria-invalid": state === "error",
             }}
             hintText={description}
             state={state}

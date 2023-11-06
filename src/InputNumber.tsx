@@ -112,6 +112,7 @@ export function InputNumber({
                         max: max,
                         step: step,
                         placeholder: unit,
+                        "aria-invalid": state === "error",
                     },
                 }}
                 onValueChange={handleChange}

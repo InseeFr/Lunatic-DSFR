@@ -101,6 +101,7 @@ export function DatepickerInput({
                         id: `${id}-day`,
                         value: day === "00" ? "" : day,
                         onChange: changeDay,
+                        "aria-invalid": state === "error",
                     }}
                 />
             </div>
@@ -120,6 +121,7 @@ export function DatepickerInput({
                         id: `${id}-month`,
                         value: month === "00" ? "" : month,
                         onChange: changeMonth,
+                        "aria-invalid": state === "error",
                     }}
                 />
             </div>
@@ -139,6 +141,7 @@ export function DatepickerInput({
                         id: `${id}-year`,
                         value: year === "0000" ? "" : year,
                         onChange: changeYear,
+                        "aria-invalid": state === "error",
                     }}
                 />
             </div>
