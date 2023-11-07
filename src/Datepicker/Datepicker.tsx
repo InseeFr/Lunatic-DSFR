@@ -13,7 +13,7 @@ type DatepickerType = {
     max: number;
     className: string;
     label: string;
-    errors: Record<string, Array<LunaticError>>;
+    errors: Array<LunaticError>;
     description: string;
 };
 
@@ -79,8 +79,8 @@ export function Datepicker({
         setDateValues(getDateValues(checkValue(value)));
     }, [value]);
 
-    const state = getState(errors, id);
-    const stateRelatedMessage = getStateRelatedMessage(errors, id);
+    const state = getState(errors);
+    const stateRelatedMessage = getStateRelatedMessage(errors);
 
     return (
         <fieldset

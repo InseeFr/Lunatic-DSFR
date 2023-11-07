@@ -38,6 +38,7 @@ export function ComboboxInput({
         <input
             ref={inputEl}
             id={id}
+            role="combobox"
             className={classnames("lunatic-dsfr-combo-box-input", fr.cx("fr-input"))}
             type="text"
             onChange={onChange}

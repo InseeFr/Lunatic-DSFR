@@ -20,8 +20,7 @@ type DropdownType = {
     description: string;
     className: string;
     label: string;
-    id: string;
-    errors: Record<string, Array<LunaticError>>;
+    errors: Array<LunaticError>;
     value?: string | number;
     writable?: boolean;
 };
@@ -33,13 +32,12 @@ export function Dropdown({
     label,
     description,
     errors,
-    id,
     value,
     disabled,
 }: DropdownType) {
     const { classes, cx } = useStyles();
-    const state = getState(errors, id);
-    const stateRelatedMessage = getStateRelatedMessage(errors, id);
+    const state = getState(errors);
+    const stateRelatedMessage = getStateRelatedMessage(errors);
     const handleChange = useCallback(
         function (e: React.ChangeEvent<HTMLSelectElement>) {
             onSelect(e.target.value);

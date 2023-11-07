@@ -28,7 +28,7 @@ type CheckboxGroupOption = {
 
 type Props = {
     options: CheckboxGroupOption[];
-    errors?: Record<string, LunaticError[]>;
+    errors?: LunaticError[];
     id: string;
     label?: ReactNode;
     description?: ReactNode;
@@ -64,8 +64,8 @@ export function CheckboxGroup({ label, description, id, disabled, className, err
             legend={label}
             hintText={description}
             options={getOptions(options)}
-            state={errors ? getState(errors, id) : undefined}
-            stateRelatedMessage={errors ? getStateRelatedMessage(errors, id) : undefined}
+            state={errors ? getState(errors) : undefined}
+            stateRelatedMessage={errors ? getStateRelatedMessage(errors) : undefined}
         />
     );
 }

@@ -56,7 +56,7 @@ export function InputNumber({
     decimals: number;
     unit: string;
     description: string;
-    errors: Record<string, Array<LunaticError>>;
+    errors: Array<LunaticError>;
 }) {
     // Decimals is a number indicates the number behind the separator of decimals
     // Computing step attribute of input according to decimal number
@@ -79,8 +79,8 @@ export function InputNumber({
         [onChange],
     );
 
-    const state = getState(errors, id);
-    const stateRelatedMessage = getStateRelatedMessage(errors, id);
+    const state = getState(errors);
+    const stateRelatedMessage = getStateRelatedMessage(errors);
 
     return (
         <div
@@ -112,6 +112,7 @@ export function InputNumber({
                         max: max,
                         step: step,
                         placeholder: unit,
+                        "aria-invalid": state === "error",
                     },
                 }}
                 onValueChange={handleChange}
