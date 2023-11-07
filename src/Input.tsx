@@ -12,6 +12,16 @@ const useStyles = makeStyles()({
             "box-shadow": "inset 0 -2px 0 0 var(--border-disabled-grey)",
         },
     },
+    root: {
+        "> label": {
+            display: "block",
+            fontSize: "1rem",
+            lineHeight: "1.5rem",
+            color: "var(--text-label-grey)",
+            fontWeight: "400",
+            fontFamily: "Marianne",
+        },
+    },
 });
 
 function checkValue(value: string) {
@@ -65,7 +75,7 @@ export function Input({
         <InputDSFR
             label={label}
             disabled={disabled}
-            className={classnames("lunatic-dsfr-input", cx(classes.readOnly))}
+            className={classnames("lunatic-dsfr-input", cx(classes.readOnly), classes.root)}
             nativeInputProps={{
                 id: id,
                 maxLength: maxLength,

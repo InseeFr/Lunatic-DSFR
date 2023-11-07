@@ -3,12 +3,21 @@ import Select from "@codegouvfr/react-dsfr/Select";
 import { getState, getStateRelatedMessage } from "../utils/errors/getErrorStates";
 import { LunaticError } from "../utils/type/type";
 import { getOptions, OptionType } from "./getOptions";
-import { makeStyles } from "@codegouvfr/react-dsfr/tss";
+import { makeStyles } from "tss-react/dsfr";
 
 const useStyles = makeStyles()({
     root: {
         "&.pairwise-link": {
             marginBottom: "1rem",
+        },
+
+        "> label": {
+            display: "block",
+            fontSize: "1rem",
+            lineHeight: "1.5rem",
+            color: "var(--text-label-grey)",
+            fontWeight: "400",
+            fontFamily: "Marianne",
         },
     },
 });
