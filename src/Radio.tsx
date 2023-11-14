@@ -30,7 +30,7 @@ type RadioGroupType = {
         label: string;
     }>;
     id: string;
-    errors: Record<string, Array<LunaticError>>;
+    errors: Array<LunaticError>;
     value?: number | string;
 };
 
@@ -69,8 +69,8 @@ export function Radio({
     errors,
     value,
 }: RadioGroupType) {
-    const state = getState(errors, id);
-    const stateRelatedMessage = getStateRelatedMessage(errors, id);
+    const state = getState(errors);
+    const stateRelatedMessage = getStateRelatedMessage(errors);
     const { classes, cx } = useStyles();
     const handleChange = useCallback(
         function (value?: unknown) {

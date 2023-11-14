@@ -39,6 +39,11 @@ function getContent(option: Props["option"], search?: Props["search"], placehold
         const { id, value, label } = option;
         return label ? `${label}` : id || value;
     }
+    // TODO : Remove this when the cause for search not being a string is found
+    if (search && typeof search !== "string") {
+        console.error('Error in ComboxLabelSelection, unexpected object for "search"', search);
+        return placeholder ?? "";
+    }
     if (search && search.trim().length) {
         return search;
     }

@@ -15,7 +15,6 @@ const Template: StoryFn<typeof Dropdown> = args => <Dropdown {...args} />;
 export const Error = Template.bind({});
 
 Error.args = {
-    id: "ErrorMessage",
     disabled: false,
     label: "In which state do The Simpsons reside?",
     description: "This is a test description",
@@ -58,39 +57,34 @@ Error.args = {
             label: "Not in any state fool!",
         },
     ],
-    errors: {
-        ErrorMessage: [
-            {
-                id: "ErrorMessage",
-                criticality: "WARN",
-                typeOfControl: "CONSISTENCY",
-                formula: 'not(nvl(STATE,"") = "13")',
-                labelFormula: "Please choose a state!",
-                errorMessage: "Please choose a state!",
-            },
-        ],
-    },
+    errors: [
+        {
+            id: "ErrorMessage",
+            criticality: "WARN",
+            typeOfControl: "CONSISTENCY",
+            formula: 'not(nvl(STATE,"") = "13")',
+            labelFormula: "Please choose a state!",
+            errorMessage: "Please choose a state!",
+        },
+    ],
 };
 
 export const Success = Template.bind({});
 
 Success.args = {
-    id: "SuccessMessage",
     disabled: false,
     label: "In which state do The Simpsons reside?",
     description: "This is a test description",
-    errors: {
-        SuccessMessage: [
-            {
-                id: "SuccessMessage",
-                criticality: "INFO",
-                typeOfControl: "CONSISTENCY",
-                formula: 'not(nvl(STATE,"") = "4")',
-                labelFormula: "Idk if this is right, I'm just testing error messages!!",
-                errorMessage: "Idk if this is right, I'm just testing error messages!!",
-            },
-        ],
-    },
+    errors: [
+        {
+            id: "SuccessMessage",
+            criticality: "INFO",
+            typeOfControl: "CONSISTENCY",
+            formula: 'not(nvl(STATE,"") = "4")',
+            labelFormula: "Idk if this is right, I'm just testing error messages!!",
+            errorMessage: "Idk if this is right, I'm just testing error messages!!",
+        },
+    ],
     options: [
         {
             value: "1",
@@ -135,11 +129,10 @@ Success.args = {
 export const Disabled = Template.bind({});
 
 Disabled.args = {
-    id: "DisabledMessage",
     disabled: true,
     label: "In which state do The Simpsons reside?",
     description: "This is a test description",
-    errors: {},
+    errors: [],
     options: [
         {
             value: "1",

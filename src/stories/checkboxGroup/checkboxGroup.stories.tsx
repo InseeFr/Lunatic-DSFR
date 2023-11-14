@@ -48,18 +48,16 @@ Error.args = {
             },
         },
     ],
-    errors: {
-        ErrorMessage: [
-            {
-                id: "ErrorMessage",
-                criticality: "WARN",
-                typeOfControl: "CONSISTENCY",
-                formula: "OPT3 = false",
-                labelFormula: "Take another guess",
-                errorMessage: "Take another guess",
-            },
-        ],
-    },
+    errors: [
+        {
+            id: "ErrorMessage",
+            criticality: "WARN",
+            typeOfControl: "CONSISTENCY",
+            formula: "OPT3 = false",
+            labelFormula: "Take another guess",
+            errorMessage: "Take another guess",
+        },
+    ],
 };
 
 export const Success = Template.bind({});
@@ -98,18 +96,16 @@ Success.args = {
             },
         },
     ],
-    errors: {
-        SuccessMessage: [
-            {
-                id: "SuccessMessage",
-                criticality: "INFO",
-                typeOfControl: "CONSISTENCY",
-                formula: '(nvl(NB,"") = 5)',
-                labelFormula: "Great work!",
-                errorMessage: "Great work!",
-            },
-        ],
-    },
+    errors: [
+        {
+            id: "SuccessMessage",
+            criticality: "INFO",
+            typeOfControl: "CONSISTENCY",
+            formula: '(nvl(NB,"") = 5)',
+            labelFormula: "Great work!",
+            errorMessage: "Great work!",
+        },
+    ],
 };
 
 export const Disabled = Template.bind({});
@@ -119,7 +115,7 @@ Disabled.args = {
     disabled: true,
     label: "Which of these cities are in France?",
     description: "If you select a city that is not in France, an error will appear!",
-    errors: {},
+    errors: [],
     options: [
         {
             label: "Paris",

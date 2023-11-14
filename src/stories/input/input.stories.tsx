@@ -20,18 +20,16 @@ Error.args = {
     disabled: false,
     label: "What's the name of Spongebob's pet snail?",
     description: "Spongebob's pet snail meows like a cat.",
-    errors: {
-        ErrorMessage: [
-            {
-                id: "ErrorMessage",
-                criticality: "WARN",
-                typeOfControl: "CONSISTENCY",
-                formula: '(nvl(NAME,"") = "Garry")',
-                labelFormula: "Take another guess",
-                errorMessage: "Take another guess",
-            },
-        ],
-    },
+    errors: [
+        {
+            id: "ErrorMessage",
+            criticality: "WARN",
+            typeOfControl: "CONSISTENCY",
+            formula: '(nvl(NAME,"") = "Garry")',
+            labelFormula: "Take another guess",
+            errorMessage: "Take another guess",
+        },
+    ],
 };
 
 export const Success = Template.bind({});
@@ -42,18 +40,16 @@ Success.args = {
     disabled: false,
     label: "What's the name of Spongebob's pet snail?",
     description: "Spongebob's pet snail meows like a cat.",
-    errors: {
-        SuccessMessage: [
-            {
-                id: "SuccessMessage",
-                criticality: "INFO",
-                typeOfControl: "CONSISTENCY",
-                formula: '(nvl(NAME,"") = "Garry")',
-                labelFormula: "Take another guess",
-                errorMessage: "Take another guess",
-            },
-        ],
-    },
+    errors: [
+        {
+            id: "SuccessMessage",
+            criticality: "INFO",
+            typeOfControl: "CONSISTENCY",
+            formula: '(nvl(NAME,"") = "Garry")',
+            labelFormula: "Take another guess",
+            errorMessage: "Take another guess",
+        },
+    ],
 };
 
 export const Disabled = Template.bind({});
@@ -64,5 +60,5 @@ Disabled.args = {
     disabled: true,
     label: "What's the name of Spongebob's pet snail?",
     description: "Spongebob's pet snail meows like a cat.",
-    errors: {},
+    errors: [],
 };

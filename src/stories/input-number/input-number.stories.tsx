@@ -20,18 +20,16 @@ Error.args = {
     disabled: false,
     label: "What is your favourite number?",
     description: "It must be a prime number bigger than 3",
-    errors: {
-        ErrorMessage: [
-            {
-                id: "ErrorMessage",
-                criticality: "WARN",
-                typeOfControl: "CONSISTENCY",
-                formula: '(nvl(NB,"") = 5)',
-                labelFormula: "Take another guess",
-                errorMessage: "Take another guess",
-            },
-        ],
-    },
+    errors: [
+        {
+            id: "ErrorMessage",
+            criticality: "WARN",
+            typeOfControl: "CONSISTENCY",
+            formula: '(nvl(NB,"") = 5)',
+            labelFormula: "Take another guess",
+            errorMessage: "Take another guess",
+        },
+    ],
 };
 
 export const Success = Template.bind({});
@@ -42,18 +40,16 @@ Success.args = {
     disabled: false,
     label: "What is your favourite number?",
     description: "It must be a prime number bigger than 3",
-    errors: {
-        SuccessMessage: [
-            {
-                id: "SuccessMessage",
-                criticality: "INFO",
-                typeOfControl: "CONSISTENCY",
-                formula: '(nvl(NB,"") = 5)',
-                labelFormula: "Take another guess",
-                errorMessage: "Take another guess",
-            },
-        ],
-    },
+    errors: [
+        {
+            id: "SuccessMessage",
+            criticality: "INFO",
+            typeOfControl: "CONSISTENCY",
+            formula: '(nvl(NB,"") = 5)',
+            labelFormula: "Take another guess",
+            errorMessage: "Take another guess",
+        },
+    ],
 };
 
 export const Disabled = Template.bind({});
@@ -84,18 +80,16 @@ UnitError.args = {
     disabled: false,
     label: "What is your favourite number?",
     description: "It must be a prime number bigger than 3",
-    errors: {
-        ErrorMessage: [
-            {
-                id: "ErrorMessage",
-                criticality: "WARN",
-                typeOfControl: "CONSISTENCY",
-                formula: '(nvl(NB,"") = 5)',
-                labelFormula: "Take another guess",
-                errorMessage: "Take another guess",
-            },
-        ],
-    },
+    errors: [
+        {
+            id: "ErrorMessage",
+            criticality: "WARN",
+            typeOfControl: "CONSISTENCY",
+            formula: '(nvl(NB,"") = 5)',
+            labelFormula: "Take another guess",
+            errorMessage: "Take another guess",
+        },
+    ],
 };
 
 export const UnitDisabled = Template.bind({});
@@ -116,16 +110,14 @@ UnitSuccess.args = {
     disabled: false,
     label: "What is your favourite number?",
     description: "It must be a prime number bigger than 3",
-    errors: {
-        SuccessMessage: [
-            {
-                id: "SuccessMessage",
-                criticality: "INFO",
-                typeOfControl: "CONSISTENCY",
-                formula: '(nvl(NB,"") = 5)',
-                labelFormula: "Take another guess",
-                errorMessage: "Take another guess",
-            },
-        ],
-    },
+    errors: [
+        {
+            id: "SuccessMessage",
+            criticality: "INFO",
+            typeOfControl: "CONSISTENCY",
+            formula: '(nvl(NB,"") = 5)',
+            labelFormula: "Take another guess",
+            errorMessage: "Take another guess",
+        },
+    ],
 };

@@ -20,18 +20,16 @@ Success.args = {
     description: "Spongebob works for Mr. Krabs",
     disabled: false,
     value: "1",
-    errors: {
-        SuccessMessage: [
-            {
-                id: "SuccessMessage",
-                criticality: "INFO",
-                typeOfControl: "CONSISTENCY",
-                formula: 'not(Q2= "2")',
-                labelFormula: "What else would Spongebob live in?",
-                errorMessage: "What else would Spongebob live in?",
-            },
-        ],
-    },
+    errors: [
+        {
+            id: "SuccessMessage",
+            criticality: "INFO",
+            typeOfControl: "CONSISTENCY",
+            formula: 'not(Q2= "2")',
+            labelFormula: "What else would Spongebob live in?",
+            errorMessage: "What else would Spongebob live in?",
+        },
+    ],
     options: [
         {
             value: "1",
@@ -54,18 +52,16 @@ Error.args = {
     description: "Spongebob works for Mr. Krabs",
     disabled: false,
     value: "2",
-    errors: {
-        ErrorMessage: [
-            {
-                id: "ErrorMessage",
-                criticality: "WARN",
-                typeOfControl: "CONSISTENCY",
-                formula: 'not(Q2= "2")',
-                labelFormula: "What else would Spongebob live in?",
-                errorMessage: "What else would Spongebob live in?",
-            },
-        ],
-    },
+    errors: [
+        {
+            id: "ErrorMessage",
+            criticality: "WARN",
+            typeOfControl: "CONSISTENCY",
+            formula: 'not(Q2= "2")',
+            labelFormula: "What else would Spongebob live in?",
+            errorMessage: "What else would Spongebob live in?",
+        },
+    ],
     options: [
         {
             value: "1",
