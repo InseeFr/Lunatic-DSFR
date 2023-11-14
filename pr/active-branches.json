@@ -4,7 +4,6 @@
     "feat/suggester",
     "feat/suggester-2",
     "feat/tests",
-    "develop",
-    "fix/label-styles"
+    "develop"
   ]
 }
