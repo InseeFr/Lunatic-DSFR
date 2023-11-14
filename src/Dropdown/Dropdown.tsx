@@ -3,24 +3,7 @@ import Select from "@codegouvfr/react-dsfr/Select";
 import { getState, getStateRelatedMessage } from "../utils/errors/getErrorStates";
 import { LunaticError } from "../utils/type/type";
 import { getOptions, OptionType } from "./getOptions";
-import { makeStyles } from "tss-react/dsfr";
-
-const useStyles = makeStyles()({
-    root: {
-        "&.pairwise-link": {
-            marginBottom: "1rem",
-        },
-
-        "> label": {
-            display: "block",
-            fontSize: "1rem",
-            lineHeight: "1.5rem",
-            color: "var(--text-label-grey)",
-            fontWeight: "400",
-            fontFamily: "Marianne",
-        },
-    },
-});
+import { useStyles } from "tss-react/dsfr";
 
 type DropdownType = {
     disabled: boolean;
@@ -44,7 +27,7 @@ export function Dropdown({
     value,
     disabled,
 }: DropdownType) {
-    const { classes, cx } = useStyles();
+    const { cx } = useStyles();
     const state = getState(errors);
     const stateRelatedMessage = getStateRelatedMessage(errors);
     const handleChange = useCallback(
@@ -55,7 +38,7 @@ export function Dropdown({
     );
     return (
         <Select
-            className={cx(classes.root, "dropdown-lunatic-dsfr", className)}
+            className={cx("dropdown-lunatic-dsfr", className)}
             nativeSelectProps={{ onChange: handleChange, value }}
             label={label}
             state={state}

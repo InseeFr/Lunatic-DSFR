@@ -2,22 +2,8 @@ import { ReactNode } from "react";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Checkbox as CheckboxDSFR } from "@codegouvfr/react-dsfr/Checkbox";
 import { LunaticError } from "./utils/type/type";
-import { makeStyles } from "tss-react/dsfr";
+import { useStyles } from "tss-react/dsfr";
 
-const useStyles = makeStyles()({
-    root: {
-        "> legend": {
-            paddingBottom: "1rem",
-            paddingLeft: "0.75rem",
-            paddingRight: "0.75rem",
-            marginLeft: "-0.25rem",
-            marginRight: "-0.25rem",
-            fontSize: "1.75rem !important",
-            lineHeight: "2.25rem !important",
-            fontWeight: "700 !important",
-        },
-    },
-});
 type CheckboxGroupOption = {
     label: ReactNode;
     name: string;
@@ -56,10 +42,10 @@ function getOptions(options: Array<CheckboxGroupOption>) {
 }
 
 export function CheckboxGroup({ label, description, id, disabled, className, errors, options }: Props) {
-    const { classes, cx } = useStyles();
+    const { cx } = useStyles();
     return (
         <CheckboxDSFR
-            className={cx(classes.root, "checkbox-lunatic-dsfr", className, id)}
+            className={cx("checkbox-lunatic-dsfr", className, id)}
             disabled={disabled}
             legend={label}
             hintText={description}

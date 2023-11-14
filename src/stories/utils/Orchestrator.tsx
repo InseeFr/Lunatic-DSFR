@@ -4,8 +4,63 @@ import { LunaticError } from "../../utils/type/type";
 import Waiting from "./waiting";
 import { startReactDsfr } from "@codegouvfr/react-dsfr/spa";
 import classnames from "classnames";
-import { fr } from "@codegouvfr/react-dsfr";
 startReactDsfr({ defaultColorScheme: "system" });
+import { makeStyles } from "tss-react/dsfr";
+
+const useStyles = makeStyles()({
+    componentsDsfr: {
+        ".fr-fieldset, .fr-fieldset__element": {
+            marginBottom: 0,
+        },
+        "legend": {
+            fontSize: "1.75rem",
+            lineHeight: "2.25rem",
+            paddingBottom: "1rem",
+            paddingLeft: "0.75rem",
+            paddingRight: "0.75rem",
+            marginLeft: "-0.25rem",
+            marginRight: "-0.25rem",
+            fontWeight: "700",
+            color: "var(--text-label-grey)",
+            fontFamily: "Marianne",
+        },
+        ".fr-label": {
+            fontFamily: "Marianne",
+            display: "block",
+            fontSize: "1rem",
+            lineHeight: "1.5rem",
+            color: "var(--text-label-grey)",
+            fontWeight: "400",
+        },
+        ".lunatic-dsfr-radio legend, .checkbox-lunatic-dsfr legend, .datepicker-lunatic-dsfr legend": {
+            fontSize: "1rem",
+            lineHeight: "2.25rem",
+            paddingBottom: "1rem",
+            paddingLeft: "0.75rem",
+            paddingRight: "0.75rem",
+            marginLeft: "-0.25rem",
+            marginRight: "-0.25rem",
+            fontWeight: "400",
+        },
+        ".datepicker-lunatic-dsfr legend": {
+            fontWeight: "700",
+        },
+    },
+    root: {
+        "marginBottom": "1rem",
+        "display": "grid",
+        "grid-template-columns": "1fr",
+        "gap": "1rem",
+        ".fr-callout": {
+            "marginBottom": "0",
+        },
+        ".lunatic-dsfr-component-set": {
+            "display": "grid",
+            "grid-template-columns": "1fr",
+            "gap": "1rem",
+        },
+    },
+});
 
 export interface OrchestratorProps {
     id: string;
@@ -151,11 +206,12 @@ const Orchestrator: FC<OrchestratorProps> = ({
         },
         [goNextPage, compileControls],
     );
+    const { classes } = useStyles();
 
     return (
         <Provider>
             <div className="container">
-                <div className="components">
+                <div className={classnames("components", classes.componentsDsfr)}>
                     {components.map(function (component: {
                         id?: string;
                         componentType: string;
@@ -168,7 +224,7 @@ const Orchestrator: FC<OrchestratorProps> = ({
                         if (Component) {
                             return (
                                 <div
-                                    className={classnames("lunatic-component-dsfr", fr.cx("fr-mb-2w"))}
+                                    className={classnames("lunatic-component-dsfr", classes.root)}
                                     key={`component-${id}`}
                                 >
                                     <Component

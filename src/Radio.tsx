@@ -2,22 +2,7 @@ import { useCallback } from "react";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { RadioButtons as RadioDSFR } from "@codegouvfr/react-dsfr/RadioButtons";
 import { LunaticError } from "./utils/type/type";
-import { makeStyles } from "tss-react/dsfr";
-
-const useStyles = makeStyles()({
-    root: {
-        "> legend": {
-            fontSize: "1.75rem !important",
-            lineHeight: "2.25rem !important",
-            paddingBottom: "1rem",
-            paddingLeft: "0.75rem",
-            paddingRight: "0.75rem",
-            marginLeft: "-0.25rem",
-            marginRight: "-0.25rem",
-            fontWeight: "700 !important",
-        },
-    },
-});
+import { useStyles } from "tss-react/dsfr";
 
 type RadioGroupType = {
     onSelect: (value?: unknown) => void;
@@ -71,7 +56,7 @@ export function Radio({
 }: RadioGroupType) {
     const state = getState(errors);
     const stateRelatedMessage = getStateRelatedMessage(errors);
-    const { classes, cx } = useStyles();
+    const { cx } = useStyles();
     const handleChange = useCallback(
         function (value?: unknown) {
             onSelect(value);
@@ -87,7 +72,7 @@ export function Radio({
             disabled={disabled}
             legend={label}
             hintText={description}
-            className={cx(classes.root, "lunatic-dsfr-radio")}
+            className={cx("lunatic-dsfr-radio")}
             options={htmlOptions}
             state={state}
             stateRelatedMessage={stateRelatedMessage}
