@@ -3,6 +3,16 @@ import { DatepickerInput } from "./DatepickerInput";
 import { getState, getStateRelatedMessage } from "../utils/errors/getErrorStates";
 import { LunaticError } from "../utils/type/type";
 import { fr } from "@codegouvfr/react-dsfr";
+import { makeStyles } from "tss-react/dsfr";
+import classnames from "classnames";
+
+const useStyles = makeStyles()({
+    root: {
+        ".fr-messages-group": {
+            "marginTop": "1rem",
+        },
+    },
+});
 
 type DatepickerType = {
     disabled: boolean;
@@ -81,10 +91,14 @@ export function Datepicker({
 
     const state = getState(errors);
     const stateRelatedMessage = getStateRelatedMessage(errors);
-
+    const { classes } = useStyles();
     return (
         <fieldset
-            className={`fr-fieldset${state ? ` fr-fieldset--${state}` : ""}`}
+            className={classnames(
+                classes.root,
+                `fr-fieldset${state ? ` fr-fieldset--${state}` : ""}`,
+                "datepicker-lunatic-dsfr",
+            )}
             id={`${id}-fieldset`}
             role="group"
             aria-labelledby={`${id}-fieldset-legend ${id}-fieldset-messages`}

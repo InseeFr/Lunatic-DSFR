@@ -25,6 +25,15 @@
                     "id": "jruq5os5-kqhuxnyt",
                     "label": {
                         "type": "VTL|MD",
+                        "value": "\"BEFORE\""
+                    },
+                    "position": "BEFORE_QUESTION_TEXT"
+                },
+                {
+                    "declarationType": "INSTRUCTION",
+                    "id": "jruq5os5-kqhuxnyt",
+                    "label": {
+                        "type": "VTL|MD",
                         "value": "\"![Texte alternatif](https://i.ytimg.com/vi/tlgTegVjFCk/hqdefault.jpg)\""
                     },
                     "position": "AFTER_QUESTION_TEXT"

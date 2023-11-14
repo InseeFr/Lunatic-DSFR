@@ -12,7 +12,45 @@
             "id": "name",
             "response": {
                 "name": "NAME"
-            }
+            },
+            "declarations": [
+                {
+                    "declarationType": "HELP",
+                    "id": "jruq5os5-kqhuxnyt",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": "\"HELP detachable\""
+                    },
+                    "position": "DETACHABLE"
+                },
+                {
+                    "declarationType": "HELP",
+                    "id": "jruq5os5-kqhuxnyt",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": "\"help before\""
+                    },
+                    "position": "BEFORE_QUESTION_TEXT"
+                },
+                {
+                    "declarationType": "INSTRUCTION",
+                    "id": "jruq5os5-kwghhgfhgf1n9c",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": "\"Instruction detachable\""
+                    },
+                    "position": "DETACHABLE"
+                },
+                {
+                    "declarationType": "HELP",
+                    "id": "jruq5os5-kwgsssh1n9c",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": "\"Instruction before\""
+                    },
+                    "position": "BEFORE_QUESTION_TEXT"
+                }
+            ]
         }
     ],
     "variables": [

@@ -52,9 +52,9 @@
                     "id": "jruq5os5-kwgsssh1n9c",
                     "label": {
                         "type": "VTL|MD",
-                        "value": "\"Instruction after\""
+                        "value": "\"Instruction before\""
                     },
-                    "position": "AFTER_QUESTION_TEXT"
+                    "position": "BEFORE_QUESTION_TEXT"
                 }
             ]
         }
