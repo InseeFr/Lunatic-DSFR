@@ -45,7 +45,7 @@ export function Modal(props: Props) {
                                     {label}
                                 </h1>
                                 {/* Label is defined in the source.json, and we can accept VTL|MD or VTL */}
-                                <p>{description}</p>
+                                <>{description}</>
                             </div>
                             <div className={fr.cx("fr-modal__footer")}>
                                 <ul
