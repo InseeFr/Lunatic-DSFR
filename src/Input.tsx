@@ -9,7 +9,7 @@ const useStyles = makeStyles()({
     readOnly: {
         ".fr-input:read-only": {
             "color": "var(--text-disabled-grey)",
-            "box-shadow": "inset 0 -2px 0 0 var(--border-disabled-grey)",
+            "boxShadow": "inset 0 -2px 0 0 var(--border-disabled-grey)",
         },
     },
 });

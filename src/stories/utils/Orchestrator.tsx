@@ -49,14 +49,14 @@ const useStyles = makeStyles()({
     root: {
         "marginBottom": "1rem",
         "display": "grid",
-        "grid-template-columns": "1fr",
+        "gridTemplateColumns": "1fr",
         "gap": "1rem",
         ".fr-callout": {
             "marginBottom": "0",
         },
         ".lunatic-dsfr-component-set": {
             "display": "grid",
-            "grid-template-columns": "1fr",
+            "gridTemplateColumns": "1fr",
             "gap": "1rem",
         },
     },
