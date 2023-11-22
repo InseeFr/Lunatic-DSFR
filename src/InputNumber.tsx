@@ -120,7 +120,8 @@ export function InputNumber({
                 isAllowed={isAllowed}
                 allowedDecimalSeparators={[",", "."]}
                 decimalSeparator={","}
-                thousandSeparator={" "}
+                /* we have removed the space for the thousandSeparator until we find a better solution */
+                thousandSeparator={""}
                 decimalScale={decimals}
                 allowLeadingZeros
             />
