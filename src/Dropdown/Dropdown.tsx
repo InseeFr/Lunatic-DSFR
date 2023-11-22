@@ -36,10 +36,11 @@ export function Dropdown({
         },
         [onSelect],
     );
+
     return (
         <Select
             className={cx("dropdown-lunatic-dsfr", className)}
-            nativeSelectProps={{ onChange: handleChange, value }}
+            nativeSelectProps={{ onChange: handleChange, value: value ?? "" }}
             label={label}
             state={state}
             stateRelatedMessage={stateRelatedMessage}

@@ -48,11 +48,11 @@ function SummaryResponses({
 }) {
     return (
         <>
-            {sections.map(section => {
+            {sections.map((section, index) => {
                 if (section) {
                     const { title, values } = section;
                     return (
-                        <ListResponses title={title}>
+                        <ListResponses title={title} key={index}>
                             <Responses values={values} />
                         </ListResponses>
                     );

@@ -13,16 +13,16 @@ function Description({ description }: { description?: DeclarationType[] }) {
     if (description) {
         return (
             <>
-                {description.map(({ label, id: idD }) => {
+                {description.map(({ label, id }) => {
                     if (typeof label === "string") {
                         return (
-                            <p className={fr.cx("fr-mb-0")} key={idD}>
+                            <p className={fr.cx("fr-mb-0")} key={id}>
                                 {label}
                             </p>
                         );
                     }
                     return (
-                        <React.Fragment key={idD}>
+                        <React.Fragment key={id}>
                             <>{label}</>
                         </React.Fragment>
                     );
