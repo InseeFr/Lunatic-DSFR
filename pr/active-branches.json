@@ -4,6 +4,7 @@
     "feat/suggester",
     "feat/suggester-2",
     "feat/tests",
-    "develop"
+    "develop",
+    "fix/console-warnings"
   ]
 }
