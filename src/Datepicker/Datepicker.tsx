@@ -100,7 +100,6 @@ export function Datepicker({
                 "datepicker-lunatic-dsfr",
             )}
             id={`${id}-fieldset`}
-            role="group"
             aria-labelledby={`${id}-fieldset-legend ${id}-fieldset-messages`}
         >
             <legend className={fr.cx("fr-fieldset__legend")} id={`${id}-fieldset-legend`}>
