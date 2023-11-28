@@ -45,16 +45,14 @@ export function QuestionExplication({ label, description, bgColor }: QuestionExp
                 )}
             >
                 <section className={fr.cx("fr-accordion", "fr-col-lg-6", "fr-col-md-9", "fr-col-12")}>
-                    <h3 className={fr.cx("fr-accordion__title")}>
-                        <button
-                            className={fr.cx("fr-accordion__btn")}
-                            aria-expanded={isExpanded}
-                            aria-controls="accordion-106"
-                            onClick={handleExpandedChange}
-                        >
-                            {label}
-                        </button>
-                    </h3>
+                    <button
+                        className={fr.cx("fr-accordion__btn")}
+                        aria-expanded={isExpanded}
+                        aria-controls="accordion-106"
+                        onClick={handleExpandedChange}
+                    >
+                        {label}
+                    </button>
                     <div className={fr.cx("fr-collapse")} id="accordion-106">
                         {description}
                     </div>
