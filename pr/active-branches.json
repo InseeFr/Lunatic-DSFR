@@ -3,8 +3,6 @@
     "main",
     "feat/suggester",
     "feat/suggester-2",
-    "feat/tests",
-    "develop",
-    "develop"
+    "feat/tests"
   ]
 }
