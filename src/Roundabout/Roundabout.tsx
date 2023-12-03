@@ -21,12 +21,13 @@ function RoundaboutIteration({
     index,
     complete,
     partial,
+    iterations,
     unnecessary,
     goToIteration,
     locked,
 }: RoundaboutType) {
     return (
-        <RoundaboutItContainer>
+        <RoundaboutItContainer index={index} iterations={iterations}>
             <RoundaboutItTitle label={label} unnecessary={unnecessary} />
             <RoundaboutItButton
                 partial={partial}
