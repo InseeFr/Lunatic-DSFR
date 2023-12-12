@@ -19,7 +19,7 @@ export function Modal(props: Props) {
         <dialog
             className={classnames("lunatic-dsfr-modal", fr.cx("fr-modal", "fr-modal--opened"))}
             ref={dialogRef}
-            style={{ maxWidth: "100%" }}
+            style={{ maxWidth: "100%", minHeight: "100vh" }}
             id={id}
             aria-labelledby={`${id}-title`}
             aria-modal="true"
