@@ -58,7 +58,7 @@
                         "type": "VTL"
                     },
                     "description": {
-                        "value": "\"ComponentSet description\"",
+                        "value": "\"ComponentSet description (non mandatory)\"",
                         "type": "VTL"
                     },
                     "components": [
