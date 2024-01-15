@@ -5,7 +5,7 @@
             "id": "seq",
             "componentType": "Subsequence",
             "label": {
-                "value": "\"### Liste des habitants\"",
+                "value": "\"### Subsequence label\"",
                 "type": "VTL|MD"
             },
             "conditionFilter": { "value": "true", "type": "VTL" },
@@ -16,7 +16,7 @@
                     "id": "jruq5os5-kqhuxnyt",
                     "label": {
                         "type": "VTL|MD",
-                        "value": "\"HELP detachable\""
+                        "value": "\"declaration HELP detachable label\""
                     },
                     "position": "DETACHABLE"
                 },
@@ -25,7 +25,7 @@
                     "id": "jruq5os5-kqhuxnytfszzz",
                     "label": {
                         "type": "VTL|MD",
-                        "value": "\"help before\""
+                        "value": "\"declaration help before label\""
                     },
                     "position": "BEFORE_QUESTION_TEXT"
                 },
@@ -34,7 +34,7 @@
                     "id": "jruq5os5-kwghhgfhgf1n9c",
                     "label": {
                         "type": "VTL|MD",
-                        "value": "\"Instruction detachable\""
+                        "value": "\"declaration Instruction detachable label\""
                     },
                     "position": "DETACHABLE"
                 },
@@ -43,7 +43,7 @@
                     "id": "jruq5os5-kwghgdffs1n9c",
                     "label": {
                         "type": "VTL|MD",
-                        "value": "\"Instruction after\""
+                        "value": "\"declaration Instruction after label\""
                     },
                     "position": "AFTER_QUESTION_TEXT"
                 },
@@ -52,7 +52,7 @@
                     "id": "jruq5os5-kwgsssh1n9c",
                     "label": {
                         "type": "VTL|MD",
-                        "value": "\"Instruction before\""
+                        "value": "\"declaration Instruction before label\""
                     },
                     "position": "BEFORE_QUESTION_TEXT"
                 }

@@ -10,7 +10,7 @@
                 "value": "\"Checkbox label\"",
                 "type": "VTL|MD"
             },
-            "description": "\"Checkbox description\"",
+            "description": "\"Checkbox description (non mandatory)\"",
             "conditionFilter": { "value": "true", "type": "VTL" },
             "controls": [
                 {
@@ -29,7 +29,7 @@
                 {
                     "id": "opt1",
                     "description": {
-                        "value": "\"Option description\"",
+                        "value": "\"Option description (non mandatory)\"",
                         "type": "VTL|MD"
                     },
                     "label": {
@@ -41,7 +41,7 @@
                 {
                     "id": "opt2",
                     "description": {
-                        "value": "\"Option description\"",
+                        "value": "\"Option description (non mandatory)\"",
                         "type": "VTL|MD"
                     },
                     "label": {
@@ -56,19 +56,11 @@
             "id": "seq",
             "componentType": "Sequence",
             "label": {
-                "value": "\"Bye!\"",
+                "value": "\"Sequence label\"",
                 "type": "VTL|MD"
             },
             "conditionFilter": { "value": "true", "type": "VTL" },
-            "page": "2",
-            "questionInformation": {
-                "value": "\"Question Information\"",
-                "type": "VTL|MD"
-            },
-            "questionContext": {
-                "value": "\"Question Context\"",
-                "type": "VTL|MD"
-            }
+            "page": "2"
         }
     ],
     "variables": [

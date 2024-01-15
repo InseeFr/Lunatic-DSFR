@@ -61,6 +61,10 @@
                         "value": "\"Dropdown label\"",
                         "type": "VTL"
                     },
+                    "description": {
+                        "value": "\"Dropdown description (non mandatory)\"",
+                        "type": "VTL"
+                    },
                     "response": {
                         "name": "LINKS"
                     },

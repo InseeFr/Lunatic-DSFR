@@ -1,0 +1,341 @@
+{
+    "maxPage": "5",
+    "components": [
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": "\"Sequence label\"",
+                "type": "VTL"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "1"
+        },
+        {
+            "id": "kze792d8",
+            "componentType": "InputNumber",
+            "mandatory": false,
+            "page": "2",
+            "min": 0,
+            "max": 10,
+            "decimals": 0,
+            "label": {
+                "value": "\"InputNumber label\"",
+                "type": "VTL|MD"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "response": { "name": "NB_HAB" }
+        },
+        {
+            "id": "kmnolkxb",
+            "componentType": "Loop",
+            "page": "3",
+            "depth": 1,
+            "paginatedLoop": false,
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "loopDependencies": ["NHAB"],
+            "lines": {
+                "min": { "value": "NB_HAB", "type": "VTL" },
+                "max": { "value": "NB_HAB", "type": "VTL" }
+            },
+            "components": [
+                {
+                    "id": "kmno1n7m1",
+                    "componentType": "Input",
+                    "mandatory": false,
+                    "maxLength": 20,
+                    "label": {
+                        "value": "\"Input label\"",
+                        "type": "VTL"
+                    },
+                    "conditionFilter": {
+                        "value": "true",
+                        "type": "VTL"
+                    },
+                    "response": { "name": "PRENOMS" }
+                },
+                {
+                    "id": "kmno1n7m2",
+                    "componentType": "Input",
+                    "mandatory": false,
+                    "maxLength": 20,
+                    "label": {
+                        "value": "\"Input label\"",
+                        "type": "VTL|MD"
+                    },
+                    "conditionFilter": {
+                        "value": "true",
+                        "type": "VTL"
+                    },
+                    "response": { "name": "NOMS" }
+                },
+                {
+                    "id": "kmno1n7m3",
+                    "componentType": "InputNumber",
+                    "mandatory": false,
+                    "maxLength": 20,
+                    "label": {
+                        "value": "\"Input label\"))",
+                        "type": "VTL"
+                    },
+                    "conditionFilter": {
+                        "value": "true",
+                        "type": "VTL"
+                    },
+                    "response": { "name": "AGES" }
+                },
+                {
+                    "id": "kmno1n7m4",
+                    "componentType": "Radio",
+                    "mandatory": false,
+                    "label": {
+                        "value": "\"Radio label\"",
+                        "type": "VTL"
+                    },
+                    "conditionFilter": {
+                        "value": "true",
+                        "type": "VTL"
+                    },
+                    "options": [
+                        {
+                            "value": "1",
+                            "label": { "value": "\"Radio option label\"", "type": "VTL" }
+                        },
+                        {
+                            "value": "2",
+                            "label": { "value": "\"Radio option label\"", "type": "VTL" }
+                        }
+                    ],
+                    "response": { "name": "RESIDENTS" }
+                }
+            ]
+        },
+        {
+            "id": "roundabout",
+            "componentType": "Roundabout",
+            "page": "4",
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "iterations": { "value": "NB_HAB", "type": "VTL" },
+            "label": { "value": "\"Roundabout label\"", "type": "VTL" },
+            "locked": true,
+            "expressions": {
+                "complete": {
+                    "value": "not(isnull(COLOR)) and not(isnull(SEXE)) and not(isnull(SOMETHING))",
+                    "type": "VTL"
+                },
+                "partial": {
+                    "value": "not(isnull(COLOR)) or not(isnull(SEXE)) or not(isnull(SOMETHING))",
+                    "type": "VTL"
+                },
+                "unnecessary": {
+                    "value": "if (AGES < \"14\") then \"Roundabout unnecessary label\" else \"\"",
+                    "type": "VTL"
+                },
+                "label": {
+                    "value": "Roundabout expression label",
+                    "type": "VTL"
+                }
+            },
+            "components": [
+                {
+                    "id": "jsygk7m7",
+                    "componentType": "Subsequence",
+                    "page": "4.1",
+                    "label": {
+                        "value": "\"Subsequence label \" || PRENOMS",
+                        "type": "VTL"
+                    },
+                    "conditionFilter": { "value": "true", "type": "VTL" }
+                },
+                {
+                    "id": "kmno1n7m",
+                    "componentType": "Input",
+                    "maxLength": 3,
+                    "page": "4.1",
+                    "label": {
+                        "value": "\"Input label\"))",
+                        "type": "VTL"
+                    },
+                    "conditionFilter": {
+                        "value": "true",
+                        "type": "VTL"
+                    },
+                    "response": { "name": "COLOR" }
+                },
+                {
+                    "id": "jsygk7m7",
+                    "componentType": "Subsequence",
+                    "page": "4.2",
+                    "label": {
+                        "value": "\"Subsequence label\"",
+                        "type": "VTL"
+                    },
+                    "conditionFilter": { "value": "true", "type": "VTL" }
+                },
+                {
+                    "id": "sexe",
+                    "componentType": "Radio",
+                    "page": "4.2",
+                    "label": {
+                        "value": "\"Radio label\"",
+                        "type": "VTL"
+                    },
+                    "conditionFilter": {
+                        "value": "true",
+                        "type": "VTL"
+                    },
+                    "options": [
+                        {
+                            "value": "1",
+                            "label": { "value": "\"Radio option label\"", "type": "VTL" }
+                        },
+                        {
+                            "value": "2",
+                            "label": { "value": "\"Radio option label\"", "type": "VTL" }
+                        }
+                    ],
+                    "response": { "name": "SEXE" }
+                },
+                {
+                    "id": "jsygk7m7",
+                    "componentType": "Subsequence",
+                    "page": "4.3",
+                    "label": {
+                        "value": "\"Subsequence label\"",
+                        "type": "VTL"
+                    },
+                    "conditionFilter": { "value": "true", "type": "VTL" }
+                },
+                {
+                    "id": "kmno1n7m",
+                    "componentType": "Input",
+                    "maxLength": 30,
+                    "page": "4.3",
+                    "label": {
+                        "value": "\"Input label\"))",
+                        "type": "VTL"
+                    },
+                    "conditionFilter": {
+                        "value": "true",
+                        "type": "VTL"
+                    },
+                    "response": { "name": "SOMETHING" }
+                }
+            ]
+        },
+
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": "\"Subsequence label\"",
+                "type": "VTL"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "5"
+        }
+    ],
+    "variables": [
+        {
+            "variableType": "COLLECTED",
+            "name": "NB_HAB",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "SOMETHING",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "COLOR",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "SEXE",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "PRENOMS",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "NOMS",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "AGES",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "RESIDENTS",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
+            "variableType": "CALCULATED",
+            "name": "PRENOMREF",
+            "expression": { "value": "first_value(PRENOMS over())", "type": "VTL" },
+            "bindingDependencies": ["PRENOMS"],
+            "inFilter": "true"
+        }
+    ],
+    "resizing": {
+        "NB_HAB": {
+            "size": "NB_HAB",
+            "variables": ["PRENOMS", "COLOR", "SEXE", "SOMETHING"]
+        }
+    }
+}

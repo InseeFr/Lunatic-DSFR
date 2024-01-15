@@ -1,0 +1,77 @@
+{
+    "components": [
+        {
+            "id": "radiototo",
+            "bindingDependencies": ["Q1"],
+            "componentType": "Radio",
+            "mandatory": false,
+            "label": {
+                "value": "\"Radio label\"",
+                "type": "VTL|MD"
+            },
+            "description": {
+                "value": "\"Radio description (non mandatory)\"",
+                "type": "VTL|MD"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "controls": [
+                {
+                    "id": "radio",
+                    "typeOfControl": "CONSISTENCY",
+                    "criticality": "WARN",
+                    "control": { "value": "not(Q1= \"2\")", "type": "VTL" },
+                    "errorMessage": {
+                        "value": "\"What else would Spongebob live in?\"",
+                        "type": "VTL|MD"
+                    },
+                    "bindingDependencies": ["Q1"]
+                }
+            ],
+            "options": [
+                {
+                    "value": "1",
+                    "description": {
+                        "value": "\"Radio option1 description (non mandatory)\"",
+                        "type": "VTL|MD"
+                    },
+                    "label": { "value": "\"Radio option1 label\"", "type": "VTL|MD" }
+                },
+                {
+                    "value": "2",
+                    "description": {
+                        "value": "\"Radio option2 description (non mandatory)\"",
+                        "type": "VTL|MD"
+                    },
+                    "label": { "value": "\"Radio option2 label\"", "type": "VTL|MD" }
+                }
+            ],
+            "response": { "name": "Q1" }
+        }
+    ],
+    "variables": [
+        {
+            "variableType": "COLLECTED",
+            "name": "Q2",
+            "componentRef": "radio",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "Q1",
+            "componentRef": "radio",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        }
+    ]
+}

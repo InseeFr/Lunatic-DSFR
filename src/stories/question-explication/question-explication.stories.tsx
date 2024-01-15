@@ -1,5 +1,6 @@
 import Orchestrator from "../utils/Orchestrator";
 import source from "./source.json";
+import sourceSkeleton from "./sourceSkeleton.json";
 import { StoryObj, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 import * as custom from "../..";
@@ -24,4 +25,8 @@ type Story = StoryObj<typeof Orchestrator>;
 
 export const Default: Story = {
     args: { source: source },
+};
+
+export const Skeleton: Story = {
+    args: { source: sourceSkeleton },
 };

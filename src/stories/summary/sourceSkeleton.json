@@ -1,0 +1,372 @@
+{
+    "maxPage": "6",
+    "components": [
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": "\"Sequence label\"",
+                "type": "VTL|MD"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "1"
+        },
+        {
+            "id": "how",
+            "componentType": "InputNumber",
+            "mandatory": false,
+            "page": "2",
+            "min": 1,
+            "max": 10,
+            "decimals": 0,
+            "label": {
+                "value": "\"InputNumber label\"",
+                "type": "VTL|MD"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "response": { "name": "NB_HAB" }
+        },
+        {
+            "id": "loop",
+            "componentType": "Loop",
+            "loopDependencies": ["NB_HAB"],
+            "iterations": {
+                "value": "NB_HAB",
+                "type": "VTL"
+            },
+            "page": "3",
+            "maxPage": "1",
+            "depth": 1,
+            "paginatedLoop": true,
+            "conditionFilter": {
+                "value": "NB_HAB > 0",
+                "type": "VTL"
+            },
+            "components": [
+                {
+                    "id": "lfwg2ny2",
+                    "componentType": "ComponentSet",
+                    "page": "3.1",
+                    "className": "ComponentSet",
+                    "conditionFilter": {
+                        "value": "(NB_HAB >= 1)",
+                        "type": "VTL",
+                        "bindingDependencies": ["NB_HAB"]
+                    },
+                    "label": {
+                        "value": "\"ComponentSet label\"",
+                        "type": "VTL"
+                    },
+                    "description": {
+                        "value": "\"ComponentSet description\"",
+                        "type": "VTL"
+                    },
+                    "components": [
+                        {
+                            "id": "lfwg2ny2-noms",
+                            "componentType": "Input",
+                            "mandatory": true,
+                            "maxLength": 249,
+                            "label": {
+                                "value": "\"Input label\"",
+                                "type": "VTL"
+                            },
+                            "controls": [
+                                {
+                                    "id": "lfwiyuih-nom-null",
+                                    "typeOfControl": "CONSISTENCY",
+                                    "criticality": "ERROR",
+                                    "control": {
+                                        "value": "not(isnull(NOMS))",
+                                        "type": "VTL"
+                                    },
+                                    "errorMessage": {
+                                        "value": "\" Veuillez entrer un nom\"",
+                                        "type": "VTL"
+                                    }
+                                }
+                            ],
+                            "bindingDependencies": ["NOMS"],
+                            "response": {
+                                "name": "NOMS"
+                            }
+                        },
+                        {
+                            "id": "lfwg2ny2-prenoms",
+                            "label": {
+                                "value": "\"Input label\"",
+                                "type": "VTL"
+                            },
+                            "conditionFilter": {
+                                "value": "true",
+                                "type": "VTL"
+                            },
+                            "controls": [
+                                {
+                                    "id": "lfwiyuih-prenom-null",
+                                    "typeOfControl": "CONSISTENCY",
+                                    "criticality": "ERROR",
+                                    "control": {
+                                        "value": "not(isnull(PRENOMS))",
+                                        "type": "VTL"
+                                    },
+                                    "errorMessage": {
+                                        "value": "\" Veuillez entrer un prénom\"",
+                                        "type": "VTL"
+                                    }
+                                }
+                            ],
+                            "componentType": "Input",
+                            "response": {
+                                "name": "PRENOMS"
+                            }
+                        },
+                        {
+                            "id": "lfwiizq2-dob",
+                            "componentType": "Datepicker",
+                            "mandatory": true,
+                            "min": "1900-01-01",
+                            "max": "format-date(current-date(),'[Y0001]-[M01]-[D01]')",
+                            "label": {
+                                "value": " \"Datepicker label\"",
+                                "type": "VTL"
+                            },
+                            "description": {
+                                "value": " \"Datepicker label\"",
+                                "type": "VTL"
+                            },
+                            "bindingDependencies": ["DATENAISS"],
+                            "dateFormat": "YYYY-MM-DD",
+                            "response": {
+                                "name": "DATENAISS"
+                            }
+                        },
+                        {
+                            "id": "lfvahf2g",
+                            "componentType": "Radio",
+                            "mandatory": true,
+                            "label": {
+                                "value": "\"Radio label\"",
+                                "type": "VTL"
+                            },
+                            "bindingDependencies": ["SEXES"],
+                            "controls": [
+                                {
+                                    "id": "lfvahf2g-nom-null",
+                                    "typeOfControl": "CONSISTENCY",
+                                    "criticality": "WARN",
+                                    "control": {
+                                        "value": "not(isnull(SEXES))",
+                                        "type": "VTL"
+                                    },
+                                    "errorMessage": {
+                                        "value": "\" Veuillez sélectionner un sexe\"",
+                                        "type": "VTL"
+                                    }
+                                }
+                            ],
+                            "options": [
+                                {
+                                    "value": "1",
+                                    "label": {
+                                        "value": "\"Radio label option\"",
+                                        "type": "VTL"
+                                    }
+                                },
+                                {
+                                    "value": "2",
+                                    "label": {
+                                        "value": "\"Radio label option\"",
+                                        "type": "VTL"
+                                    }
+                                }
+                            ],
+                            "response": {
+                                "name": "SEXES"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "kkxuu8oddffdfdfdv-l8ty0pcg",
+                    "page": "3.2",
+                    "componentType": "QuestionContext",
+                    "label": {
+                        "value": "\"QuestionContext label (non mandatory)\"",
+                        "type": "VTL"
+                    },
+                    "description": {
+                        "value": "\"QuestionContext description (non mandatory)\"",
+                        "type": "VTL"
+                    }
+                },
+                {
+                    "id": "lfwgqxv0",
+                    "componentType": "Radio",
+                    "mandatory": false,
+                    "page": "3.2",
+                    "label": {
+                        "value": "\"### Radio label\"",
+                        "type": "VTL|MD"
+                    },
+                    "controls": [
+                        {
+                            "id": "lfvahf2g-nom-null",
+                            "typeOfControl": "CONSISTENCY",
+                            "criticality": "ERROR",
+                            "control": {
+                                "value": "not(isnull(VIVEZVOUSDS))",
+                                "type": "VTL"
+                            },
+                            "errorMessage": {
+                                "value": "\" Veuillez sélectionner si cet habitant vit aussi dans un autre logement.\"",
+                                "type": "VTL"
+                            }
+                        }
+                    ],
+                    "conditionFilter": {
+                        "value": "(NB_HAB >= 1)",
+                        "type": "VTL",
+                        "bindingDependencies": ["NB_HAB"]
+                    },
+                    "bindingDependencies": ["PRENOMS", "NOMS", "LIB_ILELLES", "VIVEZVOUSDS"],
+                    "options": [
+                        {
+                            "value": "1",
+                            "label": {
+                                "value": "\"Radio option label\"",
+                                "type": "VTL"
+                            }
+                        },
+                        {
+                            "value": "2",
+                            "label": {
+                                "value": "\"Radio option label\"",
+                                "type": "VTL"
+                            },
+                            "description": {
+                                "value": "\"Radio option description (non mandatory)\"",
+                                "type": "VTL"
+                            }
+                        }
+                    ],
+                    "response": {
+                        "name": "VIVEZVOUSDS"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "Summary",
+            "componentType": "Summary",
+            "label": {
+                "value": "\"Summary label\"",
+                "type": "VTL"
+            },
+            "sections": [
+                {
+                    "iterations": { "value": "NB_HAB", "type": "VTL" },
+                    "title": {
+                        "value": "PRENOMS || \" \" || NOMS",
+                        "type": "VTL"
+                    },
+                    "responses": [
+                        {
+                            "label": {
+                                "value": "\"Summary response1 label\"",
+                                "type": "VTL"
+                            },
+                            "value": { "value": "\"Summary response1 value\"", "type": "VTL" }
+                        },
+                        {
+                            "label": {
+                                "value": "\"Summary response2 label\"",
+                                "type": "VTL"
+                            },
+                            "value": {
+                                "value": "\"Summary response2 value\"",
+                                "type": "VTL"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "4"
+        }
+    ],
+    "variables": [
+        {
+            "variableType": "COLLECTED",
+            "name": "NB_HAB",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": 2,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "VIVEZVOUSDS",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "DATENAISS",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "SEXES",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "PRENOMS",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "NOMS",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        }
+    ],
+    "resizing": {
+        "NB_HAB": {
+            "size": "NB_HAB",
+            "variables": ["PRENOMS", "SEXES", "DATENAISS"]
+        }
+    }
+}
