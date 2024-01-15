@@ -4,6 +4,7 @@ import sourceNaf from "./source_naf.json";
 import sourcePCS from "./source_pcs.json";
 import sourceError from "./source_error.json";
 import sourceNotLoading from "./source_not_loading.json";
+import sourceSkeleton from "./sourceSkeleton.json";
 import sourceDisabled from "./sourceDisabled.json";
 import { StoryFn, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
@@ -57,3 +58,7 @@ Disabled.args = { source: sourceDisabled };
 export const PCS2020 = Template.bind({});
 
 PCS2020.args = { source: sourcePCS };
+
+export const Skeleton = Template.bind({});
+
+Skeleton.args = { source: sourceSkeleton };

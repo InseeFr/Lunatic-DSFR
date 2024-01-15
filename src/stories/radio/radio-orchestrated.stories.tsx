@@ -1,6 +1,7 @@
 import Orchestrator from "../utils/Orchestrator";
 import source from "./source.json";
 import sourceWithError from "./sourceWithError.json";
+import sourceSkeleton from "./sourceSkeleton.json";
 import sourceInComponentSet from "../date-picker/source-componentset.json";
 import { StoryObj, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
@@ -48,4 +49,8 @@ export const InComponentSet: Story = {
         },
     },
     args: { source: sourceInComponentSet },
+};
+
+export const Skeleton: Story = {
+    args: { source: sourceSkeleton },
 };

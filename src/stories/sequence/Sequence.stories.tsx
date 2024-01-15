@@ -14,6 +14,6 @@ export default stories;
 
 const Template: StoryFn<typeof Orchestrator> = args => <Orchestrator {...args} custom={custom} />;
 
-export const Default = Template.bind({});
+export const Skeleton = Template.bind({});
 
-Default.args = { id: "sequence", source };
+Skeleton.args = { id: "sequence", source };

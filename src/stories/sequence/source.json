@@ -5,7 +5,7 @@
             "id": "seq",
             "componentType": "Sequence",
             "label": {
-                "value": "\"Un titre\"",
+                "value": "\"Sequence label\"",
                 "type": "VTL"
             },
             "conditionFilter": { "value": "true", "type": "VTL" },
@@ -16,7 +16,7 @@
                     "id": "jruq5os5-kqhuxnyt",
                     "label": {
                         "type": "VTL|MD",
-                        "value": "\"\n\n Avec une image!\""
+                        "value": "\"\n\n declaration instruction after label!\""
                     },
                     "position": "AFTER_QUESTION_TEXT"
                 },
@@ -25,7 +25,7 @@
                     "id": "jruq5os5-kqhfdsfdsuxnyt",
                     "label": {
                         "type": "VTL|MD",
-                        "value": "\"BEFORE\""
+                        "value": "\"declaration instruction before label\""
                     },
                     "position": "BEFORE_QUESTION_TEXT"
                 },
@@ -44,7 +44,7 @@
             "id": "seq",
             "componentType": "Sequence",
             "label": {
-                "value": "\"Bye!\"",
+                "value": "\"Sequence label\"",
                 "type": "VTL"
             },
             "conditionFilter": { "value": "true", "type": "VTL" },
