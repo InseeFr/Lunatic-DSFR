@@ -8,8 +8,8 @@
             "min": 0,
             "max": 10,
             "decimals": 2,
-            "label": { "value": "\"Your favourite number\"", "type": "VTL|MD" },
-            "description": "\"A number between 0 and 10 with 2 decimals maximum.\"",
+            "label": { "value": "\"InputNumber label\"", "type": "VTL|MD" },
+            "description": "\"InputNumber description (non mandatory)\"",
             "conditionFilter": { "value": "true", "type": "VTL" },
             "bindingDependencies": ["NB"],
             "response": { "name": "NB" }

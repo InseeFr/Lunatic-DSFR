@@ -2,6 +2,7 @@ import sourceInComponentSet from "./source-componentset.json";
 import Orchestrator from "../utils/Orchestrator";
 import source from "./source.json";
 import sourceWithError from "./sourceWithError.json";
+import sourceSkeleton from "./sourceSkeleton.json";
 import data from "./data.json";
 import dataWithError from "./dataWithError.json";
 import { StoryObj, Meta } from "@storybook/react";
@@ -43,4 +44,8 @@ export const Error: Story = {
 
 export const InComponentSet: Story = {
     args: { source: sourceInComponentSet },
+};
+
+export const Skeleton: Story = {
+    args: { source: sourceSkeleton },
 };
