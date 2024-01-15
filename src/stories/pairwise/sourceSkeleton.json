@@ -1,0 +1,163 @@
+{
+    "maxPage": "3",
+    "components": [
+        {
+            "id": "seq",
+            "componentType": "Subsequence",
+            "label": {
+                "value": "\"Subsequence label\"",
+                "type": "VTL"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "1"
+        },
+        {
+            "id": "loop-prenom",
+            "componentType": "RosterForLoop",
+            "label": { "value": "\"RosterForLoop label\"", "type": "VTL|MD" },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "bindingDependencies": ["PRENOM"],
+
+            "lines": {
+                "min": { "value": 1, "type": "VTL" },
+                "max": { "value": "10", "type": "VTL" }
+            },
+            "page": "1",
+            "components": [
+                {
+                    "componentType": "Input",
+                    "label": { "value": "\"Input label\"", "type": "VTL" },
+                    "conditionFilter": { "value": "true", "type": "VTL" },
+                    "maxLength": 30,
+                    "bindingDependencies": ["PRENOM"],
+                    "id": "prenom",
+                    "response": {
+                        "name": "PRENOM"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "pairwise-links",
+            "componentType": "PairwiseLinks",
+            "conditionFilter": { "value": "true" },
+            "xAxisIterations": { "value": "count(PRENOM)", "type": "VTL" },
+            "yAxisIterations": { "value": "count(PRENOM)", "type": "VTL" },
+            "page": "2",
+            "symLinks": {
+                "LINKS": {
+                    "1": "1",
+                    "2": "3",
+                    "3": "2"
+                }
+            },
+            "components": [
+                {
+                    "className": "pairwise-link",
+                    "componentType": "Dropdown",
+                    "id": "dropdown-1",
+                    "conditionFilter": { "value": "xAxis <> yAxis", "type": "VTL" },
+                    "label": {
+                        "value": "\"Dropdown label\"",
+                        "type": "VTL"
+                    },
+                    "response": {
+                        "name": "LINKS"
+                    },
+                    "options": [
+                        { "value": "1", "label": "\"Dropdown option1 label\"" },
+                        { "value": "2", "label": "\"Dropdown option2 label\"" },
+                        { "value": "3", "label": "\"Dropdown option3 label\"" }
+                    ]
+                },
+                {
+                    "className": "pairwise-link-input",
+                    "componentType": "Input",
+                    "label": {
+                        "value": "\"Input label\"",
+                        "type": "VTL|MD"
+                    },
+                    "description": {
+                        "value": "\"Input description (non mandatory)\"",
+                        "type": "VTL|MD"
+                    },
+                    "conditionFilter": {
+                        "value": "not(nvl(cast(LINKS, string), \"\") = \"\") and cast(LINKS, string) = \"18\"",
+                        "type": "VTL"
+                    },
+                    "id": "other",
+                    "response": {
+                        "name": "OTHER"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "seq",
+            "componentType": "Subsequence",
+            "label": {
+                "value": "\"Bye !\"",
+                "type": "VTL"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "3"
+        }
+    ],
+    "variables": [
+        {
+            "variableType": "COLLECTED",
+            "name": "PRENOM",
+            "values": {
+                "PREVIOUS": [null],
+                "COLLECTED": [null],
+                "FORCED": [null],
+                "EDITED": [null],
+                "INPUTED": [null]
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "LINKS",
+            "values": {
+                "PREVIOUS": [[null]],
+                "COLLECTED": [[null]],
+                "FORCED": [[null]],
+                "EDITED": [[null]],
+                "INPUTED": [[null]]
+            }
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "OTHER",
+            "values": {
+                "PREVIOUS": [[null]],
+                "COLLECTED": [[null]],
+                "FORCED": [[null]],
+                "EDITED": [[null]],
+                "INPUTED": [[null]]
+            }
+        },
+        {
+            "variableType": "CALCULATED",
+            "name": "xAxis",
+            "expression": { "value": "PRENOM", "type": "VTL" },
+            "bindingDependencies": ["PRENOM"],
+            "shapeFrom": "PRENOM",
+            "inFilter": "false"
+        },
+        {
+            "variableType": "CALCULATED",
+            "name": "yAxis",
+            "expression": { "value": "PRENOM", "type": "VTL" },
+            "bindingDependencies": ["PRENOM"],
+            "shapeFrom": "PRENOM",
+            "inFilter": "false"
+        }
+    ],
+    "resizing": {
+        "PRENOM": {
+            "sizeForLinksVariables": ["count(PRENOM)", "count(PRENOM)"],
+            "linksVariables": ["LINKS"]
+        }
+    }
+}

@@ -1,0 +1,70 @@
+{
+    "maxPage": "1",
+    "components": [
+        {
+            "page": "1",
+            "componentType": "Input",
+            "bindingDependencies": ["NAME"],
+            "label": { "value": "\"Input label\"", "type": "VTL|MD" },
+            "description": { "value": "\"test\"", "type": "VTL|MD" },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "maxLength": 30,
+            "id": "name",
+            "response": {
+                "name": "NAME"
+            },
+            "declarations": [
+                {
+                    "declarationType": "HELP",
+                    "id": "jruq5os5-kfdsfdsqhuxnyt",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": "\"declaration HELP detachable label\""
+                    },
+                    "position": "DETACHABLE"
+                },
+                {
+                    "declarationType": "HELP",
+                    "id": "jruq5os5-kqhuxnyt",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": "\"declaration help before label\""
+                    },
+                    "position": "BEFORE_QUESTION_TEXT"
+                },
+                {
+                    "declarationType": "INSTRUCTION",
+                    "id": "jruq5os5-kwghhgfhgf1n9c",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": "\"declaration Instruction detachable label\""
+                    },
+                    "position": "DETACHABLE"
+                },
+                {
+                    "declarationType": "HELP",
+                    "id": "jruq5os5-kwgsssh1n9c",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": "\"declaration Instruction before label\""
+                    },
+                    "position": "BEFORE_QUESTION_TEXT"
+                }
+            ]
+        }
+    ],
+    "variables": [
+        {
+            "variableType": "COLLECTED",
+            "name": "NAME",
+            "componentRef": "name",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        }
+    ]
+}

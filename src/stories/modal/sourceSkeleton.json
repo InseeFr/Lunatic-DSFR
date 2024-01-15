@@ -1,0 +1,51 @@
+{
+    "maxPage": "2",
+    "components": [
+        {
+            "id": "kze792d8",
+            "componentType": "InputNumber",
+            "mandatory": false,
+            "page": "1",
+            "min": 0,
+            "max": 10,
+            "decimals": 0,
+            "label": {
+                "value": "\"➡ 1. \" || \"Number of habitants\"",
+                "type": "VTL|MD"
+            },
+            "description": {
+                "value": "\"The number of habitants who live permanently with you.\"",
+                "type": "VTL|MD"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "response": { "name": "COUNT_PERSONS" }
+        },
+        {
+            "id": "modaltoto",
+            "componentType": "ConfirmationModal",
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "2",
+            "label": {
+                "value": "\"Modal label \"",
+                "type": "VTL"
+            },
+            "description": {
+                "value": "\"Modal description (non mandatory)\"",
+                "type": "VTL|MD"
+            }
+        }
+    ],
+    "variables": [
+        {
+            "variableType": "COLLECTED",
+            "name": "COUNT_PERSONS",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTED": null
+            }
+        }
+    ]
+}
