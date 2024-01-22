@@ -1,4 +1,4 @@
-import { type ReactEventHandler, MouseEventHandler, RefObject, useEffect } from "react";
+import { MouseEventHandler, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "./Button";
 import { type LunaticComponentProps } from "./type";
@@ -6,14 +6,14 @@ import { fr } from "@codegouvfr/react-dsfr";
 import classnames from "classnames";
 
 type Props = Pick<LunaticComponentProps<"Modal">, "id" | "label" | "description"> & {
-    onClose: ReactEventHandler<HTMLDialogElement>;
     onCancel: () => void;
+    onClose: () => void;
     onClick: MouseEventHandler<HTMLDialogElement>;
-    dialogRef: RefObject<HTMLDialogElement>;
 };
 
 export function Modal(props: Props) {
-    const { id, label, description, onClose, onCancel, dialogRef } = props;
+    const { id, label, description, onClose, onCancel } = props;
+    const dialogRef = useRef<HTMLDivElement>(null);
 
     // dsfr has his own method to "hide" the modal when clicking on the overlay
     // and it doesn't broadcast any event so we have to watch when the class "fr-modal--opened" is removed
@@ -37,27 +37,25 @@ export function Modal(props: Props) {
     }, []);
 
     return createPortal(
-        <dialog
-            className={classnames("lunatic-dsfr-modal", fr.cx("fr-modal", "fr-modal--opened"))}
+        <div
             ref={dialogRef}
+            className={classnames("lunatic-dsfr-modal", fr.cx("fr-modal", "fr-modal--opened"))}
             style={{ maxWidth: "100%", minHeight: "100vh" }}
             id={id}
             aria-labelledby={`${id}-title`}
             aria-modal="true"
             role="dialog"
-            onClose={onClose}
-            onCancel={onCancel}
         >
             <div className={fr.cx("fr-container", "fr-container--fluid", "fr-container-md")}>
                 <div className={fr.cx("fr-grid-row", "fr-grid-row--center")}>
                     <div className={fr.cx("fr-col-12", "fr-col-md-8", "fr-col-lg-6")}>
-                        <form method="dialog" className={fr.cx("fr-modal__body")}>
+                        <div className={fr.cx("fr-modal__body")}>
                             <div className={fr.cx("fr-modal__header")}>
                                 <Button
+                                    onClick={onCancel}
                                     className={fr.cx("fr-btn--close")}
                                     disabled={false}
-                                    type="submit"
-                                    value="cancel"
+                                    type="button"
                                     priority={"tertiary no outline"}
                                 >
                                     Fermer
@@ -83,9 +81,10 @@ export function Modal(props: Props) {
                                 >
                                     <li>
                                         <Button
+                                            onClick={() => onClose()}
                                             value="default"
                                             disabled={false}
-                                            type="submit"
+                                            type="button"
                                             priority={"primary"}
                                         >
                                             Je confirme
@@ -93,9 +92,10 @@ export function Modal(props: Props) {
                                     </li>
                                     <li>
                                         <Button
+                                            onClick={onCancel}
                                             value="cancel"
                                             disabled={false}
-                                            type="submit"
+                                            type="button"
                                             priority={"secondary"}
                                         >
                                             Annuler
@@ -103,11 +103,11 @@ export function Modal(props: Props) {
                                     </li>
                                 </ul>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </dialog>,
+        </div>,
         document.body,
     );
 }
