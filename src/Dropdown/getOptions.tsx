@@ -5,7 +5,7 @@ export type OptionType = {
 
 function DefaultOption() {
     return (
-        <option value="" hidden disabled selected>
+        <option value="" hidden disabled>
             Selectionnez une option
         </option>
     );

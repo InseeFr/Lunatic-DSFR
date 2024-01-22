@@ -1,5 +1,6 @@
 import Orchestrator from "../utils/Orchestrator";
 import source from "./source.json";
+import sourceSkeleton from "./sourceSkeleton.json";
 import sourceWithError from "./sourceWithError.json";
 import sourceComponentSet from "./sourceComponentSet.json";
 import { StoryObj, Meta } from "@storybook/react";
@@ -37,6 +38,17 @@ export const WithError: Story = {
         },
     },
     args: { source: sourceWithError },
+};
+
+export const Skeleton: Story = {
+    parameters: {
+        docs: {
+            description: {
+                story: "Click next to make the error appear",
+            },
+        },
+    },
+    args: { source: sourceSkeleton },
 };
 
 export const InComponentSet: Story = {

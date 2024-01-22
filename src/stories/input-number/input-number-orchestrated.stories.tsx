@@ -1,6 +1,7 @@
 import Orchestrator from "../utils/Orchestrator";
 import source from "./source.json";
 import sourceWithError from "./sourceWithError.json";
+import sourceSkeleton from "./sourceSkeleton.json";
 import sourceWithUnit from "./sourceWithUnit.json";
 import sourceInComponentSet from "./sourceWithComponentSet.json";
 import { StoryObj, Meta } from "@storybook/react";
@@ -27,6 +28,10 @@ type Story = StoryObj<typeof Orchestrator>;
 
 export const Default: Story = {
     args: { source: source },
+};
+
+export const Skeleton: Story = {
+    args: { source: sourceSkeleton },
 };
 
 export const WithError: Story = {

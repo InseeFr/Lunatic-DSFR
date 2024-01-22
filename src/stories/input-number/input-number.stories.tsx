@@ -18,7 +18,7 @@ Error.args = {
     value: 4,
     id: "ErrorMessage",
     disabled: false,
-    label: "What is your favourite number?",
+    label: "Your favourite number",
     description: "It must be a prime number bigger than 3",
     errors: [
         {
@@ -38,7 +38,7 @@ Success.args = {
     value: 5,
     id: "SuccessMessage",
     disabled: false,
-    label: "What is your favourite number?",
+    label: "Your favourite number",
     description: "It must be a prime number bigger than 3",
     errors: [
         {
@@ -58,7 +58,7 @@ Disabled.args = {
     value: 1000000,
     id: "DisabledMessage",
     disabled: true,
-    label: "What is your favourite number?",
+    label: "Your favourite number",
     description: "It must be a prime number bigger than 3",
 };
 
@@ -78,7 +78,7 @@ UnitError.args = {
     unit: "€",
     id: "ErrorMessage",
     disabled: false,
-    label: "What is your favourite number?",
+    label: "Your favourite number",
     description: "It must be a prime number bigger than 3",
     errors: [
         {
@@ -98,7 +98,7 @@ UnitDisabled.args = {
     unit: "€",
     id: "UnitDisabled",
     disabled: true,
-    label: "What is your favourite number?",
+    label: "Your favourite number",
     description: "It must be a prime number bigger than 3",
 };
 
@@ -108,7 +108,7 @@ UnitSuccess.args = {
     unit: "€",
     id: "SuccessMessage",
     disabled: false,
-    label: "What is your favourite number?",
+    label: "Your favourite number",
     description: "It must be a prime number bigger than 3",
     errors: [
         {

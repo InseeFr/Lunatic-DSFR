@@ -45,6 +45,7 @@ jspm_packages
 /.yarn_home/
 
 /public/dsfr/
+/public/workers/
 /**/dist/**
 
 *.tgz

@@ -2,6 +2,7 @@ import "@codegouvfr/react-dsfr/dsfr/dsfr.min.css";
 import Orchestrator from "../utils/Orchestrator";
 import data from "./data.json";
 import source from "./source.json";
+import sourceSkeleton from "./sourceSkeleton.json";
 import source1 from "./source1.json";
 import { StoryObj, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
@@ -45,4 +46,8 @@ export const RoundaboutWithLockedSetToFalse: Story = {
         },
     },
     args: { source: source1, data: data },
+};
+
+export const Skeleton: Story = {
+    args: { source: sourceSkeleton, data: data },
 };
