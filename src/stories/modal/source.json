@@ -43,7 +43,7 @@
             "max": 10,
             "decimals": 0,
             "label": {
-                "value": "\"➡ 1. \" || \"Number of habitants\"",
+                "value": "\"➡ 3. \" || \"Page trois\"",
                 "type": "VTL|MD"
             },
             "description": {
