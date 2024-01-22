@@ -1,4 +1,4 @@
-import { type ReactEventHandler, MouseEventHandler, RefObject } from "react";
+import { type ReactEventHandler, MouseEventHandler, RefObject, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "./Button";
 import { type LunaticComponentProps } from "./type";
@@ -7,13 +7,34 @@ import classnames from "classnames";
 
 type Props = Pick<LunaticComponentProps<"Modal">, "id" | "label" | "description"> & {
     onClose: ReactEventHandler<HTMLDialogElement>;
-    onCancel: ReactEventHandler<HTMLDialogElement>;
+    onCancel: () => void;
     onClick: MouseEventHandler<HTMLDialogElement>;
     dialogRef: RefObject<HTMLDialogElement>;
 };
 
 export function Modal(props: Props) {
-    const { id, label, description, onClose, onCancel, onClick, dialogRef } = props;
+    const { id, label, description, onClose, onCancel, dialogRef } = props;
+
+    // dsfr has his own method to "hide" the modal when clicking on the overlay
+    // and it doesn't broadcast any event so we have to watch when the class "fr-modal--opened" is removed
+    useEffect(() => {
+        if (!dialogRef.current) {
+            return;
+        }
+        const observer = new MutationObserver(mutationsList => {
+            for (const mutation of mutationsList) {
+                if (
+                    mutation.type === "attributes" &&
+                    mutation.attributeName === "class" &&
+                    !dialogRef.current?.classList.contains("fr-modal--open")
+                ) {
+                    onCancel();
+                }
+            }
+        });
+        observer.observe(dialogRef.current, { attributes: true, attributeFilter: ["class"] });
+        return () => observer.disconnect();
+    }, []);
 
     return createPortal(
         <dialog
@@ -26,7 +47,6 @@ export function Modal(props: Props) {
             role="dialog"
             onClose={onClose}
             onCancel={onCancel}
-            onClick={onClick}
         >
             <div className={fr.cx("fr-container", "fr-container--fluid", "fr-container-md")}>
                 <div className={fr.cx("fr-grid-row", "fr-grid-row--center")}>

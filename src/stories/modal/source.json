@@ -1,5 +1,5 @@
 {
-    "maxPage": "2",
+    "maxPage": "3",
     "components": [
         {
             "id": "kze792d8",
@@ -33,6 +33,25 @@
                 "value": "\"* vous-même \n * les nourrissons encore à la maternité  \n * les personnes temporairement absentes (vacances, voyage d'affaires, hospitalisation de moins d'un mois, etc.) \n * les personnes qui vivent également une partie du temps ailleurs (enfants ou étudiants scolarisés ailleurs, conjoints éloignés pour raisons professionnelles, enfants en résidence alternée, personnes âgées en institution, etc.) \n * les colocataires et les sous-locataires \n\"",
                 "type": "VTL|MD"
             }
+        },
+        {
+            "id": "kze792d8",
+            "componentType": "InputNumber",
+            "mandatory": false,
+            "page": "3",
+            "min": 0,
+            "max": 10,
+            "decimals": 0,
+            "label": {
+                "value": "\"➡ 3. \" || \"Page trois\"",
+                "type": "VTL|MD"
+            },
+            "description": {
+                "value": "\"The number of habitants who live permanently with you.\"",
+                "type": "VTL|MD"
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "response": { "name": "COUNT_PERSONS" }
         }
     ],
     "variables": [
