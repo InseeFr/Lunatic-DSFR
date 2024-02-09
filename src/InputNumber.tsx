@@ -1,7 +1,7 @@
 import { Input, InputProps } from "@codegouvfr/react-dsfr/Input";
 import classNames from "classnames";
 import { useCallback, useState } from "react";
-import { NumberFormatValues, NumericFormat, NumericFormatProps } from "react-number-format";
+import { type NumberFormatValues, NumericFormat, type NumericFormatProps } from "react-number-format";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { LunaticError } from "./utils/type/type";
 import { fr } from "@codegouvfr/react-dsfr";

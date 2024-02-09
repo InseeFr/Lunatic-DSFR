@@ -3,9 +3,9 @@ import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
 import { LunaticError } from "./utils/type/type";
-import { makeStyles } from "tss-react/dsfr";
+import { tss } from "tss-react/dsfr";
 
-const useStyles = makeStyles()({
+const useStyles = tss.create({
     readOnly: {
         ".fr-input:read-only": {
             "color": "var(--text-disabled-grey)",

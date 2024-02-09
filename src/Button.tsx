@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useCallback } from "react";
-import classnames from "classnames";
+import { useStyles } from "tss-react/dsfr";
 import { isElement } from "./utils/is-element";
 import { Button as ButtonDSFR } from "@codegouvfr/react-dsfr/Button";
 import { ButtonProps } from "@codegouvfr/react-dsfr/Button";
@@ -31,11 +31,13 @@ export function Button({
         [onClick],
     );
 
+    const { cx } = useStyles();
+
     if (isElement(children))
         return (
             <ButtonDSFR
                 disabled={disabled}
-                className={classnames("button-lunatic-dsfr", className)}
+                className={cx("button-lunatic-dsfr", className)}
                 priority={priority}
                 onClick={handleClick}
                 type={type}
@@ -48,7 +50,7 @@ export function Button({
     return (
         <ButtonDSFR
             disabled={disabled}
-            className={classnames("button-lunatic-dsfr", className)}
+            className={cx("button-lunatic-dsfr", className)}
             priority={priority}
             onClick={handleClick}
             type={type}

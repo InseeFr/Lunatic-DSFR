@@ -46,30 +46,32 @@
     ],
     "keywords": [],
     "peerDependencies": {
-        "@emotion/react": "^11.10.5"
+        "@mui/material": "^5.0.1",
+        "@emotion/react": "^11.4.1"
     },
     "devDependencies": {
-        "@babel/core": "^7.20.12",
-        "@babel/preset-env": "^7.22.20",
-        "@babel/preset-react": "^7.22.15",
-        "@babel/preset-typescript": "^7.23.0",
-        "@codegouvfr/react-dsfr": "0.76.2",
+        "@mui/material": "^5.12.0",
         "@emotion/react": "^11.10.6",
-        "@storybook/addon-actions": "^7.4.6",
-        "@storybook/addon-essentials": "^7.4.6",
-        "@storybook/addon-interactions": "^7.4.6",
-        "@storybook/addon-links": "^7.4.6",
-        "@storybook/addon-mdx-gfm": "7.4.6",
-        "@storybook/react": "^7.4.6",
-        "@storybook/react-webpack5": "7.4.6",
-        "@storybook/testing-library": "^0.2.2",
+        "@emotion/styled": "^11.10.6",
+        "@codegouvfr/react-dsfr": "0.76.2",
+        "@babel/core": "^7.20.2",
+        "@gouvfr/dsfr": "1.11.0",
+        "@mui/icons-material": "^5.14.18",
+        "@storybook/addon-a11y": "^6.5.16",
+        "@storybook/addon-actions": "^6.5.13",
+        "@storybook/addon-essentials": "^6.5.13",
+        "@storybook/addon-interactions": "^6.5.13",
+        "@storybook/addon-links": "^6.5.13",
+        "@storybook/builder-webpack5": "^6.5.13",
+        "@storybook/manager-webpack5": "^6.5.13",
+        "@storybook/react": "^6.5.13",
+        "@storybook/testing-library": "^0.0.13",
+        "babel-loader": "^8.3.0",
         "@types/node": "^16.4.9",
         "@types/react": "^18.2.25",
         "@types/react-dom": "^18.2.10",
         "@typescript-eslint/eslint-plugin": "^6.7.4",
         "@typescript-eslint/parser": "^6.7.4",
-        "babel-loader": "^8.3.0",
-        "chromatic": "^7.2.3",
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-storybook": "^0.6.14",
@@ -78,26 +80,16 @@
         "prettier": "^2.3.2",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "storybook": "next",
         "ts-node": "^10.9.1",
-        "tsconfig-paths-webpack-plugin": "^4.0.0",
         "typescript": "5.2.2"
     },
     "dependencies": {
-        "@emotion/styled": "^11.10.6",
         "@inseefr/lunatic": "2.6.5",
-        "@mui/material": "^5.12.0",
         "classnames": "^2.3.2",
         "react-number-format": "^5.1.4",
-        "sass-loader": "^13.2.0",
-        "tss-react": "4.8.6"
+        "tss-react": "^4.9.4"
     },
     "resolutions": {
         "jackspeak": "2.1.1"
-    },
-    "jest": {
-        "transformIgnorePatterns": [
-            "node_modules/(?!@codegouvfr/react-dsfr)"
-        ]
     }
 }

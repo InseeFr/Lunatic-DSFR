@@ -3,12 +3,12 @@ import { DatepickerInput } from "./DatepickerInput";
 import { getState, getStateRelatedMessage } from "../utils/errors/getErrorStates";
 import { LunaticError } from "../utils/type/type";
 import { fr } from "@codegouvfr/react-dsfr";
-import { makeStyles } from "tss-react/dsfr";
+import { tss } from "tss-react/dsfr";
 import classnames from "classnames";
 
-const useStyles = makeStyles()({
+const useStyles = tss.create({
     root: {
-        ".fr-messages-group": {
+        [`& ${fr.cx("fr-messages-group")}`]: {
             "marginTop": "1rem",
         },
     },

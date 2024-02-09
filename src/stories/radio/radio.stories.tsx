@@ -1,3 +1,4 @@
+import * as React from "react";
 import Radio from "../../Radio";
 import { StoryFn, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";

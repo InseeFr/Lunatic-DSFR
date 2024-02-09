@@ -1,13 +1,13 @@
-import { FC, useState, useCallback } from "react";
+import { /*FC,*/ useState, useCallback } from "react";
 import * as lunatic from "@inseefr/lunatic";
 import { LunaticError } from "../../utils/type/type";
 import Waiting from "./waiting";
 import { startReactDsfr } from "@codegouvfr/react-dsfr/spa";
 import classnames from "classnames";
 startReactDsfr({ defaultColorScheme: "system" });
-import { makeStyles } from "tss-react/dsfr";
+import { tss } from "tss-react/dsfr";
 
-const useStyles = makeStyles()({
+const useStyles = tss.create({
     componentsDsfr: {
         ".fr-callout": {
             width: "100%",
@@ -158,7 +158,9 @@ function onLogChange(res: any, value: any, args: any) {
     console.log("onChange", { res, value, args });
 }
 
-const Orchestrator: FC<OrchestratorProps> = ({
+//const Orchestrator: FC<OrchestratorProps> = ({
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Orchestrator: (props: any) => JSX.Element = ({
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     id,
     source,

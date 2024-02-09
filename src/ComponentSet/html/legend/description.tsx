@@ -1,5 +1,7 @@
 import classnames from "classnames";
 import React from "react";
+import { fr } from "@codegouvfr/react-dsfr";
+import { useStyles } from "tss-react";
 
 type DescriptionType = {
     value?: string | Record<string, unknown[]>;
@@ -7,9 +9,11 @@ type DescriptionType = {
 };
 
 function OneDescription({ value, className }: DescriptionType) {
+    const { cx } = useStyles();
+
     if ((typeof value === "string" && value.length > 0) || React.isValidElement(value)) {
         return (
-            <span className={classnames("label-description", "fr-hint-text", className)}>{value}</span>
+            <span className={cx("label-description", fr.cx("fr-hint-text"), className)}>{value}</span>
         );
     }
     return null;

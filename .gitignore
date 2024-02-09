@@ -50,8 +50,6 @@ jspm_packages
 
 *.tgz
 
-storybook-static/
-
 # Yarn 3 files
 .pnp.*
 .yarn/*
