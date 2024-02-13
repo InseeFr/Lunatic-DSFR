@@ -41,10 +41,10 @@ yarn add @inseefr/lunatic-dsfr
 Import the Lunatic-DSFR components in the file where you call `useLunatic()`:
 
 ```js
-import * as custom from "@inseefr/lunatic-dsfr";
+import { customComponents } from "@inseefr/lunatic-dsfr";
 ```
 
-Then inject `custom` as an argument of the `useLunatic()` function:
+Then inject `custom: customComponents` as an argument of the `useLunatic()` function:
 
 ```js
 const {
@@ -65,6 +65,6 @@ const {
     savingType,
     autoSuggesterloading,
     onChange,
-    custom,
+    custom: customComponents,
 });
 ```
