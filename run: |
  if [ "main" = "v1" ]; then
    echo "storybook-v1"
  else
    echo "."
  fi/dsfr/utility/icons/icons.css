@@ -1,0 +1,24 @@
+.fr-icon-theme-fill::before,
+.fr-icon-theme-fill::after {
+    -webkit-mask-image: url("../../icons/system/fr--theme-fill.svg");
+    mask-image: url("../../icons/system/fr--theme-fill.svg");
+}
+
+.fr-icon-arrow-right-line::before,
+.fr-icon-arrow-right-line::after {
+    -webkit-mask-image: url("../../icons/system/arrow-right-line.svg");
+    mask-image: url("../../icons/system/arrow-right-line.svg");
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .fr-icon-theme-fill::before,
+    .fr-icon-theme-fill::after {
+        background-image: url("../../icons/system/fr--theme-fill.svg");
+    }
+    
+    .fr-icon-arrow-right-line::before,
+    .fr-icon-arrow-right-line::after {
+        background-image: url("../../icons/system/arrow-right-line.svg");
+    }
+    
+}
