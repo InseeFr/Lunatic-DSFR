@@ -4,7 +4,7 @@
     "description": "Couche graphique pour Lunatic reposant sur le Système de Design de l'État (DSFR)",
     "repository": {
         "type": "git",
-        "url": "git://github.com/Inseefr/lunatic-dsfr.git"
+        "url": "git://github.com/inseefr/lunatic-dsfr.git"
     },
     "author": "INSEE (http://www.insee.fr)",
     "license": "MIT",
@@ -19,11 +19,15 @@
         "_format": "prettier \"**/*.{ts,tsx,json,md}\"",
         "format": "npm run _format -- --write",
         "format:check": "npm run _format -- --list-different",
-        "link-in-main-project": "ts-node --skipProject src/scripts/link-in-main-project.ts",
-        "storybook": "copy-dsfr-to-public && yarn build && yarn only-include-used-icons && storybook dev -p 6006",
-        "build-storybook": "yarn build && yarn only-include-used-icons && storybook build",
+        "link-in-main-project": "ts-node --skipProject scripts/link-in-app.ts",
+        "storybook": "copy-dsfr-to-public && yarn only-include-used-icons && storybook dev -p 6006",
+        "build-storybook": "yarn only-include-used-icons && storybook build",
         "prestart": "only-include-used-icons",
         "prebuild": "only-include-used-icons"
+    },
+    "exports": {
+        ".": "./dist/index.js",
+        "./*": "./dist/*.js"
     },
     "lint-staged": {
         "*.{ts,tsx}": [
@@ -40,11 +44,11 @@
     },
     "files": [
         "src/",
-        "!src/scripts/",
         "dist/",
         "!dist/tsconfig.tsbuildinfo"
     ],
     "keywords": [],
+    "homepage": "https://inseefr.github.io/Lunatic-DSFR",
     "peerDependencies": {
         "@emotion/react": "^11.4.1",
         "@mui/material": "^5.0.1"
@@ -90,6 +94,9 @@
     "dependencies": {
         "react-number-format": "^5.1.4",
         "tss-react": "^4.9.4"
+    },
+    "publishConfig": {
+        "access": "public"
     },
     "resolutions": {
         "jackspeak": "2.1.1"

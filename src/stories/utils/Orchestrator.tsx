@@ -3,7 +3,7 @@ import * as lunatic from "@inseefr/lunatic";
 import { LunaticError } from "../../utils/type/type";
 import Waiting from "./waiting";
 import { tss } from "tss-react/dsfr";
-import { customComponent } from "index";
+import { customComponents } from "index";
 import { Button } from "Button";
 
 export interface OrchestratorProps {
@@ -126,7 +126,7 @@ const Orchestrator: (props: any) => JSX.Element = ({
         management,
         activeControls,
         getReferentiel,
-        customComponent,
+        custom: customComponents,
     });
 
     const components = getComponents();

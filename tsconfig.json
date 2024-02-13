@@ -20,6 +20,6 @@
         "allowSyntheticDefaultImports": true,
         "baseUrl": "src"
     },
-    "include": ["src"],
-    "exclude": ["src/scripts"]
+    "include": ["src", "scripts"],
+    "exclude": ["scripts"]
 }

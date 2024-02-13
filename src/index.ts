@@ -1,4 +1,15 @@
-import { Suggester } from "Suggester/Suggester";
+import {
+    Suggester,
+    ComboboxLabelSelection,
+    ComboboxInput,
+    ComboboxOption,
+    ComboboxClearButton,
+    Label,
+    ComboboxContentBox,
+    ComboboxContainer,
+    ComboboxPanelContainer,
+    SuggesterNotification,
+} from "Suggester";
 import { Button } from "./Button";
 import { CheckboxGroup } from "./CheckboxGroup";
 import { Datepicker } from "./Datepicker";
@@ -7,15 +18,24 @@ import { Input } from "./Input";
 import { InputNumber } from "./InputNumber";
 import { Radio } from "./Radio";
 import { Roundabout } from "./Roundabout";
-import { ComponentSet } from "./ComponentSet";
-import { QuestionContext } from "./Questions";
-import { QuestionExplication } from "./QuestionExplication";
+import { ComponentSet, ComponentSetWrapper } from "./ComponentSet";
+import { QuestionContext, QuestionInformation, QuestionExplication } from "./Questions";
 import { Sequence } from "./Sequence";
 import { Subsequence } from "./Subsequence";
 import { SummaryResponses, SummaryTitle } from "./Summary";
 import { Modal } from "./Modal";
 
-export const customComponent = {
+export const customComponents = {
+    Suggester,
+    ComboboxLabelSelection,
+    ComboboxInput,
+    ComboboxOption,
+    ComboboxClearButton,
+    Label,
+    ComboboxContentBox,
+    ComboboxContainer,
+    ComboboxPanelContainer,
+    SuggesterNotification,
     Button,
     Dropdown,
     Input,
@@ -23,10 +43,11 @@ export const customComponent = {
     CheckboxGroup,
     Radio,
     Datepicker,
-    Suggester,
     Roundabout,
     ComponentSet,
+    ComponentSetWrapper,
     QuestionContext,
+    QuestionInformation,
     QuestionExplication,
     Sequence,
     Subsequence,
@@ -36,4 +57,4 @@ export const customComponent = {
 };
 
 //To ensure retrocompatibility but should not be used for the future
-export default customComponent;
+export default customComponents;

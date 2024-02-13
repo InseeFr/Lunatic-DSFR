@@ -1,5 +1,5 @@
 import { useColors } from "@codegouvfr/react-dsfr/useColors";
-import { themeStringToVariable } from "./utils/themeStringToVariable";
+import { themeStringToVariable } from "../utils/themeStringToVariable";
 import { useCallback, useState } from "react";
 import { fr } from "@codegouvfr/react-dsfr";
 
