@@ -1,7 +1,6 @@
-import classnames from "classnames";
-import { makeStyles } from "@codegouvfr/react-dsfr/tss";
 import { fr } from "@codegouvfr/react-dsfr/";
 import { ReactNode } from "react";
+import { tss } from "tss-react/dsfr";
 
 type ComboBoxOptionType = {
     id?: string;
@@ -16,7 +15,7 @@ type Props = {
     selected?: boolean;
 };
 
-const useStyles = makeStyles()({
+const useStyles = tss.create({
     root: {
         cursor: "pointer",
         padding: "0.25rem",
@@ -39,7 +38,7 @@ export function ComboboxOption({ option, selected }: Props) {
     if (label && typeof label === "string" && label.length) {
         return (
             <div
-                className={classnames(
+                className={cx(
                     "lunatic-dsfr-combo-box-option",
                     { selected },
                     cx(classes.root, "fr-p-2w"),
@@ -52,11 +51,7 @@ export function ComboboxOption({ option, selected }: Props) {
     }
     return (
         <div
-            className={classnames(
-                "lunatic-dsfr-combo-box-option",
-                { selected },
-                cx(classes.root, "fr-p-2w"),
-            )}
+            className={cx("lunatic-dsfr-combo-box-option", { selected }, cx(classes.root, "fr-p-2w"))}
             style={getStyle(selected)}
         >
             <span className="id">{id}</span>

@@ -1,6 +1,6 @@
 import type { KeyboardEvent } from "react";
 import React, { PropsWithChildren } from "react";
-import classnames from "classnames";
+import { useStyles } from "tss-react/dsfr";
 
 type Props = PropsWithChildren<{
     focused?: boolean;
@@ -11,9 +11,10 @@ type Props = PropsWithChildren<{
 }>;
 
 export function ComboboxContentBox({ children, className, focused }: Props) {
+    const { cx } = useStyles();
     return (
         <div
-            className={classnames(`${className ?? "lunatic"}-dsfr-combo-box`, {
+            className={cx(`${className ?? "lunatic"}-dsfr-combo-box`, {
                 focused,
             })}
         >

@@ -1,7 +1,7 @@
 import { CSSProperties, PropsWithChildren, ReactNode } from "react";
-import classnames from "classnames";
 import React from "react";
 import { fr } from "@codegouvfr/react-dsfr";
+import { useStyles } from "tss-react/dsfr";
 
 type Props = PropsWithChildren<{
     id?: string;
@@ -16,11 +16,10 @@ type DescriptionProps = {
 };
 
 function OneDescription({ value, className }: { value?: ReactNode; className?: string }) {
+    const { cx } = useStyles();
     if ((typeof value === "string" && value.length > 0) || React.isValidElement(value)) {
         return (
-            <span className={classnames("label-description", fr.cx("fr-hint-text"), className)}>
-                {value}
-            </span>
+            <span className={cx("label-description", fr.cx("fr-hint-text"), className)}>{value}</span>
         );
     }
 
@@ -28,6 +27,7 @@ function OneDescription({ value, className }: { value?: ReactNode; className?: s
 }
 
 function Description({ value, className }: DescriptionProps) {
+    const { cx } = useStyles();
     if (Array.isArray(value)) {
         return (
             <>
@@ -35,21 +35,22 @@ function Description({ value, className }: DescriptionProps) {
                     <OneDescription
                         key={`description-${index}`}
                         value={label}
-                        className={classnames(className, declarationType)}
+                        className={cx(className, declarationType)}
                     />
                 ))}
             </>
         );
     }
-    return <OneDescription value={value} className={classnames(className)} />;
+    return <OneDescription value={value} className={cx(className)} />;
 }
 
 export function Label({ children, id, className, style, description }: Props) {
+    const { cx } = useStyles();
     if (children) {
         return (
             <label
                 id={id}
-                className={classnames("lunatic-dsfr-label", fr.cx("fr-label", "fr-mb-1w"), className)}
+                className={cx("lunatic-dsfr-label", fr.cx("fr-label", "fr-mb-1w"), className)}
                 style={style}
             >
                 {children}

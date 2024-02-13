@@ -1,6 +1,6 @@
-import classnames from "classnames";
 import { PropsWithChildren } from "react";
-import { makeStyles } from "@codegouvfr/react-dsfr/tss";
+import { tss } from "tss-react/dsfr";
+import { fr } from "@codegouvfr/react-dsfr";
 
 type Props = PropsWithChildren<{
     focused?: boolean;
@@ -8,7 +8,7 @@ type Props = PropsWithChildren<{
     id?: string;
 }>;
 
-const useStyles = makeStyles()(theme => ({
+const useStyles = tss.create(() => ({
     root: {
         maxHeight: "20rem",
         overflowX: "hidden",
@@ -16,10 +16,10 @@ const useStyles = makeStyles()(theme => ({
         "> li": {
             listStyle: "none",
             boxSizing: "border-box",
-            background: theme.decisions.background.contrast.grey.default,
+            background: fr.colors.decisions.background.contrast.grey.default,
             padding: 0,
             ":hover": {
-                background: theme.decisions.background.open.blueFrance.default,
+                background: fr.colors.decisions.background.open.blueFrance.default,
             },
             ":focus": {
                 borderColor: "blue",
@@ -27,7 +27,7 @@ const useStyles = makeStyles()(theme => ({
                 borderStyle: "solid",
             },
             ".selected": {
-                background: theme.decisions.background.open.blueFrance.default,
+                background: fr.colors.decisions.background.open.blueFrance.default,
             },
         },
     },
@@ -41,7 +41,7 @@ export function ComboboxPanelContainer({ children, focused, expanded, id }: Prop
             <ul
                 id={`lunatic-combo-box-panel-${id}`}
                 aria-label="suggestions"
-                className={classnames(
+                className={cx(
                     "lunatic-combo-box-panel",
                     "fr-select",
                     "fr-p-0",

@@ -1,6 +1,6 @@
 import { useRef, useEffect, HTMLAttributes, KeyboardEventHandler } from "react";
-import classnames from "classnames";
 import { fr } from "@codegouvfr/react-dsfr";
+import { useStyles } from "tss-react/dsfr";
 
 export type InputProps = {
     placeholder?: string;
@@ -20,6 +20,7 @@ export function ComboboxInput({
     focused,
 }: InputProps) {
     const inputEl = useRef<HTMLInputElement>(null);
+    const { cx } = useStyles();
 
     useEffect(() => {
         if (inputEl.current && focused) {
@@ -39,7 +40,7 @@ export function ComboboxInput({
             ref={inputEl}
             id={id}
             role="combobox"
-            className={classnames("lunatic-dsfr-combo-box-input", fr.cx("fr-input"))}
+            className={cx("lunatic-dsfr-combo-box-input", fr.cx("fr-input"))}
             type="text"
             onChange={onChange}
             value={value}

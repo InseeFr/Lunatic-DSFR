@@ -1,6 +1,5 @@
-import classNames from "classnames";
 import { ReactNode } from "react";
-import { makeStyles } from "@codegouvfr/react-dsfr/tss";
+import { tss } from "tss-react/dsfr";
 
 type ComboBoxOptionType = {
     id?: string;
@@ -21,7 +20,7 @@ function isPlaceholder(option: Props["option"], search: Props["search"]) {
     return !option && (!search || search.length === 0);
 }
 
-const useStyles = makeStyles()({
+const useStyles = tss.create({
     root: {
         overflow: "hidden",
         whiteSpace: "nowrap",
@@ -56,12 +55,12 @@ export function ComboboxLabelSelection({ option, placeholder, search, disabled =
 
     return (
         <div
-            className={classNames("lunatic-dsfr-combo-box-selected", cx(classes.root), "fr-input", {
+            className={cx("lunatic-dsfr-combo-box-selected", cx(classes.root), "fr-input", {
                 disabled,
             })}
         >
             <span
-                className={classNames(
+                className={cx(
                     {
                         placeholder: isPh,
                         selection: !isPh,

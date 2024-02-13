@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from "react";
-import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "../../utils/errors/getErrorStates";
 import { LunaticError } from "../../utils/type/type";
+import { useStyles } from "tss-react/dsfr";
 
 type Props = PropsWithChildren<{
     className?: string;
@@ -35,10 +35,12 @@ export function ComboboxContainer({
         state = getState(errors);
         stateRelatedMessage = getStateRelatedMessage(errors);
     }
+    const { cx } = useStyles();
+
     return (
         <div
             id={`${className ?? "lunatic"}-dsfr-combo-box-container-${id}`}
-            className={classnames(
+            className={cx(
                 `${className ?? "lunatic"}-dsfr-combo-box-container`,
                 `${className ?? "lunatic"}-dsfr-suggester-${classStyle}`,
                 `lunatic-dsfr-suggester-default-style`,
