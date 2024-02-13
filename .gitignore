@@ -58,3 +58,4 @@ jspm_packages
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+/.storybook/static/dsfr/

@@ -20,8 +20,8 @@
         "format": "npm run _format -- --write",
         "format:check": "npm run _format -- --list-different",
         "link-in-main-project": "ts-node --skipProject scripts/link-in-app.ts",
-        "storybook": "copy-dsfr-to-public && yarn only-include-used-icons && storybook dev -p 6006",
-        "build-storybook": "copy-dsfr-to-public && yarn only-include-used-icons && storybook build",
+        "storybook": "copy-dsfr-to-public .storybook/static && yarn only-include-used-icons && storybook dev -p 6006",
+        "build-storybook": "copy-dsfr-to-public .storybook/static && yarn only-include-used-icons && storybook build",
         "prestart": "only-include-used-icons",
         "prebuild": "only-include-used-icons",
         "prepare": "husky install"

@@ -1,8 +1,7 @@
 import type { Preview } from "@storybook/react";
 import { darkTheme, lightTheme } from "./customTheme";
-//TO CHANGE WHEN Upgrade react-dsfr
-import "../public/dsfr/utility/icons/icons.min.css";
-import "../public/dsfr/dsfr.css";
+import "./static/dsfr/utility/icons/icons.min.css";
+import "./static/dsfr/dsfr.css";
 
 import { startReactDsfr } from "@codegouvfr/react-dsfr/spa";
 
