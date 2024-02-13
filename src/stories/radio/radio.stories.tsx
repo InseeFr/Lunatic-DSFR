@@ -1,7 +1,6 @@
-import * as React from "react";
-import Radio from "../../Radio";
 import { StoryFn, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
+import { Radio } from "Radio";
 
 const stories = {
     title: "Components/Radio",

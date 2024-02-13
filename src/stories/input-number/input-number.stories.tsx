@@ -1,6 +1,6 @@
-import InputNumber from "../../InputNumber";
 import { StoryFn, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
+import { InputNumber } from "InputNumber";
 
 const stories = {
     title: "Components/InputNumber",

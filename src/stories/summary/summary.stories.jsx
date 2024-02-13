@@ -4,21 +4,19 @@ import source from "./source.json";
 import sourceSkeleton from "./sourceSkeleton.json";
 import data from "./data.json";
 import defaultArgTypes from "../utils/default-arg-types";
-import * as custom from "../..";
 
 const stories = {
-    title: "OrchestratedComponents/Summary",
+    title: "Orchestrated Components/Summary",
     component: Orchestrator,
     argTypes: defaultArgTypes,
 };
 
 export default stories;
 
-const Template = args => <Orchestrator {...args} custom={custom} />;
+const Template = args => <Orchestrator {...args} />;
 export const Default = Template.bind({});
 
 export const Skeleton = Template.bind({});
-
 
 Default.args = {
     id: "Summary",

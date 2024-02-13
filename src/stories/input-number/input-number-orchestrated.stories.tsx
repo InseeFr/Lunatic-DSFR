@@ -6,10 +6,9 @@ import sourceWithUnit from "./sourceWithUnit.json";
 import sourceInComponentSet from "./sourceWithComponentSet.json";
 import { StoryObj, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
-import * as custom from "../..";
 
 const meta: Meta<typeof Orchestrator> = {
-    title: "OrchestratedComponents/InputNumber",
+    title: "Orchestrated Components/InputNumber",
     component: Orchestrator,
     argTypes: defaultArgTypes,
     parameters: {
@@ -19,7 +18,6 @@ const meta: Meta<typeof Orchestrator> = {
             },
         },
     },
-    args: { custom },
 };
 
 export default meta;

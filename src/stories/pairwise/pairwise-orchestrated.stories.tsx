@@ -4,10 +4,9 @@ import sourceSkeleton from "./sourceSkeleton.json";
 import data from "./data.json";
 import { StoryObj, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
-import * as custom from "../..";
 
 const meta: Meta<typeof Orchestrator> = {
-    title: "OrchestratedComponents/Pairwise",
+    title: "Orchestrated Components/Pairwise",
     component: Orchestrator,
     argTypes: defaultArgTypes,
     parameters: {
@@ -17,7 +16,6 @@ const meta: Meta<typeof Orchestrator> = {
             },
         },
     },
-    args: { custom },
 };
 
 export default meta;

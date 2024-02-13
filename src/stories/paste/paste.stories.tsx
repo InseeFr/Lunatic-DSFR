@@ -1,7 +1,6 @@
 import Orchestrator from "../utils/Orchestrator";
 import { StoryObj, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
-import * as custom from "../..";
 import source from "./source.json";
 
 const meta: Meta<typeof Orchestrator> = {
@@ -9,7 +8,6 @@ const meta: Meta<typeof Orchestrator> = {
     component: Orchestrator,
     args: {
         source: source,
-        custom,
     },
     argTypes: {
         ...defaultArgTypes,

@@ -7,10 +7,9 @@ import data from "./data.json";
 import dataWithError from "./dataWithError.json";
 import { StoryObj, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
-import * as custom from "../..";
 
 const meta: Meta<typeof Orchestrator> = {
-    title: "OrchestratedComponents/DatePicker",
+    title: "Orchestrated Components/DatePicker",
     component: Orchestrator,
     argTypes: defaultArgTypes,
     parameters: {
@@ -20,7 +19,6 @@ const meta: Meta<typeof Orchestrator> = {
             },
         },
     },
-    args: { custom },
 };
 
 export default meta;

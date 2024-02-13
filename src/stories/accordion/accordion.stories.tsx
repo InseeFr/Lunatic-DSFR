@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
-import Accordion from "../../Accordion";
+import { Accordion } from "Accordion";
 
 const stories = {
     title: "Components/Accordion",

@@ -8,14 +8,14 @@ export function Button({
     children,
     disabled,
     className,
-    priority,
+    priority = "primary",
     onClick,
     type,
     value,
 }: PropsWithChildren<{
     disabled: boolean;
     className?: string;
-    priority: ButtonProps.Common["priority"];
+    priority?: ButtonProps.Common["priority"];
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
     type?: "button" | "submit" | "reset";
     value?: string;

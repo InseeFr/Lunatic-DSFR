@@ -1,4 +1,3 @@
-import "@codegouvfr/react-dsfr/dsfr/dsfr.min.css";
 import Orchestrator from "../utils/Orchestrator";
 import data from "./data.json";
 import source from "./source.json";
@@ -6,10 +5,9 @@ import sourceSkeleton from "./sourceSkeleton.json";
 import source1 from "./source1.json";
 import { StoryObj, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
-import * as custom from "../..";
 
 const meta: Meta<typeof Orchestrator> = {
-    title: "OrchestratedComponents/Roundabout",
+    title: "Orchestrated Components/Roundabout",
     component: Orchestrator,
     argTypes: defaultArgTypes,
     parameters: {
@@ -19,7 +17,6 @@ const meta: Meta<typeof Orchestrator> = {
             },
         },
     },
-    args: { custom },
 };
 
 export default meta;

@@ -1,10 +1,10 @@
 import { create } from "@storybook/theming";
 
-const brandImage= "logo.png";
-const brandTitle= "@codegouvfr/react-dsfr";
-const brandUrl= "https://github.com/codegouvfr/react-dsfr";
-const fontBase= '"Marianne", arial, sans-serif';
-const fontCode= "monospace";
+const brandImage = "logo.png";
+const brandTitle = "@inseefr/lunatic-dsfr";
+const brandUrl = "https://github.com/inseefr/Lunatic-dsfr";
+const fontBase = '"Marianne", arial, sans-serif';
+const fontCode = "monospace";
 
 export const darkTheme = create({
     "base": "dark",
@@ -17,7 +17,7 @@ export const darkTheme = create({
     brandTitle,
     brandUrl,
     fontBase,
-    fontCode
+    fontCode,
 });
 
 export const lightTheme = create({
@@ -31,5 +31,5 @@ export const lightTheme = create({
     brandTitle,
     brandUrl,
     fontBase,
-    fontCode
+    fontCode,
 });

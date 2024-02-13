@@ -3,20 +3,24 @@ import source from "./source.json";
 import sourceSkeleton from "./sourceSkeleton.json";
 import data from "./data.json";
 import { StoryObj, Meta } from "@storybook/react";
-import * as custom from "../..";
 import defaultArgTypes from "../utils/default-arg-types";
 
 const meta: Meta<typeof Orchestrator> = {
-    title: "OrchestratedComponents/CheckboxGroup",
+    title: "Orchestrated Components/CheckboxGroup",
     component: Orchestrator,
     argTypes: defaultArgTypes,
-    args: { source, data, custom },
+    args: { source, data },
 };
 
 export default meta;
+
 type Story = StoryObj<typeof Orchestrator>;
 
 export const Default: Story = {
+    render: args => {
+        console.log(args);
+        return <Orchestrator {...args} />;
+    },
     parameters: {
         docs: {
             description: {

@@ -11,7 +11,6 @@ const fields = [
     "shortcut",
     "activeGoNextForMissing",
     "filterDescription",
-    "custom",
     "suggesterFetcher",
     "autoSuggesterLoading",
     "suggesters",

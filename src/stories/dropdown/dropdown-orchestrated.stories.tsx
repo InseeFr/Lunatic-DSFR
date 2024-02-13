@@ -5,10 +5,9 @@ import sourceWithError from "./sourceWithError.json";
 import sourceComponentSet from "./sourceComponentSet.json";
 import { StoryObj, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
-import * as custom from "../..";
 
 const meta: Meta<typeof Orchestrator> = {
-    title: "OrchestratedComponents/Dropdown",
+    title: "Orchestrated Components/Dropdown",
     component: Orchestrator,
     argTypes: defaultArgTypes,
     parameters: {
@@ -18,7 +17,6 @@ const meta: Meta<typeof Orchestrator> = {
             },
         },
     },
-    args: { custom },
 };
 
 export default meta;

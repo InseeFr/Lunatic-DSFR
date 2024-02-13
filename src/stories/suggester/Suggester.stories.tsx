@@ -8,10 +8,9 @@ import sourceSkeleton from "./sourceSkeleton.json";
 import sourceDisabled from "./sourceDisabled.json";
 import { StoryFn, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
-import * as custom from "../..";
 
 const stories = {
-    title: "OrchestratedComponents/Suggester",
+    title: "Orchestrated Components/Suggester",
     component: Orchestrator,
     argTypes: defaultArgTypes,
     args: {
@@ -33,7 +32,7 @@ async function getReferentiel(name: string) {
     }
 }
 
-const Template: StoryFn<typeof Orchestrator> = args => <Orchestrator {...args} custom={custom} />;
+const Template: StoryFn<typeof Orchestrator> = args => <Orchestrator {...args} />;
 
 export const Default = Template.bind({});
 
