@@ -44,9 +44,14 @@ jobs:
         if: github.event_name == 'push'
         needs: test
         steps:
-            - name: Get branch name
-              id: branch-name
-              uses: tj-actions/branch-names@v7
+            - name: Destination dir
+              id: destination-dir
+              run: |
+                  if [ "${{ github.ref }}" = "refs/heads/v1" ]; then
+                    echo "destination_dir=storybook-v1" >> $GITHUB_OUTPUT
+                  else
+                    echo "destination_dir=." >> $GITHUB_OUTPUT
+                  fi
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
               with:
@@ -60,13 +65,7 @@ jobs:
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   publish_dir: ./storybook-static
-                  destination_dir: |
-                      run: |
-                        if [ "${{ steps.branch-name.outputs.current_branch }}" = "v1" ]; then
-                          echo "storybook-v1"
-                        else
-                          echo "."
-                        fi
+                  destination_dir: ${{ steps.destination-dir.outputs.destination_dir }}
 
     check_if_version_upgraded:
         name: Check if version upgrade
