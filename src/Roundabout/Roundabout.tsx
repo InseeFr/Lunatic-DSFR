@@ -16,7 +16,7 @@ type RoundaboutType = {
     unnecessary?: string | boolean;
 };
 
-export function RoundaboutIteration({
+function RoundaboutIteration({
     label,
     index,
     complete,
