@@ -55,5 +55,3 @@ export function CheckboxGroup({ label, description, id, disabled, className, err
         />
     );
 }
-
-export default CheckboxGroup;

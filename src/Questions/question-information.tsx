@@ -1,7 +1,7 @@
 import { LunaticComponentProps } from "../type";
 import { Alert } from "@codegouvfr/react-dsfr/Alert";
 
-function QuestionInformation(props: LunaticComponentProps<"Question">) {
+export function QuestionInformation(props: LunaticComponentProps<"Question">) {
     const { label, description } = props;
     if (!label && !description) {
         return null;
@@ -27,5 +27,3 @@ function QuestionInformation(props: LunaticComponentProps<"Question">) {
         );
     }
 }
-
-export default QuestionInformation;

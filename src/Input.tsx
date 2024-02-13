@@ -1,5 +1,4 @@
 import { useCallback, useState, useEffect } from "react";
-import classnames from "classnames";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
 import { LunaticError } from "./utils/type/type";
@@ -23,9 +22,9 @@ export type TypeError = Record<string, Array<LunaticError>>;
 export function Input({
     value,
     onChange,
-    disabled,
-    required,
-    maxLength,
+    disabled = false,
+    required = true,
+    maxLength = Number.MAX_SAFE_INTEGER,
     label,
     description,
     id,
@@ -65,7 +64,7 @@ export function Input({
         <InputDSFR
             label={label}
             disabled={disabled}
-            className={classnames("lunatic-dsfr-input", cx(classes.readOnly))}
+            className={cx("lunatic-dsfr-input", cx(classes.readOnly))}
             nativeInputProps={{
                 id: id,
                 maxLength: maxLength,
@@ -81,11 +80,3 @@ export function Input({
         />
     );
 }
-
-Input.defaultProps = {
-    disabled: false,
-    required: true,
-    maxLength: Number.MAX_SAFE_INTEGER,
-};
-
-export default Input;

@@ -51,5 +51,3 @@ export function Dropdown({
         </Select>
     );
 }
-
-export default Dropdown;

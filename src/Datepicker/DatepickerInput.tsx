@@ -148,5 +148,3 @@ export function DatepickerInput({
         </>
     );
 }
-
-export default DatepickerInput;

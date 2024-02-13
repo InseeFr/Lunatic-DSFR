@@ -2,7 +2,7 @@ import { LunaticBaseProps } from "../type";
 
 type SummaryTitleProps = Pick<LunaticBaseProps<string>, "label">;
 
-function SummaryTitle(props: SummaryTitleProps) {
+export function SummaryTitle(props: SummaryTitleProps) {
     const { label } = props;
     if (label) {
         return (
@@ -14,5 +14,3 @@ function SummaryTitle(props: SummaryTitleProps) {
 
     return null;
 }
-
-export default SummaryTitle;

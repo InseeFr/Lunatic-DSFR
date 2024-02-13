@@ -1,2 +1,2 @@
-export { default as SummaryResponses } from "./SummaryResponses";
-export { default as SummaryTitle } from "./SummaryTitle";
+export { SummaryResponses } from "./SummaryResponses";
+export { SummaryTitle } from "./SummaryTitle";

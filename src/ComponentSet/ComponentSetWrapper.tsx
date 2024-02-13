@@ -21,5 +21,3 @@ export function ComponentSetWrapper({
         </div>
     );
 }
-
-export default ComponentSetWrapper;

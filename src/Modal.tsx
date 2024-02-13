@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { Button } from "./Button";
 import { type LunaticComponentProps } from "./type";
 import { fr } from "@codegouvfr/react-dsfr";
-import classnames from "classnames";
+import { useStyles } from "tss-react/dsfr";
 
 type Props = Pick<LunaticComponentProps<"Modal">, "id" | "label" | "description"> & {
     onCancel: () => void;
@@ -15,6 +15,7 @@ export function Modal(props: Props) {
     const { id, label, description, onClose, onCancel } = props;
     const dialogRef = useRef<HTMLDivElement>(null);
 
+    const { cx } = useStyles();
     // dsfr has his own method to "hide" the modal when clicking on the overlay
     // and it doesn't broadcast any event so we have to watch when the class "fr-modal--opened" is removed
     useEffect(() => {
@@ -39,7 +40,7 @@ export function Modal(props: Props) {
     return createPortal(
         <div
             ref={dialogRef}
-            className={classnames("lunatic-dsfr-modal", fr.cx("fr-modal", "fr-modal--opened"))}
+            className={cx("lunatic-dsfr-modal", fr.cx("fr-modal", "fr-modal--opened"))}
             style={{ maxWidth: "100%", minHeight: "100vh" }}
             id={id}
             aria-labelledby={`${id}-title`}
@@ -81,7 +82,7 @@ export function Modal(props: Props) {
                                 >
                                     <li>
                                         <Button
-                                            onClick={() => onClose()}
+                                            onClick={onClose}
                                             value="default"
                                             disabled={false}
                                             type="button"
@@ -111,5 +112,3 @@ export function Modal(props: Props) {
         document.body,
     );
 }
-
-export default Modal;

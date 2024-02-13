@@ -22,5 +22,3 @@ export function Accordion({ label, description, bgColor }: AccordionType) {
         </div>
     );
 }
-
-export default Accordion;

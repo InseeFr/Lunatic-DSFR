@@ -38,7 +38,7 @@ function Responses({
     );
 }
 
-function SummaryResponses({
+export function SummaryResponses({
     sections,
 }: {
     sections: Array<{
@@ -62,5 +62,3 @@ function SummaryResponses({
         </>
     );
 }
-
-export default SummaryResponses;

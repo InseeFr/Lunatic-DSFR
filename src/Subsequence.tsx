@@ -16,5 +16,3 @@ export function Subsequence({ label, declarations }: SubsequenceType) {
         </div>
     );
 }
-
-export default Subsequence;

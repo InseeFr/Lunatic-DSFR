@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import Description from "./description";
+import { Description } from "./description";
 
 type LegendType = {
     children: string;
@@ -8,27 +8,23 @@ type LegendType = {
     description?: string | Record<string, unknown[]>;
 };
 
-function Legend({ children, id, className, description }: LegendType) {
+export function Legend({ children, id, className, description }: LegendType) {
     if (children) {
         return (
-            <>
-                <legend
-                    id={id}
-                    className={classnames(
-                        "lunatic-legend",
-                        "fr-fieldset__legend",
-                        "fr-h3",
-                        "fr-mb-0",
-                        className,
-                    )}
-                >
-                    {children}
-                    <Description value={description} className={className} />
-                </legend>
-            </>
+            <legend
+                id={id}
+                className={classnames(
+                    "lunatic-legend",
+                    "fr-fieldset__legend",
+                    "fr-h3",
+                    "fr-mb-0",
+                    className,
+                )}
+            >
+                {children}
+                <Description value={description} className={className} />
+            </legend>
         );
     }
     return null;
 }
-
-export default Legend;

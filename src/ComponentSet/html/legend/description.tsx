@@ -1,4 +1,3 @@
-import classnames from "classnames";
 import React from "react";
 import { fr } from "@codegouvfr/react-dsfr";
 import { useStyles } from "tss-react";
@@ -19,7 +18,9 @@ function OneDescription({ value, className }: DescriptionType) {
     return null;
 }
 
-function Description({ value, className }: DescriptionType) {
+export function Description({ value, className }: DescriptionType) {
+    const { cx } = useStyles();
+
     if (Array.isArray(value)) {
         return (
             <>
@@ -27,13 +28,11 @@ function Description({ value, className }: DescriptionType) {
                     <OneDescription
                         key={`description-${index}`}
                         value={label}
-                        className={classnames(className, declarationType)}
+                        className={cx(className, declarationType)}
                     />
                 ))}
             </>
         );
     }
-    return <OneDescription value={value} className={classnames(className)} />;
+    return <OneDescription value={value} className={className} />;
 }
-
-export default Description;

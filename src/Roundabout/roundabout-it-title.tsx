@@ -1,4 +1,3 @@
-import classnames from "classnames";
 import { useStyles } from "tss-react/dsfr";
 import { fr } from "@codegouvfr/react-dsfr";
 
@@ -20,11 +19,11 @@ export function RoundaboutItTitle({
     label: string;
     unnecessary?: string | boolean;
 }) {
-    const { css } = useStyles();
+    const { css, cx } = useStyles();
 
     return (
         <div
-            className={classnames(
+            className={cx(
                 css({
                     marginBottom: !unnecessary ? "1rem" : "0",
                     [fr.breakpoints.up("md")]: {
@@ -37,9 +36,7 @@ export function RoundaboutItTitle({
         >
             <div className={fr.cx("fr-grid-row")}>
                 <div className={fr.cx("fr-col-12")}>
-                    <h2 className={classnames("roundabout-it-title", fr.cx("fr-h4", "fr-mb-0"))}>
-                        {label}
-                    </h2>
+                    <h2 className={cx("roundabout-it-title", fr.cx("fr-h4", "fr-mb-0"))}>{label}</h2>
                 </div>
                 <UnnecessaryText unnecessary={unnecessary} />
             </div>

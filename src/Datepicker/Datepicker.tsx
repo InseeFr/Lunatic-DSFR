@@ -4,7 +4,6 @@ import { getState, getStateRelatedMessage } from "../utils/errors/getErrorStates
 import { LunaticError } from "../utils/type/type";
 import { fr } from "@codegouvfr/react-dsfr";
 import { tss } from "tss-react/dsfr";
-import classnames from "classnames";
 
 const useStyles = tss.create({
     root: {
@@ -91,10 +90,10 @@ export function Datepicker({
 
     const state = getState(errors);
     const stateRelatedMessage = getStateRelatedMessage(errors);
-    const { classes } = useStyles();
+    const { classes, cx } = useStyles();
     return (
         <fieldset
-            className={classnames(
+            className={cx(
                 classes.root,
                 `fr-fieldset${state ? ` fr-fieldset--${state}` : ""}`,
                 "datepicker-lunatic-dsfr",
@@ -118,5 +117,3 @@ export function Datepicker({
         </fieldset>
     );
 }
-
-export default Datepicker;

@@ -60,5 +60,3 @@ export function Button({
         </ButtonDSFR>
     );
 }
-
-export default Button;

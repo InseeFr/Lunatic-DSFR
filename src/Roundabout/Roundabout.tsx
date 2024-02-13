@@ -16,7 +16,7 @@ type RoundaboutType = {
     unnecessary?: string | boolean;
 };
 
-function RoundaboutIteration({
+export function RoundaboutIteration({
     label,
     index,
     complete,
@@ -75,5 +75,3 @@ export function Roundabout({ iterations, expressions, goToIteration, label, lock
     }
     return null;
 }
-
-export default Roundabout;

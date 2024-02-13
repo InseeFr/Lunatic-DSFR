@@ -61,5 +61,3 @@ export function QuestionExplication({ label, description, bgColor }: QuestionExp
         </div>
     );
 }
-
-export default QuestionExplication;

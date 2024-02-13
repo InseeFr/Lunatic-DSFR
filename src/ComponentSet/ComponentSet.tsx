@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import Legend from "./html/legend";
+import { Legend } from "./html/legend";
 import { LunaticError } from "../utils/type/type";
 import { useStyles } from "tss-react/dsfr";
 
@@ -37,5 +37,3 @@ export function ComponentSet({
         </fieldset>
     );
 }
-
-export default ComponentSet;

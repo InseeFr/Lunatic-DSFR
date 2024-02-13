@@ -1,11 +1,10 @@
 import { Input, InputProps } from "@codegouvfr/react-dsfr/Input";
-import classNames from "classnames";
 import { useCallback, useState } from "react";
 import { type NumberFormatValues, NumericFormat, type NumericFormatProps } from "react-number-format";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { LunaticError } from "./utils/type/type";
 import { fr } from "@codegouvfr/react-dsfr";
-import classnames from "classnames";
+import { useStyles } from "tss-react/dsfr";
 
 function checkValue(value: number) {
     if (!value && value != 0) {
@@ -62,6 +61,7 @@ export function InputNumber({
     // Computing step attribute of input according to decimal number
     const [step] = useState(decimals ? 1 / Math.pow(10, decimals) : 1);
 
+    const { cx } = useStyles();
     const isAllowed = useCallback(
         (values: NumberFormatValues) => {
             const { floatValue } = values;
@@ -84,17 +84,14 @@ export function InputNumber({
 
     return (
         <div
-            className={classnames(
-                "lunatic-input-number-container",
-                fr.cx("fr-grid-row", "fr-grid-row--middle"),
-            )}
+            className={cx("lunatic-input-number-container", fr.cx("fr-grid-row", "fr-grid-row--middle"))}
         >
             <NumberFormatDSFR
                 DSFRProps={{
                     label: label,
                     disabled: disabled,
                     hintText: description,
-                    className: classNames("lunatic-dsfr-input-number", {
+                    className: cx("lunatic-dsfr-input-number", {
                         "fr-col-11": unit !== undefined,
                         "fr-col-12": unit === undefined,
                     }),
@@ -128,5 +125,3 @@ export function InputNumber({
         </div>
     );
 }
-
-export default InputNumber;

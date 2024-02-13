@@ -1,2 +1,2 @@
-export { default as ComponentSet } from "./ComponentSet";
-export { default as ComponentSetWrapper } from "./ComponentSetWrapper";
+export { ComponentSet } from "./ComponentSet";
+export { ComponentSetWrapper } from "./ComponentSetWrapper";

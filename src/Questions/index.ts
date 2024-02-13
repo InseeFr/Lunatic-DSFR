@@ -1,2 +1,2 @@
-export { default as QuestionContext } from "./question-context";
-export { default as QuestionInformation } from "./question-information";
+export { QuestionContext } from "./question-context";
+export { QuestionInformation } from "./question-information";

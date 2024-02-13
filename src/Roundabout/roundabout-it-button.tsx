@@ -1,7 +1,6 @@
 import React, { useCallback } from "react";
 import { useStyles } from "tss-react/dsfr";
 import { fr } from "@codegouvfr/react-dsfr";
-import classnames from "classnames";
 import { Button } from "../Button";
 import { BUTTON_PRIORITIES } from "../utils/constants/buttonConstants";
 
@@ -36,9 +35,10 @@ function isCompleteAndLocked({ status, locked }: { status: string; locked?: bool
 
 //  When a questionnaire has been started, it shows the "complété" badge
 const CompleteBadge = ({ status, locked }: { status: string; locked?: boolean }) => {
+    const { cx } = useStyles();
     if (status === "complete" && locked) {
         return (
-            <div className={classnames({ "fr-mb-2w": !locked })}>
+            <div className={cx({ "fr-mb-2w": !locked })}>
                 <p className={fr.cx("fr-badge", "fr-badge--success")}>Complété</p>
             </div>
         );
@@ -59,10 +59,11 @@ const DisplayButton = ({
     onClick: React.MouseEventHandler<HTMLElement>;
     label: string;
 }) => {
+    const { cx } = useStyles();
     if ((status !== "complete" && locked) || !locked) {
         return (
             <Button
-                className={classnames("lunatic-dsfr-roundabout-it-button", "roundabout-it-button")}
+                className={cx("lunatic-dsfr-roundabout-it-button", "roundabout-it-button")}
                 onClick={onClick}
                 disabled={isCompleteAndLocked({ status, locked })}
                 priority={status === "complete" ? SECONDARY : PRIMARY}

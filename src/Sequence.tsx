@@ -1,8 +1,8 @@
 import { fr } from "@codegouvfr/react-dsfr";
 import { useColors } from "@codegouvfr/react-dsfr/useColors";
 import { DeclarationType } from "./utils/type/type-source";
-import classnames from "classnames";
 import React from "react";
+import { useStyles } from "tss-react/dsfr";
 
 type SequenceType = {
     label: string;
@@ -35,10 +35,10 @@ function Description({ description }: { description?: DeclarationType[] }) {
 
 export function Sequence({ label, description }: SequenceType) {
     const theme = useColors();
-
+    const { cx } = useStyles();
     return (
         <div
-            className={classnames("sequence-lunatic-dsfr", fr.cx("fr-grid-row", "fr-p-4w"))}
+            className={cx("sequence-lunatic-dsfr", fr.cx("fr-grid-row", "fr-p-4w"))}
             style={{ backgroundColor: theme.decisions.background.alt.grey.default }}
         >
             <h2 className={fr.cx("fr-h3", "fr-col-12")}>{label}</h2>
@@ -48,5 +48,3 @@ export function Sequence({ label, description }: SequenceType) {
         </div>
     );
 }
-
-export default Sequence;
