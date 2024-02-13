@@ -50,7 +50,7 @@ jobs:
                   if [ "${{ github.ref }}" = "refs/heads/v1" ]; then
                     echo "destination_dir=storybook-v1" >> $GITHUB_OUTPUT
                   else
-                    echo "destination_dir=." >> $GITHUB_OUTPUT
+                    echo "destination_dir=storybook" >> $GITHUB_OUTPUT
                   fi
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4

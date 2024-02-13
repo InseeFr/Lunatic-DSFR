@@ -23,7 +23,8 @@
         "storybook": "copy-dsfr-to-public && yarn only-include-used-icons && storybook dev -p 6006",
         "build-storybook": "copy-dsfr-to-public && yarn only-include-used-icons && storybook build",
         "prestart": "only-include-used-icons",
-        "prebuild": "only-include-used-icons"
+        "prebuild": "only-include-used-icons",
+        "prepare": "husky install"
     },
     "exports": {
         ".": "./dist/index.js",
@@ -54,7 +55,7 @@
         "@mui/material": "^5.0.1"
     },
     "devDependencies": {
-        "@codegouvfr/react-dsfr": "0.76.2",
+        "@codegouvfr/react-dsfr": "^1.5.0",
         "@emotion/react": "^11.10.6",
         "@emotion/styled": "^11.10.6",
         "@inseefr/lunatic": "2.6.5",
@@ -72,13 +73,13 @@
         "@types/react-dom": "^18.2.10",
         "@typescript-eslint/eslint-plugin": "^6.7.4",
         "@typescript-eslint/parser": "^6.7.4",
-        "eslint": "^7.32.0",
-        "eslint-config-prettier": "^8.3.0",
+        "eslint": "^8.56.0",
+        "eslint-config-prettier": "^8.10.0",
         "eslint-plugin-storybook": "^0.6.15",
-        "husky": "^4.3.8",
+        "husky": "^8.0.0",
         "knip": "^5.0.1",
-        "lint-staged": "^11.1.1",
-        "prettier": "^2.3.2",
+        "lint-staged": "^11.2.6",
+        "prettier": "^2.8.8",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "storybook": "^7.6.14",
@@ -94,8 +95,5 @@
     },
     "publishConfig": {
         "access": "public"
-    },
-    "resolutions": {
-        "jackspeak": "2.1.1"
     }
 }
