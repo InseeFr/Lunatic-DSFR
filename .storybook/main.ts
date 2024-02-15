@@ -24,7 +24,7 @@ export default {
         builder: "@storybook/builder-vite", // 👈 The builder enabled here.
     },
     framework: "@storybook/react-vite",
-    staticDirs: ["../public", "./static"],
+    staticDirs: ["./static"],
     async viteFinal(config) {
         // Merge custom configuration into the default config
         return mergeConfig(config, {

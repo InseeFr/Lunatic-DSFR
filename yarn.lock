@@ -1043,10 +1043,10 @@
   resolved "https://registry.yarnpkg.com/@base2/pretty-print-object/-/pretty-print-object-1.0.1.tgz#371ba8be66d556812dc7fb169ebc3c08378f69d4"
   integrity sha512-4iri8i1AqYHJE2DstZYkyEprg6Pq6sKx3xn5FpySk9sNhH7qN2LLlHJCfDTZRILNwQNPD7mATWM0TBui7uC1pA==
 
-"@codegouvfr/react-dsfr@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@codegouvfr/react-dsfr/-/react-dsfr-1.5.0.tgz#4ad469eef5b00da0fe82e0f83fae0f497e3a3a2d"
-  integrity sha512-Xx1INAsdkXu3ybINBAiipYIpMjzw7Makmug4pr5+glrWhp8bISD1FGv6TrZzavEO0tCdSPnX6WPIZfHYkUlAAA==
+"@codegouvfr/react-dsfr@^1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@codegouvfr/react-dsfr/-/react-dsfr-1.5.2.tgz#f10e6d50a618ad5dc60e60527d1beb5340ea8af7"
+  integrity sha512-FRu2HB9a8rk148aK7yIRB8mEePq62BG5BC0F+HJ8rOsud/N1Yst8lvX/+hA1lRTLtgOILGBArXpj/LdU76GA8w==
   dependencies:
     tsafe "^1.6.3"
 
@@ -1512,13 +1512,13 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-2.0.2.tgz#d9fae00a2d5cb40f92cfe64b47ad749fbc38f917"
   integrity sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==
 
-"@inseefr/lunatic@2.6.5":
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/@inseefr/lunatic/-/lunatic-2.6.5.tgz#7f1058b7c183b8fc307771daa630ebcf9f99c439"
-  integrity sha512-DQo4Cua88CJQ+U/VMm3PETpCvAw5wmsAKKkGJwIJjjOsJZ2MmhNoda4J9qDddaO+3pqo7BljEXUMK/3xbds/zg==
+"@inseefr/lunatic@2.7.19":
+  version "2.7.19"
+  resolved "https://registry.yarnpkg.com/@inseefr/lunatic/-/lunatic-2.7.19.tgz#f78b479a95db7c55925f981c48a95dbd3318ec1d"
+  integrity sha512-Mo62ydKIejMeO6bXrI+xYxXgPhVEvcwAgdD8xV5ehHeh9kAOzIYBf8mY+VMi/IzhIBkm3bQhCvk5NIJCWP3TQQ==
   dependencies:
     "@inseefr/trevas" "^0.1.20"
-    "@inseefr/vtl-2.0-antlr-tools" "^0.1.0-bundle"
+    "@inseefr/vtl-2.0-antlr-tools" "^0.1.0"
     antlr4 "4.11.0"
     classnames "^2.3.1"
     date-fns "^2.25.0"
@@ -1530,7 +1530,7 @@
     react-keyboard-event-handler "^1.5.4"
     react-markdown "^8.0.3"
     react-number-format "^5.1.3"
-    react-tooltip "^4.2.15"
+    react-tooltip "^5.23.0"
     remove-accents "^0.4.2"
     sass "^1.58.3"
     snowball "^0.3.1"
@@ -1546,7 +1546,7 @@
     data-forge "^1.8.8"
     date-fns "^2.27.0"
 
-"@inseefr/vtl-2.0-antlr-tools@0.1.0", "@inseefr/vtl-2.0-antlr-tools@^0.1.0-bundle":
+"@inseefr/vtl-2.0-antlr-tools@0.1.0", "@inseefr/vtl-2.0-antlr-tools@^0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@inseefr/vtl-2.0-antlr-tools/-/vtl-2.0-antlr-tools-0.1.0.tgz#5c2d13621b4cab0a092b45d9edd64d8062f348d9"
   integrity sha512-VgNDBE9dqtPFnlk8nCcFD0/dEcuzlhUd5RWsf+dlRsbjSb2wZZhwL8BKCopfLWKLSkTdPyRaosIVL1neiOAB2A==
@@ -4061,7 +4061,7 @@ citty@^0.1.5:
   dependencies:
     consola "^3.2.3"
 
-classnames@^2.3.1:
+classnames@^2.3.0, classnames@^2.3.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.5.1.tgz#ba774c614be0f016da105c858e7159eae8e7687b"
   integrity sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==
@@ -7609,13 +7609,13 @@ react-style-singleton@^2.2.1:
     invariant "^2.2.4"
     tslib "^2.0.0"
 
-react-tooltip@^4.2.15:
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-4.5.1.tgz#77eccccdf16adec804132e558ec20ca5783b866a"
-  integrity sha512-Zo+CSFUGXar1uV+bgXFFDe7VeS2iByeIp5rTgTcc2HqtuOS5D76QapejNNfx320MCY91TlhTQat36KGFTqgcvw==
+react-tooltip@^5.23.0:
+  version "5.26.2"
+  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-5.26.2.tgz#9af7fac3dcf423a3d6cc811980dc3f24016f0fe1"
+  integrity sha512-C1qHiqWYn6l5c98kL/NKFyJSw5G11vUVJkgOPcKgn306c5iL5317LxMNn5Qg1GSSM7Qvtsd6KA5MvwfgxFF7Dg==
   dependencies:
-    prop-types "^15.8.1"
-    uuid "^7.0.3"
+    "@floating-ui/dom" "^1.6.1"
+    classnames "^2.3.0"
 
 react-transition-group@^4.4.5:
   version "4.4.5"
@@ -8888,11 +8888,6 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==
-
-uuid@^7.0.3:
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"
-  integrity sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==
 
 uuid@^9.0.0:
   version "9.0.1"

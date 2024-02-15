@@ -43,9 +43,8 @@ jspm_packages
 /dist
 /lib
 /.yarn_home/
-/storybook-static
+storybook-static/
 /public/dsfr/
-/public/workers/
 /**/dist/**
 
 *.tgz
@@ -59,3 +58,4 @@ jspm_packages
 !.yarn/sdks
 !.yarn/versions
 /.storybook/static/dsfr/
+/.storybook/static/workers/
