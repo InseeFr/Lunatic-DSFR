@@ -17,10 +17,6 @@ startReactDsfr({
     "useLang": () => defaultLang,
 });
 
-console.log(document.body);
-
-const toto: Preview = {};
-
 const preview = {
     globalTypes: {
         locale: {
@@ -36,9 +32,7 @@ const preview = {
         },
     },
     parameters: {
-        /*
         backgrounds: { disable: true },
-        */
         docs: {
             container: DocsContainer,
         },
