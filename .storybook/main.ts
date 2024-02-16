@@ -5,15 +5,16 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default {
     stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
     addons: [
-        {
-            name: "@storybook/addon-docs",
-            options: {
-                configureJSX: true,
-                babelOptions: {},
-                sourceLoaderOptions: null,
-                transcludeMarkdown: true,
-            },
-        },
+        "@storybook/addon-docs",
+        // {
+        //     name: "@storybook/addon-docs",
+        //     options: {
+        //         configureJSX: true,
+        //         babelOptions: {},
+        //         sourceLoaderOptions: null,
+        //         transcludeMarkdown: true,
+        //     },
+        // },
         "@storybook/addon-links",
         "@storybook/addon-essentials",
         "@storybook/addon-onboarding",
