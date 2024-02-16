@@ -1,0 +1,1 @@
+import{u as c,f as i}from"./index-CAmJLBaW.js";function u(){const{isDark:s}=c();return{isDark:s,options:i.colors.options,decisions:i.colors.decisions}}function a(s,t,o){if(!t)return o;const r=t.split(".");if(r.length!==2)return o;const n=s.decisions.background.alt[r[0]];return n&&n[r[1]]||o}export{a as t,u};
