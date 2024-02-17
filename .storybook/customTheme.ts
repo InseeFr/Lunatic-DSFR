@@ -19,6 +19,8 @@ export const darkTheme = create({
     brandUrl,
     fontBase,
     fontCode,
+    // brandTarget
+    // gridCellSize
 });
 
 export const lightTheme = create({
