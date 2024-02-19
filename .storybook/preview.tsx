@@ -1,11 +1,11 @@
 import type { Preview } from "@storybook/react";
 import { darkTheme, lightTheme } from "./customTheme";
-
 import "./static/dsfr/utility/icons/icons.min.css";
 import "./static/dsfr/dsfr.css";
 import { startReactDsfr } from "@codegouvfr/react-dsfr/spa";
 import { useIsDark as useIsDsfrDark } from "@codegouvfr/react-dsfr/useIsDark";
 import { useDarkMode as useStorybookUiDarkMode } from "storybook-dark-mode";
+import { useEffectOnValueChange } from "../src/hooks/useEffectOnValueChange";
 
 import React, { useEffect } from "react";
 import { DocsContainer } from "./DocsContainer";
@@ -34,6 +34,7 @@ const preview = {
     parameters: {
         backgrounds: { disable: true },
         docs: {
+            autodocs: "tags",
             container: DocsContainer,
         },
         darkMode: {
@@ -41,11 +42,16 @@ const preview = {
             dark: darkTheme,
         },
     },
+    argTypes: {
+        darkMode: {
+            control: { type: "boolean" },
+            "description": "Global color scheme enabled, light or dark",
+        },
+    },
     decorators: [
         (Story, context) => {
-            console.log(context.globals.locale);
             const isStorybookUiDark = useStorybookUiDarkMode();
-            const { setIsDark: setIsDsfrDark } = useIsDsfrDark();
+            const { isDark, setIsDark: setIsDsfrDark } = useIsDsfrDark();
             useEffect(
                 //We initialize storybook canva with the same theme as storybook webSite
                 () => {
@@ -53,6 +59,10 @@ const preview = {
                 },
                 [],
             );
+            useEffectOnValueChange(() => {
+                setIsDsfrDark(context.args.darkMode);
+            }, [context.args.darkMode]);
+
             return <Story />;
         },
     ],

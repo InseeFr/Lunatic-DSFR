@@ -1,17 +1,20 @@
-import { StoryFn, Meta } from "@storybook/react";
-import defaultArgTypes from "../utils/default-arg-types";
+import type { Meta, StoryObj } from "@storybook/react";
 import { Accordion } from "Accordion";
 
-const stories = {
+const meta = {
     title: "Components/Accordion",
-    component: Accordion,
-    argTypes: defaultArgTypes,
-} as Meta<typeof Accordion>;
+    tags: ["autodocs"],
+    //component: Accordion,
+    render: props => {
+        console.log(props);
+        return <Accordion {...props} />;
+    },
+} satisfies Meta<typeof Accordion>;
 
-export default stories;
+export default meta;
 
-const Template: StoryFn<typeof Accordion> = args => <Accordion {...args} />;
+type Story = StoryObj<typeof Accordion>;
 
-export const Default = Template.bind({});
-
-Default.args = { label: "test", description: "test", bgColor: "purpleGlycine.default" };
+export const Default = {
+    args: { label: "test", description: "test", bgColor: "purpleGlycine.default" },
+} satisfies Story;

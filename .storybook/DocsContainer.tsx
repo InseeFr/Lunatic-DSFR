@@ -1,10 +1,12 @@
 import { useIsDark } from "@codegouvfr/react-dsfr/useIsDark";
 import { DocsContainer as DocsContainer_base } from "@storybook/addon-docs";
-import React, { ReactNode, useEffect } from "react";
+import React, { ComponentProps, useEffect } from "react";
 import { useDarkMode } from "storybook-dark-mode";
 import { darkTheme, lightTheme } from "./customTheme";
 
-export function DocsContainer(props: { children: ReactNode; context: any }) {
+type Props = ComponentProps<typeof DocsContainer_base>;
+
+export function DocsContainer(props: Props) {
     const { children, context } = props;
     const isStorybookUiDark = useDarkMode();
     const { setIsDark } = useIsDark();
