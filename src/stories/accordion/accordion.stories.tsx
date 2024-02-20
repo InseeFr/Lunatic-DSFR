@@ -4,11 +4,7 @@ import { Accordion } from "Accordion";
 const meta = {
     title: "Components/Accordion",
     tags: ["autodocs"],
-    //component: Accordion,
-    render: props => {
-        console.log(props);
-        return <Accordion {...props} />;
-    },
+    component: Accordion,
 } satisfies Meta<typeof Accordion>;
 
 export default meta;
