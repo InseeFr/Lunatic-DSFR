@@ -3,7 +3,7 @@ import { mergeConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default {
-    stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+    stories: ["../stories/**/*.mdx", "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
     addons: [
         "@storybook/addon-links",
         "@storybook/addon-essentials",

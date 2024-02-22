@@ -1,0 +1,71 @@
+{
+    "components": [
+        {
+            "componentType": "Question",
+            "id": "idQuestion",
+            "page": "1",
+            "label": {
+                "type": "VTL|MD",
+                "value": "\"Question\""
+            },
+            "description": {
+                "type": "VTL|MD",
+                "value": "\"Description de la question\""
+            },
+            "declarations": [
+                {
+                    "declarationType": "HELP",
+                    "id": "idQuestion-help1",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": "\"Contenu de la  première déclaration avant (contexte)\""
+                    },
+                    "position": "BEFORE_QUESTION_TEXT"
+                },
+                {
+                    "declarationType": "HELP",
+                    "id": "idQuestion-help2",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": "\"Contenu de la  deuxième déclaration avant (contexte)\""
+                    },
+                    "position": "BEFORE_QUESTION_TEXT"
+                },
+                {
+                    "declarationType": "HELP",
+                    "id": "idQuestion-help3",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": "\"Contenu de la première déclaration après (Information)\""
+                    },
+                    "position": "AFTER_QUESTION_TEXT"
+                },
+                {
+                    "declarationType": "HELP",
+                    "id": "idQuestion-help4",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": "\"Contenu de la deuxième déclaration après (Information)\""
+                    },
+                    "position": "AFTER_QUESTION_TEXT"
+                }
+            ],
+            "components": [
+                {
+                    "componentType": "Input",
+                    "id": "lk6zkkfr",
+                    "page": "1",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": "\"Titre du champ de saisie\""
+                    },
+                    "description": {
+                        "type": "VTL|MD",
+                        "value": "\"Description du champ de saisie\""
+                    },
+                    "maxLength": 249
+                }
+            ]
+        }
+    ]
+}

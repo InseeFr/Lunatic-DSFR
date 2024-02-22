@@ -1,11 +1,14 @@
 import { /*FC,*/ useState, useCallback } from "react";
 import * as lunatic from "@inseefr/lunatic";
-import { LunaticError } from "../../utils/type/type";
+import { LunaticError } from "../../src/utils/type/type";
 import Waiting from "./waiting";
 import { tss } from "tss-react/dsfr";
 import { customComponents } from "index";
 import { Button } from "Button";
+import { Question } from "Question/Question";
 
+// To remove once lunatic have Question component
+const temporyLunatic = { ...lunatic, Question };
 export interface OrchestratorProps {
     id: string;
     // eslint-disable-next-line @typescript-eslint/ban-types
@@ -130,6 +133,7 @@ const Orchestrator: (props: any) => JSX.Element = ({
     });
 
     const components = getComponents();
+    console.log(components);
     const [currentErrors, setCurrentErrors] = useState<Record<string, Array<LunaticError>>>();
 
     const handleGoNextPage = useCallback(
@@ -158,7 +162,7 @@ const Orchestrator: (props: any) => JSX.Element = ({
                         storeName?: string;
                     }) {
                         const { id, componentType, storeName, response, ...other } = component;
-                        const Component = lunatic[componentType];
+                        const Component = temporyLunatic[componentType];
                         const storeInfo = storeName ? getStoreInfo(storeName) : {};
                         if (Component) {
                             return (
