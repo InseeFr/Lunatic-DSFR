@@ -9,6 +9,7 @@ export default {
         "@storybook/addon-essentials",
         "@storybook/addon-interactions",
         "storybook-dark-mode",
+        "@storybook/addon-a11y",
     ],
     core: {
         builder: "@storybook/builder-vite", // 👈 The builder enabled here.
