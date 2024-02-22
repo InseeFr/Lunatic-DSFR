@@ -20,6 +20,6 @@
         "allowSyntheticDefaultImports": true,
         "baseUrl": "src"
     },
-    "include": ["src", "stories"],
+    "include": ["src", "scripts"],
     "exclude": ["scripts"]
 }
