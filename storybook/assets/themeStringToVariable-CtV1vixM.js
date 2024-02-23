@@ -1,0 +1,1 @@
+import{u as c,f as i}from"./index-CAmJLBaW.js";import"./index-CBqU2yxZ.js";function a(){const{isDark:s}=c();return{isDark:s,options:i.colors.options,decisions:i.colors.decisions}}function p(s,t,o){if(!t)return o;const r=t.split(".");if(r.length!==2)return o;const n=s.decisions.background.alt[r[0]];return n&&n[r[1]]||o}export{p as t,a as u};
