@@ -1,11 +1,11 @@
-import { MouseEventHandler, useEffect, useRef } from "react";
+import { type MouseEventHandler, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "./Button";
-import { type LunaticComponentProps } from "./type";
 import { fr } from "@codegouvfr/react-dsfr";
 import { useStyles } from "tss-react/dsfr";
+import type { LunaticComponentProps } from "@inseefr/lunatic";
 
-type Props = Pick<LunaticComponentProps<"Modal">, "id" | "label" | "description"> & {
+type Props = Pick<LunaticComponentProps<"ConfirmationModal">, "id" | "label" | "description"> & {
     onCancel: () => void;
     onClose: () => void;
     onClick: MouseEventHandler<HTMLDialogElement>;

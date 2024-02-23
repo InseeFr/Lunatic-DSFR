@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { RadioButtons as RadioDSFR } from "@codegouvfr/react-dsfr/RadioButtons";
-import { LunaticError } from "./utils/type/type";
 import { useStyles } from "tss-react/dsfr";
+import type { LunaticError } from "@inseefr/lunatic";
 
 type RadioGroupType = {
     onSelect: (value?: unknown) => void;

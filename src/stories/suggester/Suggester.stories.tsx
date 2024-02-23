@@ -6,7 +6,7 @@ import sourceError from "./source_error.json";
 import sourceNotLoading from "./source_not_loading.json";
 import sourceSkeleton from "./sourceSkeleton.json";
 import sourceDisabled from "./sourceDisabled.json";
-import { StoryFn, Meta } from "@storybook/react";
+import type { StoryFn, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 
 const stories = {

@@ -46,6 +46,7 @@
     "files": [
         "src/",
         "dist/",
+        "!/dist/stories/",
         "!dist/tsconfig.tsbuildinfo"
     ],
     "keywords": [],
@@ -58,7 +59,7 @@
         "@codegouvfr/react-dsfr": "^1.7.2",
         "@emotion/react": "^11.10.6",
         "@emotion/styled": "^11.10.6",
-        "@inseefr/lunatic": "2.7.19",
+        "@inseefr/lunatic": "2.7.20-rc.2",
         "@mui/material": "^5.12.0",
         "@storybook/addon-a11y": "^7.6.17",
         "@storybook/addon-essentials": "^7.6.17",

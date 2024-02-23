@@ -1,13 +1,14 @@
-import { PropsWithChildren, LegacyRef, forwardRef } from "react";
-import { makeStyles } from "@codegouvfr/react-dsfr/tss";
+import { fr } from "@codegouvfr/react-dsfr";
+import { type PropsWithChildren, type LegacyRef, forwardRef } from "react";
+import { tss } from "tss-react/dsfr";
 
 type SuggesterListBoxProps = {
     display: boolean;
 };
 
-const useStyles = makeStyles()(theme => ({
+const useStyles = tss.create(() => ({
     root: {
-        backgroundColor: theme.decisions.background.alt.grey.default,
+        backgroundColor: fr.colors.decisions.background.alt.grey.default,
         width: "100%",
         marginRight: 0,
         marginLeft: 0,

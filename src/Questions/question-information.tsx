@@ -1,7 +1,7 @@
-import { LunaticComponentProps } from "../type";
 import { Alert } from "@codegouvfr/react-dsfr/Alert";
+import type { LunaticComponentProps } from "@inseefr/lunatic";
 
-export function QuestionInformation(props: LunaticComponentProps<"Question">) {
+export function QuestionInformation(props: LunaticComponentProps<"QuestionInformation">) {
     const { label, description } = props;
     if (!label && !description) {
         return null;

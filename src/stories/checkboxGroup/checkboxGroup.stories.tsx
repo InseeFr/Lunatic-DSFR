@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 import { CheckboxGroup } from "CheckboxGroup";
 
@@ -11,7 +11,6 @@ const meta: Meta<typeof CheckboxGroup> = {
 export default meta;
 
 type Story = StoryObj<typeof CheckboxGroup>;
-//const Template: StoryFn<typeof CheckboxGroup> = args => <CheckboxGroup {...args} />;
 
 export const Error: Story = {
     args: {
@@ -53,15 +52,11 @@ export const Error: Story = {
                 id: "ErrorMessage",
                 criticality: "WARN",
                 typeOfControl: "CONSISTENCY",
-                formula: "OPT3 = false",
-                labelFormula: "Take another guess",
                 errorMessage: "Take another guess",
             },
         ],
     },
 };
-
-// export const Success = Template.bind({});
 
 export const Success: Story = {
     args: {
@@ -103,8 +98,6 @@ export const Success: Story = {
                 id: "SuccessMessage",
                 criticality: "INFO",
                 typeOfControl: "CONSISTENCY",
-                formula: '(nvl(NB,"") = 5)',
-                labelFormula: "Great work!",
                 errorMessage: "Great work!",
             },
         ],

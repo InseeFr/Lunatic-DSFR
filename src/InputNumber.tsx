@@ -1,10 +1,10 @@
-import { Input, InputProps } from "@codegouvfr/react-dsfr/Input";
+import { Input, type InputProps } from "@codegouvfr/react-dsfr/Input";
 import { useCallback, useState } from "react";
 import { type NumberFormatValues, NumericFormat, type NumericFormatProps } from "react-number-format";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
-import { LunaticError } from "./utils/type/type";
 import { fr } from "@codegouvfr/react-dsfr";
 import { useStyles } from "tss-react/dsfr";
+import type { LunaticError } from "@inseefr/lunatic";
 
 function checkValue(value: number) {
     if (!value && value != 0) {

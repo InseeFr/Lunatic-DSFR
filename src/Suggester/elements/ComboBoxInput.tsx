@@ -1,4 +1,4 @@
-import { useRef, useEffect, HTMLAttributes, KeyboardEventHandler } from "react";
+import { useRef, useEffect, type HTMLAttributes, type KeyboardEventHandler } from "react";
 import { fr } from "@codegouvfr/react-dsfr";
 import { useStyles } from "tss-react/dsfr";
 

@@ -3,7 +3,8 @@ import source from "./source.json";
 import sourceWithError from "./sourceWithError.json";
 import sourceSkeleton from "./sourceSkeleton.json";
 import sourceInComponentSet from "../date-picker/source-componentset.json";
-import { StoryObj, Meta } from "@storybook/react";
+import type { StoryObj, Meta } from "@storybook/react";
+
 import defaultArgTypes from "../utils/default-arg-types";
 
 const meta: Meta<typeof Orchestrator> = {

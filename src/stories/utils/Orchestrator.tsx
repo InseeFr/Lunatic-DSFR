@@ -1,6 +1,7 @@
-import { /*FC,*/ useState, useCallback } from "react";
-import * as lunatic from "@inseefr/lunatic";
-import { LunaticError } from "../../utils/type/type";
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// To refactor using LunaticComponents
+import { useState, useCallback } from "react";
+import { components as lunaticComponents, useLunatic, type LunaticError } from "@inseefr/lunatic";
 import Waiting from "./waiting";
 import { tss } from "tss-react/dsfr";
 import { customComponents } from "index";
@@ -50,7 +51,7 @@ function Pager({
     goToPage: Function;
     isLast: boolean;
     isFirst: boolean;
-    pageTag: number;
+    pageTag: string;
     maxPage?: string;
     // eslint-disable-next-line @typescript-eslint/ban-types
     getData: Function;
@@ -92,10 +93,7 @@ const Orchestrator: (props: any) => JSX.Element = ({
     getStoreInfo = getStoreInfoRequired,
     missing = false,
     shortcut = false,
-    activeGoNextForMissing = false,
-    suggesterFetcher,
     autoSuggesterLoading,
-    suggesters,
     preferences,
     filterDescription = true,
     getReferentiel,
@@ -114,15 +112,12 @@ const Orchestrator: (props: any) => JSX.Element = ({
         compileControls,
         getData,
         Provider,
-    } = lunatic.useLunatic(source, data, {
+    } = useLunatic(source, data, {
         initialPage,
         features,
         preferences,
         onChange: onLogChange,
-        activeGoNextForMissing,
         autoSuggesterLoading,
-        suggesters,
-        suggesterFetcher,
         management,
         activeControls,
         getReferentiel,
@@ -130,7 +125,7 @@ const Orchestrator: (props: any) => JSX.Element = ({
     });
 
     const components = getComponents();
-    const [currentErrors, setCurrentErrors] = useState<Record<string, Array<LunaticError>>>();
+    const [currentErrors, setCurrentErrors] = useState<Record<string, LunaticError[]> | undefined>();
 
     const handleGoNextPage = useCallback(
         function () {
@@ -151,41 +146,45 @@ const Orchestrator: (props: any) => JSX.Element = ({
         <Provider>
             <div className="container">
                 <div className={cx("components", classes.componentsDsfr)}>
-                    {components.map(function (component: {
-                        id?: string;
-                        componentType: string;
-                        response?: string;
-                        storeName?: string;
-                    }) {
-                        const { id, componentType, storeName, response, ...other } = component;
-                        const Component = lunatic[componentType];
-                        const storeInfo = storeName ? getStoreInfo(storeName) : {};
-                        if (Component) {
+                    {
+                        // @ts-ignore
+                        components.map(function (component: {
+                            id?: string;
+                            componentType: string;
+                            response?: string;
+                            storeName?: string;
+                        }) {
+                            const { id, componentType, storeName, response, ...other } = component;
+                            // @ts-ignore
+                            const Component = lunaticComponents[componentType];
+                            const storeInfo = storeName ? getStoreInfo(storeName) : {};
+                            if (Component) {
+                                return (
+                                    <div
+                                        className={cx("lunatic-component-dsfr", classes.root)}
+                                        key={`component-${id}`}
+                                    >
+                                        <Component
+                                            id={id}
+                                            response={response}
+                                            {...other}
+                                            {...rest}
+                                            {...component}
+                                            {...storeInfo}
+                                            missing={missing}
+                                            missingStrategy={goNextPage}
+                                            shortcut={shortcut}
+                                            filterDescription={filterDescription}
+                                            errors={currentErrors}
+                                        />
+                                    </div>
+                                );
+                            }
                             return (
-                                <div
-                                    className={cx("lunatic-component-dsfr", classes.root)}
-                                    key={`component-${id}`}
-                                >
-                                    <Component
-                                        id={id}
-                                        response={response}
-                                        {...other}
-                                        {...rest}
-                                        {...component}
-                                        {...storeInfo}
-                                        missing={missing}
-                                        missingStrategy={goNextPage}
-                                        shortcut={shortcut}
-                                        filterDescription={filterDescription}
-                                        errors={currentErrors}
-                                    />
-                                </div>
+                                <div>{`Le composant ${componentType} n'existe pas dans cette version de Lunatic.`}</div>
                             );
-                        }
-                        return (
-                            <div>{`Le composant ${componentType} n'existe pas dans cette version de Lunatic.`}</div>
-                        );
-                    })}
+                        })
+                    }
                 </div>
                 <Pager
                     goPrevious={goPreviousPage}

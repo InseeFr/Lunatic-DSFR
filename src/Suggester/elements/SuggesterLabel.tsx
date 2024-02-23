@@ -1,5 +1,5 @@
 import { fr } from "@codegouvfr/react-dsfr";
-import { PropsWithChildren } from "react";
+import { type PropsWithChildren } from "react";
 
 type SuggesterLabelProps = {
     id?: string;

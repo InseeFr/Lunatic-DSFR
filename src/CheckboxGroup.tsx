@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Checkbox as CheckboxDSFR } from "@codegouvfr/react-dsfr/Checkbox";
-import { LunaticError } from "./utils/type/type";
 import { useStyles } from "tss-react/dsfr";
+import type { LunaticError } from "@inseefr/lunatic";
 
 type CheckboxGroupOption = {
     label: ReactNode;

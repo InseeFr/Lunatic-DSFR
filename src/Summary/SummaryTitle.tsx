@@ -1,8 +1,6 @@
-import { LunaticBaseProps } from "../type";
+import type { LunaticComponentProps } from "@inseefr/lunatic";
 
-type SummaryTitleProps = Pick<LunaticBaseProps<string>, "label">;
-
-export function SummaryTitle(props: SummaryTitleProps) {
+export function SummaryTitle(props: LunaticComponentProps<"Summary">) {
     const { label } = props;
     if (label) {
         return (

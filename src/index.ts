@@ -24,6 +24,9 @@ import { Sequence } from "./Sequence";
 import { Subsequence } from "./Subsequence";
 import { SummaryResponses, SummaryTitle } from "./Summary";
 import { Modal } from "./Modal";
+import type { FunctionComponent } from "react";
+
+type Custom = Record<string, FunctionComponent<unknown>>;
 
 export const customComponents = {
     Suggester,
@@ -54,7 +57,7 @@ export const customComponents = {
     SummaryResponses,
     SummaryTitle,
     Modal,
-};
+} as Custom;
 
 //To ensure retrocompatibility but should not be used for the future
 export default customComponents;

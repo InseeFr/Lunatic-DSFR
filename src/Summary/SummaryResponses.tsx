@@ -1,5 +1,5 @@
 import { fr } from "@codegouvfr/react-dsfr";
-import { PropsWithChildren, ReactNode } from "react";
+import type { PropsWithChildren, ReactNode } from "react";
 import { useStyles } from "tss-react/dsfr";
 
 function ListResponses({ title, children }: PropsWithChildren<{ title: ReactNode }>) {

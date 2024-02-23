@@ -1,6 +1,6 @@
 import Orchestrator from "../utils/Orchestrator";
 import source from "./source.json";
-import { StoryFn, Meta } from "@storybook/react";
+import type { StoryFn, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 
 const stories = {

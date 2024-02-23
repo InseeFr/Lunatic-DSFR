@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { DatepickerInput } from "./DatepickerInput";
 import { getState, getStateRelatedMessage } from "../utils/errors/getErrorStates";
-import { LunaticError } from "../utils/type/type";
 import { fr } from "@codegouvfr/react-dsfr";
 import { tss } from "tss-react/dsfr";
+import type { LunaticError } from "@inseefr/lunatic";
 
 const useStyles = tss.create({
     root: {

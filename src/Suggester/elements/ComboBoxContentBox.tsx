@@ -1,5 +1,5 @@
 import type { KeyboardEvent } from "react";
-import React, { PropsWithChildren } from "react";
+import React, { type PropsWithChildren } from "react";
 import { useStyles } from "tss-react/dsfr";
 
 type Props = PropsWithChildren<{

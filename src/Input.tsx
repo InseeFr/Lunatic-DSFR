@@ -1,8 +1,8 @@
 import { useCallback, useState, useEffect } from "react";
 import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
-import { LunaticError } from "./utils/type/type";
 import { tss } from "tss-react/dsfr";
+import type { LunaticError } from "@inseefr/lunatic";
 
 const useStyles = tss.create({
     readOnly: {

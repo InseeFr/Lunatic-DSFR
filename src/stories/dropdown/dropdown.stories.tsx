@@ -1,4 +1,4 @@
-import { StoryFn, Meta } from "@storybook/react";
+import type { StoryFn, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 import { Dropdown } from "Dropdown";
 
@@ -62,8 +62,6 @@ Error.args = {
             id: "ErrorMessage",
             criticality: "WARN",
             typeOfControl: "CONSISTENCY",
-            formula: 'not(nvl(STATE,"") = "13")',
-            labelFormula: "Please choose a state!",
             errorMessage: "Please choose a state!",
         },
     ],
@@ -80,8 +78,6 @@ Success.args = {
             id: "SuccessMessage",
             criticality: "INFO",
             typeOfControl: "CONSISTENCY",
-            formula: 'not(nvl(STATE,"") = "4")',
-            labelFormula: "Idk if this is right, I'm just testing error messages!!",
             errorMessage: "Idk if this is right, I'm just testing error messages!!",
         },
     ],

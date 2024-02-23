@@ -1,4 +1,4 @@
-import { ColorTheme } from "@codegouvfr/react-dsfr/useColors";
+import { type ColorTheme } from "@codegouvfr/react-dsfr/useColors";
 
 export function themeStringToVariable(
     theme: ColorTheme,

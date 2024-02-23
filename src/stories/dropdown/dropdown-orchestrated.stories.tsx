@@ -3,7 +3,8 @@ import source from "./source.json";
 import sourceSkeleton from "./sourceSkeleton.json";
 import sourceWithError from "./sourceWithError.json";
 import sourceComponentSet from "./sourceComponentSet.json";
-import { StoryObj, Meta } from "@storybook/react";
+import type { StoryObj, Meta } from "@storybook/react";
+
 import defaultArgTypes from "../utils/default-arg-types";
 
 const meta: Meta<typeof Orchestrator> = {

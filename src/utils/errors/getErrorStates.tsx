@@ -1,4 +1,4 @@
-import { LunaticError } from "../type/type";
+import type { LunaticError } from "@inseefr/lunatic";
 
 type TypeError = Array<LunaticError> | null | undefined;
 

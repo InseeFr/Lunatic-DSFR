@@ -1,5 +1,5 @@
 import { fr } from "@codegouvfr/react-dsfr";
-import { LegacyRef, forwardRef } from "react";
+import { type LegacyRef, forwardRef } from "react";
 
 type SuggesterInputProps = Record<string, unknown>;
 

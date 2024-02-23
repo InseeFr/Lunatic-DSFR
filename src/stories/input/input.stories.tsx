@@ -1,4 +1,5 @@
-import { StoryFn, Meta } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
+
 import defaultArgTypes from "../utils/default-arg-types";
 import { Input } from "Input";
 
@@ -25,8 +26,6 @@ Error.args = {
             id: "ErrorMessage",
             criticality: "WARN",
             typeOfControl: "CONSISTENCY",
-            formula: '(nvl(NAME,"") = "Garry")',
-            labelFormula: "Take another guess",
             errorMessage: "Take another guess",
         },
     ],
@@ -45,8 +44,6 @@ Success.args = {
             id: "SuccessMessage",
             criticality: "INFO",
             typeOfControl: "CONSISTENCY",
-            formula: '(nvl(NAME,"") = "Garry")',
-            labelFormula: "Take another guess",
             errorMessage: "Take another guess",
         },
     ],

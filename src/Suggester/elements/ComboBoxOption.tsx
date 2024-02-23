@@ -1,5 +1,5 @@
 import { fr } from "@codegouvfr/react-dsfr/";
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 import { tss } from "tss-react/dsfr";
 
 type ComboBoxOptionType = {

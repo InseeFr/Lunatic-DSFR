@@ -1,4 +1,4 @@
-import { StoryFn, Meta } from "@storybook/react";
+import type { StoryFn, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 import { Radio } from "Radio";
 
@@ -25,8 +25,6 @@ Success.args = {
             id: "SuccessMessage",
             criticality: "INFO",
             typeOfControl: "CONSISTENCY",
-            formula: 'not(Q2= "2")',
-            labelFormula: "What else would Spongebob live in?",
             errorMessage: "What else would Spongebob live in?",
         },
     ],
@@ -57,8 +55,6 @@ Error.args = {
             id: "ErrorMessage",
             criticality: "WARN",
             typeOfControl: "CONSISTENCY",
-            formula: 'not(Q2= "2")',
-            labelFormula: "What else would Spongebob live in?",
             errorMessage: "What else would Spongebob live in?",
         },
     ],

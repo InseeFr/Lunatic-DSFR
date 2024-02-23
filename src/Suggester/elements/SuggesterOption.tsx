@@ -1,15 +1,15 @@
-import { makeStyles } from "@codegouvfr/react-dsfr/tss";
 import { fr } from "@codegouvfr/react-dsfr";
+import { tss } from "tss-react/dsfr";
 
 type SuggesterOption = {
     label: string;
     selected: boolean;
 };
 
-const useStyles = makeStyles()(theme => ({
+const useStyles = tss.create(() => ({
     root: {
         "&.Mui-focused": {
-            background: theme.decisions.background.open.blueFrance.default,
+            background: fr.colors.decisions.background.open.blueFrance.default,
         },
         cursor: "pointer",
     },

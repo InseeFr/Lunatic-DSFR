@@ -1,8 +1,19 @@
 import { fr } from "@codegouvfr/react-dsfr";
 import { useColors } from "@codegouvfr/react-dsfr/useColors";
-import { DeclarationType } from "./utils/type/type-source";
 import React from "react";
 import { useStyles } from "tss-react/dsfr";
+
+/**
+ * REMOVE THIS TYPES WHEN REFACTO !!!!!!!
+ */
+export type LabelType = { value: string; type: "VTL" | "VTL|MD" };
+
+export type DeclarationType = {
+    id: string;
+    declarationType: "INSTRUCTION" | "COMMENT" | "HELP" | "CODECARD" | "WARNING" | "STATEMENT";
+    position: "AFTER_QUESTION_TEXT" | "AFTER_RESPONSE" | "BEFORE_QUESTION_TEXT" | "DETACHABLE";
+    label: LabelType;
+};
 
 type SequenceType = {
     label: string;

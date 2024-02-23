@@ -1,7 +1,7 @@
-import { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 import { Legend } from "./html/legend";
-import { LunaticError } from "../utils/type/type";
 import { useStyles } from "tss-react/dsfr";
+import type { LunaticError } from "@inseefr/lunatic";
 
 type ComponentSetType = {
     id: string;

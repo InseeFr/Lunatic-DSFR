@@ -1,12 +1,12 @@
-import { useState, useEffect, useCallback, SyntheticEvent } from "react";
+import { useState, useEffect, useCallback, type SyntheticEvent } from "react";
 import useAutocomplete from "@mui/material/useAutocomplete";
-import { LunaticError } from "../utils/type/type";
 import { SuggesterContainer } from "./elements/SuggesterContainer";
 import { SuggesterInputContainer } from "./elements/SuggesterInputContainer";
 import { SuggesterLabel } from "./elements/SuggesterLabel";
 import { SuggesterInput } from "./elements/SuggesterInput";
 import { SuggesterOption } from "./elements/SuggesterOption";
 import { SuggesterListBox } from "./elements/SuggesterListBox";
+import type { LunaticError } from "@inseefr/lunatic";
 
 export type ReferentielEntity = { label: string; id: string };
 

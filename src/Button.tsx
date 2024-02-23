@@ -1,8 +1,8 @@
-import React, { PropsWithChildren, useCallback } from "react";
+import React, { type PropsWithChildren, useCallback } from "react";
 import { useStyles } from "tss-react/dsfr";
 import { isElement } from "./utils/is-element";
 import { Button as ButtonDSFR } from "@codegouvfr/react-dsfr/Button";
-import { ButtonProps } from "@codegouvfr/react-dsfr/Button";
+import type { ButtonProps } from "@codegouvfr/react-dsfr/Button";
 
 export function Button({
     children,

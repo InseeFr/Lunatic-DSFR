@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from "react";
 import { getState, getStateRelatedMessage } from "../../utils/errors/getErrorStates";
-import { LunaticError } from "../../utils/type/type";
 import { useStyles } from "tss-react/dsfr";
+import type { LunaticError } from "@inseefr/lunatic";
 
 type Props = PropsWithChildren<{
     className?: string;

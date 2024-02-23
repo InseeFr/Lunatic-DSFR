@@ -1,5 +1,6 @@
 // import React from 'react';
-import { StoryFn, Meta } from "@storybook/react";
+import type { StoryFn, Meta } from "@storybook/react";
+
 import defaultArgTypes from "../utils/default-arg-types";
 import { BUTTON_PRIORITIES } from "../../utils/constants/buttonConstants";
 import { Button } from "Button";
