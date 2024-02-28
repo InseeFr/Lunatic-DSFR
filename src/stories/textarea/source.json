@@ -1,24 +1,27 @@
 {
-    "maxPage": "1",
     "components": [
         {
-            "page": "1",
-            "componentType": "Input",
-            "bindingDependencies": ["NAME"],
-            "label": { "value": "\"What's your name?\"", "type": "VTL|MD" },
-            "description": "\"No more than 30 characters\"",
+            "id": "name",
+            "componentType": "Textarea",
+            "label": {
+                "value": "\"Label\"",
+                "type": "VTL|MD"
+            },
+            "description": {
+                "value": "\"Description\"",
+                "type": "VTL|MD"
+            },
             "conditionFilter": { "value": "true", "type": "VTL" },
             "maxLength": 30,
-            "id": "name",
             "response": {
-                "name": "NAME"
+                "name": "SOMETHING"
             }
         }
     ],
     "variables": [
         {
             "variableType": "COLLECTED",
-            "name": "NAME",
+            "name": "SOMETHING",
             "componentRef": "name",
             "values": {
                 "PREVIOUS": null,

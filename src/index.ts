@@ -25,6 +25,7 @@ import { Subsequence } from "./Subsequence";
 import { SummaryResponses, SummaryTitle } from "./Summary";
 import { Modal } from "./Modal";
 import type { FunctionComponent } from "react";
+import { Textarea } from "Textarea";
 
 type Custom = Record<string, FunctionComponent<unknown>>;
 
@@ -57,6 +58,7 @@ export const customComponents = {
     SummaryResponses,
     SummaryTitle,
     Modal,
+    Textarea,
 } as Custom;
 
 //To ensure retrocompatibility but should not be used for the future
