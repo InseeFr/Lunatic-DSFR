@@ -1,39 +1,28 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-// To refactor using LunaticComponents
 import { useState, useCallback } from "react";
-import { components as lunaticComponents, useLunatic, type LunaticError } from "@inseefr/lunatic";
+import {
+    useLunatic,
+    type LunaticError,
+    LunaticComponents,
+    type LunaticSource,
+    type LunaticData,
+    type LunaticState,
+} from "@inseefr/lunatic";
 import Waiting from "./waiting";
 import { tss } from "tss-react/dsfr";
 import { customComponents } from "index";
 import { Button } from "Button";
 
-export interface OrchestratorProps {
+export type OrchestratorProps = {
     id: string;
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    source: { maxPage?: string; components?: {}; variables?: {} };
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    data: object;
-    management?: boolean;
+    source: LunaticSource;
+    data: LunaticData;
     activeControls?: boolean;
-    features?: [];
     initialPage?: string;
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    getStoreInfo?: Function;
-    missing?: boolean;
     shortcut?: boolean;
-    activeGoNextForMissing?: boolean;
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    suggesterFetcher: Function;
     autoSuggesterLoading: boolean;
-    suggesters: [];
-    preferences: [];
     filterDescription: boolean;
-    getReferentiel?: (name: string) => Promise<Record<string, unknown>>;
-}
-
-function getStoreInfoRequired() {
-    return {};
-}
+    getReferentiel?: (name: string) => Promise<Array<unknown>>;
+};
 
 function Pager({
     goPrevious,
@@ -43,18 +32,12 @@ function Pager({
     pageTag,
     maxPage,
 }: {
-    // eslint-disable-next-line @typescript-eslint/ban-types, @typescript-eslint/no-explicit-any
-    goPrevious: any;
-    // eslint-disable-next-line @typescript-eslint/ban-types, @typescript-eslint/no-explicit-any
-    goNext: any;
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    goToPage: Function;
+    goPrevious: () => void;
+    goNext: () => void;
     isLast: boolean;
     isFirst: boolean;
     pageTag: string;
     maxPage?: string;
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    getData: Function;
 }) {
     if (maxPage && parseInt(maxPage) > 1) {
         return (
@@ -74,127 +57,84 @@ function Pager({
     return null;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function onLogChange(res: any, value: any, args: any) {
-    console.log("onChange", { res, value, args });
-}
+const onLogChange: LunaticState["handleChange"] = (response, value, args) =>
+    console.log("onChange", { response, value, args });
 
-//const Orchestrator: FC<OrchestratorProps> = ({
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Orchestrator: (props: any) => JSX.Element = ({
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
     id,
     source,
     data,
-    management = false,
     activeControls = true,
-    features,
     initialPage = "1",
-    getStoreInfo = getStoreInfoRequired,
-    missing = false,
     shortcut = false,
     autoSuggesterLoading,
-    preferences,
     filterDescription = true,
     getReferentiel,
-    ...rest
 }) => {
     const { maxPage } = source;
     const {
         getComponents,
         goPreviousPage,
         goNextPage,
-        goToPage,
         pageTag,
         isFirstPage,
         isLastPage,
         waiting,
         compileControls,
-        getData,
         Provider,
     } = useLunatic(source, data, {
         initialPage,
-        features,
-        preferences,
+        shortcut,
         onChange: onLogChange,
         autoSuggesterLoading,
-        management,
         activeControls,
         getReferentiel,
         custom: customComponents,
     });
 
     const components = getComponents();
-    const [currentErrors, setCurrentErrors] = useState<Record<string, LunaticError[]> | undefined>();
+    const [errorActive, setErrorActive] = useState<Record<string, LunaticError[]> | undefined>({});
 
-    const handleGoNextPage = useCallback(
-        function () {
-            const errors = compileControls();
-            setCurrentErrors(errors.currentErrors);
+    const handleGoNext = useCallback(() => {
+        const { currentErrors } = compileControls();
+        setErrorActive(currentErrors);
+        if (!currentErrors) {
+            goNextPage();
+            return;
+        }
+        console.warn(currentErrors);
+    }, [compileControls, errorActive, goNextPage, pageTag]);
 
-            if (!errors.currentErrors) {
-                goNextPage();
-            } else {
-                console.warn(errors.currentErrors);
-            }
-        },
-        [goNextPage, compileControls],
-    );
     const { classes, cx } = useStyles();
 
     return (
         <Provider>
             <div className="container">
                 <div className={cx("components", classes.componentsDsfr)}>
-                    {
-                        // @ts-ignore
-                        components.map(function (component: {
-                            id?: string;
-                            componentType: string;
-                            response?: string;
-                            storeName?: string;
-                        }) {
-                            const { id, componentType, storeName, response, ...other } = component;
-                            // @ts-ignore
-                            const Component = lunaticComponents[componentType];
-                            const storeInfo = storeName ? getStoreInfo(storeName) : {};
-                            if (Component) {
-                                return (
-                                    <div
-                                        className={cx("lunatic-component-dsfr", classes.root)}
-                                        key={`component-${id}`}
-                                    >
-                                        <Component
-                                            id={id}
-                                            response={response}
-                                            {...other}
-                                            {...rest}
-                                            {...component}
-                                            {...storeInfo}
-                                            missing={missing}
-                                            missingStrategy={goNextPage}
-                                            shortcut={shortcut}
-                                            filterDescription={filterDescription}
-                                            errors={currentErrors}
-                                        />
-                                    </div>
-                                );
-                            }
-                            return (
-                                <div>{`Le composant ${componentType} n'existe pas dans cette version de Lunatic.`}</div>
-                            );
-                        })
-                    }
+                    <LunaticComponents
+                        autoFocusKey={pageTag}
+                        components={components}
+                        wrapper={({ children }) => (
+                            <div
+                                className={cx("lunatic-component-dsfr", classes.root)}
+                                key={`component-${id}`}
+                            >
+                                {children}
+                            </div>
+                        )}
+                        componentProps={() => ({
+                            errors: errorActive,
+                            filterDescription: filterDescription,
+                        })}
+                    />
                 </div>
                 <Pager
                     goPrevious={goPreviousPage}
-                    goNext={handleGoNextPage}
-                    goToPage={goToPage}
+                    goNext={handleGoNext}
                     isLast={isLastPage}
                     isFirst={isFirstPage}
                     pageTag={pageTag}
                     maxPage={maxPage}
-                    getData={getData}
                 />
                 <Waiting status={waiting}>
                     <div className="waiting-orchestrator">
