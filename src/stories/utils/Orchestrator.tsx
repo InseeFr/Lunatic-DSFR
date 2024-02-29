@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import {
     useLunatic,
     type LunaticError,
@@ -13,7 +13,6 @@ import { customComponents } from "index";
 import { Button } from "Button";
 
 export type OrchestratorProps = {
-    id: string;
     source: LunaticSource;
     data: LunaticData;
     activeControls?: boolean;
@@ -61,7 +60,6 @@ const onLogChange: LunaticState["handleChange"] = (response, value, args) =>
     console.log("onChange", { response, value, args });
 
 const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
-    id,
     source,
     data,
     activeControls = true,
@@ -95,15 +93,13 @@ const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
     const components = getComponents();
     const [errorActive, setErrorActive] = useState<Record<string, LunaticError[]> | undefined>({});
 
-    const handleGoNext = useCallback(() => {
+    const handleGoNext = () => {
         const { currentErrors } = compileControls();
         setErrorActive(currentErrors);
         if (!currentErrors) {
             goNextPage();
-            return;
         }
-        console.warn(currentErrors);
-    }, [compileControls, errorActive, goNextPage, pageTag]);
+    };
 
     const { classes, cx } = useStyles();
 
@@ -114,7 +110,7 @@ const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
                     <LunaticComponents
                         autoFocusKey={pageTag}
                         components={components}
-                        wrapper={({ children }) => (
+                        wrapper={({ children, id }) => (
                             <div
                                 className={cx("lunatic-component-dsfr", classes.root)}
                                 key={`component-${id}`}
@@ -122,10 +118,14 @@ const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
                                 {children}
                             </div>
                         )}
-                        componentProps={() => ({
-                            errors: errorActive,
-                            filterDescription: filterDescription,
-                        })}
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        componentProps={() => {
+                            return {
+                                errors: errorActive,
+                                filterDescription: filterDescription,
+                            };
+                        }}
                     />
                 </div>
                 <Pager

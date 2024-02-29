@@ -24,17 +24,9 @@
                 }
             ],
             "maxLength": 10,
-            "id": "name",
+            "id": "id-input",
             "response": {
                 "name": "NAME"
-            },
-            "questionInformation": {
-                "value": "\"Question Information\"",
-                "type": "VTL"
-            },
-            "questionContext": {
-                "value": "\"Question Context\"",
-                "type": "VTL"
             }
         },
         {

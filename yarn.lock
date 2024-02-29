@@ -997,10 +997,17 @@
   resolved "https://registry.yarnpkg.com/@babel/regjsgen/-/regjsgen-0.8.0.tgz#f0ba69b075e1f05fb2825b7fad991e7adbb18310"
   integrity sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==
 
-"@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.17.8", "@babel/runtime@^7.18.3", "@babel/runtime@^7.21.0", "@babel/runtime@^7.23.9", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
+"@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.17.8", "@babel/runtime@^7.18.3", "@babel/runtime@^7.23.9", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
   version "7.23.9"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.23.9.tgz#47791a15e4603bb5f905bc0753801cf21d6345f7"
   integrity sha512-0CX6F+BI2s9dkUqr08KFrAIZgNFj75rdBU/DjCyYLIaV/quFjkk6T+EJ2LkZHyZTbEV4L5p97mNkUsHl2wLFAw==
+  dependencies:
+    regenerator-runtime "^0.14.0"
+
+"@babel/runtime@^7.21.0":
+  version "7.24.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.24.0.tgz#584c450063ffda59697021430cb47101b085951e"
+  integrity sha512-Chk32uHMg6TnQdvw2e9IlqPpFX/6NLuK0Ys2PqLb7/gL5uFn9mXvK715FGLlOLQrcO4qIkNHkvPGktzzXexsFw==
   dependencies:
     regenerator-runtime "^0.14.0"
 
@@ -1513,10 +1520,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-2.0.2.tgz#d9fae00a2d5cb40f92cfe64b47ad749fbc38f917"
   integrity sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==
 
-"@inseefr/lunatic@^2.7.20":
-  version "2.7.20"
-  resolved "https://registry.yarnpkg.com/@inseefr/lunatic/-/lunatic-2.7.20.tgz#ddc9e971f3e30bac8d79d174d2bf296968e18718"
-  integrity sha512-txYpJTCz4szQJXB0mY3d+QN32Tw2hfpRGQzomjprNQl+Rfc6LNTzGMJ4WgU/aYZmLyFPgMPmz+j0T3bjaR3obA==
+"@inseefr/lunatic@3.0.0-rc.1":
+  version "3.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@inseefr/lunatic/-/lunatic-3.0.0-rc.1.tgz#e2c1aa8c4d391164bc027ee8e6cf9d9b6329c0a6"
+  integrity sha512-LCBjHJhN0R6qd/Yy5IxPbpL+2ohb5ra25d4icuxweYVNT46Ln+dS0kfO3VFdomBTSwj+5/ZXGcVtFm+vaD3ToQ==
   dependencies:
     "@inseefr/trevas" "^0.1.20"
     "@inseefr/vtl-2.0-antlr-tools" "^0.1.0"
@@ -1528,6 +1535,7 @@
     lodash.isequal "^4.5.0"
     object-hash "^2.2.0"
     prop-types "^15.7.2"
+    react-error-boundary "^4.0.12"
     react-keyboard-event-handler "^1.5.4"
     react-markdown "^8.0.3"
     react-number-format "^5.1.3"
@@ -7637,6 +7645,13 @@ react-element-to-jsx-string@^15.0.0:
     is-plain-object "5.0.0"
     react-is "18.1.0"
 
+react-error-boundary@^4.0.12:
+  version "4.0.12"
+  resolved "https://registry.yarnpkg.com/react-error-boundary/-/react-error-boundary-4.0.12.tgz#59f8f1dbc53bbbb34fc384c8db7cf4082cb63e2c"
+  integrity sha512-kJdxdEYlb7CPC1A0SeUY38cHpjuu6UkvzKiAmqmOFL21VRfMhOcWxTCBgLVCO0VEMh9JhFNcVaXlV4/BTpiwOA==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+
 react-is@18.1.0:
   version "18.1.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.1.0.tgz#61aaed3096d30eacf2a2127118b5b41387d32a67"
@@ -7678,10 +7693,10 @@ react-markdown@^8.0.3:
     unist-util-visit "^4.0.0"
     vfile "^5.0.0"
 
-react-number-format@^5.1.3, react-number-format@^5.1.4:
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/react-number-format/-/react-number-format-5.3.1.tgz#840c257da9cb4b248990d8db46e4d23e8bac67ff"
-  integrity sha512-qpYcQLauIeEhCZUZY9jXZnnroOtdy3jYaS1zQ3M1Sr6r/KMOBEIGNIb7eKT19g2N1wbYgFgvDzs19hw5TrB8XQ==
+react-number-format@^5.1.3, react-number-format@^5.3.3:
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/react-number-format/-/react-number-format-5.3.3.tgz#5e2c47769533f7bcbaa222d367f3bcf3263be602"
+  integrity sha512-maGHWmOvwYzyeRIpL0YC6drWqYaX6iFqjisdJXpZ+HzEtSEJsL6nqw4azTpF5Sm6SAvwUeAr7JY924Ebqq8EdA==
   dependencies:
     prop-types "^15.7.2"
 
@@ -7719,9 +7734,9 @@ react-style-singleton@^2.2.1:
     tslib "^2.0.0"
 
 react-tooltip@^5.23.0:
-  version "5.26.2"
-  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-5.26.2.tgz#9af7fac3dcf423a3d6cc811980dc3f24016f0fe1"
-  integrity sha512-C1qHiqWYn6l5c98kL/NKFyJSw5G11vUVJkgOPcKgn306c5iL5317LxMNn5Qg1GSSM7Qvtsd6KA5MvwfgxFF7Dg==
+  version "5.26.3"
+  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-5.26.3.tgz#bcb9a53e15bdbf9ae007ddf8bf413a317a637054"
+  integrity sha512-MpYAws8CEHUd/RC4GaDCdoceph/T4KHM5vS5Dbk8FOmLMvvIht2ymP2htWdrke7K6lqPO8rz8+bnwWUIXeDlzg==
   dependencies:
     "@floating-ui/dom" "^1.6.1"
     classnames "^2.3.0"
@@ -8054,9 +8069,9 @@ safe-buffer@5.2.1, safe-buffer@~5.2.0:
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
 sass@^1.58.3:
-  version "1.71.0"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.71.0.tgz#b3085759b9b2ab503a977aecb7e91153bf941117"
-  integrity sha512-HKKIKf49Vkxlrav3F/w6qRuPcmImGVbIXJ2I3Kg0VMA+3Bav+8yE9G5XmP5lMj6nl4OlqbPftGAscNaNu28b8w==
+  version "1.71.1"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.71.1.tgz#dfb09c63ce63f89353777bbd4a88c0a38386ee54"
+  integrity sha512-wovtnV2PxzteLlfNzbgm1tFXPLoZILYAMJtvoXXkD7/+1uP41eKkIt1ypWq5/q2uT94qHjXehEYfmjKOvjL9sg==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"

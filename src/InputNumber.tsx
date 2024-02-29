@@ -1,127 +1,72 @@
-import { Input, type InputProps } from "@codegouvfr/react-dsfr/Input";
-import { useCallback, useState } from "react";
-import { type NumberFormatValues, NumericFormat, type NumericFormatProps } from "react-number-format";
-import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
-import { fr } from "@codegouvfr/react-dsfr";
-import { useStyles } from "tss-react/dsfr";
-import type { LunaticError } from "@inseefr/lunatic";
+import Input from "@codegouvfr/react-dsfr/Input";
+import type { LunaticCustomizedComponent } from "@inseefr/lunatic";
+import { NumericFormat, type NumberFormatValues, type OnValueChange } from "react-number-format";
+import { getErrorStates } from "utils/errors/getErrorStates";
+import { getNumberSeparators } from "utils/numbers";
 
-function checkValue(value: number) {
-    if (!value && value != 0) {
-        return null;
-    }
-    return value;
-}
-
-const InputDSFR = (props: { DSFRProps: InputProps } & NumericFormatProps) => {
+export const InputNumber: LunaticCustomizedComponent["InputNumber"] = props => {
     const {
-        DSFRProps: { nativeInputProps, ...otherDsfr },
-        ...rest
+        id,
+        value = null,
+        handleChange,
+        disabled = false,
+        readOnly = false,
+        max = Infinity,
+        min = -Infinity,
+        decimals = 0,
+        unit,
+        label,
+        errors,
+        response,
+        required = true,
+        description,
+        declarations,
     } = props;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
-    return <Input nativeInputProps={{ ...nativeInputProps, ...rest }} {...otherDsfr} />;
-};
 
-const NumberFormatDSFR = ({ ...props }: { DSFRProps: InputProps } & NumericFormatProps) => (
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
-    <NumericFormat customInput={InputDSFR} {...props} />
-);
+    if (declarations) {
+        //TODO throw and handle globaly errors in an alert with a condition to avoid to display alert in prod
+        console.error("Only declaration in Question are displayed");
+    }
+    const { state, stateRelatedMessage } = getErrorStates(errors, id);
 
-export function InputNumber({
-    id,
-    value,
-    onChange,
-    disabled,
-    readOnly,
-    label,
-    min,
-    max,
-    decimals,
-    unit,
-    description,
-    errors,
-}: {
-    id: string;
-    value: number;
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    onChange: Function;
-    disabled: boolean;
-    readOnly: boolean;
-    label: string;
-    min: number;
-    max: number;
-    decimals: number;
-    unit: string;
-    description: string;
-    errors: Array<LunaticError>;
-}) {
-    // Decimals is a number indicates the number behind the separator of decimals
-    // Computing step attribute of input according to decimal number
-    const [step] = useState(decimals ? 1 / Math.pow(10, decimals) : 1);
+    const onChange: OnValueChange = ({ floatValue }) => {
+        handleChange(response, floatValue && !Number.isNaN(floatValue) ? floatValue : null);
+    };
 
-    const { cx } = useStyles();
-    const isAllowed = useCallback(
-        (values: NumberFormatValues) => {
-            const { floatValue } = values;
-            if (Number.isInteger(max) && floatValue && max) return floatValue <= max || false;
-            return true;
-        },
-        [max],
-    );
+    const { decimalSeparator, thousandSeparator } = getNumberSeparators();
 
-    const handleChange = useCallback(
-        function (values: NumberFormatValues) {
-            const val = values.floatValue ?? null;
-            onChange(Number.isNaN(val) ? null : val);
-        },
-        [onChange],
-    );
-
-    const state = getState(errors);
-    const stateRelatedMessage = getStateRelatedMessage(errors);
+    const isAllowed = (values: NumberFormatValues) => {
+        const { floatValue } = values;
+        //We allow to clean input
+        if (!floatValue) return true;
+        return floatValue >= min && floatValue <= max;
+    };
 
     return (
-        <div
-            className={cx("lunatic-input-number-container", fr.cx("fr-grid-row", "fr-grid-row--middle"))}
-        >
-            <NumberFormatDSFR
-                DSFRProps={{
-                    label: label,
-                    disabled: disabled,
-                    hintText: description,
-                    className: cx("lunatic-dsfr-input-number", {
-                        "fr-col-11": unit !== undefined,
-                        "fr-col-12": unit === undefined,
-                    }),
-                    state: state,
-                    stateRelatedMessage: stateRelatedMessage,
-                    nativeInputProps: {
-                        inputMode: "numeric",
-                        id: id,
-                        maxLength: 30,
-                        pattern: "([0-9]|\\s)*",
-                        type: "number",
-                        readOnly: readOnly,
-                        disabled: disabled,
-                        min: min,
-                        max: max,
-                        step: step,
-                        placeholder: unit,
-                        "aria-invalid": state === "error",
-                    },
-                }}
-                onValueChange={handleChange}
-                value={checkValue(value)}
-                isAllowed={isAllowed}
-                allowedDecimalSeparators={[",", "."]}
-                decimalSeparator={","}
-                /* we have removed the space for the thousandSeparator until we find a better solution */
-                thousandSeparator={""}
-                decimalScale={decimals}
-                allowLeadingZeros
-            />
-        </div>
+        <NumericFormat
+            customInput={Input}
+            id={id}
+            value={value}
+            label={label}
+            isAllowed={isAllowed}
+            state={state}
+            stateRelatedMessage={stateRelatedMessage}
+            onValueChange={onChange}
+            decimalScale={decimals}
+            decimalSeparator={decimalSeparator}
+            allowLeadingZeros
+            thousandSeparator={thousandSeparator}
+            required={required}
+            hintText={description}
+            nativeInputProps={{
+                inputMode: decimals === 0 ? "numeric" : "decimal",
+                id: id,
+                pattern: "[0-9]*",
+                readOnly: readOnly,
+                disabled: disabled,
+                placeholder: unit,
+                "aria-invalid": state === "error",
+            }}
+        />
     );
-}
+};

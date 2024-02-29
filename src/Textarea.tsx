@@ -17,8 +17,6 @@ export function Textarea(props: LunaticComponentProps<"Textarea">) {
         readOnly,
     } = props;
 
-    console.log(props);
-
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => onChange(e.target.value);
     return (
         <Input

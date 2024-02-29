@@ -1,8 +1,58 @@
-import { useCallback, useState, useEffect } from "react";
-import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
+import { type ChangeEventHandler } from "react";
+import { getErrorStates } from "./utils/errors/getErrorStates";
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
 import { tss } from "tss-react/dsfr";
-import type { LunaticError } from "@inseefr/lunatic";
+import type { LunaticCustomizedComponent } from "@inseefr/lunatic";
+
+export const Input: LunaticCustomizedComponent["Input"] = props => {
+    const {
+        value,
+        handleChange,
+        response,
+        disabled,
+        required,
+        maxLength,
+        label,
+        description,
+        id,
+        errors,
+        readOnly,
+        declarations,
+    } = props;
+
+    const { classes, cx } = useStyles();
+
+    const onChange: ChangeEventHandler<HTMLInputElement> = e => {
+        handleChange(response, e.target.value);
+    };
+
+    const { state, stateRelatedMessage } = getErrorStates(errors, id);
+
+    if (declarations) {
+        //TODO throw and handle globaly errors in an alert with a condition to avoid to display alert in prod
+        console.error("Only declaration in Question are displayed");
+    }
+
+    return (
+        <InputDSFR
+            label={label}
+            disabled={disabled}
+            className={cx("lunatic-dsfr-input", cx(classes.readOnly))}
+            nativeInputProps={{
+                id: id,
+                maxLength: maxLength,
+                value: (value ?? "").toString(),
+                required: required,
+                onChange: onChange,
+                readOnly: readOnly,
+                "aria-invalid": state === "error",
+            }}
+            hintText={description}
+            state={state}
+            stateRelatedMessage={stateRelatedMessage}
+        />
+    );
+};
 
 const useStyles = tss.create({
     readOnly: {
@@ -12,71 +62,3 @@ const useStyles = tss.create({
         },
     },
 });
-
-function checkValue(value: string) {
-    return value ?? "";
-}
-
-export type TypeError = Record<string, Array<LunaticError>>;
-
-export function Input({
-    value,
-    onChange,
-    disabled = false,
-    required = true,
-    maxLength = Number.MAX_SAFE_INTEGER,
-    label,
-    description,
-    id,
-    errors,
-    readOnly,
-}: {
-    value: string;
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    onChange: Function;
-    disabled: boolean;
-    required: boolean;
-    maxLength: number;
-    label: string;
-    description: string;
-    id: string;
-    errors: Array<LunaticError>;
-    readOnly?: boolean;
-}) {
-    const { classes, cx } = useStyles();
-    const [localValue, setLocalValue] = useState<string>(value);
-
-    useEffect(() => {
-        setLocalValue(value);
-    }, [value]);
-
-    const handleChange = useCallback(
-        function (e: React.ChangeEvent<HTMLInputElement>) {
-            setLocalValue(e.target.value);
-            onChange(e.target.value);
-        },
-        [onChange],
-    );
-
-    const state = getState(errors);
-    const stateRelatedMessage = getStateRelatedMessage(errors);
-    return (
-        <InputDSFR
-            label={label}
-            disabled={disabled}
-            className={cx("lunatic-dsfr-input", cx(classes.readOnly))}
-            nativeInputProps={{
-                id: id,
-                maxLength: maxLength,
-                value: checkValue(localValue),
-                required: required,
-                onChange: handleChange,
-                readOnly: readOnly,
-                "aria-invalid": state === "error",
-            }}
-            hintText={description}
-            state={state}
-            stateRelatedMessage={stateRelatedMessage}
-        />
-    );
-}
