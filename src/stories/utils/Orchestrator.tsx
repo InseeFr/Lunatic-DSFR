@@ -8,7 +8,6 @@ import {
     type LunaticState,
 } from "@inseefr/lunatic";
 import Waiting from "./waiting";
-import { tss } from "tss-react/dsfr";
 import { customComponents } from "index";
 import { Button } from "Button";
 
@@ -87,7 +86,6 @@ const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
         autoSuggesterLoading,
         activeControls,
         getReferentiel,
-        custom: customComponents,
     });
 
     const components = getComponents();
@@ -101,25 +99,16 @@ const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
         }
     };
 
-    const { classes, cx } = useStyles();
-
     return (
         <Provider>
             <div className="container">
-                <div className={cx("components", classes.componentsDsfr)}>
+                <div>
                     <LunaticComponents
                         autoFocusKey={pageTag}
                         components={components}
-                        wrapper={({ children, id }) => (
-                            <div
-                                className={cx("lunatic-component-dsfr", classes.root)}
-                                key={`component-${id}`}
-                            >
-                                {children}
-                            </div>
-                        )}
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                        // @ts-ignore
+                        // wrapper to avoid lunatic style
+                        wrapper={({ children, id }) => <div key={`component-${id}`}>{children}</div>}
+                        slots={customComponents}
                         componentProps={() => {
                             return {
                                 errors: errorActive,
@@ -147,76 +136,3 @@ const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
 };
 
 export default Orchestrator;
-
-const useStyles = tss.create({
-    componentsDsfr: {
-        ".fr-callout": {
-            width: "100%",
-        },
-        ".lunatic-component-with-dsfr": {
-            marginBottom: "1rem",
-            ".fr-fieldset, .fr-fieldset__element": {
-                marginBottom: 0,
-            },
-            ".pairwise-link": {
-                marginBottom: "1rem",
-            },
-            "input[aria-describedby^='autre-link']": {
-                marginBottom: "1rem",
-            },
-            legend: {
-                fontSize: "1.75rem",
-                lineHeight: "2.25rem",
-                paddingBottom: "1rem",
-                paddingLeft: "0.75rem",
-                paddingRight: "0.75rem",
-                marginLeft: "-0.25rem",
-                marginRight: "-0.25rem",
-                fontWeight: "700 !important",
-                color: "var(--text-label-grey)",
-                fontFamily: "Marianne",
-            },
-            ".fr-label": {
-                fontFamily: "Marianne",
-                display: "block",
-                fontSize: "1rem",
-                lineHeight: "1.5rem",
-                color: "var(--text-label-grey)",
-                fontWeight: "400",
-            },
-            ".lunatic-dsfr-component-set .lunatic-dsfr-radio legend, .lunatic-dsfr-component-set .checkbox-lunatic-dsfr legend, .datepicker-lunatic-dsfr legend":
-                {
-                    display: "flex",
-                    flexDirection: "column",
-                    fontSize: "1rem",
-                    lineHeight: "2.25rem",
-                    paddingBottom: "1rem",
-                    paddingLeft: "0.75rem",
-                    paddingRight: "0.75rem",
-                    marginLeft: "-0.25rem",
-                    marginRight: "-0.25rem",
-                    fontWeight: "400",
-                },
-            ".datepicker-lunatic-dsfr legend": {
-                fontWeight: "700",
-            },
-        },
-    },
-    root: {
-        marginBottom: "1rem",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        gap: "1rem",
-        ".fr-callout": {
-            marginBottom: "0",
-        },
-        ".lunatic-dsfr-component-set-component": {
-            width: "100%",
-        },
-        ".lunatic-dsfr-component-set": {
-            display: "flex",
-            flexDirection: "column",
-        },
-    },
-});

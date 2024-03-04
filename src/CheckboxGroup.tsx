@@ -1,57 +1,35 @@
-import type { ReactNode } from "react";
-import { getState, getStateRelatedMessage } from "./utils/errors/getErrorStates";
-import { Checkbox as CheckboxDSFR } from "@codegouvfr/react-dsfr/Checkbox";
-import { useStyles } from "tss-react/dsfr";
-import type { LunaticError } from "@inseefr/lunatic";
+import type { ComponentProps } from "react";
+import { Checkbox } from "@codegouvfr/react-dsfr/Checkbox";
+import type { LunaticSlotComponents } from "@inseefr/lunatic";
+import { getErrorStates } from "utils/errorStates";
 
-type CheckboxGroupOption = {
-    label: ReactNode;
-    name: string;
-    checked: boolean;
-    description?: ReactNode;
-    onClick: (b: boolean) => void;
-};
+export const CheckboxGroup: LunaticSlotComponents["CheckboxGroup"] = props => {
+    const { options, id, label, description, errors } = props;
 
-type Props = {
-    options: CheckboxGroupOption[];
-    errors?: LunaticError[];
-    id: string;
-    label?: ReactNode;
-    description?: ReactNode;
-    shortcut?: boolean;
-    disabled?: boolean;
-    className?: string;
-};
-
-function getOptions(options: Array<CheckboxGroupOption>) {
-    if (options) {
-        return options.map(function (option) {
-            const { label, description, name, onClick, checked } = option;
-            return {
-                label,
-                hintText: description,
-                nativeInputProps: {
-                    name,
-                    checked,
-                    onChange: () => onClick(!checked),
-                },
-            };
-        });
-    }
-    return [];
-}
-
-export function CheckboxGroup({ label, description, id, disabled, className, errors, options }: Props) {
-    const { cx } = useStyles();
+    const { state, stateRelatedMessage } = getErrorStates(errors);
     return (
-        <CheckboxDSFR
-            className={cx("checkbox-lunatic-dsfr", className, id)}
-            disabled={disabled}
+        <Checkbox
+            id={id}
             legend={label}
             hintText={description}
             options={getOptions(options)}
-            state={errors ? getState(errors) : undefined}
-            stateRelatedMessage={errors ? getStateRelatedMessage(errors) : undefined}
+            state={state}
+            stateRelatedMessage={stateRelatedMessage}
         />
     );
+};
+
+function getOptions(options: ComponentProps<LunaticSlotComponents["CheckboxGroup"]>["options"]) {
+    return options.map(option => {
+        const { label, description, name, onClick, checked } = option;
+        return {
+            label,
+            hintText: description,
+            nativeInputProps: {
+                name,
+                checked,
+                onChange: () => onClick(!checked),
+            },
+        };
+    });
 }

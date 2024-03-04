@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import Select from "@codegouvfr/react-dsfr/Select";
-import { getState, getStateRelatedMessage } from "../utils/errors/getErrorStates";
+import { getState, getStateRelatedMessage } from "../utils/errorStates";
 import { getOptions, type OptionType } from "./getOptions";
 import { useStyles } from "tss-react/dsfr";
 import type { LunaticError } from "@inseefr/lunatic";

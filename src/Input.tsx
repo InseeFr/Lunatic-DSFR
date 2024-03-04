@@ -1,14 +1,11 @@
-import { type ChangeEventHandler } from "react";
-import { getErrorStates } from "./utils/errors/getErrorStates";
+import { getErrorStates } from "./utils/errorStates";
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
-import { tss } from "tss-react/dsfr";
-import type { LunaticCustomizedComponent } from "@inseefr/lunatic";
+import type { LunaticSlotComponents } from "@inseefr/lunatic";
 
-export const Input: LunaticCustomizedComponent["Input"] = props => {
+export const Input: LunaticSlotComponents["Input"] = props => {
     const {
         value,
-        handleChange,
-        response,
+        onChange,
         disabled,
         required,
         maxLength,
@@ -20,13 +17,7 @@ export const Input: LunaticCustomizedComponent["Input"] = props => {
         declarations,
     } = props;
 
-    const { classes, cx } = useStyles();
-
-    const onChange: ChangeEventHandler<HTMLInputElement> = e => {
-        handleChange(response, e.target.value);
-    };
-
-    const { state, stateRelatedMessage } = getErrorStates(errors, id);
+    const { state, stateRelatedMessage } = getErrorStates(errors);
 
     if (declarations) {
         //TODO throw and handle globaly errors in an alert with a condition to avoid to display alert in prod
@@ -37,13 +28,12 @@ export const Input: LunaticCustomizedComponent["Input"] = props => {
         <InputDSFR
             label={label}
             disabled={disabled}
-            className={cx("lunatic-dsfr-input", cx(classes.readOnly))}
             nativeInputProps={{
                 id: id,
                 maxLength: maxLength,
-                value: (value ?? "").toString(),
+                value: value ?? "",
                 required: required,
-                onChange: onChange,
+                onChange: e => onChange(e.target.value),
                 readOnly: readOnly,
                 "aria-invalid": state === "error",
             }}
@@ -53,12 +43,3 @@ export const Input: LunaticCustomizedComponent["Input"] = props => {
         />
     );
 };
-
-const useStyles = tss.create({
-    readOnly: {
-        ".fr-input:read-only": {
-            "color": "var(--text-disabled-grey)",
-            "boxShadow": "inset 0 -2px 0 0 var(--border-disabled-grey)",
-        },
-    },
-});

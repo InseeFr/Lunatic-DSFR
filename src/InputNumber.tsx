@@ -1,23 +1,22 @@
 import Input from "@codegouvfr/react-dsfr/Input";
-import type { LunaticCustomizedComponent } from "@inseefr/lunatic";
+import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { NumericFormat, type NumberFormatValues, type OnValueChange } from "react-number-format";
-import { getErrorStates } from "utils/errors/getErrorStates";
+import { getErrorStates } from "utils/errorStates";
 import { getNumberSeparators } from "utils/numbers";
 
-export const InputNumber: LunaticCustomizedComponent["InputNumber"] = props => {
+export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
     const {
         id,
         value = null,
-        handleChange,
         disabled = false,
         readOnly = false,
+        onChange,
         max = Infinity,
         min = -Infinity,
         decimals = 0,
         unit,
         label,
         errors,
-        response,
         required = true,
         description,
         declarations,
@@ -27,10 +26,10 @@ export const InputNumber: LunaticCustomizedComponent["InputNumber"] = props => {
         //TODO throw and handle globaly errors in an alert with a condition to avoid to display alert in prod
         console.error("Only declaration in Question are displayed");
     }
-    const { state, stateRelatedMessage } = getErrorStates(errors, id);
+    const { state, stateRelatedMessage } = getErrorStates(errors);
 
-    const onChange: OnValueChange = ({ floatValue }) => {
-        handleChange(response, floatValue && !Number.isNaN(floatValue) ? floatValue : null);
+    const onValueChange: OnValueChange = ({ floatValue }) => {
+        onChange(floatValue && !Number.isNaN(floatValue) ? floatValue : null);
     };
 
     const { decimalSeparator, thousandSeparator } = getNumberSeparators();
@@ -45,27 +44,26 @@ export const InputNumber: LunaticCustomizedComponent["InputNumber"] = props => {
     return (
         <NumericFormat
             customInput={Input}
+            allowNegative={min < 0}
             id={id}
-            value={value}
             label={label}
             isAllowed={isAllowed}
             state={state}
             stateRelatedMessage={stateRelatedMessage}
-            onValueChange={onChange}
+            onValueChange={onValueChange}
             decimalScale={decimals}
             decimalSeparator={decimalSeparator}
             allowLeadingZeros
             thousandSeparator={thousandSeparator}
             required={required}
             hintText={description}
+            readOnly={readOnly}
+            disabled={disabled}
             nativeInputProps={{
                 inputMode: decimals === 0 ? "numeric" : "decimal",
-                id: id,
                 pattern: "[0-9]*",
-                readOnly: readOnly,
-                disabled: disabled,
+                defaultValue: value ?? undefined,
                 placeholder: unit,
-                "aria-invalid": state === "error",
             }}
         />
     );

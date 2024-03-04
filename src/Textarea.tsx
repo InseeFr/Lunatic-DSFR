@@ -1,7 +1,7 @@
 import Input from "@codegouvfr/react-dsfr/Input";
-import type { LunaticComponentProps } from "@inseefr/lunatic";
+import type { LunaticSlotComponents } from "@inseefr/lunatic";
 
-export function Textarea(props: LunaticComponentProps<"Textarea">) {
+export const Textarea: LunaticSlotComponents["Textarea"] = props => {
     const {
         value,
         onChange,
@@ -17,7 +17,6 @@ export function Textarea(props: LunaticComponentProps<"Textarea">) {
         readOnly,
     } = props;
 
-    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => onChange(e.target.value);
     return (
         <Input
             label={label}
@@ -29,7 +28,7 @@ export function Textarea(props: LunaticComponentProps<"Textarea">) {
                 rows,
                 required,
                 maxLength,
-                onChange: handleChange,
+                onChange: e => onChange(e.target.value),
                 cols,
                 placeholder: placeHolder,
                 readOnly,
@@ -37,4 +36,4 @@ export function Textarea(props: LunaticComponentProps<"Textarea">) {
             }}
         />
     );
-}
+};
