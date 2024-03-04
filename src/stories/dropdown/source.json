@@ -79,7 +79,7 @@
             "componentRef": "j4nw5cqz",
             "values": {
                 "PREVIOUS": null,
-                "COLLECTED": null,
+                "COLLECTED": "1",
                 "FORCED": null,
                 "EDITED": null,
                 "INPUTED": null
