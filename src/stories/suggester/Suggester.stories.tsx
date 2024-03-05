@@ -25,11 +25,11 @@ export default stories;
 async function getReferentiel(name: string) {
     switch (name) {
         case "libelles-pcs-2020":
-            return fetch("/json/libelles-pcs-2020.json").then(r => r.json());
+            return fetch("./json/libelles-pcs-2020.json").then(r => r.json());
         case "naf-rev2":
-            return fetch("/json/naf-rev2.json").then(r => r.json());
+            return fetch("./json/naf-rev2.json").then(r => r.json());
         case "pays":
-            return fetch("/json/pays.json").then(r => r.json());
+            return fetch("./json/pays.json").then(r => r.json());
     }
 }
 
