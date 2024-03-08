@@ -10,6 +10,7 @@ import {
 import Waiting from "./waiting";
 import { customComponents } from "index";
 import { Button } from "Button";
+import MuiDsfrThemeProvider from "@codegouvfr/react-dsfr/mui";
 
 export type OrchestratorProps = {
     source: LunaticSource;
@@ -22,6 +23,9 @@ export type OrchestratorProps = {
     getReferentiel?: (name: string) => Promise<Array<unknown>>;
 };
 
+async function getReferentiel(name: string) {
+    return fetch(`./nomenclatures/${name}.json`).then(r => r.json());
+}
 function Pager({
     goPrevious,
     goNext,
@@ -58,7 +62,7 @@ function Pager({
 const onLogChange: LunaticState["handleChange"] = (response, value, args) =>
     console.log("onChange", { response, value, args });
 
-const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
+export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
     source,
     data,
     activeControls = true,
@@ -66,7 +70,6 @@ const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
     shortcut = false,
     autoSuggesterLoading,
     filterDescription = true,
-    getReferentiel,
 }) => {
     const { maxPage } = source;
     const {
@@ -107,7 +110,11 @@ const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
                         autoFocusKey={pageTag}
                         components={components}
                         // wrapper to avoid lunatic style
-                        wrapper={({ children, id }) => <div key={`component-${id}`}>{children}</div>}
+                        wrapper={({ children, id }) => (
+                            <div key={`component-${id}`}>
+                                <MuiDsfrThemeProvider>{children}</MuiDsfrThemeProvider>
+                            </div>
+                        )}
                         slots={customComponents}
                         componentProps={() => {
                             return {
@@ -134,5 +141,3 @@ const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
         </Provider>
     );
 };
-
-export default Orchestrator;

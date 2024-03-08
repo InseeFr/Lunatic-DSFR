@@ -1,7 +1,7 @@
-import Orchestrator from "../utils/Orchestrator";
+import { Orchestrator } from "stories/utils/Orchestrator";
 import type { StoryObj, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
-import source from "./source.json";
+import { source } from "./default";
 
 const meta: Meta<typeof Orchestrator> = {
     title: "Test/Paste",

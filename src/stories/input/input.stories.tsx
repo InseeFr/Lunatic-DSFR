@@ -1,61 +1,26 @@
-import type { Meta, StoryFn } from "@storybook/react";
+import { Orchestrator } from "stories/utils/Orchestrator";
+import { source } from "./default";
+import type { StoryObj, Meta } from "@storybook/react";
 
 import defaultArgTypes from "../utils/default-arg-types";
-import { Input } from "Input";
 
-const stories = {
+const meta = {
     title: "Components/Input",
-    component: Input,
+    component: Orchestrator,
     argTypes: defaultArgTypes,
-} as Meta<typeof Input>;
-
-export default stories;
-
-const Template: StoryFn<typeof Input> = args => <Input {...args} />;
-
-export const Error = Template.bind({});
-
-Error.args = {
-    value: "Jerry",
-    id: "ErrorMessage",
-    disabled: false,
-    label: "What's the name of Spongebob's pet snail?",
-    description: "Spongebob's pet snail meows like a cat.",
-    errors: [
-        {
-            id: "ErrorMessage",
-            criticality: "WARN",
-            typeOfControl: "CONSISTENCY",
-            errorMessage: "Take another guess",
+    parameters: {
+        docs: {
+            description: {
+                story: "This component should be used when you want the user to enter a string. You can add a maxLength property if you want to restrict the number of characters the user can enter.",
+            },
         },
-    ],
-};
+    },
+} satisfies Meta<typeof Orchestrator>;
 
-export const Success = Template.bind({});
+export default meta;
 
-Success.args = {
-    value: "Garry",
-    id: "SuccessMessage",
-    disabled: false,
-    label: "What's the name of Spongebob's pet snail?",
-    description: "Spongebob's pet snail meows like a cat.",
-    errors: [
-        {
-            id: "SuccessMessage",
-            criticality: "INFO",
-            typeOfControl: "CONSISTENCY",
-            errorMessage: "Take another guess",
-        },
-    ],
-};
+type Story = StoryObj<typeof Orchestrator>;
 
-export const Disabled = Template.bind({});
-
-Disabled.args = {
-    value: "Garry",
-    id: "DisabledMessage",
-    disabled: true,
-    label: "What's the name of Spongebob's pet snail?",
-    description: "Spongebob's pet snail meows like a cat.",
-    errors: [],
+export const Default: Story = {
+    args: { source: source },
 };

@@ -1,16 +1,5 @@
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
-import {
-    Suggester,
-    ComboboxLabelSelection,
-    ComboboxInput,
-    ComboboxOption,
-    ComboboxClearButton,
-    Label,
-    ComboboxContentBox,
-    ComboboxContainer,
-    ComboboxPanelContainer,
-    SuggesterNotification,
-} from "Suggester";
+import { Suggester } from "Suggester";
 import { Button } from "./Button";
 import { CheckboxGroup } from "./CheckboxGroup";
 import { Datepicker } from "./Datepicker";
@@ -27,15 +16,6 @@ import { RadioGroup } from "RadioGroup";
 
 export const customComponents = {
     Suggester,
-    ComboboxLabelSelection,
-    ComboboxInput,
-    ComboboxOption,
-    ComboboxClearButton,
-    Label,
-    ComboboxContentBox,
-    ComboboxContainer,
-    ComboboxPanelContainer,
-    SuggesterNotification,
     Button,
     Dropdown,
     Input,

@@ -6,14 +6,14 @@ import type { ButtonProps } from "@codegouvfr/react-dsfr/Button";
 
 export function Button({
     children,
-    disabled,
+    disabled = false,
     className,
     priority = "primary",
     onClick,
     type,
     value,
 }: PropsWithChildren<{
-    disabled: boolean;
+    disabled?: boolean;
     className?: string;
     priority?: ButtonProps.Common["priority"];
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;

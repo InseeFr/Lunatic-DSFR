@@ -1,4 +1,4 @@
-import Orchestrator from "../utils/Orchestrator";
+import { Orchestrator } from "stories/utils/Orchestrator";
 import data from "./data.json";
 import source from "./source.json";
 import sourceSkeleton from "./sourceSkeleton.json";
@@ -8,7 +8,7 @@ import type { StoryObj, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 
 const meta: Meta<typeof Orchestrator> = {
-    title: "Orchestrated Components/Roundabout",
+    title: "Components/Roundabout",
     component: Orchestrator,
     argTypes: defaultArgTypes,
     parameters: {
