@@ -18,7 +18,6 @@
         "resolveJsonModule": true,
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
-        "baseUrl": "src",
         "verbatimModuleSyntax": true
     },
     "include": ["src"]

@@ -3,7 +3,7 @@ import type { StoryFn, Meta } from "@storybook/react";
 
 import defaultArgTypes from "../utils/default-arg-types";
 import { BUTTON_PRIORITIES } from "../../utils/constants/buttonConstants";
-import { Button } from "Button";
+import { Button } from "../../Button";
 
 const { PRIMARY, SECONDARY, TERTIARY, TERTIARY_NO_OUTLINE } = BUTTON_PRIORITIES;
 

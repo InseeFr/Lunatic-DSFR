@@ -1,5 +1,5 @@
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
-import { Suggester } from "Suggester";
+import { Suggester } from "./Suggester";
 import { Button } from "./Button";
 import { CheckboxGroup } from "./CheckboxGroup";
 import { Datepicker } from "./Datepicker";
@@ -10,10 +10,10 @@ import { Roundabout } from "./Roundabout";
 import { Sequence } from "./Sequence";
 import { Subsequence } from "./Subsequence";
 import { SummaryResponses, SummaryTitle } from "./Summary";
-import { Textarea } from "Textarea";
-import { CheckboxBoolean } from "CheckboxBoolean";
-import { RadioGroup } from "RadioGroup";
-import { Declarations } from "Declarations";
+import { Textarea } from "./Textarea";
+import { CheckboxBoolean } from "./CheckboxBoolean";
+import { RadioGroup } from "./RadioGroup";
+import { Declarations } from "./Declarations";
 
 export const customComponents = {
     Suggester,

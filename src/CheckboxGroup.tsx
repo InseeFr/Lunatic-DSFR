@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 import { Checkbox } from "@codegouvfr/react-dsfr/Checkbox";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
-import { getErrorStates } from "utils/errorStates";
+import { getErrorStates } from "./utils/errorStates";
 
 export const CheckboxGroup: LunaticSlotComponents["CheckboxGroup"] = props => {
     const { options, id, label, description, errors } = props;

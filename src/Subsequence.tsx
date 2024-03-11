@@ -1,5 +1,5 @@
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
-import { Declarations } from "Declarations";
+import { Declarations } from "./Declarations";
 
 export const Subsequence: LunaticSlotComponents["Subsequence"] = props => {
     const { id, label, declarations } = props;

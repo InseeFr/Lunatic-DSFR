@@ -3,7 +3,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import { Input } from "@codegouvfr/react-dsfr/Input";
 import { useState, type ComponentProps } from "react";
 import { fr } from "@codegouvfr/react-dsfr";
-import { getErrorStates } from "utils/errorStates";
+import { getErrorStates } from "./utils/errorStates";
 
 type OptionType = Awaited<
     ReturnType<Required<ComponentProps<LunaticSlotComponents["Suggester"]>>["searching"]>

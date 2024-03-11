@@ -23,10 +23,12 @@ export const Declarations: LunaticSlotComponents["Declarations"] = props => {
     }
 };
 
-type Declaration = Pick<Required<ComponentProps<LunaticSlotComponents["Declarations"]>>, "declarations">;
+type Declaration = Pick<ComponentProps<LunaticSlotComponents["Declarations"]>, "declarations">;
 
 const DeclarationAfter = (props: Declaration) => {
     const { declarations } = props;
+
+    if (!declarations || declarations.length === 0) return null;
 
     if (declarations[1]) {
         console.error("Only one declaration by type is permitted, we display the first");
@@ -40,6 +42,9 @@ const DeclarationAfter = (props: Declaration) => {
 const DeclarationBefore = (props: Declaration) => {
     const { declarations } = props;
 
+    if (!declarations || declarations.length === 0) return null;
+
+    console.log(declarations);
     if (declarations[1]) {
         console.error("Only one declaration by type is permitted, we display the first");
     }

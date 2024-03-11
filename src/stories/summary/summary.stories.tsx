@@ -1,7 +1,7 @@
 import { source, data } from "./default";
 import defaultArgTypes from "../utils/default-arg-types";
 import type { StoryObj, Meta } from "@storybook/react";
-import { Orchestrator } from "stories/utils/Orchestrator";
+import { Orchestrator } from "../utils/Orchestrator";
 
 const meta = {
     title: "Components/Summary",

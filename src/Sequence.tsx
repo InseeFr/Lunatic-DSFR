@@ -1,8 +1,9 @@
 import { fr } from "@codegouvfr/react-dsfr";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
+import { Declarations } from "./Declarations";
 
 export const Sequence: LunaticSlotComponents["Sequence"] = props => {
-    const { id, label } = props;
+    const { id, label, declarations } = props;
     return (
         <div
             id={id}
@@ -10,14 +11,7 @@ export const Sequence: LunaticSlotComponents["Sequence"] = props => {
             style={{ backgroundColor: fr.colors.decisions.background.alt.grey.default }}
         >
             <h2>{label}</h2>
-            <div>
-                Todo : Déclarations
-                {/* <Declarations
-				type="AFTER_QUESTION_TEXT"
-				declarations={declarations}
-				id={id}
-			/>             */}
-            </div>
+            <Declarations type="AFTER_QUESTION_TEXT" declarations={declarations} id={id} />
         </div>
     );
 };

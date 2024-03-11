@@ -8,9 +8,9 @@ import {
     type LunaticState,
 } from "@inseefr/lunatic";
 import Waiting from "./waiting";
-import { customComponents } from "index";
-import { Button } from "Button";
 import MuiDsfrThemeProvider from "@codegouvfr/react-dsfr/mui";
+import { Button } from "../../Button";
+import { customComponents } from "../..";
 
 export type OrchestratorProps = {
     source: LunaticSource;

@@ -1,8 +1,8 @@
 import Input from "@codegouvfr/react-dsfr/Input";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { NumericFormat, type NumberFormatValues, type OnValueChange } from "react-number-format";
-import { getErrorStates } from "utils/errorStates";
-import { getNumberSeparators } from "utils/numbers";
+import { getErrorStates } from "./utils/errorStates";
+import { getNumberSeparators } from "./utils/numbers";
 
 export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
     const {
