@@ -2,7 +2,7 @@ import { useState } from "react";
 import { getErrorStates } from "./utils/errorStates";
 import { fr } from "@codegouvfr/react-dsfr";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
-import type { Split } from "utils/type";
+import type { Split } from "./utils/type";
 import Input from "@codegouvfr/react-dsfr/Input";
 import { NumericFormat, type NumberFormatValues } from "react-number-format";
 
