@@ -131,14 +131,14 @@ export const data: LunaticData = {
             "FORCED": [null],
             "INPUTED": [null],
             "PREVIOUS": [null],
-            "COLLECTED": ["Matt", "Julia"],
+            "COLLECTED": ["John", "Martin"],
         },
         "NOMS": {
             "EDITED": [null],
             "FORCED": [null],
             "INPUTED": [null],
             "PREVIOUS": [null],
-            "COLLECTED": ["Clark", "Dirand"],
+            "COLLECTED": ["Doe", "Dupont"],
         },
         "DATENAISS": {
             "EDITED": [null],

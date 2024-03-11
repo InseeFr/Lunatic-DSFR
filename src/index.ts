@@ -13,6 +13,7 @@ import { SummaryResponses, SummaryTitle } from "./Summary";
 import { Textarea } from "Textarea";
 import { CheckboxBoolean } from "CheckboxBoolean";
 import { RadioGroup } from "RadioGroup";
+import { Declarations } from "Declarations";
 
 export const customComponents = {
     Suggester,
@@ -30,8 +31,5 @@ export const customComponents = {
     SummaryResponses,
     SummaryTitle,
     Textarea,
-    // Any will be remove when all component refactored
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-} as any as Partial<LunaticSlotComponents>;
-
-//TODO Remove any
+    Declarations,
+} as Partial<LunaticSlotComponents>;
