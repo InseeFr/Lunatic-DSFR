@@ -32,11 +32,3 @@ export function getErrorStates(errors?: LunaticError[]): {
             throw new Error("We do not know this type of criticality");
     }
 }
-
-/**
- * TO DELETE
- */
-const getState = () => {};
-const getStateRelatedMessage = () => {};
-
-export { getState, getStateRelatedMessage };

@@ -1,15 +1,11 @@
-import { Orchestrator } from "stories/utils/Orchestrator";
-import { source } from "./source";
 import type { Meta, StoryObj } from "@storybook/react";
-import defaultArgTypes from "../utils/default-arg-types";
+import { source } from "./default";
+import { Orchestrator } from "stories/utils/Orchestrator";
 
 const meta = {
-    title: "Components/Suggester",
+    title: "Components/Question",
+    tags: ["autodocs"],
     component: Orchestrator,
-    argTypes: defaultArgTypes,
-    args: {
-        autoSuggesterLoading: true,
-    },
 } satisfies Meta<typeof Orchestrator>;
 
 export default meta;

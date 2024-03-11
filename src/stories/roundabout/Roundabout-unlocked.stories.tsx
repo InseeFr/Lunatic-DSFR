@@ -1,14 +1,12 @@
-import Orchestrator from "../utils/Orchestrator";
-import data from "./data.json";
-import source from "./source.json";
-import sourceSkeleton from "./sourceSkeleton.json";
-import source1 from "./source1.json";
+import { Orchestrator } from "stories/utils/Orchestrator";
+import { source, data } from "./default";
+import { source as lockedSource, data as lockedData } from "./locked";
 import type { StoryObj, Meta } from "@storybook/react";
 
 import defaultArgTypes from "../utils/default-arg-types";
 
 const meta: Meta<typeof Orchestrator> = {
-    title: "Orchestrated Components/Roundabout",
+    title: "Components/Roundabout",
     component: Orchestrator,
     argTypes: defaultArgTypes,
     parameters: {
@@ -24,7 +22,7 @@ export default meta;
 
 type Story = StoryObj<typeof Orchestrator>;
 
-export const RoundaboutWithLockedSetToTrue: Story = {
+export const Default: Story = {
     parameters: {
         docs: {
             description: {
@@ -43,9 +41,5 @@ export const RoundaboutWithLockedSetToFalse: Story = {
             },
         },
     },
-    args: { source: source1, data: data },
-};
-
-export const Skeleton: Story = {
-    args: { source: sourceSkeleton, data: data },
+    args: { source: lockedSource, data: lockedData },
 };

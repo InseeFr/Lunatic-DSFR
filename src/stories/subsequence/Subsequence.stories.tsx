@@ -1,19 +1,18 @@
-import Orchestrator from "../utils/Orchestrator";
-import source from "./source.json";
-import type { Meta, StoryFn } from "@storybook/react";
+import { Orchestrator } from "stories/utils/Orchestrator";
+import { source } from "./default";
+import type { Meta, StoryObj } from "@storybook/react";
 
 import defaultArgTypes from "../utils/default-arg-types";
 
-const stories = {
-    title: "Orchestrated Components/Subsequence",
+const meta = {
+    title: "Components/Subsequence",
     component: Orchestrator,
     argTypes: defaultArgTypes,
 } as Meta<typeof Orchestrator>;
 
-export default stories;
+export default meta;
+type Story = StoryObj<typeof Orchestrator>;
 
-const Template: StoryFn<typeof Orchestrator> = args => <Orchestrator {...args} />;
-
-export const Default = Template.bind({});
-
-Default.args = { id: "sequence", source };
+export const Default = {
+    args: { source },
+} satisfies Story;

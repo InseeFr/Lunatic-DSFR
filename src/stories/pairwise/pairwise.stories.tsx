@@ -5,13 +5,13 @@ import type { StoryObj, Meta } from "@storybook/react";
 import defaultArgTypes from "../utils/default-arg-types";
 
 const meta: Meta<typeof Orchestrator> = {
-    title: "Components/DatePicker",
+    title: "Components/Pairwise",
     component: Orchestrator,
     argTypes: defaultArgTypes,
     parameters: {
         docs: {
             description: {
-                story: "This component should be used when you want the user to enter a date.",
+                story: "This component allows you to pass symetric links.",
             },
         },
     },

@@ -1,144 +1,30 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import defaultArgTypes from "../utils/default-arg-types";
-import { CheckboxGroup } from "CheckboxGroup";
+import { Orchestrator } from "stories/utils/Orchestrator";
+import { source } from "./default";
+import type { StoryObj, Meta } from "@storybook/react";
 
-const meta: Meta<typeof CheckboxGroup> = {
-    title: "Components/Checkbox",
-    component: CheckboxGroup,
+import defaultArgTypes from "../utils/default-arg-types";
+
+const meta: Meta<typeof Orchestrator> = {
+    title: "Components/CheckboxGroup",
+    component: Orchestrator,
     argTypes: defaultArgTypes,
+    args: { source },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof CheckboxGroup>;
+type Story = StoryObj<typeof Orchestrator>;
 
-export const Error: Story = {
-    args: {
-        id: "ErrorMessage",
-        disabled: false,
-        label: "Which of these cities are in France?",
-        description: "If you select a city that is not in France, an error will appear!",
-        options: [
-            {
-                label: "Paris",
-                description: "Paris is the capital city!",
-                checked: false,
-                name: "Paris",
-                onClick: () => {
-                    console.log("hi");
-                },
-            },
-            {
-                label: "Bordeaux",
-                description: "Bordeaux is where you can find great wine!",
-                checked: false,
-                name: "Bordeaux",
-                onClick: () => {
-                    console.log("hi");
-                },
-            },
-            {
-                label: "Geneva",
-                description: "There is great Swiss chocolate in Geneva",
-                checked: true,
-                name: "Geneva",
-                onClick: () => {
-                    console.log("hi");
-                },
-            },
-        ],
-        errors: [
-            {
-                id: "ErrorMessage",
-                criticality: "WARN",
-                typeOfControl: "CONSISTENCY",
-                errorMessage: "Take another guess",
-            },
-        ],
+export const Default: Story = {
+    render: args => {
+        console.log(args);
+        return <Orchestrator {...args} />;
     },
-};
-
-export const Success: Story = {
-    args: {
-        id: "SuccessMessage",
-        disabled: false,
-        label: "Which of these cities are in France?",
-        description: "If you select a city that is not in France, an error will appear!",
-        options: [
-            {
-                label: "Paris",
-                description: "Paris is the capital city!",
-                checked: true,
-                name: "Paris",
-                onClick: () => {
-                    console.log("hi");
-                },
+    parameters: {
+        docs: {
+            description: {
+                story: "This component should be used when you want the user to be able to select one or multiple answers.",
             },
-            {
-                label: "Bordeaux",
-                description: "Bordeaux is where you can find great wine!",
-                checked: true,
-                name: "Bordeaux",
-                onClick: () => {
-                    console.log("hi");
-                },
-            },
-            {
-                label: "Geneva",
-                description: "There is great Swiss chocolate in Geneva",
-                checked: false,
-                name: "Geneva",
-                onClick: () => {
-                    console.log("hi");
-                },
-            },
-        ],
-        errors: [
-            {
-                id: "SuccessMessage",
-                criticality: "INFO",
-                typeOfControl: "CONSISTENCY",
-                errorMessage: "Great work!",
-            },
-        ],
-    },
-};
-
-export const Disabled: Story = {
-    args: {
-        id: "DisabledMessage",
-        disabled: true,
-        label: "Which of these cities are in France?",
-        description: "If you select a city that is not in France, an error will appear!",
-        errors: [],
-        options: [
-            {
-                label: "Paris",
-                description: "Paris is the capital city!",
-                checked: true,
-                name: "Paris",
-                onClick: () => {
-                    console.log("hi");
-                },
-            },
-            {
-                label: "Bordeaux",
-                description: "Bordeaux is where you can find great wine!",
-                checked: false,
-                name: "Bordeaux",
-                onClick: () => {
-                    console.log("hi");
-                },
-            },
-            {
-                label: "Geneva",
-                description: "There is great Swiss chocolate in Geneva",
-                checked: false,
-                name: "Geneva",
-                onClick: () => {
-                    console.log("hi");
-                },
-            },
-        ],
+        },
     },
 };
