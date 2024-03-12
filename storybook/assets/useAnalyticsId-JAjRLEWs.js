@@ -1,1 +1,0 @@
-import{r as d}from"./index-CBqU2yxZ.js";var e={};Object.defineProperty(e,"__esModule",{value:!0});var i=e.symToStr=void 0;function u(r){return Object.keys(r)[0]}i=e.symToStr=u;function a(r){const{explicitlyProvidedId:t,defaultIdPrefix:o}=r,s=d.useId();return t??`${o}-${s}`}export{i as s,a as u};

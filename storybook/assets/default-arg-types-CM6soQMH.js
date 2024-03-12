@@ -1,1 +1,0 @@
-const s=["id","pagination","data","management","activeControls","features","initialPage","getStoreInfo","missing","shortcut","activeGoNextForMissing","filterDescription","suggesterFetcher","autoSuggesterLoading","suggesters","preferences","getReferentiel","source"],i=s.reduce((e,t)=>({...e,[t]:{table:{disable:!0}}}),{});export{i as d};

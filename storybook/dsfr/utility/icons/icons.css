@@ -1,3 +1,9 @@
+.fr-icon-delete-line::before,
+.fr-icon-delete-line::after {
+    -webkit-mask-image: url("../../icons/system/delete-bin-line.svg");
+    mask-image: url("../../icons/system/delete-bin-line.svg");
+}
+
 .fr-icon-theme-fill::before,
 .fr-icon-theme-fill::after {
     -webkit-mask-image: url("../../icons/system/fr--theme-fill.svg");
@@ -11,6 +17,11 @@
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .fr-icon-delete-line::before,
+    .fr-icon-delete-line::after {
+        background-image: url("../../icons/system/delete-bin-line.svg");
+    }
+    
     .fr-icon-theme-fill::before,
     .fr-icon-theme-fill::after {
         background-image: url("../../icons/system/fr--theme-fill.svg");
