@@ -1,4 +1,8 @@
-# lunatic-DSFR
+# Lunatic-DSFR
+
+<p align="center">
+  <a href="https://inseefr.github.io/Lunatic-DSFR/storybook/" target="_blank"><img src="https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg"></a>
+</p>
 
 Lunatic-DSFR is a library of customised [Lunatic](https://github.com/InseeFr/Lunatic) components built with TypeScript and [React-DSFR](https://react-dsfr.etalab.studio/).
 
