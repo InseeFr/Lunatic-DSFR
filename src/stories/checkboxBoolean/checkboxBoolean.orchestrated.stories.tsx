@@ -1,15 +1,12 @@
 import { source } from "./default";
 import type { StoryObj, Meta } from "@storybook/react";
-
-import defaultArgTypes from "../utils/default-arg-types";
 import { Orchestrator } from "../utils/Orchestrator";
 
-const meta: Meta<typeof Orchestrator> = {
+const meta = {
     title: "Components/CheckboxBoolean",
     component: Orchestrator,
-    argTypes: defaultArgTypes,
     args: { source },
-};
+} satisfies Meta<typeof Orchestrator>;
 
 export default meta;
 

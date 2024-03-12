@@ -10,7 +10,8 @@ import {
 import Waiting from "./waiting";
 import MuiDsfrThemeProvider from "@codegouvfr/react-dsfr/mui";
 import { Button } from "../../Button";
-import { customComponents } from "../..";
+import { slotComponents } from "../..";
+import { fr } from "@codegouvfr/react-dsfr";
 
 export type OrchestratorProps = {
     source: LunaticSource;
@@ -28,6 +29,7 @@ async function getReferentiel(name: string) {
 }
 function Pager({
     goPrevious,
+    logData,
     goNext,
     isLast,
     isFirst,
@@ -35,6 +37,7 @@ function Pager({
     maxPage,
 }: {
     goPrevious: () => void;
+    logData: () => void;
     goNext: () => void;
     isLast: boolean;
     isFirst: boolean;
@@ -52,6 +55,9 @@ function Pager({
                         Next
                     </Button>
                 </div>
+                <Button onClick={logData} disabled={isLast}>
+                    Get Data
+                </Button>
                 <div>PAGE: {pageTag}</div>
             </>
         );
@@ -76,6 +82,7 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
         getComponents,
         goPreviousPage,
         goNextPage,
+        getData,
         pageTag,
         isFirstPage,
         isLastPage,
@@ -105,28 +112,25 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
     return (
         <Provider>
             <div className="container">
-                <div>
-                    <LunaticComponents
-                        autoFocusKey={pageTag}
-                        components={components}
-                        // wrapper to avoid lunatic style
-                        wrapper={({ children, id }) => (
-                            <div key={`component-${id}`}>
-                                <MuiDsfrThemeProvider>{children}</MuiDsfrThemeProvider>
-                            </div>
-                        )}
-                        slots={customComponents}
-                        componentProps={() => {
-                            return {
-                                errors: errorActive,
-                                filterDescription: filterDescription,
-                            };
-                        }}
-                    />
+                <div className={fr.cx("fr-mb-4v")}>
+                    <MuiDsfrThemeProvider>
+                        <LunaticComponents
+                            autoFocusKey={pageTag}
+                            components={components}
+                            slots={slotComponents}
+                            componentProps={() => {
+                                return {
+                                    errors: errorActive,
+                                    filterDescription: filterDescription,
+                                };
+                            }}
+                        />
+                    </MuiDsfrThemeProvider>
                 </div>
                 <Pager
                     goPrevious={goPreviousPage}
                     goNext={handleGoNext}
+                    logData={() => console.log(getData(true))}
                     isLast={isLastPage}
                     isFirst={isFirstPage}
                     pageTag={pageTag}

@@ -2,6 +2,7 @@ import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import type { ComponentProps } from "react";
 import { Alert } from "@codegouvfr/react-dsfr/Alert";
 import { CallOut } from "@codegouvfr/react-dsfr/CallOut";
+import { fr } from "@codegouvfr/react-dsfr";
 
 export const Declarations: LunaticSlotComponents["Declarations"] = props => {
     const { declarations, type } = props;
@@ -36,7 +37,16 @@ const DeclarationAfter = (props: Declaration) => {
 
     const { id, label } = declarations[0];
 
-    return <Alert description={label ?? ""} id={id} severity="info" closable={false} title="Consigne" />;
+    return (
+        <Alert
+            className={fr.cx("fr-fieldset__legend--regular")}
+            description={label ?? ""}
+            id={id}
+            severity="info"
+            closable={false}
+            title="Consigne"
+        />
+    );
 };
 
 const DeclarationBefore = (props: Declaration) => {
@@ -44,7 +54,6 @@ const DeclarationBefore = (props: Declaration) => {
 
     if (!declarations || declarations.length === 0) return null;
 
-    console.log(declarations);
     if (declarations[1]) {
         console.error("Only one declaration by type is permitted, we display the first");
     }

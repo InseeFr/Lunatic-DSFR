@@ -1,12 +1,10 @@
 import { source, data } from "./default";
-import defaultArgTypes from "../utils/default-arg-types";
 import type { StoryObj, Meta } from "@storybook/react";
 import { Orchestrator } from "../utils/Orchestrator";
 
 const meta = {
     title: "Components/Summary",
     component: Orchestrator,
-    argTypes: defaultArgTypes,
 } satisfies Meta<typeof Orchestrator>;
 
 export default meta;

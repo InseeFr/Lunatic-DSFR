@@ -3,7 +3,8 @@ import { Checkbox } from "@codegouvfr/react-dsfr/Checkbox";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 
 export const CheckboxBoolean: LunaticSlotComponents["CheckboxBoolean"] = props => {
-    const { disabled, checked, id, onChange, label, declarations, description, errors } = props;
+    const { disabled, checked, id, onChange, label, declarations, description, errors, readOnly } =
+        props;
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
 
@@ -15,7 +16,7 @@ export const CheckboxBoolean: LunaticSlotComponents["CheckboxBoolean"] = props =
     return (
         <Checkbox
             id={id}
-            disabled={disabled}
+            disabled={disabled || readOnly}
             options={[
                 {
                     label: label,

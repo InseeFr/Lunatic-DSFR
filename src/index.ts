@@ -14,8 +14,11 @@ import { Textarea } from "./Textarea";
 import { CheckboxBoolean } from "./CheckboxBoolean";
 import { RadioGroup } from "./RadioGroup";
 import { Declarations } from "./Declarations";
+import { Question } from "./Question";
+import { ComponentWrapper } from "./ComponentWrapper";
 
-export const customComponents = {
+export const slotComponents = {
+    Question,
     Suggester,
     Button,
     Dropdown,
@@ -32,4 +35,5 @@ export const customComponents = {
     SummaryTitle,
     Textarea,
     Declarations,
+    ComponentWrapper,
 } as Partial<LunaticSlotComponents>;

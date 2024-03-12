@@ -1,16 +1,14 @@
 import { Orchestrator } from "../utils/Orchestrator";
 import type { StoryObj, Meta } from "@storybook/react";
-import defaultArgTypes from "../utils/default-arg-types";
 import { source } from "./default";
 
-const meta: Meta<typeof Orchestrator> = {
+const meta = {
     title: "Test/Paste",
     component: Orchestrator,
     args: {
         source: source,
     },
     argTypes: {
-        ...defaultArgTypes,
         source: {
             control: "object",
         },
@@ -22,7 +20,7 @@ const meta: Meta<typeof Orchestrator> = {
             },
         },
     },
-};
+} satisfies Meta<typeof Orchestrator>;
 
 export default meta;
 

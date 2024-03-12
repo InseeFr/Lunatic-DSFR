@@ -2,8 +2,7 @@ import type { LunaticSource } from "@inseefr/lunatic";
 
 export const source: LunaticSource = {
     "cleaning": {},
-    "maxPage": "2",
-
+    "maxPage": "1",
     "variables": [
         {
             "variableType": "COLLECTED",

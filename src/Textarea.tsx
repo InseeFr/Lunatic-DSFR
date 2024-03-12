@@ -14,6 +14,7 @@ export const Textarea: LunaticSlotComponents["Textarea"] = props => {
         maxLength,
         cols,
         placeHolder,
+        disabled,
         readOnly,
     } = props;
 
@@ -25,6 +26,7 @@ export const Textarea: LunaticSlotComponents["Textarea"] = props => {
             textArea
             nativeTextAreaProps={{
                 value: value ?? "",
+                disabled,
                 rows,
                 required,
                 maxLength,

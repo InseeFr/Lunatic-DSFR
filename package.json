@@ -60,7 +60,7 @@
         "@codegouvfr/react-dsfr": "^1.7.5",
         "@emotion/react": "^11.11.4",
         "@emotion/styled": "^11.11.0",
-        "@inseefr/lunatic": "3.0.0-rc.8",
+        "@inseefr/lunatic": "3.0.0-rc.9",
         "@mui/material": "^5.15.11",
         "@storybook/addon-a11y": "^7.6.17",
         "@storybook/addon-essentials": "^7.6.17",

@@ -2,12 +2,9 @@ import { Orchestrator } from "../utils/Orchestrator";
 import { source } from "./default";
 import type { StoryObj, Meta } from "@storybook/react";
 
-import defaultArgTypes from "../utils/default-arg-types";
-
 const meta = {
     title: "Components/Input",
     component: Orchestrator,
-    argTypes: defaultArgTypes,
     parameters: {
         docs: {
             description: {

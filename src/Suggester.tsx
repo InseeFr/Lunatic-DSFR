@@ -4,17 +4,31 @@ import { Input } from "@codegouvfr/react-dsfr/Input";
 import { useState, type ComponentProps } from "react";
 import { fr } from "@codegouvfr/react-dsfr";
 import { getErrorStates } from "./utils/errorStates";
+import { Button } from "@codegouvfr/react-dsfr/Button";
 
 type OptionType = Awaited<
     ReturnType<Required<ComponentProps<LunaticSlotComponents["Suggester"]>>["searching"]>
 >["results"];
 
 export const Suggester: LunaticSlotComponents["Suggester"] = props => {
-    const { id, searching, onSelect, disabled, readOnly, label, description, errors, value } = props;
+    const {
+        id,
+        searching,
+        onSelect,
+        disabled,
+        readOnly,
+        label,
+        description,
+        errors,
+        value,
+        defaultOptions,
+    } = props;
 
-    const [options, setOptions] = useState<OptionType>([]);
+    const [options, setOptions] = useState<OptionType>(defaultOptions ?? []);
+
     const selectedOption = options.find(o => o.id === value) ?? null;
-    const [inputValue, setInputValue] = useState(value);
+
+    const [inputValue, setInputValue] = useState(selectedOption?.label?.toString() ?? null);
 
     const handleSearch = async (query: string) => {
         if (!searching) {
@@ -24,6 +38,12 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
         if (results && Array.isArray(results)) {
             setOptions(results);
         }
+    };
+
+    const handleClear = () => {
+        setInputValue(null);
+        setOptions([]);
+        onSelect(null);
     };
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
@@ -44,7 +64,7 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
             value={selectedOption}
             inputValue={inputValue ?? ""}
             onChange={(_e, option) => {
-                onSelect?.(option?.id ?? "");
+                onSelect?.(option);
             }}
             onInputChange={(e, v) => {
                 // When "options" changes, MUI calls "onInputChange" unexpectedly and without event (skip this situation)
@@ -67,6 +87,14 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
                         label={label}
                         hintText={description}
                         id={id}
+                        addon={
+                            <Button
+                                iconId="fr-icon-delete-line"
+                                priority="secondary"
+                                onClick={handleClear}
+                                title="vider le champ"
+                            />
+                        }
                         disabled={disabled}
                         nativeInputProps={{
                             ...inputProps,

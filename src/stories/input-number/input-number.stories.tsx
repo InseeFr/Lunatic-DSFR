@@ -4,12 +4,9 @@ import { source } from "./default";
 import { source as sourceWithUnit } from "./withUnit";
 import type { StoryObj, Meta } from "@storybook/react";
 
-import defaultArgTypes from "../utils/default-arg-types";
-
-const meta: Meta<typeof Orchestrator> = {
+const meta = {
     title: "Components/InputNumber",
     component: Orchestrator,
-    argTypes: defaultArgTypes,
     parameters: {
         docs: {
             description: {
@@ -17,7 +14,7 @@ const meta: Meta<typeof Orchestrator> = {
             },
         },
     },
-};
+} satisfies Meta<typeof Orchestrator>;
 
 export default meta;
 

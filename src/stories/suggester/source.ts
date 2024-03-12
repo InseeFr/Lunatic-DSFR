@@ -32,6 +32,12 @@ export const source: LunaticSource = {
             "response": {
                 "name": "VARIABLEPA",
             },
+            "optionResponses": [
+                {
+                    "name": "SUGGESTER_VARIABLEPA_LABEL",
+                    "attribute": "label",
+                },
+            ],
             "storeName": "L_PAYS-1-2-0",
             "conditionFilter": {
                 "type": "VTL",
@@ -57,6 +63,17 @@ export const source: LunaticSource = {
         },
     ],
     "variables": [
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "INPUTED": null,
+                "FORCED": null,
+                "PREVIOUS": null,
+            },
+            "name": "SUGGESTER_VARIABLEPA_LABEL",
+        },
         {
             "variableType": "COLLECTED",
             "values": {

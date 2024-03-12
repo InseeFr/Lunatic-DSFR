@@ -7,7 +7,6 @@ export const Subsequence: LunaticSlotComponents["Subsequence"] = props => {
         <div id={id}>
             <h3>{label}</h3>
             <Declarations type="AFTER_QUESTION_TEXT" declarations={declarations} />
-            {/* <Declarations type="DETACHABLE" declarations={declarations} /> */}
         </div>
     );
 };

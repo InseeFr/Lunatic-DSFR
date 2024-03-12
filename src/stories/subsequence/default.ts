@@ -7,7 +7,7 @@ export const source: LunaticSource = {
             "id": "seq",
             "componentType": "Subsequence",
             "label": {
-                "value": "Subsequence label",
+                "value": '"Subsequence label"',
                 "type": "VTL|MD",
             },
             "conditionFilter": { "value": "true", "type": "VTL" },

@@ -13,7 +13,7 @@ export const Dropdown: LunaticSlotComponents["Dropdown"] = props => {
         disabled,
         errors,
         label,
-        //readOnly,
+        readOnly,
     } = props;
 
     if (declarations) {
@@ -32,7 +32,7 @@ export const Dropdown: LunaticSlotComponents["Dropdown"] = props => {
             state={state === "success" ? "valid" : state}
             stateRelatedMessage={stateRelatedMessage}
             hint={description}
-            disabled={disabled}
+            disabled={disabled || readOnly}
             // @ts-expect-error due to https://github.com/codegouvfr/react-dsfr/blob/main/src/SelectNext.tsx#L72
             options={options.map(({ label, value }) => ({
                 label,

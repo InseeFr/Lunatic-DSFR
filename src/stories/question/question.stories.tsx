@@ -4,7 +4,6 @@ import { Orchestrator } from "../utils/Orchestrator";
 
 const meta = {
     title: "Components/Question",
-    tags: ["autodocs"],
     component: Orchestrator,
 } satisfies Meta<typeof Orchestrator>;
 

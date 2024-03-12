@@ -2,20 +2,17 @@ import { Orchestrator } from "../utils/Orchestrator";
 import { source } from "./default";
 import type { StoryObj, Meta } from "@storybook/react";
 
-import defaultArgTypes from "../utils/default-arg-types";
-
-const meta: Meta<typeof Orchestrator> = {
+const meta = {
     title: "Components/CheckboxGroup",
     component: Orchestrator,
-    argTypes: defaultArgTypes,
     args: { source },
-};
+} satisfies Meta<typeof Orchestrator>;
 
 export default meta;
 
 type Story = StoryObj<typeof Orchestrator>;
 
-export const Default: Story = {
+export const Default = {
     render: args => {
         console.log(args);
         return <Orchestrator {...args} />;
@@ -27,4 +24,4 @@ export const Default: Story = {
             },
         },
     },
-};
+} satisfies Story;

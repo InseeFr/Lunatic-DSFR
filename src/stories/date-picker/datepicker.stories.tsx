@@ -2,12 +2,9 @@ import { Orchestrator } from "../utils/Orchestrator";
 import { source, data } from "./default";
 import type { StoryObj, Meta } from "@storybook/react";
 
-import defaultArgTypes from "../utils/default-arg-types";
-
-const meta: Meta<typeof Orchestrator> = {
+const meta = {
     title: "Components/DatePicker",
     component: Orchestrator,
-    argTypes: defaultArgTypes,
     parameters: {
         docs: {
             description: {
@@ -15,12 +12,12 @@ const meta: Meta<typeof Orchestrator> = {
             },
         },
     },
-};
+} satisfies Meta<typeof Orchestrator>;
 
 export default meta;
 
 type Story = StoryObj<typeof Orchestrator>;
 
-export const Default: Story = {
+export const Default = {
     args: { source: source, data: data },
-};
+} satisfies Story;
