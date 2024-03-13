@@ -20,5 +20,6 @@
         "allowSyntheticDefaultImports": true,
         "verbatimModuleSyntax": true
     },
-    "include": ["src"]
+    "include": ["src"],
+    "exclude": ["src/stories"]
 }

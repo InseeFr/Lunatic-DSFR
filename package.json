@@ -46,7 +46,8 @@
     "files": [
         "src/",
         "dist/",
-        "!/dist/stories/",
+        "!src/stories/",
+        "!dist/stories/",
         "!dist/tsconfig.tsbuildinfo"
     ],
     "keywords": [],
@@ -54,7 +55,14 @@
     "peerDependencies": {
         "@emotion/react": "^11.4.1",
         "@inseefr/lunatic": "3.0.0-rc.10",
-        "@mui/material": "^5.0.1"
+        "@mui/material": "^5.0.1",
+        "@types/react": "^18.0.0",
+        "react": "^18.0.0"
+    },
+    "peerDependenciesMeta": {
+        "@types/react": {
+            "optional": true
+        }
     },
     "devDependencies": {
         "@codegouvfr/react-dsfr": "^1.7.5",
