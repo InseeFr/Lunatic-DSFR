@@ -56,7 +56,7 @@ function Pager({
                         Next
                     </Button>
                 </div>
-                <Button onClick={logData} disabled={isLast}>
+                <Button onClick={logData} disabled={isLast} priority="tertiary no outline">
                     Get Data
                 </Button>
                 <div>PAGE: {pageTag}</div>

@@ -53,11 +53,14 @@
     "keywords": [],
     "homepage": "https://inseefr.github.io/Lunatic-DSFR",
     "peerDependencies": {
+        "@codegouvfr/react-dsfr": "^1.9.2",
         "@emotion/react": "^11.4.1",
+        "@emotion/styled": "^11.11.0",
         "@inseefr/lunatic": "3.0.0-rc.10",
         "@mui/material": "^5.0.1",
         "@types/react": "^18.0.0",
-        "react": "^18.0.0"
+        "react": "^18.0.0",
+        "tss-react": "^4.9.4"
     },
     "peerDependenciesMeta": {
         "@types/react": {
@@ -65,7 +68,7 @@
         }
     },
     "devDependencies": {
-        "@codegouvfr/react-dsfr": "^1.7.5",
+        "@codegouvfr/react-dsfr": "^1.9.2",
         "@emotion/react": "^11.11.4",
         "@emotion/styled": "^11.11.0",
         "@inseefr/lunatic": "3.0.0-rc.10",
@@ -94,13 +97,13 @@
         "storybook": "^7.6.17",
         "storybook-dark-mode": "^3.0.3",
         "ts-node": "^10.9.2",
+        "tss-react": "^4.9.4",
         "typescript": "^5.3.3",
         "vite": "^5.1.4",
         "vite-tsconfig-paths": "^4.3.1"
     },
     "dependencies": {
-        "react-number-format": "^5.3.3",
-        "tss-react": "^4.9.4"
+        "react-number-format": "^5.3.3"
     },
     "publishConfig": {
         "access": "public"
