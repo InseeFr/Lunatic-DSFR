@@ -1,6 +1,11 @@
 # Lunatic-DSFR
 
 <p align="center">
+ <img src="https://github.com/InseeFr/Lunatic-DSFR/assets/81740200/b5b276cc-cf34-478c-bdb2-6cbb8478e74d#gh-light-mode-only" />
+ <img src="https://github.com/InseeFr/Lunatic-DSFR/assets/81740200/313202fa-86ef-4204-91d2-d178e8a98fae#gh-dark-mode-only" />
+</p>
+
+<p align="center">
   <a href="https://inseefr.github.io/Lunatic-DSFR/storybook/" target="_blank"><img src="https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg"></a>
 </p>
 
