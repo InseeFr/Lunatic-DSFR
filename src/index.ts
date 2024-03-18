@@ -38,4 +38,5 @@ export const slotComponents = {
     Textarea,
     Declarations,
     ComponentWrapper,
-} as Partial<LunaticSlotComponents>;
+} as Partial<LunaticSlotComponents> satisfies Partial<LunaticSlotComponents>;
+//We must remove `as Partial<LunaticSlotComponents>` when Roundabout and summary refactored
