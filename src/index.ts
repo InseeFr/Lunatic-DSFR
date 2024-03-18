@@ -16,6 +16,7 @@ import { RadioGroup } from "./RadioGroup";
 import { Declarations } from "./Declarations";
 import { Question } from "./Question";
 import { ComponentWrapper } from "./ComponentWrapper";
+import { Duration } from "./Duration/Duration";
 
 export const slotComponents = {
     Question,
@@ -28,6 +29,7 @@ export const slotComponents = {
     CheckboxBoolean,
     RadioGroup,
     Datepicker,
+    Duration,
     Roundabout,
     Sequence,
     Subsequence,

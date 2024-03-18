@@ -1,4 +1,4 @@
-import Input from "@codegouvfr/react-dsfr/Input";
+import { Input } from "@codegouvfr/react-dsfr/Input";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { NumericFormat, type NumberFormatValues, type OnValueChange } from "react-number-format";
 import { getErrorStates } from "./utils/errorStates";

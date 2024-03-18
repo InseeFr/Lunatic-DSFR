@@ -1,6 +1,6 @@
 import { getErrorStates } from "./utils/errorStates";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
-import RadioButtons from "@codegouvfr/react-dsfr/RadioButtons";
+import { RadioButtons } from "@codegouvfr/react-dsfr/RadioButtons";
 
 export const RadioGroup: LunaticSlotComponents["RadioGroup"] = props => {
     const { options, value, id, label, description, onSelect, errors, disabled } = props;
