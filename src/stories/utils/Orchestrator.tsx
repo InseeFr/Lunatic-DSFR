@@ -18,7 +18,7 @@ export type OrchestratorProps = {
     source: LunaticSource;
     data: LunaticData;
     activeControls?: boolean;
-    initialPage?: string;
+    initialPage?: Parameters<typeof useLunatic>[2]["initialPage"];
     shortcut?: boolean;
     autoSuggesterLoading: boolean;
     filterDescription: boolean;
