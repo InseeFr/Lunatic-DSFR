@@ -54,9 +54,8 @@ export function DateElement(props: DateElementProps) {
                     allowNegative={false}
                     label="Mois"
                     allowLeadingZeros
-                    isAllowed={({ value, floatValue }) =>
-                        floatValue === undefined ||
-                        (floatValue >= 0 && value !== "00" && floatValue <= 99)
+                    isAllowed={({ floatValue }) =>
+                        floatValue === undefined || (floatValue >= 0 && floatValue <= 11)
                     }
                     onValueChange={values => onValueChange(values, "months")}
                     nativeInputProps={{
