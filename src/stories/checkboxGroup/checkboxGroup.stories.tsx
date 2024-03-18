@@ -5,23 +5,17 @@ import type { StoryObj, Meta } from "@storybook/react";
 const meta = {
     title: "Components/CheckboxGroup",
     component: Orchestrator,
-    args: { source },
+    parameters: {
+        docs: {
+            description: {
+                story: "The CheckboxGroup component provides a way for users to select one or multiple answers from a list of options.",
+            },
+        },
+    },
 } satisfies Meta<typeof Orchestrator>;
 
 export default meta;
 
 type Story = StoryObj<typeof Orchestrator>;
 
-export const Default = {
-    render: args => {
-        console.log(args);
-        return <Orchestrator {...args} />;
-    },
-    parameters: {
-        docs: {
-            description: {
-                story: "This component should be used when you want the user to be able to select one or multiple answers.",
-            },
-        },
-    },
-} satisfies Story;
+export const Default = { args: { source } } satisfies Story;

@@ -20,11 +20,11 @@ export default meta;
 
 type Story = StoryObj<typeof Orchestrator>;
 
-export const Default: Story = {
+export const Default = {
     args: { source: source },
-};
+} satisfies Story;
 
-export const WithUnit: Story = {
+export const WithUnit = {
     parameters: {
         docs: {
             description: {
@@ -33,4 +33,4 @@ export const WithUnit: Story = {
         },
     },
     args: { source: sourceWithUnit },
-};
+} satisfies Story;

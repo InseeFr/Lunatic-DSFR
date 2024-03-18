@@ -8,6 +8,13 @@ const meta = {
     args: {
         autoSuggesterLoading: true,
     },
+    parameters: {
+        docs: {
+            description: {
+                story: "The Suggester component is useful when users have many choices to select from. It helps them find options easily by suggesting matches as they type.",
+            },
+        },
+    },
 } satisfies Meta<typeof Orchestrator>;
 
 export default meta;

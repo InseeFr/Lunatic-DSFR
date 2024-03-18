@@ -10,7 +10,7 @@ const meta = {
     parameters: {
         docs: {
             description: {
-                story: "This component should be used when you want the user to enter a string.",
+                story: "This component should be used when you want the user to enter a duration. We support duration in Year and month or Hours and minutes",
             },
         },
     },
@@ -24,6 +24,6 @@ export const DateStory = {
     args: { source: dateSource },
 } satisfies Story;
 
-export const TimeStory: Story = {
+export const TimeStory = {
     args: { source: timeSource },
 } satisfies Story;

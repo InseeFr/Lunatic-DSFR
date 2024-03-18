@@ -18,6 +18,6 @@ export default meta;
 
 type Story = StoryObj<typeof Orchestrator>;
 
-export const Default: Story = {
+export const Default = {
     args: { source: source, data: data },
-};
+} satisfies Story;

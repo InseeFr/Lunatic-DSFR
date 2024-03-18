@@ -5,9 +5,7 @@ import { source } from "./default";
 const meta = {
     title: "Test/Paste",
     component: Orchestrator,
-    args: {
-        source: source,
-    },
+
     argTypes: {
         source: {
             control: "object",
@@ -26,4 +24,8 @@ export default meta;
 
 type Story = StoryObj<typeof Orchestrator>;
 
-export const Default: Story = {};
+export const Default = {
+    args: {
+        source: source,
+    },
+} satisfies Story;

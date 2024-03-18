@@ -8,7 +8,7 @@ const meta = {
     parameters: {
         docs: {
             description: {
-                story: "This component should be used if you want the user to select only one option in a list of options.",
+                story: "The Radio component allows users to select only one option from a set of choices.",
             },
         },
     },
@@ -18,6 +18,6 @@ export default meta;
 
 type Story = StoryObj<typeof Orchestrator>;
 
-export const Default: Story = {
+export const Default = {
     args: { source: source },
-};
+} satisfies Story;
