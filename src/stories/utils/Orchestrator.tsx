@@ -9,7 +9,7 @@ import {
     type LunaticState,
 } from "@inseefr/lunatic";
 import Waiting from "./waiting";
-import MuiDsfrThemeProvider from "@codegouvfr/react-dsfr/mui";
+import { MuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
 import { Button } from "../../Button";
 import { slotComponents } from "../..";
 import { fr } from "@codegouvfr/react-dsfr";
@@ -22,10 +22,9 @@ export type OrchestratorProps = {
     shortcut?: boolean;
     autoSuggesterLoading: boolean;
     filterDescription: boolean;
-    getReferentiel?: (name: string) => Promise<Array<unknown>>;
 };
 
-async function getReferentiel(name: string) {
+function getReferentiel(name: string) {
     return fetch(`./nomenclatures/${name}.json`).then(r => r.json());
 }
 function Pager({
@@ -119,12 +118,10 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
                             autoFocusKey={pageTag}
                             components={components}
                             slots={slotComponents}
-                            componentProps={() => {
-                                return {
-                                    errors: errorActive,
-                                    filterDescription: filterDescription,
-                                };
-                            }}
+                            componentProps={() => ({
+                                errors: errorActive,
+                                filterDescription,
+                            })}
                         />
                     </MuiDsfrThemeProvider>
                 </div>
