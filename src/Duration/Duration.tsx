@@ -65,7 +65,7 @@ export const Duration: LunaticSlotComponents["Duration"] = props => {
                                 durationValues={durationValues}
                                 id={id}
                                 readOnly={readOnly}
-                                onValueChange={onValueChange}
+                                onValueChange={onValueChange<"PnYnM">}
                             />
                         );
                     case "PTnHnM":
@@ -75,7 +75,7 @@ export const Duration: LunaticSlotComponents["Duration"] = props => {
                                 durationValues={durationValues}
                                 id={id}
                                 readOnly={readOnly}
-                                onValueChange={onValueChange}
+                                onValueChange={onValueChange<"PTnHnM">}
                             />
                         );
                 }
