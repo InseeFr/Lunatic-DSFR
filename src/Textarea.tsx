@@ -1,4 +1,4 @@
-import Input from "@codegouvfr/react-dsfr/Input";
+import { Input } from "@codegouvfr/react-dsfr/Input";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 
 export const Textarea: LunaticSlotComponents["Textarea"] = props => {
