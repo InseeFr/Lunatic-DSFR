@@ -3,8 +3,9 @@ import { getErrorStates } from "./utils/errorStates";
 import { fr } from "@codegouvfr/react-dsfr";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import type { Split } from "./utils/type";
-import Input from "@codegouvfr/react-dsfr/Input";
+import { Input } from "@codegouvfr/react-dsfr/Input";
 import { NumericFormat, type NumberFormatValues } from "react-number-format";
+import { FiledsetError } from "./shared/FieldsetError";
 
 type DateState = { day: string; month: string; year: string };
 
@@ -30,7 +31,7 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
     const showDay = dateFormat.includes("DD");
     const showMonth = dateFormat.includes("MM");
 
-    const numbersFromDateString = () => {
+    const extractDateFromValue = () => {
         if (!value) {
             return { year: "", month: "", day: "" };
         }
@@ -41,7 +42,7 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
             day: parts[2],
         };
     };
-    const [dateValues, setDateValues] = useState<DateState>(numbersFromDateString);
+    const [dateValues, setDateValues] = useState<DateState>(extractDateFromValue);
 
     const onValueChange = (values: NumberFormatValues, key: keyof DateState) => {
         updateDate(key, values.value);
@@ -58,10 +59,10 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
 
     const onDateChange = (date: DateState) => {
         const formatParts = dateFormat.split("-") as Split<"YYYY-MM-DD" | "YYYY-MM" | "YYYY", "-">;
-        const countEmptyDate = Object.values(dateValues).filter(d => d === "").length;
+        const countEmptyDate = Object.values(date).filter(d => d === "").length;
 
         // Date has a missing part
-        if (countEmptyDate > formatParts.length) {
+        if (countEmptyDate > 3 - formatParts.length) {
             onChange(null);
             return;
         }
@@ -174,24 +175,7 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                 />
             </div>
 
-            <DisplayErrors state={state} stateRelatedMessage={stateRelatedMessage} id={id} />
+            <FiledsetError state={state} stateRelatedMessage={stateRelatedMessage} id={id} />
         </fieldset>
     );
 };
-
-function DisplayErrors({ ...props }) {
-    const { state, stateRelatedMessage, id } = props;
-    if (props.state && stateRelatedMessage) {
-        return (
-            <div className={fr.cx("fr-messages-group")}>
-                <p
-                    id={`${id}-desc-${state}`}
-                    className={`fr-message--${state} ${fr.cx("fr-message", "fr-col-12", "fr-mt-0")}`}
-                >
-                    {stateRelatedMessage}
-                </p>
-            </div>
-        );
-    }
-    return null;
-}
