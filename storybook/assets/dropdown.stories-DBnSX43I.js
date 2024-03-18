@@ -2,4 +2,4 @@ import{O as o}from"./Orchestrator-BulEV6K8.js";import"./jsx-runtime-2xDJh5tt.js"
   args: {
     source: source
   }
-}`,...(t=(l=e.parameters)==null?void 0:l.docs)==null?void 0:t.source}}};const y=["Default"];export{e as Default,y as __namedExportsOrder,m as default};
+} satisfies Story`,...(t=(l=e.parameters)==null?void 0:l.docs)==null?void 0:t.source}}};const y=["Default"];export{e as Default,y as __namedExportsOrder,m as default};
