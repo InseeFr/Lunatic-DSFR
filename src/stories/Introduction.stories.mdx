@@ -3,12 +3,17 @@ import { useDarkMode } from "storybook-dark-mode";
 
 <Meta title="Introduction" />
 
-<div style={{ textAlign: 'center' }}>
+<div style={{ "margin": "0 auto", "textAlign": "center" }}>
 
-<p align="center">
-  <img src={useDarkMode() ? "https://raw.githubusercontent.com/InseeFr/Lunatic-DSFR/main/overview-dark.png" : "https://raw.githubusercontent.com/InseeFr/Lunatic-DSFR/main/overview-light.png"} />
-
-</p>
+<div style={{ "display": "flex", "justifyContent": "center" }}>
+    <img
+        src={
+            useDarkMode()
+                ? "https://raw.githubusercontent.com/InseeFr/Lunatic-DSFR/main/overview-dark.png"
+                : "https://raw.githubusercontent.com/InseeFr/Lunatic-DSFR/main/overview-light.png"
+        }
+    />
+</div>
 
 Lunatic-DSFR is a library of customised [Lunatic](https://github.com/InseeFr/Lunatic) components built with TypeScript and [React-DSFR](https://react-dsfr.etalab.studio/).
 
