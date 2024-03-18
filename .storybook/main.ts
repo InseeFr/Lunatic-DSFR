@@ -14,6 +14,11 @@ export default {
     core: {
         builder: "@storybook/builder-vite", // 👈 The builder enabled here.
     },
+    docs: {
+        //👇 See the table below for the list of supported options
+        autodocs: true,
+        defaultName: "Documentation",
+    },
     framework: "@storybook/react-vite",
     staticDirs: ["./static"],
     async viteFinal(config) {
