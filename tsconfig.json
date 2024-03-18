@@ -1,9 +1,9 @@
 {
     "compilerOptions": {
-        "module": "ES2020",
+        "module": "ESNext",
         "moduleResolution": "node",
         "target": "es5",
-        "lib": ["es2015", "DOM"],
+        "lib": ["ESNext", "DOM"],
         "declaration": true,
         "outDir": "./dist",
         "sourceMap": true,
