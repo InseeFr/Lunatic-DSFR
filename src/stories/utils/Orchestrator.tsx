@@ -91,6 +91,7 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
         Provider,
     } = useLunatic(source, data, {
         initialPage,
+        workersBasePath: "./workers",
         shortcut,
         onChange: onLogChange,
         autoSuggesterLoading,

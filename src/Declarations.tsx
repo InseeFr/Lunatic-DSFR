@@ -32,7 +32,7 @@ const DeclarationAfter = (props: Declaration) => {
     if (!declarations || declarations.length === 0) return null;
 
     if (declarations[1]) {
-        console.error("Only one declaration by type is permitted, we display the first");
+        console.error("Only one declaration by position is permitted, we display the first");
     }
 
     const { id, label } = declarations[0];
@@ -55,7 +55,7 @@ const DeclarationBefore = (props: Declaration) => {
     if (!declarations || declarations.length === 0) return null;
 
     if (declarations[1]) {
-        console.error("Only one declaration by type is permitted, we display the first");
+        console.error("Only one declaration by position is permitted, we display the first");
     }
 
     const { id, label } = declarations[0];

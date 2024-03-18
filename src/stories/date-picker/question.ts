@@ -6,14 +6,14 @@ export const source: LunaticSource = {
     "variables": [
         {
             "variableType": "COLLECTED",
-            "name": "TESTTEXTE",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
                 "EDITED": null,
                 "INPUTED": null,
+                "FORCED": null,
+                "PREVIOUS": null,
             },
+            "name": "DATE",
         },
     ],
     "components": [
@@ -44,32 +44,37 @@ export const source: LunaticSource = {
                     "id": "idQuestion-help3",
                     "label": {
                         "type": "VTL|MD",
-                        "value": '"Label de la déclaration en position : `AFTER_QUESTION_TEXT`"',
+                        "value":
+                            '"Label de la déclaration en position  en position : `AFTER_QUESTION_TEXT`"',
                     },
                     "position": "AFTER_QUESTION_TEXT",
                 },
             ],
             "components": [
                 {
-                    "componentType": "Input",
-                    "bindingDependencies": ["TESTTEXTE"],
-                    "response": { "name": "TESTTEXTE" },
+                    "componentType": "Datepicker",
+                    "max": "2000-12-12",
+                    "dateFormat": "YYYY-MM-DD",
                     "conditionFilter": {
                         "type": "VTL",
                         "value": "true",
                     },
-                    "id": "kfxn6f16",
-                    "page": "1",
                     "label": {
                         "type": "VTL|MD",
-                        "value": '"Label du composant (Input ici)"',
+                        "value": '"Label du composant Datepicker"',
                     },
                     "description": {
                         "type": "VTL|MD",
-                        "value": '"Description du composant"',
+                        "value": '"Description du composant Datepicker"',
                     },
                     "mandatory": false,
-                    "maxLength": 15,
+                    "bindingDependencies": ["DATE"],
+                    "min": "1900-01-01",
+                    "response": {
+                        "name": "DATE",
+                    },
+                    "id": "ltct556j",
+                    "page": "1",
                 },
             ],
         },

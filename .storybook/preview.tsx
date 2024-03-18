@@ -42,6 +42,15 @@ const preview = {
             light: lightTheme,
             dark: darkTheme,
         },
+        controls: {
+            exclude: [
+                "activeControls",
+                "initialPage",
+                "autoSuggesterLoading",
+                "shortcut",
+                "filterDescription",
+            ],
+        },
     },
     argTypes: {
         darkMode: {

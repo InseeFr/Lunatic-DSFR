@@ -1,5 +1,7 @@
 import { Orchestrator } from "../utils/Orchestrator";
 import { source } from "./default";
+import { source as questionSource } from "./question";
+
 import type { StoryObj, Meta } from "@storybook/react";
 
 const meta = {
@@ -8,7 +10,8 @@ const meta = {
     parameters: {
         docs: {
             description: {
-                story: "The Radio component allows users to select only one option from a set of choices.",
+                component:
+                    "The Radio component allows users to select only one option from a set of choices.",
             },
         },
     },
@@ -20,4 +23,8 @@ type Story = StoryObj<typeof Orchestrator>;
 
 export const Default = {
     args: { source: source },
+} satisfies Story;
+
+export const Question = {
+    args: { source: questionSource },
 } satisfies Story;

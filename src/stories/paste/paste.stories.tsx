@@ -14,7 +14,7 @@ const meta = {
     parameters: {
         docs: {
             description: {
-                story: "You can paste your questionnaire here to test it.",
+                component: "You can paste your questionnaire here to test it.",
             },
         },
     },

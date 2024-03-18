@@ -1,9 +1,20 @@
 import { Meta } from "@storybook/addon-docs";
+import { useDarkMode } from "storybook-dark-mode";
 
 <Meta title="Introduction" />
 
-# Welcome to lunatic-DSFR
+<div style={{ textAlign: 'center' }}>
+
+<p align="center">
+  <img src={useDarkMode() ? "https://raw.githubusercontent.com/InseeFr/Lunatic-DSFR/main/overview-dark.png" : "https://raw.githubusercontent.com/InseeFr/Lunatic-DSFR/main/overview-light.png"} />
+
+</p>
 
 Lunatic-DSFR is a library of customised [Lunatic](https://github.com/InseeFr/Lunatic) components built with TypeScript and [React-DSFR](https://react-dsfr.etalab.studio/).
 
 This library is designed to be an opt-in solution to replace the native style of Lunatic with the style of the [French Design system](https://systeme-de-design.gouv.fr/).
+
+> WARNING: This Design System is only meant to be used for official French's public service websites.  
+> Its main purpose is to make it easy to identify governmental websites for citizens. [See terms](https://www.systeme-de-design.gouv.fr/cgu/).
+
+</div>

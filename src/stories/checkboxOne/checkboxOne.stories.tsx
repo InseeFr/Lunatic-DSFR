@@ -1,5 +1,7 @@
 import { Orchestrator } from "../utils/Orchestrator";
 import type { StoryObj, Meta } from "@storybook/react";
+import { source as questionSource } from "./question";
+
 import { source } from "./default";
 
 const meta = {
@@ -8,7 +10,7 @@ const meta = {
     parameters: {
         docs: {
             description: {
-                story: "The CheckboxOne is a deprecated component, it returns Radio component.",
+                component: "The CheckboxOne is a deprecated component, it returns Radio component.",
             },
         },
     },
@@ -20,4 +22,8 @@ type Story = StoryObj<typeof Orchestrator>;
 
 export const Default = {
     args: { source },
+} satisfies Story;
+
+export const Question = {
+    args: { source: questionSource },
 } satisfies Story;

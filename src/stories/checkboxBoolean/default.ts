@@ -30,7 +30,11 @@ export const source: LunaticSource = {
             "page": "1",
             "label": {
                 "type": "VTL|MD",
-                "value": '"Checkbox Boolean"',
+                "value": '"Label du composant"',
+            },
+            "description": {
+                "type": "VTL|MD",
+                "value": "Description",
             },
             "mandatory": false,
         },

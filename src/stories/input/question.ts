@@ -6,7 +6,7 @@ export const source: LunaticSource = {
     "variables": [
         {
             "variableType": "COLLECTED",
-            "name": "TESTTEXTE",
+            "name": "NAME",
             "values": {
                 "PREVIOUS": null,
                 "COLLECTED": null,
@@ -44,32 +44,25 @@ export const source: LunaticSource = {
                     "id": "idQuestion-help3",
                     "label": {
                         "type": "VTL|MD",
-                        "value": '"Label de la déclaration en position : `AFTER_QUESTION_TEXT`"',
+                        "value":
+                            '"Label de la déclaration en position  en position : `AFTER_QUESTION_TEXT`"',
                     },
                     "position": "AFTER_QUESTION_TEXT",
                 },
             ],
             "components": [
                 {
-                    "componentType": "Input",
-                    "bindingDependencies": ["TESTTEXTE"],
-                    "response": { "name": "TESTTEXTE" },
-                    "conditionFilter": {
-                        "type": "VTL",
-                        "value": "true",
-                    },
-                    "id": "kfxn6f16",
                     "page": "1",
-                    "label": {
-                        "type": "VTL|MD",
-                        "value": '"Label du composant (Input ici)"',
+                    "componentType": "Input",
+                    "bindingDependencies": ["NAME"],
+                    "label": { "value": '"Label du composant Input"', "type": "VTL|MD" },
+                    "description": { "value": '"Description du composant Input"', "type": "VTL|MD" },
+                    "conditionFilter": { "value": "true", "type": "VTL" },
+                    "maxLength": 249,
+                    "id": "name",
+                    "response": {
+                        "name": "NAME",
                     },
-                    "description": {
-                        "type": "VTL|MD",
-                        "value": '"Description du composant"',
-                    },
-                    "mandatory": false,
-                    "maxLength": 15,
                 },
             ],
         },

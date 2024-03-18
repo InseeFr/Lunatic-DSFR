@@ -45,16 +45,6 @@ export const source: LunaticSource = {
             ],
             "max": "2000-12-12",
             "dateFormat": "YYYY-MM-DD",
-            "hierarchy": {
-                "sequence": {
-                    "id": "lsvup5cv",
-                    "page": "1",
-                    "label": {
-                        "type": "VTL|MD",
-                        "value": '"I - " || "Séquence"',
-                    },
-                },
-            },
             "conditionFilter": {
                 "type": "VTL",
                 "value": "true",

@@ -6,14 +6,14 @@ export const source: LunaticSource = {
     "variables": [
         {
             "variableType": "COLLECTED",
-            "name": "TESTTEXTE",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
                 "EDITED": null,
                 "INPUTED": null,
+                "FORCED": null,
+                "PREVIOUS": null,
             },
+            "name": "CHECKBOXBoolean",
         },
     ],
     "components": [
@@ -44,32 +44,34 @@ export const source: LunaticSource = {
                     "id": "idQuestion-help3",
                     "label": {
                         "type": "VTL|MD",
-                        "value": '"Label de la déclaration en position : `AFTER_QUESTION_TEXT`"',
+                        "value":
+                            '"Label de la déclaration en position  en position : `AFTER_QUESTION_TEXT`"',
                     },
                     "position": "AFTER_QUESTION_TEXT",
                 },
             ],
             "components": [
                 {
-                    "componentType": "Input",
-                    "bindingDependencies": ["TESTTEXTE"],
-                    "response": { "name": "TESTTEXTE" },
+                    "componentType": "CheckboxBoolean",
+                    "bindingDependencies": ["CHECKBOXBoolean"],
+                    "response": {
+                        "name": "CHECKBOXBoolean",
+                    },
                     "conditionFilter": {
                         "type": "VTL",
                         "value": "true",
                     },
-                    "id": "kfxn6f16",
+                    "id": "ltfrftp8",
                     "page": "1",
                     "label": {
                         "type": "VTL|MD",
-                        "value": '"Label du composant (Input ici)"',
+                        "value": '"Label du composant (CheckboxBoolean)"',
                     },
                     "description": {
                         "type": "VTL|MD",
-                        "value": '"Description du composant"',
+                        "value": '"Description du composant (CheckboxBoolean)"',
                     },
                     "mandatory": false,
-                    "maxLength": 15,
                 },
             ],
         },

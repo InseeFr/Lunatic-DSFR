@@ -1,7 +1,8 @@
 import { Orchestrator } from "../utils/Orchestrator";
 import { source } from "./default";
-
 import { source as sourceWithUnit } from "./withUnit";
+import { source as questionSource } from "./question";
+
 import type { StoryObj, Meta } from "@storybook/react";
 
 const meta = {
@@ -10,7 +11,8 @@ const meta = {
     parameters: {
         docs: {
             description: {
-                story: "This component should be used when you want the user to enter a number. You can add a min and max property if you want to restrict the number the user can enter. You can also specify the number of decimals allowed.",
+                component:
+                    "This component should be used when you want the user to enter a number. You can add a min and max property if you want to restrict the number the user can enter. You can also specify the number of decimals allowed.",
             },
         },
     },
@@ -33,4 +35,8 @@ export const WithUnit = {
         },
     },
     args: { source: sourceWithUnit },
+} satisfies Story;
+
+export const Question = {
+    args: { source: questionSource },
 } satisfies Story;

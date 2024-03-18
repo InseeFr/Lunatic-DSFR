@@ -1,5 +1,7 @@
 import { Orchestrator } from "../utils/Orchestrator";
 import { source } from "./default";
+import { source as questionSource } from "./question";
+
 import type { StoryObj, Meta } from "@storybook/react";
 
 const meta = {
@@ -8,7 +10,8 @@ const meta = {
     parameters: {
         docs: {
             description: {
-                story: "This component should be used when you want the user to enter a string. You can add a maxLength property if you want to restrict the number of characters the user can enter.",
+                component:
+                    "This component should be used when you want the user to enter a string. You can add a maxLength property if you want to restrict the number of characters the user can enter.",
             },
         },
     },
@@ -20,4 +23,8 @@ type Story = StoryObj<typeof Orchestrator>;
 
 export const Default = {
     args: { source: source },
+} satisfies Story;
+
+export const Question = {
+    args: { source: questionSource },
 } satisfies Story;

@@ -8,7 +8,7 @@ const meta = {
     parameters: {
         docs: {
             description: {
-                story: "This component allows you to pass symetric links.",
+                component: "This component allows you to pass symetric links.",
             },
         },
     },

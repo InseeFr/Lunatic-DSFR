@@ -14,15 +14,6 @@ export const source: LunaticSource = {
             },
             "name": "CHECKBOXBO",
         },
-        {
-            "variableType": "CALCULATED",
-            "expression": {
-                "type": "VTL",
-                "value": "true",
-            },
-            "name": "FILTER_RESULT_CHECKBOXOne",
-            "inFilter": "false",
-        },
     ],
     "components": [
         {

@@ -6,7 +6,7 @@ export const source: LunaticSource = {
     "variables": [
         {
             "variableType": "COLLECTED",
-            "name": "TESTTEXTE",
+            "name": "NB",
             "values": {
                 "PREVIOUS": null,
                 "COLLECTED": null,
@@ -44,32 +44,29 @@ export const source: LunaticSource = {
                     "id": "idQuestion-help3",
                     "label": {
                         "type": "VTL|MD",
-                        "value": '"Label de la déclaration en position : `AFTER_QUESTION_TEXT`"',
+                        "value":
+                            '"Label de la déclaration en position  en position : `AFTER_QUESTION_TEXT`"',
                     },
                     "position": "AFTER_QUESTION_TEXT",
                 },
             ],
             "components": [
                 {
-                    "componentType": "Input",
-                    "bindingDependencies": ["TESTTEXTE"],
-                    "response": { "name": "TESTTEXTE" },
-                    "conditionFilter": {
-                        "type": "VTL",
-                        "value": "true",
-                    },
-                    "id": "kfxn6f16",
-                    "page": "1",
-                    "label": {
-                        "type": "VTL|MD",
-                        "value": '"Label du composant (Input ici)"',
-                    },
-                    "description": {
-                        "type": "VTL|MD",
-                        "value": '"Description du composant"',
-                    },
+                    "id": "kze792d8",
+                    "componentType": "InputNumber",
                     "mandatory": false,
-                    "maxLength": 15,
+                    "page": "1",
+                    "min": 0,
+                    "max": 10,
+                    "decimals": 2,
+                    "label": { "value": '"Label du composant InputNumber"', "type": "VTL|MD" },
+                    "description": {
+                        "value": '"Description du composant InputNumber"',
+                        "type": "VTL|MD",
+                    },
+                    "conditionFilter": { "value": "true", "type": "VTL" },
+                    "bindingDependencies": ["NB"],
+                    "response": { "name": "NB" },
                 },
             ],
         },

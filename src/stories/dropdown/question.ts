@@ -6,10 +6,10 @@ export const source: LunaticSource = {
     "variables": [
         {
             "variableType": "COLLECTED",
-            "name": "TESTTEXTE",
+            "name": "STATE",
             "values": {
                 "PREVIOUS": null,
-                "COLLECTED": null,
+                "COLLECTED": "1",
                 "FORCED": null,
                 "EDITED": null,
                 "INPUTED": null,
@@ -44,32 +44,41 @@ export const source: LunaticSource = {
                     "id": "idQuestion-help3",
                     "label": {
                         "type": "VTL|MD",
-                        "value": '"Label de la déclaration en position : `AFTER_QUESTION_TEXT`"',
+                        "value":
+                            '"Label de la déclaration en position  en position : `AFTER_QUESTION_TEXT`"',
                     },
                     "position": "AFTER_QUESTION_TEXT",
                 },
             ],
             "components": [
                 {
-                    "componentType": "Input",
-                    "bindingDependencies": ["TESTTEXTE"],
-                    "response": { "name": "TESTTEXTE" },
-                    "conditionFilter": {
-                        "type": "VTL",
-                        "value": "true",
-                    },
-                    "id": "kfxn6f16",
+                    "id": "j4nw5cqz",
                     "page": "1",
+                    "componentType": "Dropdown",
+                    "mandatory": false,
                     "label": {
+                        "value": '"Label du composant Dropdown"',
                         "type": "VTL|MD",
-                        "value": '"Label du composant (Input ici)"',
                     },
                     "description": {
+                        "value": '"Description du composant Dropdown"',
                         "type": "VTL|MD",
-                        "value": '"Description du composant"',
                     },
-                    "mandatory": false,
-                    "maxLength": 15,
+                    "response": {
+                        "name": "STATE",
+                    },
+                    "options": [
+                        {
+                            "value": "1",
+                            "label": { "value": '"Label de l\'option 1"', "type": "VTL" },
+                        },
+                        {
+                            "value": "2",
+                            "label": { "value": '"Label de l\'option 2"', "type": "VTL" },
+                        },
+                        { "value": "3", "label": { "value": '"Label de l\'option 3"', "type": "VTL" } },
+                        { "value": "4", "label": { "value": '"Label de l\'option 4"', "type": "VTL" } },
+                    ],
                 },
             ],
         },

@@ -55,17 +55,6 @@ export const source: LunaticSource = {
     "variables": [
         {
             "variableType": "COLLECTED",
-            "name": "Q2",
-            "values": {
-                "PREVIOUS": null,
-                "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTED": null,
-            },
-        },
-        {
-            "variableType": "COLLECTED",
             "name": "Q1",
             "values": {
                 "PREVIOUS": null,

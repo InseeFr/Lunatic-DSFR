@@ -1,5 +1,7 @@
 import { Orchestrator } from "../utils/Orchestrator";
 import { source } from "./default";
+import { source as questionSource } from "./question";
+
 import type { StoryObj, Meta } from "@storybook/react";
 
 const meta = {
@@ -8,7 +10,8 @@ const meta = {
     parameters: {
         docs: {
             description: {
-                story: "The CheckboxGroup component provides a way for users to select one or multiple answers from a list of options.",
+                component:
+                    "The CheckboxGroup component provides a way for users to select one or multiple answers from a list of options.",
             },
         },
     },
@@ -19,3 +22,7 @@ export default meta;
 type Story = StoryObj<typeof Orchestrator>;
 
 export const Default = { args: { source } } satisfies Story;
+
+export const Question = {
+    args: { source: questionSource },
+} satisfies Story;

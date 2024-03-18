@@ -1,6 +1,7 @@
 import { Orchestrator } from "../utils/Orchestrator";
 import { source as dateSource } from "./date";
 import { source as timeSource } from "./time";
+import { source as questionSource } from "./question";
 
 import type { StoryObj, Meta } from "@storybook/react";
 
@@ -10,7 +11,8 @@ const meta = {
     parameters: {
         docs: {
             description: {
-                story: "This component should be used when you want the user to enter a duration. We support duration in Year and month or Hours and minutes",
+                component:
+                    "This component should be used when you want the user to enter a duration. We support duration in Year and month or Hours and minutes",
             },
         },
     },
@@ -26,4 +28,8 @@ export const DateStory = {
 
 export const TimeStory = {
     args: { source: timeSource },
+} satisfies Story;
+
+export const Question = {
+    args: { source: questionSource },
 } satisfies Story;

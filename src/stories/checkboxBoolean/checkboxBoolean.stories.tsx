@@ -1,4 +1,5 @@
 import { source } from "./default";
+import { source as questionSource } from "./question";
 import type { StoryObj, Meta } from "@storybook/react";
 import { Orchestrator } from "../utils/Orchestrator";
 
@@ -8,7 +9,8 @@ const meta = {
     parameters: {
         docs: {
             description: {
-                story: "The CheckboxBoolean component allows users to select or deselect a single option. ",
+                component:
+                    "The CheckboxBoolean component allows users to select or deselect a single option. ",
             },
         },
     },
@@ -19,3 +21,7 @@ export default meta;
 type Story = StoryObj<typeof Orchestrator>;
 
 export const Default = { args: { source } } satisfies Story;
+
+export const Question = {
+    args: { source: questionSource },
+} satisfies Story;

@@ -6,7 +6,7 @@ export const source: LunaticSource = {
     "variables": [
         {
             "variableType": "COLLECTED",
-            "name": "TESTTEXTE",
+            "name": "Q1",
             "values": {
                 "PREVIOUS": null,
                 "COLLECTED": null,
@@ -44,32 +44,47 @@ export const source: LunaticSource = {
                     "id": "idQuestion-help3",
                     "label": {
                         "type": "VTL|MD",
-                        "value": '"Label de la déclaration en position : `AFTER_QUESTION_TEXT`"',
+                        "value":
+                            '"Label de la déclaration en position  en position : `AFTER_QUESTION_TEXT`"',
                     },
                     "position": "AFTER_QUESTION_TEXT",
                 },
             ],
             "components": [
                 {
-                    "componentType": "Input",
-                    "bindingDependencies": ["TESTTEXTE"],
-                    "response": { "name": "TESTTEXTE" },
-                    "conditionFilter": {
-                        "type": "VTL",
-                        "value": "true",
-                    },
-                    "id": "kfxn6f16",
-                    "page": "1",
+                    "id": "radiototo",
+                    "bindingDependencies": ["Q1"],
+                    "componentType": "Radio",
+                    "mandatory": false,
                     "label": {
+                        "value": '"Label du composant Radio"',
                         "type": "VTL|MD",
-                        "value": '"Label du composant (Input ici)"',
                     },
                     "description": {
+                        "value": '"Description du composant Radio"',
                         "type": "VTL|MD",
-                        "value": '"Description du composant"',
                     },
-                    "mandatory": false,
-                    "maxLength": 15,
+                    "page": "1",
+                    "conditionFilter": { "value": "true", "type": "VTL" },
+                    "options": [
+                        {
+                            "value": "1",
+                            "description": {
+                                "value": '"Description de l\'option 1"',
+                                "type": "VTL|MD",
+                            },
+                            "label": { "value": '"Label de l\'option 1"', "type": "VTL|MD" },
+                        },
+                        {
+                            "value": "2",
+                            "description": {
+                                "value": '"Description de l\'option 2"',
+                                "type": "VTL|MD",
+                            },
+                            "label": { "value": '"Label de l\'option 2"', "type": "VTL|MD" },
+                        },
+                    ],
+                    "response": { "name": "Q1" },
                 },
             ],
         },

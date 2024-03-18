@@ -2,7 +2,6 @@ import type { LunaticSource } from "@inseefr/lunatic";
 
 export const source: LunaticSource = {
     "cleaning": {},
-
     "suggesters": [
         {
             "name": "L_PAYS-1-2-0",

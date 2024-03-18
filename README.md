@@ -1,5 +1,3 @@
-# Lunatic-DSFR
-
 <p align="center">
  <img src="https://raw.githubusercontent.com/InseeFr/Lunatic-DSFR/main/overview-light.png#gh-light-mode-only" />
  <img src="https://raw.githubusercontent.com/InseeFr/Lunatic-DSFR/main/overview-dark.png#gh-dark-mode-only" />
