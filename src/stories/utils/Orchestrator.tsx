@@ -15,55 +15,17 @@ import { slotComponents } from "../..";
 import { fr } from "@codegouvfr/react-dsfr";
 
 export type OrchestratorProps = {
+    /** The survey generated in  Lunatic json format */
     source: LunaticSource;
-    data: LunaticData;
+    /** The initial data */
+    data?: LunaticData;
     activeControls?: boolean;
+    /** The initial page */
     initialPage?: Parameters<typeof useLunatic>[2]["initialPage"];
     shortcut?: boolean;
     autoSuggesterLoading: boolean;
     filterDescription: boolean;
 };
-
-function getReferentiel(name: string) {
-    return fetch(`./nomenclatures/${name}.json`).then(r => r.json());
-}
-function Pager({
-    goPrevious,
-    logData,
-    goNext,
-    isLast,
-    isFirst,
-    pageTag,
-    maxPage,
-}: {
-    goPrevious: () => void;
-    logData: () => void;
-    goNext: () => void;
-    isLast: boolean;
-    isFirst: boolean;
-    pageTag: string;
-    maxPage?: string;
-}) {
-    if (maxPage && parseInt(maxPage) > 1) {
-        return (
-            <>
-                <div className="pagination">
-                    <Button onClick={goPrevious} disabled={isFirst}>
-                        Previous
-                    </Button>
-                    <Button onClick={goNext} disabled={isLast}>
-                        Next
-                    </Button>
-                </div>
-                <Button onClick={logData} disabled={isLast} priority="tertiary no outline">
-                    Get Data
-                </Button>
-                <div>PAGE: {pageTag}</div>
-            </>
-        );
-    }
-    return null;
-}
 
 const onLogChange: LunaticState["handleChange"] = (response, value, args) =>
     console.log("onChange", { response, value, args });
@@ -74,7 +36,7 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
     activeControls = true,
     initialPage = "1",
     shortcut = false,
-    autoSuggesterLoading,
+    autoSuggesterLoading = false,
     filterDescription = true,
 }) => {
     const { maxPage } = source;
@@ -144,3 +106,44 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
         </Provider>
     );
 };
+
+function getReferentiel(name: string) {
+    return fetch(`./nomenclatures/${name}.json`).then(r => r.json());
+}
+function Pager({
+    goPrevious,
+    logData,
+    goNext,
+    isLast,
+    isFirst,
+    pageTag,
+    maxPage,
+}: {
+    goPrevious: () => void;
+    logData: () => void;
+    goNext: () => void;
+    isLast: boolean;
+    isFirst: boolean;
+    pageTag: string;
+    maxPage?: string;
+}) {
+    if (maxPage && parseInt(maxPage) > 1) {
+        return (
+            <>
+                <div className="pagination">
+                    <Button onClick={goPrevious} disabled={isFirst}>
+                        Previous
+                    </Button>
+                    <Button onClick={goNext} disabled={isLast}>
+                        Next
+                    </Button>
+                </div>
+                <Button onClick={logData} disabled={isLast} priority="tertiary no outline">
+                    Get Data
+                </Button>
+                <div>PAGE: {pageTag}</div>
+            </>
+        );
+    }
+    return null;
+}

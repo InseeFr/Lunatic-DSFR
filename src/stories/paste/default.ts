@@ -1,4 +1,4 @@
-import type { LunaticSource } from "@inseefr/lunatic";
+import type { LunaticData, LunaticSource } from "@inseefr/lunatic";
 
 export const source: LunaticSource = {
     "cleaning": {},
@@ -15,6 +15,16 @@ export const source: LunaticSource = {
             "response": {
                 "name": "NAME",
             },
+        },
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": '"Bye!"',
+                "type": "VTL|MD",
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "2",
         },
     ],
     "variables": [
@@ -42,5 +52,9 @@ export const source: LunaticSource = {
     "generatingDate": "06-03-2024 12:46:44",
     "missing": false,
     "id": "lsvuvtbg",
-    "maxPage": "1",
+    "maxPage": "2",
+};
+
+export const data: LunaticData = {
+    "COLLECTED": { "NAME": { "COLLECTED": "Bob Dylan" } },
 };

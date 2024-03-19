@@ -37,19 +37,15 @@ const preview = {
         docs: {
             autodocs: true,
             container: DocsContainer,
+            controls: { exclude: ["darkMode"] },
         },
         darkMode: {
             light: lightTheme,
             dark: darkTheme,
         },
         controls: {
-            exclude: [
-                "activeControls",
-                "initialPage",
-                "autoSuggesterLoading",
-                "shortcut",
-                "filterDescription",
-            ],
+            exclude: ["activeControls", "shortcut", "filterDescription"],
+            expanded: true,
         },
     },
     argTypes: {
@@ -57,6 +53,14 @@ const preview = {
             control: { type: "boolean" },
             "description":
                 "Global color scheme enabled, light or dark, it change only the color scheme of the Canvas",
+        },
+        initialPage: {
+            table: { disable: true },
+            control: { type: "text" },
+        },
+        autoSuggesterLoading: {
+            table: { disable: true },
+            control: { type: "boolean" },
         },
     },
     decorators: [

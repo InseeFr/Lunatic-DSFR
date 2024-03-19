@@ -17,6 +17,11 @@ const meta = {
             },
         },
     },
+    argTypes: {
+        autoSuggesterLoading: {
+            table: { disable: false },
+        },
+    },
 } satisfies Meta<typeof Orchestrator>;
 
 export default meta;
