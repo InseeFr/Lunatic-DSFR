@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export type Destructor = () => void;
+type Destructor = () => void;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function useEffectOnValueChange<T extends readonly [value: any, ...moreValues: any[]]>(

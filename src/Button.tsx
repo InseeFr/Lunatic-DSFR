@@ -1,6 +1,5 @@
 import React, { type PropsWithChildren, useCallback } from "react";
 import { useStyles } from "tss-react/dsfr";
-import { isElement } from "./utils/is-element";
 import { Button as ButtonDSFR } from "@codegouvfr/react-dsfr/Button";
 import type { ButtonProps } from "@codegouvfr/react-dsfr/Button";
 
@@ -32,20 +31,6 @@ export function Button({
     );
 
     const { cx } = useStyles();
-
-    if (isElement(children))
-        return (
-            <ButtonDSFR
-                disabled={disabled}
-                className={cx("button-lunatic-dsfr", className)}
-                priority={priority}
-                onClick={handleClick}
-                type={type}
-                value={value}
-            >
-                {children}
-            </ButtonDSFR>
-        );
 
     return (
         <ButtonDSFR
