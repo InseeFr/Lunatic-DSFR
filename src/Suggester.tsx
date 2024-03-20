@@ -1,19 +1,17 @@
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import Autocomplete from "@mui/material/Autocomplete";
 import { Input } from "@codegouvfr/react-dsfr/Input";
-import { useState, type ComponentProps } from "react";
 import { fr } from "@codegouvfr/react-dsfr";
 import { getErrorStates } from "./utils/errorStates";
 import { Button } from "@codegouvfr/react-dsfr/Button";
+import { useState } from "react";
 
-type OptionType = Awaited<
-    ReturnType<Required<ComponentProps<LunaticSlotComponents["Suggester"]>>["searching"]>
->["results"];
+//min is hardcoded until lunatic provides it
+const min = 1;
 
 export const Suggester: LunaticSlotComponents["Suggester"] = props => {
     const {
         id,
-        searching,
         onSelect,
         disabled,
         readOnly,
@@ -21,60 +19,63 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
         description,
         errors,
         value,
-        defaultOptions,
+        onSearch,
+        search,
+        options,
+        state: suggesterState,
+        //min we wait lunatic provides min value until search
     } = props;
 
-    const [options, setOptions] = useState<OptionType>(defaultOptions ?? []);
+    //Controle the panel to open only when search has been made ie when search.length > min (in suggester.queryParser.params.min)
+    const [openPanel, setOpenPanel] = useState<boolean>(false);
 
-    const selectedOption = options.find(o => o.id === value) ?? null;
-
-    const [inputValue, setInputValue] = useState(selectedOption?.label?.toString() ?? null);
-
-    const handleSearch = async (query: string) => {
-        if (!searching) {
-            return;
-        }
-        const { results } = await searching(query);
-        if (results && Array.isArray(results)) {
-            setOptions(results);
-        }
-    };
+    const selectedOption = options.find(o => o.id === value[0]?.id) ?? null;
 
     const handleClear = () => {
-        setInputValue(null);
-        setOptions([]);
+        onSearch("");
         onSelect(null);
     };
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
+
     return (
         <Autocomplete
+            loading={suggesterState === "loading"}
             className={fr.cx("fr-input-group")}
+            open={openPanel}
             id={id}
             disablePortal
             isOptionEqualToValue={(a, b) => a.id === b.id}
-            loadingText="Recherche en cours ..."
+            loadingText="Liste en cours de chargement"
             noOptionsText="Aucun résultat trouvée"
             disabled={disabled}
             readOnly={readOnly}
             options={options}
             filterOptions={x => x} // see https://mui.com/material-ui/react-autocomplete/#search-as-you-type
-            getOptionLabel={option => option.label?.toString() ?? option.id ?? ""}
+            getOptionLabel={option => {
+                if (option.id === "OTHER") return `Aucun résultat trouvé : ${option.label.toString()}`;
+                return option.label?.toString() ?? option.id ?? "";
+            }}
             autoComplete
             value={selectedOption}
-            inputValue={inputValue ?? ""}
+            inputValue={search}
             onChange={(_e, option) => {
-                onSelect?.(option);
+                onSelect(option);
             }}
+            onClose={() => setOpenPanel(false)}
             onInputChange={(e, v) => {
                 // When "options" changes, MUI calls "onInputChange" unexpectedly and without event (skip this situation)
                 if (!e) {
                     return;
                 }
-                setInputValue(v);
+                // The panel opens when the value is greater or equal to the min.
+                if (v.length >= min) setOpenPanel(true);
+                // Panel closes when input value falls below min
+                if (openPanel && v.length < min) setOpenPanel(false);
+                onSearch(v);
                 if (e && e.type === "change") {
                     //Search only when we type on input, this avoid to search when option is selected
-                    handleSearch(v);
+                    onSearch(v);
                 }
             }}
             renderInput={params => {
