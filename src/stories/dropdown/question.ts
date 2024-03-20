@@ -9,7 +9,7 @@ export const source: LunaticSource = {
             "name": "STATE",
             "values": {
                 "PREVIOUS": null,
-                "COLLECTED": "1",
+                "COLLECTED": null,
                 "FORCED": null,
                 "EDITED": null,
                 "INPUTED": null,
