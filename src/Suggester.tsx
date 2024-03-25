@@ -6,75 +6,59 @@ import { getErrorStates } from "./utils/errorStates";
 import { Button } from "@codegouvfr/react-dsfr/Button";
 import { useState } from "react";
 
-//min is hardcoded until lunatic provides it
-const min = 1;
-
 export const Suggester: LunaticSlotComponents["Suggester"] = props => {
     const {
-        id,
+        onFocus,
+        onBlur,
+        options,
+        state,
+        onSearch,
+        value,
         onSelect,
-        disabled,
-        readOnly,
+        search,
+        errors,
         label,
         description,
-        errors,
-        value,
-        onSearch,
-        search,
-        options,
-        state: suggesterState,
-        //min we wait lunatic provides min value until search
+        id,
+        onClear,
     } = props;
+    const [defaultSelectedOption] = useState(() => options.find(o => o.id === value[0]?.id) ?? null);
+    const inputValue = ((search || value[0]?.label) ?? "").toString();
+    const { state: errorState, stateRelatedMessage } = getErrorStates(errors);
 
-    //Controle the panel to open only when search has been made ie when search.length > min (in suggester.queryParser.params.min)
-    const [openPanel, setOpenPanel] = useState<boolean>(false);
-
-    const selectedOption = options.find(o => o.id === value[0]?.id) ?? null;
-
-    const handleClear = () => {
-        onSearch("");
-        onSelect(null);
-    };
-
-    const { state, stateRelatedMessage } = getErrorStates(errors);
+    console.log({
+        value,
+        search,
+    });
 
     return (
         <Autocomplete
-            loading={suggesterState === "loading"}
-            className={fr.cx("fr-input-group")}
-            open={openPanel}
+            open={search !== ""}
             id={id}
             disablePortal
+            className={fr.cx("fr-input-group")}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            inputValue={inputValue}
             isOptionEqualToValue={(a, b) => a.id === b.id}
+            loading={state === "loading"}
             loadingText="Liste en cours de chargement"
             noOptionsText="Aucun résultat trouvée"
-            disabled={disabled}
-            readOnly={readOnly}
             options={options}
-            filterOptions={x => x} // see https://mui.com/material-ui/react-autocomplete/#search-as-you-type
-            getOptionLabel={option => {
-                if (option.id === "OTHER") return `Aucun résultat trouvé : ${option.label.toString()}`;
-                return option.label?.toString() ?? option.id ?? "";
-            }}
-            autoComplete
-            value={selectedOption}
-            inputValue={search}
+            defaultValue={defaultSelectedOption}
+            filterOptions={x => x}
             onChange={(_e, option) => {
                 onSelect(option);
             }}
-            onClose={() => setOpenPanel(false)}
-            onInputChange={(e, v) => {
-                // When "options" changes, MUI calls "onInputChange" unexpectedly and without event (skip this situation)
-                if (!e) {
-                    return;
+            getOptionLabel={option => {
+                if (option.id === "OTHER") {
+                    return `Aucun résultat trouvé : choisir "${option.label}"`;
                 }
-                // The panel opens when the value is greater or equal to the min.
-                if (v.length >= min) setOpenPanel(true);
-                // Panel closes when input value falls below min
-                if (openPanel && v.length < min) setOpenPanel(false);
-                onSearch(v);
+                return option.label;
+            }}
+            onInputChange={(e, v) => {
+                // Only search on change (this event is also called on blur)
                 if (e && e.type === "change") {
-                    //Search only when we type on input, this avoid to search when option is selected
                     onSearch(v);
                 }
             }}
@@ -83,7 +67,7 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
                 return (
                     <Input
                         ref={InputProps.ref}
-                        state={state}
+                        state={errorState}
                         stateRelatedMessage={stateRelatedMessage}
                         label={label}
                         hintText={description}
@@ -92,7 +76,7 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
                             <Button
                                 iconId="fr-icon-delete-line"
                                 priority="secondary"
-                                onClick={handleClear}
+                                onClick={onClear}
                                 title="vider le champ"
                             />
                         }
