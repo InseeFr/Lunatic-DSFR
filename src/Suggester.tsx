@@ -33,6 +33,7 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
             disablePortal
             className={fr.cx("fr-input-group")}
             onFocus={onFocus}
+            onClose={onBlur}
             onBlur={onBlur}
             inputValue={inputValue}
             isOptionEqualToValue={(a, b) => a.id === b.id}
