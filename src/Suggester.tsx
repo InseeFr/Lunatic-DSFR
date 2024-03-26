@@ -26,11 +26,6 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
     const inputValue = ((search || value[0]?.label) ?? "").toString();
     const { state: errorState, stateRelatedMessage } = getErrorStates(errors);
 
-    console.log({
-        value,
-        search,
-    });
-
     return (
         <Autocomplete
             open={search !== ""}
