@@ -8,7 +8,11 @@ export const source: LunaticSource = {
             "componentType": "Sequence",
             "label": {
                 "value": '"Sequence label"',
-                "type": "VTL",
+                "type": "VTL|MD",
+            },
+            "description": {
+                "value": '"Sequence description"',
+                "type": "VTL|MD",
             },
             "conditionFilter": { "value": "true", "type": "VTL" },
             "page": "1",

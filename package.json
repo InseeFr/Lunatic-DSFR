@@ -53,7 +53,7 @@
     "keywords": [],
     "homepage": "https://inseefr.github.io/Lunatic-DSFR",
     "peerDependencies": {
-        "@codegouvfr/react-dsfr": "^1.9.2",
+        "@codegouvfr/react-dsfr": "^1.9.5",
         "@emotion/react": "^11.4.1",
         "@emotion/styled": "^11.11.0",
         "@mui/material": "^5.0.1",
@@ -67,7 +67,7 @@
         }
     },
     "devDependencies": {
-        "@codegouvfr/react-dsfr": "^1.9.3",
+        "@codegouvfr/react-dsfr": "^1.9.5",
         "@emotion/react": "^11.11.4",
         "@emotion/styled": "^11.11.0",
         "@inseefr/lunatic": "3.0.0-rc.13",
