@@ -8,7 +8,6 @@ import {
     type LunaticData,
     type LunaticState,
 } from "@inseefr/lunatic";
-import Waiting from "./waiting";
 import { MuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
 import { Button } from "../../Button";
 import { slotComponents } from "../..";
@@ -48,7 +47,6 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
         pageTag,
         isFirstPage,
         isLastPage,
-        waiting,
         compileControls,
         Provider,
     } = useLunatic(source, data, {
@@ -97,11 +95,6 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
                     pageTag={pageTag}
                     maxPage={maxPage}
                 />
-                <Waiting status={waiting}>
-                    <div className="waiting-orchestrator">
-                        Initialisation des données de suggestion...
-                    </div>
-                </Waiting>
             </div>
         </Provider>
     );

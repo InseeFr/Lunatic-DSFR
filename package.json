@@ -1,6 +1,6 @@
 {
     "name": "@inseefr/lunatic-dsfr",
-    "version": "2.0.0-rc.6",
+    "version": "2.0.0-rc.7",
     "description": "Couche graphique pour Lunatic reposant sur le Système de Design de l'État (DSFR)",
     "repository": {
         "type": "git",
@@ -67,11 +67,11 @@
         }
     },
     "devDependencies": {
-        "@codegouvfr/react-dsfr": "^1.9.2",
+        "@codegouvfr/react-dsfr": "^1.9.3",
         "@emotion/react": "^11.11.4",
         "@emotion/styled": "^11.11.0",
         "@inseefr/lunatic": "3.0.0-rc.18",
-        "@mui/material": "^5.15.11",
+        "@mui/material": "^5.15.14",
         "@storybook/addon-a11y": "^7.6.17",
         "@storybook/addon-essentials": "^7.6.17",
         "@storybook/addon-interactions": "^7.6.17",
@@ -79,16 +79,16 @@
         "@storybook/react": "^7.6.17",
         "@storybook/react-vite": "^7.6.17",
         "@storybook/theming": "^7.6.17",
-        "@types/node": "^20.11.24",
-        "@types/react": "^18.2.61",
-        "@types/react-dom": "^18.2.19",
-        "@typescript-eslint/eslint-plugin": "^7.1.1",
-        "@typescript-eslint/parser": "^7.1.1",
+        "@types/node": "^20.11.30",
+        "@types/react": "^18.2.72",
+        "@types/react-dom": "^18.2.22",
+        "@typescript-eslint/eslint-plugin": "^7.4.0",
+        "@typescript-eslint/parser": "^7.4.0",
         "eslint": "^8.57.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-storybook": "^0.8.0",
-        "husky": "^8.0.3",
-        "knip": "^5.0.3",
+        "husky": "^9.0.11",
+        "knip": "^5.6.0",
         "lint-staged": "^15.2.2",
         "prettier": "^3.2.5",
         "react": "^18.2.0",
@@ -96,13 +96,13 @@
         "storybook": "^7.6.17",
         "storybook-dark-mode": "^3.0.3",
         "ts-node": "^10.9.2",
-        "tss-react": "^4.9.4",
-        "typescript": "^5.3.3",
-        "vite": "^5.1.4",
-        "vite-tsconfig-paths": "^4.3.1"
+        "tss-react": "^4.9.6",
+        "typescript": "^5.4.3",
+        "vite": "^5.2.6",
+        "vite-tsconfig-paths": "^4.3.2"
     },
     "dependencies": {
-        "react-number-format": "^5.3.3"
+        "react-number-format": "^5.3.4"
     },
     "publishConfig": {
         "access": "public"
