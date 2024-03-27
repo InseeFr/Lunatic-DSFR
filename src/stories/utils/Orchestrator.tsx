@@ -76,7 +76,6 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
                 <div className={fr.cx("fr-mb-4v")}>
                     <MuiDsfrThemeProvider>
                         <LunaticComponents
-                            autoFocusKey={pageTag}
                             components={components}
                             slots={slotComponents}
                             componentProps={() => ({

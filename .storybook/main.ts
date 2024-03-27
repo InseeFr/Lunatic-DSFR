@@ -11,15 +11,15 @@ export default {
         "storybook-dark-mode",
         "@storybook/addon-a11y",
     ],
-    core: {
-        builder: "@storybook/builder-vite", // 👈 The builder enabled here.
-    },
     docs: {
         //👇 See the table below for the list of supported options
         autodocs: true,
         defaultName: "Documentation",
     },
-    framework: "@storybook/react-vite",
+    framework: {
+        name: "@storybook/react-vite",
+        options: {},
+    },
     staticDirs: ["./static"],
     async viteFinal(config) {
         // Merge custom configuration into the default config
