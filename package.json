@@ -24,7 +24,7 @@
         "build-storybook": "storybook build",
         "prestorybook": "npx @inseefr/lunatic .storybook/static && copy-dsfr-to-public --publicDir .storybook/static && only-include-used-icons --publicDir .storybook/static",
         "prebuild-storybook": "yarn prestorybook",
-        "prepare": "husky install"
+        "prepare": "husky"
     },
     "exports": {
         ".": "./dist/index.js",
