@@ -2,7 +2,13 @@ import React, { useCallback } from "react";
 import { useStyles } from "tss-react/dsfr";
 import { fr } from "@codegouvfr/react-dsfr";
 import { Button } from "../Button";
-import { BUTTON_PRIORITIES } from "../utils/constants/buttonConstants";
+
+enum BUTTON_PRIORITIES {
+    PRIMARY = "primary",
+    SECONDARY = "secondary",
+    TERTIARY = "tertiary",
+    TERTIARY_NO_OUTLINE = "tertiary no outline",
+}
 
 const { PRIMARY, SECONDARY } = BUTTON_PRIORITIES;
 
