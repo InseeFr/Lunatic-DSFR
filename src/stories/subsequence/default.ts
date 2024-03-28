@@ -10,6 +10,10 @@ export const source: LunaticSource = {
                 "value": '"Subsequence label"',
                 "type": "VTL|MD",
             },
+            "description": {
+                "value": '"Subsequence description"',
+                "type": "VTL|MD",
+            },
             "conditionFilter": { "value": "true", "type": "VTL" },
             "page": "1",
             "declarations": [

@@ -24,7 +24,7 @@
         "build-storybook": "storybook build",
         "prestorybook": "npx @inseefr/lunatic .storybook/static && copy-dsfr-to-public --publicDir .storybook/static && only-include-used-icons --publicDir .storybook/static",
         "prebuild-storybook": "yarn prestorybook",
-        "prepare": "husky install"
+        "prepare": "husky"
     },
     "exports": {
         ".": "./dist/index.js",
@@ -53,7 +53,7 @@
     "keywords": [],
     "homepage": "https://inseefr.github.io/Lunatic-DSFR",
     "peerDependencies": {
-        "@codegouvfr/react-dsfr": "^1.9.2",
+        "@codegouvfr/react-dsfr": "^1.9.5",
         "@emotion/react": "^11.4.1",
         "@emotion/styled": "^11.11.0",
         "@mui/material": "^5.0.1",
@@ -67,23 +67,25 @@
         }
     },
     "devDependencies": {
-        "@codegouvfr/react-dsfr": "^1.9.3",
+        "@codegouvfr/react-dsfr": "^1.9.5",
         "@emotion/react": "^11.11.4",
         "@emotion/styled": "^11.11.0",
         "@inseefr/lunatic": "3.0.0-rc.18",
         "@mui/material": "^5.15.14",
-        "@storybook/addon-a11y": "^7.6.17",
-        "@storybook/addon-essentials": "^7.6.17",
-        "@storybook/addon-interactions": "^7.6.17",
-        "@storybook/addon-links": "^7.6.17",
-        "@storybook/react": "^7.6.17",
-        "@storybook/react-vite": "^7.6.17",
-        "@storybook/theming": "^7.6.17",
+        "@storybook/addon-a11y": "^8.0.4",
+        "@storybook/addon-essentials": "^8.0.4",
+        "@storybook/addon-interactions": "^8.0.4",
+        "@storybook/addon-links": "^8.0.4",
+        "@storybook/addon-mdx-gfm": "^8.0.4",
+        "@storybook/react": "^8.0.4",
+        "@storybook/react-vite": "^8.0.4",
+        "@storybook/theming": "^8.0.4",
         "@types/node": "^20.11.30",
         "@types/react": "^18.2.72",
         "@types/react-dom": "^18.2.22",
         "@typescript-eslint/eslint-plugin": "^7.4.0",
         "@typescript-eslint/parser": "^7.4.0",
+        "@vitejs/plugin-react": "^4.2.1",
         "eslint": "^8.57.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-storybook": "^0.8.0",
@@ -93,8 +95,8 @@
         "prettier": "^3.2.5",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "storybook": "^7.6.17",
-        "storybook-dark-mode": "^3.0.3",
+        "storybook": "^8.0.4",
+        "storybook-dark-mode": "^4.0.1",
         "ts-node": "^10.9.2",
         "tss-react": "^4.9.6",
         "typescript": "^5.4.3",
@@ -106,8 +108,5 @@
     },
     "publishConfig": {
         "access": "public"
-    },
-    "resolutions": {
-        "jackspeak": "2.1.1"
     }
 }

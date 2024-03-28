@@ -38,7 +38,7 @@ export const source: LunaticSource = {
             "options": [
                 {
                     "value": "1",
-                    "label": { "value": '"Washington"', "type": "VTL" },
+                    "label": { "value": '"Washington"', "type": "VTL|MD" },
                 },
                 {
                     "value": "2",
