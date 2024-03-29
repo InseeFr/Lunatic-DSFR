@@ -1,80 +1,60 @@
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import Autocomplete from "@mui/material/Autocomplete";
 import { Input } from "@codegouvfr/react-dsfr/Input";
-import { useState, type ComponentProps } from "react";
 import { fr } from "@codegouvfr/react-dsfr";
 import { getErrorStates } from "./utils/errorStates";
 import { Button } from "@codegouvfr/react-dsfr/Button";
-
-type OptionType = Awaited<
-    ReturnType<Required<ComponentProps<LunaticSlotComponents["Suggester"]>>["searching"]>
->["results"];
+import { useState } from "react";
 
 export const Suggester: LunaticSlotComponents["Suggester"] = props => {
     const {
-        id,
-        searching,
+        onFocus,
+        onBlur,
+        options,
+        state,
+        onSearch,
+        value,
         onSelect,
-        disabled,
-        readOnly,
+        search,
+        errors,
         label,
         description,
-        errors,
-        value,
-        defaultOptions,
+        id,
+        onClear,
     } = props;
+    const [defaultSelectedOption] = useState(() => options.find(o => o.id === value[0]?.id) ?? null);
+    const inputValue = ((search || value[0]?.label) ?? "").toString();
+    const { state: errorState, stateRelatedMessage } = getErrorStates(errors);
 
-    const [options, setOptions] = useState<OptionType>(defaultOptions ?? []);
-
-    const selectedOption = options.find(o => o.id === value) ?? null;
-
-    const [inputValue, setInputValue] = useState(selectedOption?.label?.toString() ?? null);
-
-    const handleSearch = async (query: string) => {
-        if (!searching) {
-            return;
-        }
-        const { results } = await searching(query);
-        if (results && Array.isArray(results)) {
-            setOptions(results);
-        }
-    };
-
-    const handleClear = () => {
-        setInputValue(null);
-        setOptions([]);
-        onSelect(null);
-    };
-
-    const { state, stateRelatedMessage } = getErrorStates(errors);
     return (
         <Autocomplete
-            className={fr.cx("fr-input-group")}
             id={id}
             disablePortal
+            className={fr.cx("fr-input-group")}
+            onFocus={onFocus}
+            onClose={onBlur}
+            onBlur={onBlur}
+            inputValue={inputValue}
             isOptionEqualToValue={(a, b) => a.id === b.id}
-            loadingText="Recherche en cours ..."
+            loading={state === "loading"}
+            loadingText="Liste en cours de chargement"
             noOptionsText="Aucun résultat trouvée"
-            disabled={disabled}
-            readOnly={readOnly}
             options={options}
-            filterOptions={x => x} // see https://mui.com/material-ui/react-autocomplete/#search-as-you-type
-            getOptionLabel={option => option.label?.toString() ?? option.id ?? ""}
-            autoComplete
-            value={selectedOption}
-            inputValue={inputValue ?? ""}
+            defaultValue={defaultSelectedOption}
+            filterOptions={x => x}
             onChange={(_e, option) => {
-                onSelect?.(option);
+                onSelect(option);
+            }}
+            getOptionLabel={option => {
+                if (option.id === "OTHER") {
+                    return `Aucun résultat trouvé : choisir "${option.label}"`;
+                }
+                return option.label;
             }}
             onInputChange={(e, v) => {
-                // When "options" changes, MUI calls "onInputChange" unexpectedly and without event (skip this situation)
-                if (!e) {
-                    return;
-                }
-                setInputValue(v);
+                // Only search on change (this event is also called on blur)
                 if (e && e.type === "change") {
-                    //Search only when we type on input, this avoid to search when option is selected
-                    handleSearch(v);
+                    onSearch(v);
                 }
             }}
             renderInput={params => {
@@ -82,7 +62,7 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
                 return (
                     <Input
                         ref={InputProps.ref}
-                        state={state}
+                        state={errorState}
                         stateRelatedMessage={stateRelatedMessage}
                         label={label}
                         hintText={description}
@@ -91,7 +71,7 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
                             <Button
                                 iconId="fr-icon-delete-line"
                                 priority="secondary"
-                                onClick={handleClear}
+                                onClick={onClear}
                                 title="vider le champ"
                             />
                         }

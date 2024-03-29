@@ -1,5 +1,6 @@
 import { Orchestrator } from "../utils/Orchestrator";
 import { source } from "./source";
+import { source as arbitrarySource } from "./arbitrary";
 import { source as questionSource } from "./question";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -30,6 +31,10 @@ type Story = StoryObj<typeof Orchestrator>;
 
 export const Default = {
     args: { source },
+} satisfies Story;
+
+export const Arbitrary = {
+    args: { source: arbitrarySource },
 } satisfies Story;
 
 export const Question = {

@@ -19,7 +19,7 @@ export function getErrorStates(errors?: LunaticError[]): {
     state: "default" | "error" | "success";
     stateRelatedMessage: ReactNode | undefined;
 } {
-    if (!errors) {
+    if (!errors || errors.length === 0) {
         return { state: "default", stateRelatedMessage: undefined };
     }
     switch (errors[0].criticality) {
