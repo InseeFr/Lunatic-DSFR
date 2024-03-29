@@ -22,7 +22,6 @@ export function getErrorStates(errors?: LunaticError[]): {
     if (!errors || errors.length === 0) {
         return { state: "default", stateRelatedMessage: undefined };
     }
-    console.log(errors);
     switch (errors[0].criticality) {
         case "ERROR":
         case "WARN":

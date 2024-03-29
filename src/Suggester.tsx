@@ -28,7 +28,6 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
 
     return (
         <Autocomplete
-            open={search !== ""}
             id={id}
             disablePortal
             className={fr.cx("fr-input-group")}

@@ -22,7 +22,7 @@
         "link-in-main-project": "ts-node --skipProject scripts/link-in-app.ts",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
-        "prestorybook": "npx @inseefr/lunatic .storybook/static && copy-dsfr-to-public --publicDir .storybook/static && only-include-used-icons --publicDir .storybook/static",
+        "prestorybook": "copy-dsfr-to-public --publicDir .storybook/static && only-include-used-icons --publicDir .storybook/static",
         "prebuild-storybook": "yarn prestorybook",
         "prepare": "husky"
     },
@@ -70,7 +70,7 @@
         "@codegouvfr/react-dsfr": "^1.9.5",
         "@emotion/react": "^11.11.4",
         "@emotion/styled": "^11.11.0",
-        "@inseefr/lunatic": "3.0.0-rc.18",
+        "@inseefr/lunatic": "3.0.0-rc.21",
         "@mui/material": "^5.15.14",
         "@storybook/addon-a11y": "^8.0.4",
         "@storybook/addon-essentials": "^8.0.4",
@@ -108,5 +108,8 @@
     },
     "publishConfig": {
         "access": "public"
+    },
+    "resolutions": {
+        "jackspeak": "2.1.1"
     }
 }
