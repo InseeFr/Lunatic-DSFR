@@ -44,7 +44,7 @@ const DeclarationAfter = (props: Declaration) => {
             id={id}
             severity="info"
             closable={false}
-            title="Consigne"
+            title="À savoir"
         />
     );
 };
