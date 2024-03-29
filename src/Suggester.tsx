@@ -38,7 +38,7 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
             isOptionEqualToValue={(a, b) => a.id === b.id}
             loading={state === "loading"}
             loadingText="Liste en cours de chargement"
-            noOptionsText="Aucun résultat trouvée"
+            noOptionsText="Aucun résultat trouvé"
             options={options}
             defaultValue={defaultSelectedOption}
             filterOptions={x => x}
