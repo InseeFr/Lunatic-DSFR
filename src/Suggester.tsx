@@ -30,9 +30,12 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
         <Autocomplete
             id={id}
             disablePortal
+            blurOnSelect
             className={fr.cx("fr-input-group")}
-            onFocus={onFocus}
+            /* These events are used to track when the suggester has focus (search enabled) */
+            onOpen={onFocus}
             onClose={onBlur}
+            onFocus={onFocus}
             onBlur={onBlur}
             inputValue={inputValue}
             isOptionEqualToValue={(a, b) => a.id === b.id}
