@@ -56,7 +56,8 @@
         "@emotion/react": "^11.11.4",
         "@mui/material": "^5.15.15",
         "@types/react": "^18.0.0",
-        "react": "^18.0.0"
+        "react": "^18.0.0",
+        "@codegouvfr/react-dsfr": "^1.9.6"
     },
     "peerDependenciesMeta": {
         "@types/react": {
