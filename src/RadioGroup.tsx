@@ -16,7 +16,7 @@ export const RadioGroup: LunaticSlotComponents["RadioGroup"] = props => {
             hintText={description}
             disabled={disabled}
             options={options.map(option => ({
-                label: option.label,
+                label: <span>{option.label}</span>,
                 hintText: option.description,
                 nativeInputProps: {
                     checked: value === option.value,

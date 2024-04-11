@@ -7,6 +7,7 @@ export const CheckboxGroup: LunaticSlotComponents["CheckboxGroup"] = props => {
     const { options, id, label, description, errors } = props;
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
+
     return (
         <Checkbox
             id={id}
@@ -23,7 +24,7 @@ function getOptions(options: ComponentProps<LunaticSlotComponents["CheckboxGroup
     return options.map(option => {
         const { label, description, name, onClick, checked } = option;
         return {
-            label,
+            label: <span>{label}</span>,
             hintText: description,
             nativeInputProps: {
                 name,

@@ -19,7 +19,7 @@ export const CheckboxBoolean: LunaticSlotComponents["CheckboxBoolean"] = props =
             disabled={disabled || readOnly}
             options={[
                 {
-                    label: label,
+                    label: <span>{label}</span>,
                     hintText: description,
                     nativeInputProps: {
                         onChange: onChange,
