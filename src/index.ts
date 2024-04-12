@@ -17,6 +17,7 @@ import { Declarations } from "./Declarations";
 import { Question } from "./Question";
 import { ComponentWrapper } from "./ComponentWrapper";
 import { Duration } from "./Duration/Duration";
+import { Table } from "./Table";
 
 export const slotComponents = {
     Question,
@@ -37,6 +38,7 @@ export const slotComponents = {
     SummaryTitle,
     Textarea,
     Declarations,
+    Table,
     ComponentWrapper,
 } as Partial<LunaticSlotComponents> satisfies Partial<LunaticSlotComponents>;
 //We must remove `as Partial<LunaticSlotComponents>` when Roundabout and summary refactored
