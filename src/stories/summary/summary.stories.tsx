@@ -1,6 +1,6 @@
 import { source, data } from "./default";
 import type { StoryObj, Meta } from "@storybook/react";
-import { Orchestrator } from "../utils/Orchestrator";
+import { Orchestrator } from "../Orchestrator";
 
 const meta = {
     title: "Components/Summary",

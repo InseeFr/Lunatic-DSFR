@@ -1,6 +1,4 @@
-import type { LunaticSource } from "@inseefr/lunatic";
-
-export const source: LunaticSource = {
+{
     "componentType": "Questionnaire",
     "variables": [
         {
@@ -10,9 +8,9 @@ export const source: LunaticSource = {
                 "EDITED": null,
                 "FORCED": null,
                 "INPUTTED": null,
-                "PREVIOUS": null,
+                "PREVIOUS": null
             },
-            "name": "TABLEAUCLA11",
+            "name": "TABLEAUCLA11"
         },
         {
             "variableType": "COLLECTED",
@@ -21,9 +19,9 @@ export const source: LunaticSource = {
                 "EDITED": null,
                 "FORCED": null,
                 "INPUTTED": null,
-                "PREVIOUS": null,
+                "PREVIOUS": null
             },
-            "name": "TABLEAUCLA21",
+            "name": "TABLEAUCLA21"
         },
         {
             "variableType": "COLLECTED",
@@ -32,9 +30,9 @@ export const source: LunaticSource = {
                 "EDITED": null,
                 "FORCED": null,
                 "INPUTTED": null,
-                "PREVIOUS": null,
+                "PREVIOUS": null
             },
-            "name": "TABLEAUCLA31",
+            "name": "TABLEAUCLA31"
         },
         {
             "variableType": "COLLECTED",
@@ -43,9 +41,9 @@ export const source: LunaticSource = {
                 "EDITED": null,
                 "FORCED": null,
                 "INPUTTED": null,
-                "PREVIOUS": null,
+                "PREVIOUS": null
             },
-            "name": "TABLEAUCLA12",
+            "name": "TABLEAUCLA12"
         },
         {
             "variableType": "COLLECTED",
@@ -54,9 +52,9 @@ export const source: LunaticSource = {
                 "EDITED": null,
                 "FORCED": null,
                 "INPUTTED": null,
-                "PREVIOUS": null,
+                "PREVIOUS": null
             },
-            "name": "TABLEAUCLA22",
+            "name": "TABLEAUCLA22"
         },
         {
             "variableType": "COLLECTED",
@@ -65,9 +63,9 @@ export const source: LunaticSource = {
                 "EDITED": null,
                 "FORCED": null,
                 "INPUTTED": null,
-                "PREVIOUS": null,
+                "PREVIOUS": null
             },
-            "name": "TABLEAUCLA32",
+            "name": "TABLEAUCLA32"
         },
         {
             "variableType": "COLLECTED",
@@ -76,9 +74,9 @@ export const source: LunaticSource = {
                 "EDITED": null,
                 "FORCED": null,
                 "INPUTTED": null,
-                "PREVIOUS": null,
+                "PREVIOUS": null
             },
-            "name": "TABLEAUCLA13",
+            "name": "TABLEAUCLA13"
         },
         {
             "variableType": "COLLECTED",
@@ -87,9 +85,9 @@ export const source: LunaticSource = {
                 "EDITED": null,
                 "FORCED": null,
                 "INPUTTED": null,
-                "PREVIOUS": null,
+                "PREVIOUS": null
             },
-            "name": "TABLEAUCLA23",
+            "name": "TABLEAUCLA23"
         },
         {
             "variableType": "COLLECTED",
@@ -98,26 +96,26 @@ export const source: LunaticSource = {
                 "EDITED": null,
                 "FORCED": null,
                 "INPUTTED": null,
-                "PREVIOUS": null,
+                "PREVIOUS": null
             },
-            "name": "TABLEAUCLA33",
+            "name": "TABLEAUCLA33"
         },
         {
             "variableType": "CALCULATED",
             "expression": {
                 "type": "VTL",
-                "value": "true",
+                "value": "true"
             },
-            "name": "FILTER_RESULT_LIBELLEDUT",
+            "name": "FILTER_RESULT_LIBELLEDUT"
         },
         {
             "variableType": "CALCULATED",
             "expression": {
                 "type": "VTL",
-                "value": "true",
+                "value": "true"
             },
-            "name": "FILTER_RESULT_TABLEAUCLA",
-        },
+            "name": "FILTER_RESULT_TABLEAUCLA"
+        }
     ],
     "components": [
         {
@@ -127,136 +125,130 @@ export const source: LunaticSource = {
                     "criticality": "INFO",
                     "errorMessage": {
                         "type": "VTL|MD",
-                        "value": '" La valeur doit être comprise entre 0 et 9999."',
+                        "value": "\" La valeur doit être comprise entre 0 et 9999.\""
                     },
                     "typeOfControl": "FORMAT",
                     "control": {
                         "type": "VTL",
-                        "value":
-                            "not(not(isnull(TABLEAUCLA33)) and (0>TABLEAUCLA33 or 10<TABLEAUCLA33))",
+                        "value": "not(not(isnull(TABLEAUCLA33)) and (0>TABLEAUCLA33 or 10<TABLEAUCLA33))"
                     },
-                    "id": "luwhnbxk-RDOP-luwhcilc-format-borne-inf-sup",
+                    "id": "luwhnbxk-RDOP-luwhcilc-format-borne-inf-sup"
                 },
                 {
                     "criticality": "INFO",
                     "errorMessage": {
                         "type": "VTL|MD",
-                        "value": '"Le nombre doit comporter au maximum 0 chiffre(s) après la virgule."',
+                        "value": "\"Le nombre doit comporter au maximum 0 chiffre(s) après la virgule.\""
                     },
                     "typeOfControl": "FORMAT",
                     "control": {
                         "type": "VTL",
-                        "value":
-                            "not(not(isnull(TABLEAUCLA33))  and round(TABLEAUCLA33,0)<>TABLEAUCLA33)",
+                        "value": "not(not(isnull(TABLEAUCLA33))  and round(TABLEAUCLA33,0)<>TABLEAUCLA33)"
                     },
-                    "id": "luwhnbxk-RDOP-luwhcilc-format-decimal",
+                    "id": "luwhnbxk-RDOP-luwhcilc-format-decimal"
                 },
                 {
                     "criticality": "INFO",
                     "errorMessage": {
                         "type": "VTL|MD",
-                        "value": '" La valeur doit être comprise entre 0 et 9999."',
+                        "value": "\" La valeur doit être comprise entre 0 et 9999.\""
                     },
                     "typeOfControl": "FORMAT",
                     "control": {
                         "type": "VTL",
-                        "value":
-                            "not(not(isnull(TABLEAUCLA23)) and (0>TABLEAUCLA23 or 9999<TABLEAUCLA23))",
+                        "value": "not(not(isnull(TABLEAUCLA23)) and (0>TABLEAUCLA23 or 9999<TABLEAUCLA23))"
                     },
-                    "id": "luwhnbxk-RDOP-luwh4tva-format-borne-inf-sup",
+                    "id": "luwhnbxk-RDOP-luwh4tva-format-borne-inf-sup"
                 },
                 {
                     "criticality": "INFO",
                     "errorMessage": {
                         "type": "VTL|MD",
-                        "value": '"Le nombre doit comporter au maximum 0 chiffre(s) après la virgule."',
+                        "value": "\"Le nombre doit comporter au maximum 0 chiffre(s) après la virgule.\""
                     },
                     "typeOfControl": "FORMAT",
                     "control": {
                         "type": "VTL",
-                        "value":
-                            "not(not(isnull(TABLEAUCLA23))  and round(TABLEAUCLA23,0)<>TABLEAUCLA23)",
+                        "value": "not(not(isnull(TABLEAUCLA23))  and round(TABLEAUCLA23,0)<>TABLEAUCLA23)"
                     },
-                    "id": "luwhnbxk-RDOP-luwh4tva-format-decimal",
+                    "id": "luwhnbxk-RDOP-luwh4tva-format-decimal"
                 },
                 {
                     "criticality": "INFO",
                     "errorMessage": {
                         "type": "VTL|MD",
-                        "value": '" La valeur doit être comprise entre 0 et 9999."',
+                        "value": "\" La valeur doit être comprise entre 0 et 9999.\""
                     },
                     "typeOfControl": "FORMAT",
                     "control": {
                         "type": "VTL",
-                        "value":
-                            "not(not(isnull(TABLEAUCLA13)) and (0>TABLEAUCLA13 or 9999<TABLEAUCLA13))",
+                        "value": "not(not(isnull(TABLEAUCLA13)) and (0>TABLEAUCLA13 or 9999<TABLEAUCLA13))"
                     },
-                    "id": "luwhnbxk-RDOP-luwh7btb-format-borne-inf-sup",
+                    "id": "luwhnbxk-RDOP-luwh7btb-format-borne-inf-sup"
                 },
                 {
                     "criticality": "INFO",
                     "errorMessage": {
                         "type": "VTL|MD",
-                        "value": '"Le nombre doit comporter au maximum 0 chiffre(s) après la virgule."',
+                        "value": "\"Le nombre doit comporter au maximum 0 chiffre(s) après la virgule.\""
                     },
                     "typeOfControl": "FORMAT",
                     "control": {
                         "type": "VTL",
-                        "value":
-                            "not(not(isnull(TABLEAUCLA13))  and round(TABLEAUCLA13,0)<>TABLEAUCLA13)",
+                        "value": "not(not(isnull(TABLEAUCLA13))  and round(TABLEAUCLA13,0)<>TABLEAUCLA13)"
                     },
-                    "id": "luwhnbxk-RDOP-luwh7btb-format-decimal",
-                },
+                    "id": "luwhnbxk-RDOP-luwh7btb-format-decimal"
+                }
             ],
             "positioning": "HORIZONTAL",
             "header": [
                 {
                     "label": {
                         "type": "VTL|MD",
-                        "value": "",
-                    },
+                        "value": ""
+                    }
                 },
                 {
                     "label": {
                         "type": "VTL|MD",
-                        "value": '"Domaines"',
-                    },
+                        "value": "\"Domaines\""
+                    }
                 },
                 {
                     "label": {
                         "type": "VTL|MD",
-                        "value": '"Activité"',
-                    },
+                        "value": "\"Activité\""
+                    }
                 },
                 {
                     "label": {
                         "type": "VTL|MD",
-                        "value": '"Chiffre d\'affaire"',
-                    },
-                },
+                        "value": "\"Chiffre d'affaire\""
+                    }
+                }
             ],
             "conditionFilter": {
                 "type": "VTL",
-                "value": "true",
+                "value": "true"
             },
             "id": "luwhnbxk",
             "page": "1",
             "label": {
                 "type": "VTL|MD",
-                "value": '"Tableau classique"',
+                "value": "\"Tableau classique\""
             },
             "body": [
                 [
                     {
                         "label": {
                             "type": "VTL|MD",
-                            "value": '"Libelle 1"',
-                        },
+                            "value": "\"Libelle 1\""
+                        }
                     },
                     {
                         "componentType": "Input",
                         "response": {
-                            "name": "TABLEAUCLA11",
+                            "name": "TABLEAUCLA11"
                         },
                         "id": "luwhnbxk-RDOP-luwhcrpg",
                         "maxLength": 249,
@@ -265,23 +257,23 @@ export const source: LunaticSource = {
                                 "criticality": "ERROR",
                                 "errorMessage": {
                                     "type": "VTL",
-                                    "value": '"Le domaine ne doit pas être vide"',
+                                    "value": "\"Le domaine ne doit pas être vide\""
                                 },
                                 "typeOfControl": "",
                                 "control": {
                                     "type": "VTL",
-                                    "value": "not(isnull(TABLEAUCLA11))",
-                                },
-                            },
-                        ],
+                                    "value": "not(isnull(TABLEAUCLA11))"
+                                }
+                            }
+                        ]
                     },
                     {
                         "componentType": "Input",
                         "response": {
-                            "name": "TABLEAUCLA12",
+                            "name": "TABLEAUCLA12"
                         },
                         "id": "luwhnbxk-RDOP-luwhnkls",
-                        "maxLength": 249,
+                        "maxLength": 249
                     },
                     {
                         "componentType": "InputNumber",
@@ -289,35 +281,35 @@ export const source: LunaticSource = {
                         "min": 0.0,
                         "max": 9999.0,
                         "response": {
-                            "name": "TABLEAUCLA13",
+                            "name": "TABLEAUCLA13"
                         },
                         "decimals": 0,
-                        "id": "luwhnbxk-RDOP-luwh7btb",
-                    },
+                        "id": "luwhnbxk-RDOP-luwh7btb"
+                    }
                 ],
                 [
                     {
                         "label": {
                             "type": "VTL|MD",
-                            "value": '"Libelle 2"',
+                            "value": "\"Libelle 2\""
                         },
-                        "value": "2",
+                        "value": "2"
                     },
                     {
                         "componentType": "Input",
                         "response": {
-                            "name": "TABLEAUCLA21",
+                            "name": "TABLEAUCLA21"
                         },
                         "id": "luwhnbxk-RDOP-luwhmbp1",
-                        "maxLength": 249,
+                        "maxLength": 249
                     },
                     {
                         "componentType": "Input",
                         "response": {
-                            "name": "TABLEAUCLA22",
+                            "name": "TABLEAUCLA22"
                         },
                         "id": "luwhnbxk-RDOP-luwhlejc",
-                        "maxLength": 249,
+                        "maxLength": 249
                     },
                     {
                         "componentType": "InputNumber",
@@ -325,35 +317,35 @@ export const source: LunaticSource = {
                         "min": 0.0,
                         "max": 9999.0,
                         "response": {
-                            "name": "TABLEAUCLA23",
+                            "name": "TABLEAUCLA23"
                         },
                         "decimals": 0,
-                        "id": "luwhnbxk-RDOP-luwh4tva",
-                    },
+                        "id": "luwhnbxk-RDOP-luwh4tva"
+                    }
                 ],
                 [
                     {
                         "label": {
                             "type": "VTL|MD",
-                            "value": '"Libelle 3"',
+                            "value": "\"Libelle 3\""
                         },
-                        "value": "3",
+                        "value": "3"
                     },
                     {
                         "componentType": "Input",
                         "response": {
-                            "name": "TABLEAUCLA31",
+                            "name": "TABLEAUCLA31"
                         },
                         "id": "luwhnbxk-RDOP-luwhalhn",
-                        "maxLength": 249,
+                        "maxLength": 249
                     },
                     {
                         "componentType": "Input",
                         "response": {
-                            "name": "TABLEAUCLA32",
+                            "name": "TABLEAUCLA32"
                         },
                         "id": "luwhnbxk-RDOP-luwhd3mk",
-                        "maxLength": 249,
+                        "maxLength": 249
                     },
                     {
                         "componentType": "InputNumber",
@@ -361,25 +353,25 @@ export const source: LunaticSource = {
                         "min": 0.0,
                         "max": 9999.0,
                         "response": {
-                            "name": "TABLEAUCLA33",
+                            "name": "TABLEAUCLA33"
                         },
                         "decimals": 0,
-                        "id": "luwhnbxk-RDOP-luwhcilc",
-                    },
-                ],
+                        "id": "luwhnbxk-RDOP-luwhcilc"
+                    }
+                ]
             ],
-            "mandatory": false,
+            "mandatory": false
         },
         {
             "id": "seq",
             "componentType": "Sequence",
             "label": {
-                "value": '"Bye!"',
-                "type": "VTL|MD",
+                "value": "\"Bye!\"",
+                "type": "VTL|MD"
             },
             "conditionFilter": { "value": "true", "type": "VTL" },
-            "page": "2",
-        },
+            "page": "2"
+        }
     ],
     "pagination": "question",
     "lunaticModelVersion": "3.5.1",
@@ -390,7 +382,7 @@ export const source: LunaticSource = {
     "id": "luv7k9hw2",
     "label": {
         "type": "VTL|MD",
-        "value": "Test Dylan",
+        "value": "Test Dylan"
     },
-    "maxPage": "2",
-} as any; //TODO remove any
+    "maxPage": "2"
+}

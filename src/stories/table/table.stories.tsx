@@ -3,7 +3,7 @@ import { source as rosterSource } from "./roster";
 
 import { source as questionSource } from "./question";
 import type { StoryObj, Meta } from "@storybook/react";
-import { Orchestrator } from "../utils/Orchestrator";
+import { Orchestrator } from "../Orchestrator";
 
 const meta = {
     title: "Components/Table",

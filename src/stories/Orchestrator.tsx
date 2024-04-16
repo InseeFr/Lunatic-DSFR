@@ -9,7 +9,7 @@ import {
     type LunaticState,
 } from "@inseefr/lunatic";
 import { MuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
-import { slotComponents } from "../..";
+import { slotComponents } from "..";
 import { fr } from "@codegouvfr/react-dsfr";
 import Button from "@codegouvfr/react-dsfr/Button";
 
@@ -69,6 +69,7 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
         }
     };
 
+    console.log(errorActive);
     return (
         <Provider>
             <div className="container">

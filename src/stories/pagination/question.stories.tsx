@@ -1,5 +1,6 @@
 import { LunaticSource } from "@inseefr/lunatic";
-import { Orchestrator } from "../utils/Orchestrator";
+import { Orchestrator } from "../Orchestrator";
+
 import { source as questionSource } from "./question";
 import { source as sequenceSource } from "./sequence";
 

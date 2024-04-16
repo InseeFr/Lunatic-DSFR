@@ -1,4 +1,5 @@
-import { Orchestrator } from "../utils/Orchestrator";
+import { Orchestrator } from "../Orchestrator";
+
 import { source, data } from "./default";
 import type { StoryObj, Meta } from "@storybook/react";
 

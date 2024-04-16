@@ -23,7 +23,7 @@ export const source: LunaticSource = {
                 "INPUTTED": [],
                 "PREVIOUS": [],
             },
-            "name": "ACTIVITE",
+            "name": "ACTIVITES",
         },
         {
             "variableType": "COLLECTED",
@@ -42,7 +42,15 @@ export const source: LunaticSource = {
                 "type": "VTL",
                 "value": "count(DOMAINES)",
             },
-            "name": "NB",
+            "name": "NB_DOMAINES",
+        },
+        {
+            "variableType": "CALCULATED",
+            "expression": {
+                "type": "VTL",
+                "value": "count(ACTIVITES)",
+            },
+            "name": "NB_ACTIVITES",
         },
     ],
     "components": [
@@ -58,16 +66,44 @@ export const source: LunaticSource = {
                     "maxLength": 249,
                     "page": "1",
                     label: { type: "VTL", value: "" },
+                    "controls": [
+                        {
+                            "criticality": "ERROR",
+                            "errorMessage": {
+                                "type": "VTL",
+                                "value": '"Le domaine ne doit pas être vide"',
+                            },
+                            "typeOfControl": "",
+                            "control": {
+                                "type": "VTL",
+                                "value": "not(isnull(DOMAINES))",
+                            },
+                        },
+                    ],
                 },
                 {
                     "componentType": "Input",
                     "response": {
-                        "name": "ACTIVITE",
+                        "name": "ACTIVITES",
                     },
                     "id": "luwgwkow-RDOP-luwhb9vm",
                     "maxLength": 249,
                     "page": "1",
                     label: { type: "VTL", value: "" },
+                    "controls": [
+                        {
+                            "criticality": "ERROR",
+                            "errorMessage": {
+                                "type": "VTL",
+                                "value": '"L\'activité ne doit pas être vide"',
+                            },
+                            "typeOfControl": "",
+                            "control": {
+                                "type": "VTL",
+                                "value": "not(isnull(ACTIVITES))",
+                            },
+                        },
+                    ],
                 },
                 {
                     "componentType": "InputNumber",
@@ -102,14 +138,27 @@ export const source: LunaticSource = {
                     "criticality": "ERROR",
                     "errorMessage": {
                         "type": "VTL|MD",
-                        "value": '"Global level : Vous devez entrer 3 lignes minimum"',
+                        "value": '"Global level : Vous devez entrer 3 Domaines minimum"',
                     },
                     "typeOfControl": "FORMAT",
                     "control": {
                         "type": "VTL",
-                        "value": "NB >= 3",
+                        "value": "NB_DOMAINES >= 3",
                     },
                     "id": "kfxmjupm-CI-1",
+                },
+                {
+                    "criticality": "ERROR",
+                    "errorMessage": {
+                        "type": "VTL|MD",
+                        "value": '"Global level : Vous devez entrer 3 Activité minimum"',
+                    },
+                    "typeOfControl": "FORMAT",
+                    "control": {
+                        "type": "VTL",
+                        "value": "NB_ACTIVITES >= 3",
+                    },
+                    "id": "kfxmjupm-CI-2",
                 },
             ],
             "positioning": "HORIZONTAL",

@@ -1,4 +1,5 @@
-import { Orchestrator } from "../utils/Orchestrator";
+import { Orchestrator } from "../Orchestrator";
+
 import { source } from "./source";
 import { source as arbitrarySource } from "./arbitrary";
 import { source as questionSource } from "./question";

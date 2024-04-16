@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { source } from "./default";
 import { source as questionSource } from "./question";
 
-import { Orchestrator } from "../utils/Orchestrator";
+import { Orchestrator } from "../Orchestrator";
 
 const meta = {
     title: "Components/Textarea",

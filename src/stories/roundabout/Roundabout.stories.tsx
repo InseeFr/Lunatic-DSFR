@@ -1,4 +1,4 @@
-import { Orchestrator } from "../utils/Orchestrator";
+import { Orchestrator } from "../Orchestrator";
 import { source, data } from "./default";
 import { source as lockedSource, data as lockedData } from "./locked";
 import type { StoryObj, Meta } from "@storybook/react";
