@@ -1,17 +1,14 @@
-import React from "react";
 import { useState } from "react";
 import {
-    useLunatic,
-    type LunaticError,
-    LunaticComponents,
-    type LunaticSource,
     type LunaticData,
+    type LunaticError,
+    type LunaticSource,
     type LunaticState,
+    useLunatic,
 } from "@inseefr/lunatic";
-import { MuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
 import { Button } from "../../Button";
-import { slotComponents } from "../..";
 import { fr } from "@codegouvfr/react-dsfr";
+import { DSFRLunaticComponents } from "../../DSFRLunaticComponents";
 
 export type OrchestratorProps = {
     /** The survey generated in  Lunatic json format */
@@ -73,16 +70,13 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
         <Provider>
             <div className="container">
                 <div className={fr.cx("fr-mb-4v")}>
-                    <MuiDsfrThemeProvider>
-                        <LunaticComponents
-                            components={components}
-                            slots={slotComponents}
-                            componentProps={() => ({
-                                errors: errorActive,
-                                filterDescription,
-                            })}
-                        />
-                    </MuiDsfrThemeProvider>
+                    <DSFRLunaticComponents
+                        components={components}
+                        componentProps={() => ({
+                            errors: errorActive,
+                            filterDescription,
+                        })}
+                    />
                 </div>
                 <Pager
                     goPrevious={goPreviousPage}

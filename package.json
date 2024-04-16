@@ -108,5 +108,8 @@
     },
     "resolutions": {
         "jackspeak": "2.1.1"
+    },
+    "volta": {
+        "node": "20.12.2"
     }
 }
