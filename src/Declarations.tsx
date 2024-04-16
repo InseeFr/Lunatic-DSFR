@@ -18,7 +18,7 @@ export const Declarations: LunaticSlotComponents["Declarations"] = props => {
             return <DeclarationBefore declarations={filtredDeclaration} />;
         case "DETACHABLE":
         default:
-            if (filtredDeclaration) {
+            if (filtredDeclaration.length > 0) {
                 console.error(`The declaration type : ${type} is not supported, nothing is displayed`);
             }
             return;
