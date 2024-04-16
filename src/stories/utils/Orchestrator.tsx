@@ -9,9 +9,9 @@ import {
     type LunaticState,
 } from "@inseefr/lunatic";
 import { MuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
-import { Button } from "../../Button";
 import { slotComponents } from "../..";
 import { fr } from "@codegouvfr/react-dsfr";
+import Button from "@codegouvfr/react-dsfr/Button";
 
 export type OrchestratorProps = {
     /** The survey generated in  Lunatic json format */

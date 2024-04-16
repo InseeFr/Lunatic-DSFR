@@ -1,6 +1,5 @@
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { Suggester } from "./Suggester";
-import { Button } from "./Button";
 import { CheckboxGroup } from "./CheckboxGroup";
 import { Datepicker } from "./Datepicker";
 import { Dropdown } from "./Dropdown";
@@ -17,12 +16,12 @@ import { Declarations } from "./Declarations";
 import { Question } from "./Question";
 import { ComponentWrapper } from "./ComponentWrapper";
 import { Duration } from "./Duration/Duration";
-import { Table } from "./Table";
+import { Table, Tr } from "./Table";
+import { Loop } from "./Loop";
 
 export const slotComponents = {
     Question,
     Suggester,
-    Button,
     Dropdown,
     Input,
     InputNumber,
@@ -39,6 +38,8 @@ export const slotComponents = {
     Textarea,
     Declarations,
     Table,
+    Tr,
     ComponentWrapper,
+    Loop,
 } as Partial<LunaticSlotComponents> satisfies Partial<LunaticSlotComponents>;
 //We must remove `as Partial<LunaticSlotComponents>` when Roundabout and summary refactored

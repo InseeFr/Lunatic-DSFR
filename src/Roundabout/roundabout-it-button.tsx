@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useStyles } from "tss-react/dsfr";
 import { fr } from "@codegouvfr/react-dsfr";
-import { Button } from "../Button";
+import { Button } from "./Button";
 
 enum BUTTON_PRIORITIES {
     PRIMARY = "primary",
