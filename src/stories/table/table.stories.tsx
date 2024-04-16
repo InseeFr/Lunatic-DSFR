@@ -1,4 +1,6 @@
 import { source } from "./default";
+import { source as rosterSource } from "./roster";
+
 import { source as questionSource } from "./question";
 import type { StoryObj, Meta } from "@storybook/react";
 import { Orchestrator } from "../utils/Orchestrator";
@@ -21,6 +23,8 @@ export default meta;
 type Story = StoryObj<typeof Orchestrator>;
 
 export const Default = { args: { source } } satisfies Story;
+
+export const Roster = { args: { source: rosterSource } } satisfies Story;
 
 export const Question = {
     args: { source: questionSource },

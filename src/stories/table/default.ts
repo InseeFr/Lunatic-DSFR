@@ -6,39 +6,6 @@ export const source: LunaticSource = {
         {
             "variableType": "COLLECTED",
             "values": {
-                "COLLECTED": [],
-                "EDITED": [],
-                "FORCED": [],
-                "INPUTTED": [],
-                "PREVIOUS": [],
-            },
-            "name": "DOMAINES",
-        },
-        {
-            "variableType": "COLLECTED",
-            "values": {
-                "COLLECTED": [],
-                "EDITED": [],
-                "FORCED": [],
-                "INPUTTED": [],
-                "PREVIOUS": [],
-            },
-            "name": "ACTIVITE",
-        },
-        {
-            "variableType": "COLLECTED",
-            "values": {
-                "COLLECTED": [],
-                "EDITED": [],
-                "FORCED": [],
-                "INPUTTED": [],
-                "PREVIOUS": [],
-            },
-            "name": "CA",
-        },
-        {
-            "variableType": "COLLECTED",
-            "values": {
                 "COLLECTED": null,
                 "EDITED": null,
                 "FORCED": null,
@@ -166,7 +133,7 @@ export const source: LunaticSource = {
                     "control": {
                         "type": "VTL",
                         "value":
-                            "not(not(isnull(TABLEAUCLA33)) and (0>TABLEAUCLA33 or 9999<TABLEAUCLA33))",
+                            "not(not(isnull(TABLEAUCLA33)) and (0>TABLEAUCLA33 or 10<TABLEAUCLA33))",
                     },
                     "id": "luwhnbxk-RDOP-luwhcilc-format-borne-inf-sup",
                 },
@@ -242,16 +209,6 @@ export const source: LunaticSource = {
                 },
             ],
             "positioning": "HORIZONTAL",
-            "hierarchy": {
-                "sequence": {
-                    "id": "luwgeoe5",
-                    "page": "1",
-                    "label": {
-                        "type": "VTL|MD",
-                        "value": '"I - " || "Sequence"',
-                    },
-                },
-            },
             "header": [
                 {
                     "label": {
@@ -286,7 +243,7 @@ export const source: LunaticSource = {
             "page": "1",
             "label": {
                 "type": "VTL|MD",
-                "value": '"➡ 2. " || "Tableau classique"',
+                "value": '"Tableau classique"',
             },
             "body": [
                 [
@@ -400,122 +357,14 @@ export const source: LunaticSource = {
             "mandatory": false,
         },
         {
-            "componentType": "RosterForLoop",
-            "components": [
-                {
-                    "componentType": "Input",
-                    "response": {
-                        "name": "DOMAINES",
-                    },
-                    "id": "luwgwkow-RDOP-luwhao3o",
-                    "maxLength": 249,
-                    "page": "1",
-                    label: { type: "VTL", value: "" },
-                },
-                {
-                    "componentType": "Input",
-                    "response": {
-                        "name": "ACTIVITE",
-                    },
-                    "id": "luwgwkow-RDOP-luwhb9vm",
-                    "maxLength": 249,
-                    "page": "1",
-                    label: { type: "VTL", value: "" },
-                },
-                {
-                    "componentType": "InputNumber",
-                    "unit": "€",
-                    "min": 0.0,
-                    "max": -12.0,
-                    "response": {
-                        "name": "CA",
-                    },
-                    "decimals": 0,
-                    "id": "luwgwkow-RDOP-luwh6zes",
-                    "page": "1",
-                    label: { type: "VTL", value: "" },
-                },
-            ],
-            "controls": [
-                {
-                    "criticality": "INFO",
-                    "errorMessage": {
-                        "type": "VTL|MD",
-                        "value": '" La valeur doit être comprise entre 0 et -12."',
-                    },
-                    "typeOfControl": "FORMAT",
-                    "control": {
-                        "type": "VTL",
-                        "value": "not(not(isnull(CA)) and (0>CA or -12<CA))",
-                    },
-                    "id": "luwgwkow-RDOP-luwh6zes-format-borne-inf-sup",
-                },
-                {
-                    "criticality": "INFO",
-                    "errorMessage": {
-                        "type": "VTL|MD",
-                        "value": '"Le nombre doit comporter au maximum 0 chiffre(s) après la virgule."',
-                    },
-                    "typeOfControl": "FORMAT",
-                    "control": {
-                        "type": "VTL",
-                        "value": "not(not(isnull(CA))  and round(CA,0)<>CA)",
-                    },
-                    "id": "luwgwkow-RDOP-luwh6zes-format-decimal",
-                },
-            ],
-            "positioning": "HORIZONTAL",
-            "hierarchy": {
-                "sequence": {
-                    "id": "luwgeoe5",
-                    "page": "1",
-                    "label": {
-                        "type": "VTL|MD",
-                        "value": '"I - " || "Sequence"',
-                    },
-                },
-            },
-            "header": [
-                {
-                    "label": {
-                        "type": "VTL|MD",
-                        "value": '"Domaines"',
-                    },
-                },
-                {
-                    "label": {
-                        "type": "VTL|MD",
-                        "value": '"Activité"',
-                    },
-                },
-                {
-                    "label": {
-                        "type": "VTL|MD",
-                        "value": '"Chiffre d\'affaire"',
-                    },
-                },
-            ],
-            "conditionFilter": {
-                "type": "VTL",
-                "value": "true",
-            },
-            "id": "luwgwkow",
-            "page": "2",
+            "id": "seq",
+            "componentType": "Sequence",
             "label": {
+                "value": '"Bye!"',
                 "type": "VTL|MD",
-                "value": '"➡ 1. " || "Tableau dynamic"',
             },
-            "lines": {
-                "min": {
-                    "type": "VTL",
-                    "value": "2",
-                },
-                "max": {
-                    "type": "VTL",
-                    "value": "10",
-                },
-            },
-            "mandatory": false,
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "2",
         },
     ],
     "pagination": "question",

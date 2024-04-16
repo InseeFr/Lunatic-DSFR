@@ -291,7 +291,7 @@ export const source: LunaticSource = {
                     "page": "1",
                     "label": {
                         "type": "VTL|MD",
-                        "value": '"➡ 2. " || "Tableau classique"',
+                        "value": '"Label du composant Table"',
                     },
                     "body": [
                         [

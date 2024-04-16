@@ -9,3 +9,21 @@ export const Table: LunaticSlotComponents["Table"] = props => {
         </div>
     );
 };
+
+export const Tr: LunaticSlotComponents["Tr"] = props => {
+    const { children, className } = props;
+
+    return (
+        <tr
+            style={
+                className && ["lunatic-errors", "lunatic-row-has-error"].includes(className)
+                    ? {
+                          color: fr.colors.decisions.background.flat.error.default,
+                      }
+                    : {}
+            }
+        >
+            {children}
+        </tr>
+    );
+};
