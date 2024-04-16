@@ -2,7 +2,6 @@ import { fr } from "@codegouvfr/react-dsfr";
 import Alert from "@codegouvfr/react-dsfr/Alert";
 import { ButtonsGroup } from "@codegouvfr/react-dsfr/ButtonsGroup";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
-import React from "react";
 
 export const Loop: LunaticSlotComponents["Loop"] = props => {
     const { declarations, description, id, label, canControlRows, children, errors, addRow, removeRow } =
@@ -19,15 +18,16 @@ export const Loop: LunaticSlotComponents["Loop"] = props => {
                 {label}
                 <span>{description}</span>
             </label>
-            {errors && (
-                <Alert
-                    severity="error"
-                    description={errors.map(error => (
-                        <React.Fragment key={error.id}>{error.errorMessage}</React.Fragment>
-                    ))}
-                    small
-                    className={fr.cx("fr-mt-1w")}
-                />
+            {errors?.map(error =>
+                error.errorMessage ? (
+                    <Alert
+                        severity="error"
+                        description={error.errorMessage}
+                        small
+                        className={fr.cx("fr-mt-1w")}
+                        key={error.id}
+                    />
+                ) : null,
             )}
             {children}
             {canControlRows && (
