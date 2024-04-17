@@ -1,8 +1,8 @@
 import { fr } from "@codegouvfr/react-dsfr";
-import type { LunaticSlotComponents } from "@inseefr/lunatic";
+import type { LunaticComponentProps, LunaticSlotComponents } from "@inseefr/lunatic";
 import { createContext, useContext } from "react";
 
-const ComponentParentContext = createContext("root");
+const ComponentParentContext = createContext<LunaticComponentProps["componentType"]>(undefined);
 
 export const ComponentWrapper: LunaticSlotComponents["ComponentWrapper"] = props => {
     const { componentType, children } = props;

@@ -6,7 +6,8 @@ import {
     LunaticComponents,
     type LunaticSource,
     type LunaticData,
-    type LunaticState,
+    LunaticChangeHandler,
+    LunaticOptions,
 } from "@inseefr/lunatic";
 import { MuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
 import { slotComponents } from "..";
@@ -20,13 +21,13 @@ export type OrchestratorProps = {
     data?: LunaticData;
     activeControls?: boolean;
     /** The initial page */
-    initialPage?: Parameters<typeof useLunatic>[2]["initialPage"];
+    initialPage?: LunaticOptions["initialPage"];
     shortcut?: boolean;
     autoSuggesterLoading: boolean;
     filterDescription: boolean;
 };
 
-const onLogChange: LunaticState["handleChange"] = (response, value, args) =>
+const onLogChange: LunaticChangeHandler = (response, value, args) =>
     console.log("onChange", { response, value, args });
 
 export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
