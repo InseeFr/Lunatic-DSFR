@@ -69,7 +69,6 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
         }
     };
 
-    console.log(errorActive);
     return (
         <Provider>
             <div className="container">
