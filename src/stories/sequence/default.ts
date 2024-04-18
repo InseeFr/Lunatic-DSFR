@@ -22,7 +22,7 @@ export const source: LunaticSource = {
                     "id": "jruq5os5-kqhuxnyt",
                     "label": {
                         "type": "VTL|MD",
-                        "value": '"\n\n declaration instruction after label!"',
+                        "value": '"declaration instruction after label! "',
                     },
                     "position": "AFTER_QUESTION_TEXT",
                 },
@@ -34,16 +34,6 @@ export const source: LunaticSource = {
                         "value": '"declaration instruction before label"',
                     },
                     "position": "BEFORE_QUESTION_TEXT",
-                },
-                {
-                    "declarationType": "INSTRUCTION",
-                    "id": "jruq5os5-kqhuxnytfdsfds",
-                    "label": {
-                        "type": "VTL|MD",
-                        "value":
-                            '"![Texte alternatif](https://i.ytimg.com/vi/tlgTegVjFCk/hqdefault.jpg)"',
-                    },
-                    "position": "AFTER_QUESTION_TEXT",
                 },
             ],
         },

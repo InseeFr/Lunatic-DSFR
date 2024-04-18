@@ -19,15 +19,6 @@ export const source: LunaticSource = {
             "declarations": [
                 {
                     "declarationType": "HELP",
-                    "id": "jruq5os5-kqhuxnyt",
-                    "label": {
-                        "type": "VTL|MD",
-                        "value": '"declaration HELP detachable label"',
-                    },
-                    "position": "DETACHABLE",
-                },
-                {
-                    "declarationType": "HELP",
                     "id": "jruq5os5-kqhuxnytfszzz",
                     "label": {
                         "type": "VTL|MD",
@@ -37,30 +28,12 @@ export const source: LunaticSource = {
                 },
                 {
                     "declarationType": "INSTRUCTION",
-                    "id": "jruq5os5-kwghhgfhgf1n9c",
-                    "label": {
-                        "type": "VTL|MD",
-                        "value": '"declaration Instruction detachable label"',
-                    },
-                    "position": "DETACHABLE",
-                },
-                {
-                    "declarationType": "INSTRUCTION",
                     "id": "jruq5os5-kwghgdffs1n9c",
                     "label": {
                         "type": "VTL|MD",
                         "value": '"declaration Instruction after label"',
                     },
                     "position": "AFTER_QUESTION_TEXT",
-                },
-                {
-                    "declarationType": "HELP",
-                    "id": "jruq5os5-kwgsssh1n9c",
-                    "label": {
-                        "type": "VTL|MD",
-                        "value": '"declaration Instruction before label"',
-                    },
-                    "position": "BEFORE_QUESTION_TEXT",
                 },
             ],
         },

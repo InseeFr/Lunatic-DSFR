@@ -12,7 +12,7 @@ export const source: LunaticSource = {
             },
             "description": {
                 "value":
-                    '"je suis la description / saut de ligne / \r\n après saut de ligne. \r\n Maintenant, encore un autre saut à la ligne, des explications :\r\n- tiret un\r\n- tiret deux\r\n"',
+                    '"je suis la description saut de ligne / \n Maintenant, encore un autre saut à la ligne, des explications :\r\n- tiret un\r\n- tiret deux\r\n"',
                 "type": "VTL|MD",
             },
             "conditionFilter": {
@@ -38,16 +38,6 @@ export const source: LunaticSource = {
                         "value": '"declaration instruction before label"',
                     },
                     "position": "BEFORE_QUESTION_TEXT",
-                },
-                {
-                    "declarationType": "INSTRUCTION",
-                    "id": "jruq5os5-kqhuxnytfdsfds",
-                    "label": {
-                        "type": "VTL|MD",
-                        "value":
-                            '"![Texte alternatif](https://i.ytimg.com/vi/tlgTegVjFCk/hqdefault.jpg)"',
-                    },
-                    "position": "AFTER_QUESTION_TEXT",
                 },
             ],
         },
