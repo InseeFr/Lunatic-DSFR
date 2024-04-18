@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import {
     useLunatic,
@@ -6,8 +5,8 @@ import {
     LunaticComponents,
     type LunaticSource,
     type LunaticData,
-    LunaticChangeHandler,
-    LunaticOptions,
+    type LunaticChangeHandler,
+    type LunaticOptions,
 } from "@inseefr/lunatic";
 import { MuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
 import { slotComponents } from "..";

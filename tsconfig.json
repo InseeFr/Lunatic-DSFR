@@ -21,6 +21,5 @@
         "verbatimModuleSyntax": true,
         "skipLibCheck": true
     },
-    "include": ["src"],
-    "exclude": ["src/stories"]
+    "include": ["src"]
 }
