@@ -255,7 +255,7 @@ export const source: LunaticSource = {
                 "COLLECTED": null,
                 "FORCED": null,
                 "EDITED": null,
-                "INPUTED": null,
+                "INPUTTED": null,
             },
         },
         {
@@ -266,7 +266,7 @@ export const source: LunaticSource = {
                 "COLLECTED": [null],
                 "FORCED": [null],
                 "EDITED": [null],
-                "INPUTED": [null],
+                "INPUTTED": [null],
             },
         },
         {
@@ -277,7 +277,7 @@ export const source: LunaticSource = {
                 "COLLECTED": [null],
                 "FORCED": [null],
                 "EDITED": [null],
-                "INPUTED": [null],
+                "INPUTTED": [null],
             },
         },
         {
@@ -288,7 +288,7 @@ export const source: LunaticSource = {
                 "COLLECTED": [null],
                 "FORCED": [null],
                 "EDITED": [null],
-                "INPUTED": [null],
+                "INPUTTED": [null],
             },
         },
         {
@@ -299,7 +299,7 @@ export const source: LunaticSource = {
                 "COLLECTED": [null],
                 "FORCED": [null],
                 "EDITED": [null],
-                "INPUTED": [null],
+                "INPUTTED": [null],
             },
         },
         {
@@ -310,7 +310,7 @@ export const source: LunaticSource = {
                 "COLLECTED": [null],
                 "FORCED": [null],
                 "EDITED": [null],
-                "INPUTED": [null],
+                "INPUTTED": [null],
             },
         },
         {
@@ -321,7 +321,7 @@ export const source: LunaticSource = {
                 "COLLECTED": [null],
                 "FORCED": [null],
                 "EDITED": [null],
-                "INPUTED": [null],
+                "INPUTTED": [null],
             },
         },
         {
@@ -332,7 +332,7 @@ export const source: LunaticSource = {
                 "COLLECTED": [null],
                 "FORCED": [null],
                 "EDITED": [null],
-                "INPUTED": [null],
+                "INPUTTED": [null],
             },
         },
         {
@@ -366,35 +366,35 @@ export const data: LunaticData = {
         "NB_HAB": {
             "EDITED": null,
             "FORCED": null,
-            "INPUTED": null,
+            "INPUTTED": null,
             "PREVIOUS": null,
             "COLLECTED": 4,
         },
         "PRENOMS": {
             "EDITED": [null],
             "FORCED": [null],
-            "INPUTED": [null],
+            "INPUTTED": [null],
             "PREVIOUS": [null],
             "COLLECTED": ["Pierre", "Louise", "Maxime", "Spongebob"],
         },
         "NOMS": {
             "EDITED": [null],
             "FORCED": [null],
-            "INPUTED": [null],
+            "INPUTTED": [null],
             "PREVIOUS": [null],
             "COLLECTED": ["Dupont", "Dupont", "Dupont", "Squarepants"],
         },
         "AGES": {
             "EDITED": [null],
             "FORCED": [null],
-            "INPUTED": [null],
+            "INPUTTED": [null],
             "PREVIOUS": [null],
             "COLLECTED": ["30", "35", "12", "99"],
         },
         "RESIDENTS": {
             "EDITED": [null],
             "FORCED": [null],
-            "INPUTED": [null],
+            "INPUTTED": [null],
             "PREVIOUS": [null],
             "COLLECTED": ["1", "1", "1", "2"],
         },

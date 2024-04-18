@@ -27,7 +27,7 @@ export const source: LunaticSource = {
                 "COLLECTED": "PT12H50M",
                 "FORCED": null,
                 "EDITED": null,
-                "INPUTED": null,
+                "INPUTTED": null,
             },
         },
     ],

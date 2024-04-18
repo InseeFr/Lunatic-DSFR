@@ -32,7 +32,7 @@ export const source: LunaticSource = {
             "values": {
                 "COLLECTED": null,
                 "EDITED": null,
-                "INPUTED": null,
+                "INPUTTED": null,
                 "FORCED": null,
                 "PREVIOUS": null,
             },
@@ -43,7 +43,7 @@ export const source: LunaticSource = {
             "values": {
                 "COLLECTED": null,
                 "EDITED": null,
-                "INPUTED": null,
+                "INPUTTED": null,
                 "FORCED": null,
                 "PREVIOUS": null,
             },

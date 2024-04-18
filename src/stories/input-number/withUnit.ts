@@ -41,7 +41,7 @@ export const source: LunaticSource = {
                 "COLLECTED": null,
                 "FORCED": null,
                 "EDITED": null,
-                "INPUTED": null,
+                "INPUTTED": null,
             },
         },
     ],
