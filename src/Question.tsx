@@ -8,7 +8,7 @@ export const Question: LunaticSlotComponents["Question"] = props => {
     return (
         <fieldset className={fr.cx("fr-fieldset")}>
             <legend id={`question-legend-${id}`} className={fr.cx("fr-fieldset__legend")}>
-                <h3 className={fr.cx("fr-mb-0")}>{label}</h3>
+                <h6 className={fr.cx("fr-mb-0")}>{label}</h6>
                 <p className={fr.cx("fr-hint-text")} id={`question-description-${id}`}>
                     {description}
                 </p>
