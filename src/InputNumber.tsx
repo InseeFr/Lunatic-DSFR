@@ -38,7 +38,7 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
         const { floatValue } = values;
         //We allow to clean input
         if (!floatValue) return true;
-        return floatValue >= min && floatValue <= max;
+        return min < 0 ? floatValue >= min : floatValue <= max;
     };
 
     return (
