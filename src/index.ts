@@ -16,7 +16,7 @@ import { Declarations } from "./Declarations";
 import { Question } from "./Question";
 import { ComponentWrapper } from "./ComponentWrapper";
 import { Duration } from "./Duration/Duration";
-import { Table, Tr } from "./Table";
+import { Table, Tr, Td } from "./Table";
 import { Loop } from "./Loop";
 
 export const slotComponents = {
@@ -39,6 +39,7 @@ export const slotComponents = {
     Declarations,
     Table,
     Tr,
+    Td,
     ComponentWrapper,
     Loop,
 } as Partial<LunaticSlotComponents> satisfies Partial<LunaticSlotComponents>;

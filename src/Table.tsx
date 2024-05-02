@@ -12,7 +12,6 @@ export const Table: LunaticSlotComponents["Table"] = props => {
 
 export const Tr: LunaticSlotComponents["Tr"] = props => {
     const { children, className } = props;
-
     return (
         <tr
             style={
@@ -26,4 +25,9 @@ export const Tr: LunaticSlotComponents["Tr"] = props => {
             {children}
         </tr>
     );
+};
+
+export const Td: LunaticSlotComponents["Td"] = props => {
+    const { children } = props;
+    return <td className={fr.cx("fr-text--md")}>{children}</td>;
 };
