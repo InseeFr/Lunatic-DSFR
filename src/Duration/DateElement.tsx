@@ -27,7 +27,7 @@ export function DateElement(props: DateElementProps) {
                     disabled={disabled}
                     readOnly={readOnly}
                     allowNegative={false}
-                    label="Année"
+                    label="Années"
                     allowLeadingZeros={false}
                     isAllowed={({ floatValue }) =>
                         floatValue === undefined || (floatValue >= 1 && floatValue <= 9999)

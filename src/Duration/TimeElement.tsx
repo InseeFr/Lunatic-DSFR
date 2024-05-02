@@ -27,7 +27,7 @@ export function TimeElement(props: TimeElementProps) {
                     disabled={disabled}
                     readOnly={readOnly}
                     allowNegative={false}
-                    label="Heure"
+                    label="Heures"
                     allowLeadingZeros={false}
                     isAllowed={({ floatValue }) =>
                         floatValue === undefined || (floatValue >= 0 && floatValue <= 99)
@@ -52,7 +52,7 @@ export function TimeElement(props: TimeElementProps) {
                     disabled={disabled}
                     readOnly={readOnly}
                     allowNegative={false}
-                    label="Minute"
+                    label="Minutes"
                     allowLeadingZeros
                     isAllowed={({ floatValue }) =>
                         floatValue === undefined || (floatValue >= 0 && floatValue <= 59)
