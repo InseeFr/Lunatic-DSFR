@@ -7,7 +7,7 @@ export const Sequence: LunaticSlotComponents["Sequence"] = props => {
     return (
         <div
             id={id}
-            className={fr.cx("fr-p-4w")}
+            className={fr.cx("fr-p-4w", "fr-mb-2w")}
             style={{ backgroundColor: fr.colors.decisions.background.alt.grey.default }}
         >
             <h2>{label}</h2>

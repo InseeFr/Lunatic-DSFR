@@ -1,4 +1,5 @@
 import { Orchestrator } from "../Orchestrator";
+import { source as questionSource } from "./question";
 
 import { source } from "./default";
 import type { Meta, StoryObj } from "@storybook/react";
@@ -14,4 +15,8 @@ type Story = StoryObj<typeof Orchestrator>;
 
 export const Default = {
     args: { source },
+} satisfies Story;
+
+export const Question = {
+    args: { source: questionSource },
 } satisfies Story;
