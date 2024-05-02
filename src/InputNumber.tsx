@@ -3,10 +3,10 @@ import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { NumericFormat, type NumberFormatValues, type OnValueChange } from "react-number-format";
 import { getErrorStates } from "./utils/errorStates";
 import { getNumberSeparators } from "./utils/numbers";
+import { useId } from "react";
 
 export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
     const {
-        id,
         value = null,
         disabled = false,
         readOnly = false,
@@ -21,6 +21,8 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
         description,
         declarations,
     } = props;
+
+    const id = useId();
 
     if (declarations) {
         //TODO throw and handle globaly errors in an alert with a condition to avoid to display alert in prod

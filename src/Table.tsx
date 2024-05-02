@@ -1,8 +1,10 @@
 import { fr } from "@codegouvfr/react-dsfr";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
+import { useId } from "react";
 
 export const Table: LunaticSlotComponents["Table"] = props => {
-    const { children, id } = props;
+    const { children } = props;
+    const id = useId();
     return (
         <div id={id} className={fr.cx("fr-table", "fr-table--bordered")}>
             <table>{children}</table>

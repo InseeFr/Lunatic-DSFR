@@ -1,9 +1,11 @@
 import { fr } from "@codegouvfr/react-dsfr";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { Declarations } from "./Declarations";
+import { useId } from "react";
 
 export const Sequence: LunaticSlotComponents["Sequence"] = props => {
-    const { id, label, declarations, description } = props;
+    const { label, declarations, description } = props;
+    const id = useId();
     return (
         <div
             id={id}

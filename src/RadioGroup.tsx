@@ -1,9 +1,11 @@
 import { getErrorStates } from "./utils/errorStates";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { RadioButtons } from "@codegouvfr/react-dsfr/RadioButtons";
+import { useId } from "react";
 
 export const RadioGroup: LunaticSlotComponents["RadioGroup"] = props => {
-    const { options, value, id, label, description, onSelect, errors, disabled } = props;
+    const { options, value, label, description, onSelect, errors, disabled, readOnly } = props;
+    const id = useId();
 
     //TODO readonly ?? waiting spec
 
@@ -14,7 +16,7 @@ export const RadioGroup: LunaticSlotComponents["RadioGroup"] = props => {
             id={id}
             legend={label}
             hintText={description}
-            disabled={disabled}
+            disabled={disabled || readOnly}
             options={options.map(option => ({
                 label: <span>{option.label}</span>,
                 hintText: option.description,

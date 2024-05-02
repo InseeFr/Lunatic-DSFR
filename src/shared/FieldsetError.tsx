@@ -1,5 +1,5 @@
 import { fr } from "@codegouvfr/react-dsfr";
-import type { ReactNode } from "react";
+import { useId, type ReactNode } from "react";
 
 type FiledsetErrorProps = {
     id: string;
@@ -8,7 +8,10 @@ type FiledsetErrorProps = {
 };
 
 export function FiledsetError(props: FiledsetErrorProps) {
-    const { state, stateRelatedMessage, id } = props;
+    const { state, stateRelatedMessage } = props;
+
+    const id = useId();
+
     if (props.state && stateRelatedMessage) {
         return (
             <div className={fr.cx("fr-messages-group")}>

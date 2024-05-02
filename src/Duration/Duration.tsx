@@ -3,15 +3,17 @@ import { getErrorStates } from "../utils/errorStates";
 import { fr } from "@codegouvfr/react-dsfr";
 import { FiledsetError } from "../shared/FieldsetError";
 import { type NumberFormatValues } from "react-number-format";
-import { useState } from "react";
+import { useId, useState } from "react";
 import { buildValueFromDuration, extractDurationFromValue } from "./utils";
 import type { DurationKey, DurationValues, DurationValuesFormat } from "./type";
 import { DateElement } from "./DateElement";
 import { TimeElement } from "./TimeElement";
 
 export const Duration: LunaticSlotComponents["Duration"] = props => {
-    const { errors, value, label, format, onChange, declarations, description, id, disabled, readOnly } =
+    const { errors, value, label, format, onChange, declarations, description, disabled, readOnly } =
         props;
+
+    const id = useId();
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
 

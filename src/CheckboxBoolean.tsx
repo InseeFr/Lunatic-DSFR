@@ -1,10 +1,10 @@
 import { getErrorStates } from "./utils/errorStates";
 import { Checkbox } from "@codegouvfr/react-dsfr/Checkbox";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
+import { useId } from "react";
 
 export const CheckboxBoolean: LunaticSlotComponents["CheckboxBoolean"] = props => {
-    const { disabled, checked, id, onChange, label, declarations, description, errors, readOnly } =
-        props;
+    const { disabled, checked, onChange, label, declarations, description, errors, readOnly } = props;
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
 
@@ -12,6 +12,8 @@ export const CheckboxBoolean: LunaticSlotComponents["CheckboxBoolean"] = props =
         //TODO throw and handle globaly errors in an alert with a condition to avoid to display alert in prod
         console.error("Only declaration in Question are displayed");
     }
+
+    const id = useId();
 
     return (
         <Checkbox

@@ -1,20 +1,11 @@
 import { getErrorStates } from "./utils/errorStates";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { Select } from "@codegouvfr/react-dsfr/SelectNext";
+import { useId } from "react";
 
 export const Dropdown: LunaticSlotComponents["Dropdown"] = props => {
-    const {
-        id,
-        onChange,
-        options,
-        value,
-        declarations,
-        description,
-        disabled,
-        errors,
-        label,
-        readOnly,
-    } = props;
+    const { onChange, options, value, declarations, description, disabled, errors, label, readOnly } =
+        props;
 
     if (declarations) {
         //TODO throw and handle globaly errors in an alert with a condition to avoid to display alert in prod
@@ -22,6 +13,8 @@ export const Dropdown: LunaticSlotComponents["Dropdown"] = props => {
     }
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
+
+    const id = useId();
 
     return (
         <Select

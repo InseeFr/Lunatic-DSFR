@@ -1,9 +1,11 @@
 import { fr } from "@codegouvfr/react-dsfr";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { Declarations } from "./Declarations";
+import { useId } from "react";
 
 export const Question: LunaticSlotComponents["Question"] = props => {
-    const { id, description, declarations, label, children } = props;
+    const { description, declarations, label, children } = props;
+    const id = useId();
 
     return (
         <fieldset className={fr.cx("fr-fieldset")}>

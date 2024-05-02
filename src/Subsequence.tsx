@@ -1,9 +1,13 @@
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { Declarations } from "./Declarations";
 import { fr } from "@codegouvfr/react-dsfr";
+import { useId } from "react";
 
 export const Subsequence: LunaticSlotComponents["Subsequence"] = props => {
-    const { id, label, declarations, description } = props;
+    const { label, declarations, description } = props;
+
+    const id = useId();
+
     return (
         <div id={id} className={fr.cx("fr-mb-2w")}>
             <h3>{label}</h3>

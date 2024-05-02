@@ -1,5 +1,5 @@
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
-import type { ComponentProps } from "react";
+import { useId, type ComponentProps } from "react";
 import { Alert } from "@codegouvfr/react-dsfr/Alert";
 import { CallOut } from "@codegouvfr/react-dsfr/CallOut";
 import { fr } from "@codegouvfr/react-dsfr";
@@ -36,8 +36,9 @@ const DeclarationAfter = (props: Declaration) => {
         console.error("Only one declaration by position is permitted, we display the first");
     }
 
-    const { id, label } = declarations[0];
+    const { label } = declarations[0];
 
+    const id = useId();
     return (
         //@ts-expect-error Disabling title rendering until it's added to the model. Even though it's mandatory, we won't provide it for now.
         <Alert

@@ -4,7 +4,7 @@ import { Input } from "@codegouvfr/react-dsfr/Input";
 import { fr } from "@codegouvfr/react-dsfr";
 import { getErrorStates } from "./utils/errorStates";
 import { Button } from "@codegouvfr/react-dsfr/Button";
-import { useState } from "react";
+import { useId, useState } from "react";
 
 export const Suggester: LunaticSlotComponents["Suggester"] = props => {
     const {
@@ -19,9 +19,10 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
         errors,
         label,
         description,
-        id,
         onClear,
     } = props;
+    const id = useId();
+
     const [defaultSelectedOption] = useState(() => options.find(o => o.id === value[0]?.id) ?? null);
     const inputValue = ((search || value[0]?.label) ?? "").toString();
     const { state: errorState, stateRelatedMessage } = getErrorStates(errors);

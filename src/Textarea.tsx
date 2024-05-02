@@ -1,5 +1,6 @@
 import { Input } from "@codegouvfr/react-dsfr/Input";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
+import { useId } from "react";
 
 export const Textarea: LunaticSlotComponents["Textarea"] = props => {
     const {
@@ -9,7 +10,6 @@ export const Textarea: LunaticSlotComponents["Textarea"] = props => {
         description,
         errors,
         required,
-        id,
         rows,
         maxLength,
         cols,
@@ -17,6 +17,8 @@ export const Textarea: LunaticSlotComponents["Textarea"] = props => {
         disabled,
         readOnly,
     } = props;
+
+    const id = useId();
 
     return (
         <Input

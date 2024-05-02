@@ -11,6 +11,7 @@ export const Loop: LunaticSlotComponents["Loop"] = props => {
         //TODO throw and handle globaly errors in an alert with a condition to avoid to display alert in prod
         console.error("Only declaration in Question are displayed");
     }
+    console.log(id);
 
     return (
         <>

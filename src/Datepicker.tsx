@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import { getErrorStates } from "./utils/errorStates";
 import { fr } from "@codegouvfr/react-dsfr";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
@@ -15,7 +15,6 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
         readOnly,
         value = "",
         dateFormat = "YYYY-MM-DD",
-        id,
         label,
         errors,
         description,
@@ -27,6 +26,8 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
         //TODO throw and handle globaly errors in an alert with a condition to avoid to display alert in prod
         console.error("Only declaration in Question are displayed");
     }
+
+    const id = useId();
 
     const showDay = dateFormat.includes("DD");
     const showMonth = dateFormat.includes("MM");
