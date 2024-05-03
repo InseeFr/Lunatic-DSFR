@@ -1057,7 +1057,7 @@
   resolved "https://registry.yarnpkg.com/@base2/pretty-print-object/-/pretty-print-object-1.0.1.tgz#371ba8be66d556812dc7fb169ebc3c08378f69d4"
   integrity sha512-4iri8i1AqYHJE2DstZYkyEprg6Pq6sKx3xn5FpySk9sNhH7qN2LLlHJCfDTZRILNwQNPD7mATWM0TBui7uC1pA==
 
-"@codegouvfr/react-dsfr@^1.9.9":
+"@codegouvfr/react-dsfr@^1.9.10":
   version "1.9.10"
   resolved "https://registry.yarnpkg.com/@codegouvfr/react-dsfr/-/react-dsfr-1.9.10.tgz#41a6c16411effb857e00e56dc529f397ed1a0e55"
   integrity sha512-14LsyEMe9HqL4MlJRBCXQp7aSZspZQr0e6gFrvFVVfZjaiXCxKu+pvQiZRxmeOV/6NJUOoFaQXqy27QEd/geWg==
@@ -1417,10 +1417,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-2.0.3.tgz#4a2868d75d6d6963e423bcf90b7fd1be343409d3"
   integrity sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==
 
-"@inseefr/lunatic@3.0.0-rc.32":
-  version "3.0.0-rc.32"
-  resolved "https://registry.yarnpkg.com/@inseefr/lunatic/-/lunatic-3.0.0-rc.32.tgz#a72ed2bbcbce536ec66040b76925ea022a9bf740"
-  integrity sha512-89yUShRfe5SQJ8pNYB8vPe0rRZVevfrTxLgTCoBv+wAX69Ik8c4eP7Mb8mBK4f4yh+OcTx5ukLlh8f38E5lyYw==
+"@inseefr/lunatic@3.0.0-rc.33":
+  version "3.0.0-rc.33"
+  resolved "https://registry.yarnpkg.com/@inseefr/lunatic/-/lunatic-3.0.0-rc.33.tgz#3f3393930a645589193048ab1e665e6d5b84ddf8"
+  integrity sha512-nj2T8jWSVo7dULuHNGfhJGMxMLP04AjF8a2hyHhL3vCSObquqk3ms0K9FwnS5PlVFaSBvhXs9wi3A5K1tI7tMw==
   dependencies:
     "@inseefr/trevas" "^0.1.21"
     "@inseefr/vtl-2.0-antlr-tools" "^0.3.2"
