@@ -1058,9 +1058,9 @@
   integrity sha512-4iri8i1AqYHJE2DstZYkyEprg6Pq6sKx3xn5FpySk9sNhH7qN2LLlHJCfDTZRILNwQNPD7mATWM0TBui7uC1pA==
 
 "@codegouvfr/react-dsfr@^1.9.9":
-  version "1.9.9"
-  resolved "https://registry.yarnpkg.com/@codegouvfr/react-dsfr/-/react-dsfr-1.9.9.tgz#d589723b671f5a5ecf65bf4d99fa18dac506e9ca"
-  integrity sha512-qy6r9BxOO36mBRwSMc7eR/paNjJrYrnXzLWwf22gTaIt/S7H8vPd4CZdyzc0RAClLtVD3FOYQdcRA/ytTmcPmQ==
+  version "1.9.10"
+  resolved "https://registry.yarnpkg.com/@codegouvfr/react-dsfr/-/react-dsfr-1.9.10.tgz#41a6c16411effb857e00e56dc529f397ed1a0e55"
+  integrity sha512-14LsyEMe9HqL4MlJRBCXQp7aSZspZQr0e6gFrvFVVfZjaiXCxKu+pvQiZRxmeOV/6NJUOoFaQXqy27QEd/geWg==
   dependencies:
     tsafe "^1.6.3"
     yargs-parser "^21.1.1"
