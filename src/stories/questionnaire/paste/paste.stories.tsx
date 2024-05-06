@@ -1,10 +1,10 @@
-import { Orchestrator } from "../Orchestrator";
+import { Orchestrator } from "../../Orchestrator";
 
 import type { StoryObj, Meta } from "@storybook/react";
 import { source, data } from "./default";
 
 const meta = {
-    title: "Test/Paste",
+    title: "Questionnaire/Paste",
     component: Orchestrator,
     parameters: {
         controls: { include: ["initialPage", "source", "data", "autoSuggesterLoading"] },
