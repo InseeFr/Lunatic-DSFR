@@ -18,6 +18,7 @@ import { ComponentWrapper } from "./ComponentWrapper";
 import { Duration } from "./Duration/Duration";
 import { Table, Tr, Td } from "./Table";
 import { Loop } from "./Loop";
+import { MarkdownLink } from "./MarkdownLink";
 
 export const slotComponents = {
     Question,
@@ -42,5 +43,6 @@ export const slotComponents = {
     Td,
     ComponentWrapper,
     Loop,
+    MarkdownLink,
 } as Partial<LunaticSlotComponents> satisfies Partial<LunaticSlotComponents>;
 //We must remove `as Partial<LunaticSlotComponents>` when Roundabout and summary refactored
