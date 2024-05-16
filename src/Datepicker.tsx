@@ -115,6 +115,7 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                             id: `${id}-day`,
                             type: "numeric",
                             value: dateValues.day,
+                            onChange: () => {}, // To avoid warning because there is value but no onChange, value is controlled by onValueChange but react do not detect it well
                         }}
                     />
                 </div>
@@ -144,6 +145,7 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                             id: `${id}-month`,
                             type: "numeric",
                             value: dateValues.month,
+                            onChange: () => {}, // To avoid warning because there is value but no onChange, value is controlled by onValueChange but react do not detect it well
                         }}
                     />
                 </div>
