@@ -6,7 +6,9 @@ const ComponentParentContext = createContext<LunaticComponentProps["componentTyp
 
 export const ComponentWrapper: LunaticSlotComponents["ComponentWrapper"] = props => {
     const { componentType, children } = props;
+
     const parentComponentType = useContext(ComponentParentContext);
+
     return (
         <ComponentParentContext.Provider value={componentType}>
             {parentComponentType === "Question" ? (

@@ -30,6 +30,8 @@ type Declaration = Pick<ComponentProps<LunaticSlotComponents["Declarations"]>, "
 const DeclarationAfter = (props: Declaration) => {
     const { declarations } = props;
 
+    const id = useId();
+
     if (!declarations || declarations.length === 0) return null;
 
     if (declarations[1]) {
@@ -38,7 +40,6 @@ const DeclarationAfter = (props: Declaration) => {
 
     const { label } = declarations[0];
 
-    const id = useId();
     return (
         //@ts-expect-error Disabling title rendering until it's added to the model. Even though it's mandatory, we won't provide it for now.
         <Alert

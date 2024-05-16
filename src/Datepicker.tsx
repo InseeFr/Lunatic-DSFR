@@ -22,12 +22,12 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
         onChange,
     } = props;
 
+    const id = useId();
+
     if (declarations) {
         //TODO throw and handle globaly errors in an alert with a condition to avoid to display alert in prod
         console.error("Only declaration in Question are displayed");
     }
-
-    const id = useId();
 
     const showDay = dateFormat.includes("DD");
     const showMonth = dateFormat.includes("MM");
@@ -114,7 +114,7 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                         nativeInputProps={{
                             id: `${id}-day`,
                             type: "numeric",
-                            defaultValue: dateValues.day,
+                            value: dateValues.day,
                         }}
                     />
                 </div>
@@ -143,7 +143,7 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                         nativeInputProps={{
                             id: `${id}-month`,
                             type: "numeric",
-                            defaultValue: dateValues.month,
+                            value: dateValues.month,
                         }}
                     />
                 </div>
@@ -171,7 +171,7 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                     nativeInputProps={{
                         id: `${id}-year`,
                         type: "numeric",
-                        defaultValue: dateValues.year,
+                        value: dateValues.year,
                     }}
                 />
             </div>

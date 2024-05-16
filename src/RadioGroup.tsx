@@ -5,9 +5,8 @@ import { useId } from "react";
 
 export const RadioGroup: LunaticSlotComponents["RadioGroup"] = props => {
     const { options, value, label, description, onSelect, errors, disabled, readOnly } = props;
-    const id = useId();
 
-    //TODO readonly ?? waiting spec
+    const id = useId();
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
 

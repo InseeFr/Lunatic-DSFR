@@ -64,7 +64,7 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
             nativeInputProps={{
                 inputMode: decimals === 0 ? "numeric" : "decimal",
                 pattern: "[0-9]*",
-                defaultValue: value ?? undefined,
+                value: value ?? "", //We can't assign to undefined because it's a controlled component and null is not permitted
                 placeholder: unit,
             }}
         />

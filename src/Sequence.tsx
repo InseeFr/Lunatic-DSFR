@@ -5,7 +5,9 @@ import { useId } from "react";
 
 export const Sequence: LunaticSlotComponents["Sequence"] = props => {
     const { label, declarations, description } = props;
+
     const id = useId();
+
     return (
         <div
             id={id}

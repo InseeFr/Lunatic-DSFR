@@ -1,6 +1,7 @@
 import { getErrorStates } from "./utils/errorStates";
 import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
+import { useId } from "react";
 
 export const Input: LunaticSlotComponents["Input"] = props => {
     const {
@@ -11,11 +12,12 @@ export const Input: LunaticSlotComponents["Input"] = props => {
         maxLength,
         label,
         description,
-        id,
         errors,
         readOnly,
         declarations,
     } = props;
+
+    const id = useId();
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
 
@@ -29,7 +31,7 @@ export const Input: LunaticSlotComponents["Input"] = props => {
             label={label}
             disabled={disabled}
             nativeInputProps={{
-                id: id,
+                id,
                 maxLength: maxLength,
                 value: value ?? "",
                 required: required,

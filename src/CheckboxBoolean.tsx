@@ -6,14 +6,14 @@ import { useId } from "react";
 export const CheckboxBoolean: LunaticSlotComponents["CheckboxBoolean"] = props => {
     const { disabled, checked, onChange, label, declarations, description, errors, readOnly } = props;
 
+    const id = useId();
+
     const { state, stateRelatedMessage } = getErrorStates(errors);
 
     if (declarations) {
         //TODO throw and handle globaly errors in an alert with a condition to avoid to display alert in prod
         console.error("Only declaration in Question are displayed");
     }
-
-    const id = useId();
 
     return (
         <Checkbox

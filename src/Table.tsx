@@ -4,7 +4,9 @@ import { useId } from "react";
 
 export const Table: LunaticSlotComponents["Table"] = props => {
     const { children } = props;
+
     const id = useId();
+
     return (
         <div id={id} className={fr.cx("fr-table", "fr-table--bordered")}>
             <table>{children}</table>
@@ -14,6 +16,7 @@ export const Table: LunaticSlotComponents["Table"] = props => {
 
 export const Tr: LunaticSlotComponents["Tr"] = props => {
     const { children, className } = props;
+
     return (
         <tr
             style={
@@ -31,5 +34,6 @@ export const Tr: LunaticSlotComponents["Tr"] = props => {
 
 export const Td: LunaticSlotComponents["Td"] = props => {
     const { children } = props;
+
     return <td className={fr.cx("fr-text--md")}>{children}</td>;
 };

@@ -5,6 +5,7 @@ import { useId } from "react";
 
 export const Question: LunaticSlotComponents["Question"] = props => {
     const { description, declarations, label, children } = props;
+
     const id = useId();
 
     return (
