@@ -28,7 +28,7 @@ export const Dropdown: LunaticSlotComponents["Dropdown"] = props => {
             hint={description}
             disabled={disabled || readOnly}
             options={options.map(({ label, value }) => ({
-                // MD is not yet forbidden in options so in this case label we must convert in string
+                // MD is not yet forbidden in options so in this case we must convert label in string
                 label: typeof label === "object" ? renderToString(label) : label,
                 value,
             }))}

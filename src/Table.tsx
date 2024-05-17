@@ -1,14 +1,26 @@
 import { fr } from "@codegouvfr/react-dsfr";
+import Alert from "@codegouvfr/react-dsfr/Alert";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { useId } from "react";
 
 export const Table: LunaticSlotComponents["Table"] = props => {
-    const { children } = props;
+    const { children, errors } = props;
 
     const id = useId();
 
     return (
         <div id={id} className={fr.cx("fr-table", "fr-table--bordered")}>
+            {errors?.map(error =>
+                error.errorMessage ? (
+                    <Alert
+                        severity="error"
+                        description={error.errorMessage}
+                        small
+                        className={fr.cx("fr-mt-1w")}
+                        key={error.id}
+                    />
+                ) : null,
+            )}
             <table>{children}</table>
         </div>
     );
