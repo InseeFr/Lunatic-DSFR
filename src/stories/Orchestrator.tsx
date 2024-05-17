@@ -5,7 +5,7 @@ import {
     LunaticComponents,
     type LunaticSource,
     type LunaticData,
-    type LunaticChangeHandler,
+    type LunaticChangesHandler,
     type LunaticOptions,
 } from "@inseefr/lunatic";
 import { MuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
@@ -26,8 +26,7 @@ export type OrchestratorProps = {
     filterDescription: boolean;
 };
 
-const onLogChange: LunaticChangeHandler = (response, value, args) =>
-    console.log("onChange", { response, value, args });
+const onLogChange: LunaticChangesHandler = params => console.log("onChange", params);
 
 export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
     source,
