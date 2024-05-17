@@ -45,7 +45,11 @@ export const Tr: LunaticSlotComponents["Tr"] = props => {
 };
 
 export const Td: LunaticSlotComponents["Td"] = props => {
-    const { children } = props;
+    const { children, ...rest } = props;
 
-    return <td className={fr.cx("fr-text--md")}>{children}</td>;
+    return (
+        <td className={fr.cx("fr-text--md")} {...rest}>
+            {children}
+        </td>
+    );
 };
