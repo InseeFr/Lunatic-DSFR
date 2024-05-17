@@ -129,12 +129,16 @@ function Pager({
                         Next
                     </Button>
                 </div>
-                <Button onClick={logData} disabled={isLast} priority="tertiary no outline">
+                <Button onClick={logData} priority="tertiary no outline">
                     Get Data
                 </Button>
                 <div>PAGE: {pageTag}</div>
             </>
         );
     }
-    return null;
+    return (
+        <Button onClick={logData} priority="tertiary no outline">
+            Get Data
+        </Button>
+    );
 }

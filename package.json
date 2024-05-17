@@ -24,7 +24,10 @@
         "build-storybook": "storybook build",
         "prestorybook": "copy-dsfr-to-public --publicDir .storybook/static && only-include-used-icons --publicDir .storybook/static",
         "prebuild-storybook": "yarn prestorybook",
-        "prepare": "husky"
+        "prepare": "husky",
+        "test:e2e": "playwright test",
+        "test:e2e:visual": "playwright test --headed --debug e2e/pairwise.spec.ts",
+        "test:e2e:codegen": "playwright codegen http://localhost:6006/iframe.html?viewMode=story&id="
     },
     "exports": {
         ".": "./dist/index.js",
@@ -99,6 +102,7 @@
         "vite-tsconfig-paths": "^4.3.2"
     },
     "dependencies": {
+        "@playwright/test": "^1.44.0",
         "react-number-format": "^5.3.4"
     },
     "publishConfig": {
