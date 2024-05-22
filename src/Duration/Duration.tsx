@@ -10,8 +10,18 @@ import { DateElement } from "./DateElement";
 import { TimeElement } from "./TimeElement";
 
 export const Duration: LunaticSlotComponents["Duration"] = props => {
-    const { errors, value, label, format, onChange, declarations, description, disabled, readOnly } =
-        props;
+    const {
+        errors,
+        value,
+        label,
+        format,
+        onChange,
+        declarations,
+        description,
+        disabled,
+        readOnly,
+        iteration,
+    } = props;
 
     const id = useId();
 
@@ -65,7 +75,7 @@ export const Duration: LunaticSlotComponents["Duration"] = props => {
                             <DateElement
                                 disabled={disabled}
                                 durationValues={durationValues}
-                                id={id}
+                                id={`${id}-${iteration ?? ""}`}
                                 readOnly={readOnly}
                                 onValueChange={onValueChange<"PnYnM">}
                             />
@@ -75,7 +85,7 @@ export const Duration: LunaticSlotComponents["Duration"] = props => {
                             <TimeElement
                                 disabled={disabled}
                                 durationValues={durationValues}
-                                id={id}
+                                id={`${id}-${iteration ?? ""}`}
                                 readOnly={readOnly}
                                 onValueChange={onValueChange<"PTnHnM">}
                             />

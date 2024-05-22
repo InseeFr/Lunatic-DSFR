@@ -36,8 +36,7 @@ export function DateElement(props: DateElementProps) {
                     nativeInputProps={{
                         id: `${id}-year`,
                         type: "numeric",
-                        value: durationValues.years,
-                        onChange: () => {}, // To avoid warning because there is value but no onChange, value is controlled by onValueChange but react do not detect it well
+                        defaultValue: durationValues.years,
                     }}
                 />
             </div>
@@ -62,8 +61,7 @@ export function DateElement(props: DateElementProps) {
                     nativeInputProps={{
                         id: `${id}-month`,
                         type: "numeric",
-                        value: durationValues.months,
-                        onChange: () => {}, // To avoid warning because there is value but no onChange, value is controlled by onValueChange but react do not detect it well
+                        defaultValue: durationValues.months,
                     }}
                 />
             </div>

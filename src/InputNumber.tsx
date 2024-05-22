@@ -20,6 +20,7 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
         required = true,
         description,
         declarations,
+        iteration,
     } = props;
 
     const id = useId();
@@ -28,6 +29,7 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
         //TODO throw and handle globaly errors in an alert with a condition to avoid to display alert in prod
         console.error("Only declaration in Question are displayed");
     }
+
     const { state, stateRelatedMessage } = getErrorStates(errors);
 
     const onValueChange: OnValueChange = ({ floatValue }) => {
@@ -45,9 +47,9 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
 
     return (
         <NumericFormat
+            key={`${id}-${iteration ?? ""}`}
             customInput={Input}
             allowNegative={min < 0}
-            id={id}
             label={label}
             isAllowed={isAllowed}
             state={state}
@@ -62,11 +64,11 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
             readOnly={readOnly}
             disabled={disabled}
             nativeInputProps={{
+                id: `${id}-${iteration ?? ""}`,
                 inputMode: decimals === 0 ? "numeric" : "decimal",
                 pattern: "[0-9]*",
                 placeholder: unit,
-                value: value ?? "", // We can't assign to undefined because it's a controlled component and null is not permitted
-                onChange: () => {}, // To avoid warning because there is value but no onChange, value is controlled by onValueChange but react do not detect it well
+                defaultValue: value ?? undefined,
             }}
         />
     );

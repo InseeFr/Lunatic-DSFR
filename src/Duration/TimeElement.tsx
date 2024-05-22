@@ -36,8 +36,7 @@ export function TimeElement(props: TimeElementProps) {
                     nativeInputProps={{
                         id: `${id}-hours`,
                         type: "numeric",
-                        value: durationValues.hours,
-                        onChange: () => {}, // To avoid warning because there is value but no onChange, value is controlled by onValueChange but react do not detect it well
+                        defaultValue: durationValues.hours,
                     }}
                 />
             </div>
@@ -62,8 +61,7 @@ export function TimeElement(props: TimeElementProps) {
                     nativeInputProps={{
                         id: `${id}-minutes`,
                         type: "numeric",
-                        value: durationValues.minutes,
-                        onChange: () => {}, // To avoid warning because there is value but no onChange, value is controlled by onValueChange but react do not detect it well
+                        defaultValue: durationValues.minutes,
                     }}
                 />
             </div>

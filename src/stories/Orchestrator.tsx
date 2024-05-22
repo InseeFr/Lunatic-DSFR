@@ -1,7 +1,6 @@
 import { useState } from "react";
 import {
     useLunatic,
-    type LunaticError,
     LunaticComponents,
     type LunaticSource,
     type LunaticData,
@@ -58,11 +57,13 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
     });
 
     const components = getComponents();
-    const [errorActive, setErrorActive] = useState<Record<string, LunaticError[]> | undefined>({});
+    const [errorActive, setErrorActive] = useState<
+        Record<typeof pageTag, ReturnType<typeof compileControls>["currentErrors"]>
+    >({});
 
     const handleGoNext = () => {
         const { currentErrors } = compileControls();
-        setErrorActive(currentErrors);
+        setErrorActive({ ...errorActive, [pageTag]: currentErrors || {} });
         if (!currentErrors) {
             goNextPage();
         }
@@ -77,7 +78,7 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
                             components={components}
                             slots={slotComponents}
                             componentProps={() => ({
-                                errors: errorActive,
+                                errors: errorActive[pageTag],
                                 filterDescription,
                             })}
                         />

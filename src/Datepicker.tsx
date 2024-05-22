@@ -20,6 +20,7 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
         description,
         declarations,
         onChange,
+        iteration,
     } = props;
 
     const id = useId();
@@ -99,6 +100,7 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                     )}
                 >
                     <NumericFormat
+                        key={`${id}-${iteration ?? ""}-day`}
                         customInput={Input}
                         disabled={disabled}
                         readOnly={readOnly}
@@ -112,10 +114,9 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                         }
                         onValueChange={values => onValueChange(values, "day")}
                         nativeInputProps={{
-                            id: `${id}-day`,
+                            id: `${id}-day-${iteration ?? ""}`,
                             type: "numeric",
-                            value: dateValues.day,
-                            onChange: () => {}, // To avoid warning because there is value but no onChange, value is controlled by onValueChange but react do not detect it well
+                            defaultValue: dateValues.day,
                         }}
                     />
                 </div>
@@ -129,6 +130,7 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                     )}
                 >
                     <NumericFormat
+                        key={`${id}-${iteration ?? ""}-month`}
                         customInput={Input}
                         disabled={disabled}
                         readOnly={readOnly}
@@ -142,10 +144,9 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                         }
                         onValueChange={values => onValueChange(values, "month")}
                         nativeInputProps={{
-                            id: `${id}-month`,
+                            id: `${id}-${iteration ?? ""}-month`,
                             type: "numeric",
-                            value: dateValues.month,
-                            onChange: () => {}, // To avoid warning because there is value but no onChange, value is controlled by onValueChange but react do not detect it well
+                            defaultValue: dateValues.month,
                         }}
                     />
                 </div>
@@ -159,6 +160,7 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                 )}
             >
                 <NumericFormat
+                    key={`${id}-${iteration ?? ""}-year`}
                     customInput={Input}
                     disabled={disabled}
                     readOnly={readOnly}
@@ -171,9 +173,9 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                     }
                     onValueChange={values => onValueChange(values, "year")}
                     nativeInputProps={{
-                        id: `${id}-year`,
+                        id: `${id}-${iteration ?? ""}-year`,
                         type: "numeric",
-                        value: dateValues.year,
+                        defaultValue: dateValues.year,
                     }}
                 />
             </div>
