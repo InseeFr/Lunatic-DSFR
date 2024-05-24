@@ -33,7 +33,7 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
     const { state, stateRelatedMessage } = getErrorStates(errors);
 
     const onValueChange: OnValueChange = ({ floatValue }) => {
-        onChange(floatValue && !Number.isNaN(floatValue) ? floatValue : null);
+        onChange(floatValue !== undefined && !Number.isNaN(floatValue) ? floatValue : null);
     };
 
     const { decimalSeparator, thousandSeparator } = getNumberSeparators();
