@@ -17,7 +17,7 @@ export const Question: LunaticSlotComponents["Question"] = props => {
                 </p>
                 <Declarations type="AFTER_QUESTION_TEXT" declarations={declarations} id={id} />
             </legend>
-            {children}
+            <div className={fr.cx("fr-fieldset__content")}>{children}</div>
         </fieldset>
     );
 };
