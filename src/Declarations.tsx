@@ -40,11 +40,16 @@ const DeclarationAfter = (props: Declaration) => {
 
     const { label } = declarations[0];
 
+    if (!label) {
+        // 0 is falsy but we can't have this case, this is string or React Element
+        return null;
+    }
+
     return (
         //@ts-expect-error Disabling title rendering until it's added to the model. Even though it's mandatory, we won't provide it for now.
         <Alert
             className={fr.cx("fr-fieldset__legend--regular")}
-            description={label ?? ""}
+            description={label}
             id={id}
             severity="info"
             closable={false}
@@ -63,6 +68,10 @@ const DeclarationBefore = (props: Declaration) => {
     }
 
     const { id, label } = declarations[0];
+
+    if (!label) {
+        return null;
+    }
 
     return <CallOut id={id}>{label}</CallOut>;
 };
