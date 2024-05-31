@@ -5931,9 +5931,9 @@ kleur@^3.0.3:
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
 
 knip@^5.15.0:
-  version "5.15.0"
-  resolved "https://registry.yarnpkg.com/knip/-/knip-5.15.0.tgz#f58dbc6dc0d7af76f6597118004e0994d4d8b331"
-  integrity sha512-RB1Unv8NWrIAyNTNGA1z+uDSnHEp78BtGhkJxyg/Ie2lPHx6k+6kZOx+AZeE6J9/ZDvQ8nEg+BkRmB++7NIrDA==
+  version "5.17.3"
+  resolved "https://registry.yarnpkg.com/knip/-/knip-5.17.3.tgz#eb2c285bc513e679917fdddeb54842b90cd90299"
+  integrity sha512-x2paKB0BOzFjnetYolGwg9Dwa8ZIYwBuVP2V4bWRFfTeLs7BymARb7I00R3OCbr09gKKr8TPLQVx2GQ6RF9llQ==
   dependencies:
     "@ericcornelissen/bash-parser" "0.5.2"
     "@nodelib/fs.walk" "2.0.0"
@@ -8899,14 +8899,14 @@ yocto-queue@^0.1.0:
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
 zod-validation-error@^3.0.3:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/zod-validation-error/-/zod-validation-error-3.1.0.tgz#ce6b74a67b1b28cbbc41f890e88b2778f856e1fe"
-  integrity sha512-zujS6HqJjMZCsvjfbnRs7WI3PXN39ovTcY1n8a+KTm4kOH0ZXYsNiJkH1odZf4xZKMkBDL7M2rmQ913FCS1p9w==
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/zod-validation-error/-/zod-validation-error-3.3.0.tgz#2cfe81b62d044e0453d1aa3ae7c32a2f36dde9af"
+  integrity sha512-Syib9oumw1NTqEv4LT0e6U83Td9aVRk9iTXPUQr1otyV1PuXQKOvOwhMNqZIq5hluzHP2pMgnOmHEo7kPdI2mw==
 
 zod@^3.22.4:
-  version "3.22.4"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-3.22.4.tgz#f31c3a9386f61b1f228af56faa9255e845cf3fff"
-  integrity sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==
+  version "3.23.8"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.23.8.tgz#e37b957b5d52079769fb8097099b592f0ef4067d"
+  integrity sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==
 
 zwitch@^2.0.0:
   version "2.0.4"
