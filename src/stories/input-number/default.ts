@@ -20,6 +20,16 @@ export const source: LunaticSource = {
             "bindingDependencies": ["NB"],
             "response": { "name": "NB" },
         },
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": '"Bye!"',
+                "type": "VTL|MD",
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "2",
+        },
     ],
     "variables": [
         {
@@ -46,5 +56,5 @@ export const source: LunaticSource = {
     "generatingDate": "06-03-2024 12:46:44",
     "missing": false,
     "id": "lsvuvtbg",
-    "maxPage": "1",
+    "maxPage": "2",
 };

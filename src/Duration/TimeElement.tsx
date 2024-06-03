@@ -1,7 +1,7 @@
 import { NumericFormat, type NumberFormatValues } from "react-number-format";
 import type { DurationKey, TimeDuration } from "./type";
-import { Input } from "@codegouvfr/react-dsfr/Input";
 import { fr } from "@codegouvfr/react-dsfr";
+import { CustomInputDsfr } from "../Input";
 
 type TimeElementProps = {
     id: string;
@@ -23,21 +23,19 @@ export function TimeElement(props: TimeElementProps) {
                 )}
             >
                 <NumericFormat
-                    customInput={Input}
+                    customInput={CustomInputDsfr}
                     disabled={disabled}
                     readOnly={readOnly}
                     allowNegative={false}
-                    label="Heures"
+                    dsfrProps={{ label: "Heures" }}
+                    inputMode="numeric"
                     allowLeadingZeros={false}
                     isAllowed={({ floatValue }) =>
                         floatValue === undefined || (floatValue >= 0 && floatValue <= 99)
                     }
                     onValueChange={values => onValueChange(values, "hours")}
-                    nativeInputProps={{
-                        id: `${id}-hours`,
-                        type: "numeric",
-                        defaultValue: durationValues.hours,
-                    }}
+                    id={`${id}-hours`}
+                    value={durationValues.hours}
                 />
             </div>
             <div
@@ -48,21 +46,21 @@ export function TimeElement(props: TimeElementProps) {
                 )}
             >
                 <NumericFormat
-                    customInput={Input}
+                    customInput={CustomInputDsfr}
                     disabled={disabled}
                     readOnly={readOnly}
                     allowNegative={false}
-                    label="Minutes"
+                    dsfrProps={{
+                        label: "Minutes",
+                    }}
                     allowLeadingZeros
                     isAllowed={({ floatValue }) =>
                         floatValue === undefined || (floatValue >= 0 && floatValue <= 59)
                     }
                     onValueChange={values => onValueChange(values, "minutes")}
-                    nativeInputProps={{
-                        id: `${id}-minutes`,
-                        type: "numeric",
-                        defaultValue: durationValues.minutes,
-                    }}
+                    id={`${id}-minutes`}
+                    inputMode="numeric"
+                    value={durationValues.minutes}
                 />
             </div>
         </>

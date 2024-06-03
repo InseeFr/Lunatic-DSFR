@@ -1,9 +1,9 @@
-import { Input } from "@codegouvfr/react-dsfr/Input";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { NumericFormat, type NumberFormatValues, type OnValueChange } from "react-number-format";
 import { getErrorStates } from "./utils/errorStates";
 import { getNumberSeparators } from "./utils/numbers";
 import { useId } from "react";
+import { CustomInputDsfr } from "./Input";
 
 export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
     const {
@@ -48,28 +48,29 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
     return (
         <NumericFormat
             key={`${id}-${iteration ?? ""}`}
-            customInput={Input}
+            customInput={CustomInputDsfr}
             allowNegative={min < 0}
-            label={label}
+            dsfrProps={{
+                label,
+                state,
+                stateRelatedMessage,
+                hintText: description,
+            }}
             isAllowed={isAllowed}
-            state={state}
-            stateRelatedMessage={stateRelatedMessage}
             onValueChange={onValueChange}
             decimalScale={decimals}
             decimalSeparator={decimalSeparator}
             allowLeadingZeros
             thousandSeparator={thousandSeparator}
             required={required}
-            hintText={description}
             readOnly={readOnly}
             disabled={disabled}
-            nativeInputProps={{
-                id: `${id}-${iteration ?? ""}`,
-                inputMode: decimals === 0 ? "numeric" : "decimal",
-                pattern: "[0-9]*",
-                placeholder: unit,
-                defaultValue: value ?? undefined,
-            }}
+            id={`${id}-${iteration ?? ""}`}
+            inputMode={decimals === 0 ? "numeric" : "decimal"}
+            pattern={"[0-9]*"}
+            placeholder={unit}
+            value={value}
+            aria-invalid={state === "error"}
         />
     );
 };

@@ -1,7 +1,7 @@
 import { NumericFormat, type NumberFormatValues } from "react-number-format";
 import type { DateDuration, DurationKey } from "./type";
-import { Input } from "@codegouvfr/react-dsfr/Input";
 import { fr } from "@codegouvfr/react-dsfr";
+import { CustomInputDsfr } from "../Input";
 
 type DateElementProps = {
     id: string;
@@ -23,21 +23,21 @@ export function DateElement(props: DateElementProps) {
                 )}
             >
                 <NumericFormat
-                    customInput={Input}
+                    customInput={CustomInputDsfr}
                     disabled={disabled}
                     readOnly={readOnly}
+                    dsfrProps={{
+                        label: "Années",
+                    }}
+                    id={`${id}-year`}
+                    inputMode="numeric"
+                    value={durationValues.years}
                     allowNegative={false}
-                    label="Années"
                     allowLeadingZeros={false}
                     isAllowed={({ floatValue }) =>
                         floatValue === undefined || (floatValue >= 1 && floatValue <= 9999)
                     }
                     onValueChange={values => onValueChange(values, "years")}
-                    nativeInputProps={{
-                        id: `${id}-year`,
-                        type: "numeric",
-                        defaultValue: durationValues.years,
-                    }}
                 />
             </div>
             <div
@@ -48,21 +48,19 @@ export function DateElement(props: DateElementProps) {
                 )}
             >
                 <NumericFormat
-                    customInput={Input}
+                    customInput={CustomInputDsfr}
                     disabled={disabled}
                     readOnly={readOnly}
                     allowNegative={false}
-                    label="Mois"
+                    dsfrProps={{ label: "Mois" }}
                     allowLeadingZeros
                     isAllowed={({ floatValue }) =>
                         floatValue === undefined || (floatValue >= 0 && floatValue <= 11)
                     }
                     onValueChange={values => onValueChange(values, "months")}
-                    nativeInputProps={{
-                        id: `${id}-month`,
-                        type: "numeric",
-                        defaultValue: durationValues.months,
-                    }}
+                    inputMode="numeric"
+                    id={`${id}-month`}
+                    value={durationValues.months}
                 />
             </div>
         </>
