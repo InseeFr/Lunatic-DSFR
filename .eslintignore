@@ -1,5 +1,3 @@
 /node_modules/
 /dist/
-/.eslintrc.js
-/CHANGELOG.md
-/public/dsfr/
+/.storybook/static/
