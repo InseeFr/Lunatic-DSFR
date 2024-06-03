@@ -91,7 +91,7 @@
         "husky": "^9.0.11",
         "knip": "^5.15.0",
         "lint-staged": "^15.2.2",
-        "prettier": "^3.2.5",
+        "prettier": "^3.3.0",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "storybook": "^8.0.10",
@@ -109,6 +109,7 @@
         "access": "public"
     },
     "resolutions": {
-        "jackspeak": "2.1.1"
+        "jackspeak": "2.1.1",
+        "prettier": "^3.3.0"
     }
 }
