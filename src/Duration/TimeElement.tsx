@@ -1,7 +1,7 @@
 import { NumericFormat, type NumberFormatValues } from "react-number-format";
 import type { DurationKey, TimeDuration } from "./type";
 import { fr } from "@codegouvfr/react-dsfr";
-import { CustomInputDsfr } from "../Input";
+import { CustomInputDsfr } from "../shared/CustomInputDsfr";
 
 type TimeElementProps = {
     id: string;

@@ -21,7 +21,13 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
         description,
         onClear,
     } = props;
+
     const id = useId();
+    /**
+     * Note that the error message ID follows the format `${id}-desc-error` because this is the convention used by the underlying library react-dsfr
+     * See: https://github.com/codegouvfr/react-dsfr/blob/4c41367febcb78307f261df1b761fedb52c8a905/src/Input.tsx#L103
+     */
+    const errorMessageId = `${id}-desc-error`;
 
     const [defaultSelectedOption] = useState(() => options.find(o => o.id === value[0]?.id) ?? null);
     const inputValue = ((search || value[0]?.label) ?? "").toString();
@@ -83,6 +89,9 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
                         nativeInputProps={{
                             ...inputProps,
                             placeholder: "Commencez votre saisie",
+                            ...(state === "error"
+                                ? { "aria-invalid": true, "aria-errormessage": errorMessageId }
+                                : {}),
                         }}
                     />
                 );

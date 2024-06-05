@@ -3,7 +3,7 @@ import { NumericFormat, type NumberFormatValues, type OnValueChange } from "reac
 import { getErrorStates } from "./utils/errorStates";
 import { getNumberSeparators } from "./utils/numbers";
 import { useId } from "react";
-import { CustomInputDsfr } from "./Input";
+import { CustomInputDsfr } from "./shared/CustomInputDsfr";
 
 export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
     const {
@@ -24,6 +24,11 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
     } = props;
 
     const id = useId();
+    /**
+     * Note that the error message ID follows the format `${id}-desc-error` because this is the convention used by the underlying library react-dsfr
+     * See: https://github.com/codegouvfr/react-dsfr/blob/4c41367febcb78307f261df1b761fedb52c8a905/src/Input.tsx#L103
+     */
+    const errorMessageId = `${id}-desc-error`;
 
     if (declarations) {
         //TODO throw and handle globaly errors in an alert with a condition to avoid to display alert in prod
@@ -47,6 +52,7 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
 
     return (
         <NumericFormat
+            id={`${id}-${iteration ?? ""}`}
             key={`${id}-${iteration ?? ""}`}
             customInput={CustomInputDsfr}
             allowNegative={min < 0}
@@ -65,12 +71,11 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
             required={required}
             readOnly={readOnly}
             disabled={disabled}
-            id={`${id}-${iteration ?? ""}`}
             inputMode={decimals === 0 ? "numeric" : "decimal"}
             pattern={"[0-9]*"}
             placeholder={unit}
             value={value}
-            aria-invalid={state === "error"}
+            {...(state === "error" ? { "aria-invalid": true, "aria-errormessage": errorMessageId } : {})}
         />
     );
 };

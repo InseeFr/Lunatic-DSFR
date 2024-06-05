@@ -3,9 +3,9 @@ import { getErrorStates } from "./utils/errorStates";
 import { fr } from "@codegouvfr/react-dsfr";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import type { Split } from "./utils/type";
-import { Input } from "@codegouvfr/react-dsfr/Input";
 import { NumericFormat, type NumberFormatValues } from "react-number-format";
 import { FiledsetError } from "./shared/FieldsetError";
+import { CustomInputDsfr } from "./shared/CustomInputDsfr";
 
 type DateState = { day: string; month: string; year: string };
 
@@ -24,6 +24,7 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
     } = props;
 
     const id = useId();
+    const errorMessageId = `${id}-messages`;
 
     if (declarations) {
         //TODO throw and handle globaly errors in an alert with a condition to avoid to display alert in prod
@@ -100,24 +101,27 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                     )}
                 >
                     <NumericFormat
+                        id={`${id}-day-${iteration ?? ""}`}
                         key={`${id}-${iteration ?? ""}-day`}
-                        customInput={Input}
+                        customInput={CustomInputDsfr}
                         disabled={disabled}
                         readOnly={readOnly}
                         allowNegative={false}
-                        label="Jour"
-                        hintText="Exemple: 14"
+                        inputMode="numeric"
+                        dsfrProps={{
+                            label: "Jour",
+                            hintText: "Exemple: 14",
+                        }}
                         allowLeadingZeros
                         isAllowed={({ value, floatValue }) =>
                             floatValue === undefined ||
                             (floatValue >= 0 && value !== "00" && floatValue <= 31)
                         }
                         onValueChange={values => onValueChange(values, "day")}
-                        nativeInputProps={{
-                            id: `${id}-day-${iteration ?? ""}`,
-                            type: "numeric",
-                            defaultValue: dateValues.day,
-                        }}
+                        value={dateValues.day}
+                        {...(state === "error"
+                            ? { "aria-invalid": true, "aria-errormessage": errorMessageId }
+                            : {})}
                     />
                 </div>
             )}
@@ -131,23 +135,26 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                 >
                     <NumericFormat
                         key={`${id}-${iteration ?? ""}-month`}
-                        customInput={Input}
+                        id={`${id}-${iteration ?? ""}-month`}
+                        inputMode="numeric"
+                        customInput={CustomInputDsfr}
                         disabled={disabled}
                         readOnly={readOnly}
                         allowNegative={false}
-                        label="Mois"
-                        hintText="Exemple: 07"
                         allowLeadingZeros
                         isAllowed={({ value, floatValue }) =>
                             floatValue === undefined ||
                             (floatValue >= 0 && value !== "00" && floatValue <= 12)
                         }
+                        value={dateValues.month}
                         onValueChange={values => onValueChange(values, "month")}
-                        nativeInputProps={{
-                            id: `${id}-${iteration ?? ""}-month`,
-                            type: "numeric",
-                            defaultValue: dateValues.month,
+                        dsfrProps={{
+                            label: "Mois",
+                            hintText: "Exemple: 07",
                         }}
+                        {...(state === "error"
+                            ? { "aria-invalid": true, "aria-errormessage": errorMessageId }
+                            : {})}
                     />
                 </div>
             )}
@@ -161,26 +168,29 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
             >
                 <NumericFormat
                     key={`${id}-${iteration ?? ""}-year`}
-                    customInput={Input}
+                    id={`${id}-${iteration ?? ""}-year`}
+                    inputMode="numeric"
+                    customInput={CustomInputDsfr}
                     disabled={disabled}
                     readOnly={readOnly}
                     allowNegative={false}
-                    label="Année"
                     allowLeadingZeros={false}
-                    hintText="Exemple: 2024"
                     isAllowed={({ floatValue }) =>
                         floatValue === undefined || (floatValue >= 1 && floatValue <= 9999)
                     }
                     onValueChange={values => onValueChange(values, "year")}
-                    nativeInputProps={{
-                        id: `${id}-${iteration ?? ""}-year`,
-                        type: "numeric",
-                        defaultValue: dateValues.year,
+                    value={dateValues.year}
+                    dsfrProps={{
+                        label: "Année",
+                        hintText: "Exemple: 2024",
                     }}
+                    {...(state === "error"
+                        ? { "aria-invalid": true, "aria-errormessage": errorMessageId }
+                        : {})}
                 />
             </div>
 
-            <FiledsetError state={state} stateRelatedMessage={stateRelatedMessage} id={id} />
+            <FiledsetError state={state} stateRelatedMessage={stateRelatedMessage} id={errorMessageId} />
         </fieldset>
     );
 };

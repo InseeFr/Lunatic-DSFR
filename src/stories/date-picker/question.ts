@@ -2,7 +2,7 @@ import type { LunaticSource } from "@inseefr/lunatic";
 
 export const source: LunaticSource = {
     "cleaning": {},
-    "maxPage": "1",
+    "maxPage": "2",
     "variables": [
         {
             "variableType": "COLLECTED",
@@ -75,8 +75,31 @@ export const source: LunaticSource = {
                     },
                     "id": "ltct556j",
                     "page": "1",
+                    "controls": [
+                        {
+                            "id": "id-control",
+                            "typeOfControl": "CONSISTENCY",
+                            "criticality": "WARN",
+                            "control": { "value": "false", "type": "VTL" },
+                            "errorMessage": {
+                                "value": '"Un controles toujours affiché"',
+                                "type": "VTL|MD",
+                            },
+                            "bindingDependencies": [],
+                        },
+                    ],
                 },
             ],
+        },
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": '"Bye!"',
+                "type": "VTL|MD",
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "2",
         },
     ],
     "pagination": "question",

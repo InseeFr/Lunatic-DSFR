@@ -1,5 +1,5 @@
 import { fr } from "@codegouvfr/react-dsfr";
-import { useId, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 type FiledsetErrorProps = {
     id: string;
@@ -8,15 +8,13 @@ type FiledsetErrorProps = {
 };
 
 export function FiledsetError(props: FiledsetErrorProps) {
-    const { state, stateRelatedMessage } = props;
-
-    const id = useId();
+    const { id, state, stateRelatedMessage } = props;
 
     if (props.state && stateRelatedMessage) {
         return (
-            <div className={fr.cx("fr-messages-group")}>
+            <div id={id} className={fr.cx("fr-messages-group")} aria-live="assertive">
                 <p
-                    id={`${id}-desc-${state}`}
+                    id={`${id}-${state}`}
                     className={`fr-message--${state} ${fr.cx("fr-message", "fr-col-12", "fr-mt-0")}`}
                 >
                     {stateRelatedMessage}

@@ -1,7 +1,7 @@
 import { getErrorStates } from "./utils/errorStates";
-import { Input as InputDSFR, type InputProps } from "@codegouvfr/react-dsfr/Input";
+import { Input as InputDSFR } from "@codegouvfr/react-dsfr/Input";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
-import { forwardRef, useId } from "react";
+import { useId } from "react";
 
 export const Input: LunaticSlotComponents["Input"] = props => {
     const {
@@ -18,6 +18,11 @@ export const Input: LunaticSlotComponents["Input"] = props => {
     } = props;
 
     const id = useId();
+    /**
+     * Note that the error message ID follows the format `${id}-desc-error` because this is the convention used by the underlying library react-dsfr
+     * See: https://github.com/codegouvfr/react-dsfr/blob/4c41367febcb78307f261df1b761fedb52c8a905/src/Input.tsx#L103
+     */
+    const errorMessageId = `${id}-desc-error`;
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
 
@@ -36,8 +41,10 @@ export const Input: LunaticSlotComponents["Input"] = props => {
                 value: value ?? "",
                 required: required,
                 onChange: e => onChange(e.target.value),
-                readOnly: readOnly,
-                "aria-invalid": state === "error",
+                readOnly,
+                ...(state === "error"
+                    ? { "aria-invalid": true, "aria-errormessage": errorMessageId }
+                    : {}),
             }}
             hintText={description}
             state={state}
@@ -45,18 +52,3 @@ export const Input: LunaticSlotComponents["Input"] = props => {
         />
     );
 };
-
-export type CustomInputProps = InputProps["nativeInputProps"] & {
-    dsfrProps: Omit<InputProps.RegularInput, "nativeInputProps">;
-};
-
-/**
- * Only use this component inside NumberFormat from `react-number-format`
- * This abstraction is necessary because `react-number-format` passes `onChange`, `onFocus`, `onBlur`, and other input events directly to the Input component.
- * Therefore, these props need to be at the root level.
- * See: https://s-yadav.github.io/react-number-format/docs/quirks#notes-and-quirks
- */
-export const CustomInputDsfr = forwardRef<HTMLInputElement, CustomInputProps>((props, ref) => {
-    const { dsfrProps, ...restProps } = props;
-    return <InputDSFR {...dsfrProps} ref={ref} nativeInputProps={restProps} />;
-});

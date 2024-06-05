@@ -26,6 +26,15 @@ export const CheckboxBoolean: LunaticSlotComponents["CheckboxBoolean"] = props =
                     nativeInputProps: {
                         onChange: onChange,
                         checked: checked,
+                        ...(state === "error"
+                            ? {
+                                  "aria-invalid": true,
+                                  /**
+                                   * Note that the error message ID follows the format `${id}-messages` because this is the convention used by the underlying library react-dsfr.
+                                   * See: https://github.com/codegouvfr/react-dsfr/blob/4c41367febcb78307f261df1b761fedb52c8a905/src/shared/Fieldset.tsx#L101
+                                   */ "aria-errormessage": `${id}-messages`,
+                              }
+                            : {}),
                     },
                 },
             ]}
