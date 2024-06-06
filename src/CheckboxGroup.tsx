@@ -2,9 +2,10 @@ import { useId, type ComponentProps } from "react";
 import { Checkbox } from "@codegouvfr/react-dsfr/Checkbox";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { getErrorStates } from "./utils/errorStates";
+import Input from "@codegouvfr/react-dsfr/Input";
 
 export const CheckboxGroup: LunaticSlotComponents["CheckboxGroup"] = props => {
-    const { options, label, description, errors } = props;
+    const { options, label, description, errors, disabled } = props;
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
 
@@ -20,6 +21,7 @@ export const CheckboxGroup: LunaticSlotComponents["CheckboxGroup"] = props => {
             id={id}
             legend={label}
             hintText={description}
+            disabled={disabled}
             options={getOptions({ options, error: errorOptions })}
             state={state}
             stateRelatedMessage={stateRelatedMessage}
@@ -35,14 +37,29 @@ function getOptions({
     error: { state: "default" | "error" | "success"; messageId: string };
 }) {
     return options.map(option => {
-        const { label, description, name, onClick, checked } = option;
+        const { label, description, name, onCheck, checked } = option;
+        const displayArbitraryInput = !!option.onDetailChange && option.checked;
         return {
             label: <span>{label}</span>,
-            hintText: description,
+            hintText: displayArbitraryInput ? (
+                <>
+                    {description}
+                    <Input
+                        label={option.detailLabel}
+                        nativeInputProps={{
+                            id: "detailId",
+                            value: option.detailValue ?? "",
+                            onChange: e => option.onDetailChange!(e.target.value), //can't be undefined if displayArbitraryInput is true
+                        }}
+                    />
+                </>
+            ) : (
+                description
+            ),
             nativeInputProps: {
                 name,
                 checked,
-                onChange: () => onClick(!checked),
+                onChange: () => onCheck(!checked),
                 ...(error.state === "error"
                     ? { "aria-invalid": true, "aria-errormessage": error.messageId }
                     : {}),
