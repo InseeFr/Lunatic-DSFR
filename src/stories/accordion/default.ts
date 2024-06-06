@@ -3,7 +3,6 @@ import type { LunaticSource } from "@inseefr/lunatic";
 export const source: LunaticSource = {
     "cleaning": {},
     "maxPage": "1",
-
     "components": [
         {
             "componentType": "Accordion",
