@@ -16,7 +16,6 @@ export const RadioGroup: LunaticSlotComponents["RadioGroup"] = props => {
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
 
-    console.log(options);
     return (
         <RadioButtons
             id={id}
