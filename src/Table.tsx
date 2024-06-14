@@ -10,9 +10,9 @@ export const Table: LunaticSlotComponents["Table"] = props => {
     const hasErrors = errors && errors.length > 0;
     const errorMessageId = `${id}-messages`;
     return (
-        <div id={id} className={fr.cx("fr-table", "fr-table--bordered")}>
+        <>
             {hasErrors && (
-                <div id={errorMessageId}>
+                <div id={errorMessageId} role="alert">
                     {errors.map(error => {
                         if (!error.errorMessage) {
                             //TODO throw error
@@ -32,10 +32,14 @@ export const Table: LunaticSlotComponents["Table"] = props => {
                     })}
                 </div>
             )}
-            <table {...(hasErrors ? { "aria-invalid": true, "aria-errormessage": errorMessageId } : {})}>
-                {children}
-            </table>
-        </div>
+            <div id={id} className={fr.cx("fr-table", "fr-table--bordered")}>
+                <table
+                    {...(hasErrors ? { "aria-invalid": true, "aria-errormessage": errorMessageId } : {})}
+                >
+                    {children}
+                </table>
+            </div>
+        </>
     );
 };
 

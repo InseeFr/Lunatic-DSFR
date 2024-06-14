@@ -65,9 +65,8 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
         const { currentErrors } = compileControls();
         setErrorActive({ ...errorActive, [pageTag]: currentErrors || {} });
         if (!currentErrors) {
-            //goNextPage();
+            goNextPage();
         }
-        goNextPage();
     };
 
     return (
