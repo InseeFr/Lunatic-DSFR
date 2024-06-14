@@ -113,7 +113,6 @@
         "access": "public"
     },
     "resolutions": {
-        "jackspeak": "2.1.1",
-        "prettier": "3.3.0"
+        "jackspeak": "2.1.1"
     }
 }
