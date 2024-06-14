@@ -127,7 +127,7 @@ export const source: LunaticSource = {
                     "criticality": "INFO",
                     "errorMessage": {
                         "type": "VTL|MD",
-                        "value": '" La valeur doit être comprise entre 0 et 9999."',
+                        "value": '"GLOBAL: La valeur de TABLEAUCLA33 doit être comprise entre 0 et 10."',
                     },
                     "typeOfControl": "FORMAT",
                     "control": {
@@ -155,13 +155,13 @@ export const source: LunaticSource = {
                     "criticality": "INFO",
                     "errorMessage": {
                         "type": "VTL|MD",
-                        "value": '" La valeur doit être comprise entre 0 et 9999."',
+                        "value": '" La valeur doit être comprise entre 0 et 10."',
                     },
                     "typeOfControl": "FORMAT",
                     "control": {
                         "type": "VTL",
                         "value":
-                            "not(not(isnull(TABLEAUCLA23)) and (0>TABLEAUCLA23 or 9999<TABLEAUCLA23))",
+                            "not(not(isnull(TABLEAUCLA23)) and (0>TABLEAUCLA23 or 10<TABLEAUCLA23))",
                     },
                     "id": "luwhnbxk-RDOP-luwh4tva-format-borne-inf-sup",
                 },
@@ -183,13 +183,13 @@ export const source: LunaticSource = {
                     "criticality": "INFO",
                     "errorMessage": {
                         "type": "VTL|MD",
-                        "value": '" La valeur doit être comprise entre 0 et 9999."',
+                        "value": '" La valeur doit être comprise entre 0 et 10."',
                     },
                     "typeOfControl": "FORMAT",
                     "control": {
                         "type": "VTL",
                         "value":
-                            "not(not(isnull(TABLEAUCLA13)) and (0>TABLEAUCLA13 or 9999<TABLEAUCLA13))",
+                            "not(not(isnull(TABLEAUCLA13)) and (0>TABLEAUCLA13 or 10<TABLEAUCLA13))",
                     },
                     "id": "luwhnbxk-RDOP-luwh7btb-format-borne-inf-sup",
                 },
@@ -293,6 +293,23 @@ export const source: LunaticSource = {
                         },
                         "decimals": 0,
                         "id": "luwhnbxk-RDOP-luwh7btb",
+                        "controls": [
+                            {
+                                "criticality": "INFO",
+                                "errorMessage": {
+                                    "type": "VTL|MD",
+                                    "value":
+                                        '"INPUTNUMBER: La valeur de TABLEAUCLA33 doit être comprise entre 0 et 10."',
+                                },
+                                "typeOfControl": "FORMAT",
+                                "control": {
+                                    "type": "VTL",
+                                    "value":
+                                        "not(not(isnull(TABLEAUCLA33)) and (0>TABLEAUCLA33 or 10<TABLEAUCLA33))",
+                                },
+                                "id": "luwhnbxk-RDOP-luwhcilc-format-borne-inf-sup",
+                            },
+                        ],
                     },
                 ],
                 [
