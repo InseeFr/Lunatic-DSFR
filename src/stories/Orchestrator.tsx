@@ -65,15 +65,16 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
         const { currentErrors } = compileControls();
         setErrorActive({ ...errorActive, [pageTag]: currentErrors || {} });
         if (!currentErrors) {
-            goNextPage();
+            //goNextPage();
         }
+        goNextPage();
     };
 
     return (
         <Provider>
-            <div className="container">
-                <div className={fr.cx("fr-mb-4v")}>
-                    <MuiDsfrThemeProvider>
+            <MuiDsfrThemeProvider>
+                <div className="container">
+                    <div className={fr.cx("fr-mb-4v")}>
                         <LunaticComponents
                             components={components}
                             slots={slotComponents}
@@ -82,18 +83,18 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
                                 filterDescription,
                             })}
                         />
-                    </MuiDsfrThemeProvider>
+                    </div>
+                    <Pager
+                        goPrevious={goPreviousPage}
+                        goNext={handleGoNext}
+                        logData={() => console.log(getData(true))}
+                        isLast={isLastPage}
+                        isFirst={isFirstPage}
+                        pageTag={pageTag}
+                        maxPage={maxPage}
+                    />
                 </div>
-                <Pager
-                    goPrevious={goPreviousPage}
-                    goNext={handleGoNext}
-                    logData={() => console.log(getData(true))}
-                    isLast={isLastPage}
-                    isFirst={isFirstPage}
-                    pageTag={pageTag}
-                    maxPage={maxPage}
-                />
-            </div>
+            </MuiDsfrThemeProvider>
         </Provider>
     );
 };
