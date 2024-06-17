@@ -1546,10 +1546,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-2.0.3.tgz#4a2868d75d6d6963e423bcf90b7fd1be343409d3"
   integrity sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==
 
-"@inseefr/lunatic@^3.0.9":
-  version "3.0.9"
-  resolved "https://registry.yarnpkg.com/@inseefr/lunatic/-/lunatic-3.0.9.tgz#e0970189514d0dfeb0ecd6f8761d6cb90ac1acbc"
-  integrity sha512-cbVVLcTpxlownz7DYbIGUbnZWdUGo6JmWn6KsJ5iZC2Cqg3m3ohKhDOYYnnjtjsFZxsfEamWuZiQcibFNJpLNg==
+"@inseefr/lunatic@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@inseefr/lunatic/-/lunatic-3.1.0.tgz#b42f64055dc43ae8a23330dfd8fd2ca7a1a8f2a7"
+  integrity sha512-8kvKXtQIpWwdRi16v4gcPLgy2gQX5O8sQyLa99YbgWR6o4Hr3WPbq8+QkOtids8daoPV0abkg9gmnAasiBCiiQ==
   dependencies:
     "@inseefr/trevas" "^0.1.21"
     "@inseefr/vtl-2.0-antlr-tools" "^0.3.2"
@@ -7572,12 +7572,7 @@ prelude-ls@^1.2.1:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-"prettier-fallback@npm:prettier@^3":
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.3.2.tgz#03ff86dc7c835f2d2559ee76876a3914cec4a90a"
-  integrity sha512-rAVeHYMcv8ATV5d508CFdn+8/pHPpXeIid1DdrPwXnaAdH7cqjVbpJaT5eq4yRAFU/lsbwYwSF/n5iNrdJHPQA==
-
-prettier@3.3.2, prettier@^3.1.1, prettier@^3.3.2:
+"prettier-fallback@npm:prettier@^3", prettier@3.3.2, prettier@^3.1.1, prettier@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.3.2.tgz#03ff86dc7c835f2d2559ee76876a3914cec4a90a"
   integrity sha512-rAVeHYMcv8ATV5d508CFdn+8/pHPpXeIid1DdrPwXnaAdH7cqjVbpJaT5eq4yRAFU/lsbwYwSF/n5iNrdJHPQA==
