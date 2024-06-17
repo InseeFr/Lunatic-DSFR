@@ -5,7 +5,7 @@ import { useId } from "react";
 import Input from "@codegouvfr/react-dsfr/Input";
 
 export const RadioGroup: LunaticSlotComponents["RadioGroup"] = props => {
-    const { options, label, description, errors, disabled, readOnly } = props;
+    const { options, label, description, errors, disabled, readOnly, orientation } = props;
 
     const id = useId();
     /**
@@ -21,6 +21,7 @@ export const RadioGroup: LunaticSlotComponents["RadioGroup"] = props => {
             id={id}
             legend={label}
             hintText={description}
+            orientation={orientation}
             disabled={disabled || readOnly}
             options={options.map(option => {
                 const displayArbitraryInput = !!option.onDetailChange && option.checked;
