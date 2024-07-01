@@ -70,6 +70,12 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
             return;
         }
 
+        // Date is not valid
+        if (dateFormat === "YYYY-MM-DD" && !isDateValid(date)) {
+            onChange(null);
+            return;
+        }
+
         const mapping = {
             "YYYY": date.year,
             "MM": date.month.padStart(2, "0"),
@@ -194,3 +200,27 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
         </fieldset>
     );
 };
+
+function isDateValid(date: DateState): boolean {
+    const { day, month, year } = date;
+
+    if (!day || !month || !year) {
+        return false;
+    }
+
+    const dayNum = parseInt(day, 10);
+    const monthNum = parseInt(month, 10);
+    const yearNum = parseInt(year, 10);
+
+    if (isNaN(dayNum) || isNaN(monthNum) || isNaN(yearNum)) {
+        return false;
+    }
+
+    const dateObj = new Date(yearNum, monthNum - 1, dayNum);
+
+    return (
+        dateObj.getFullYear() === yearNum &&
+        dateObj.getMonth() === monthNum - 1 &&
+        dateObj.getDate() === dayNum
+    );
+}
