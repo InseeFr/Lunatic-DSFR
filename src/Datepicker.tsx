@@ -40,9 +40,9 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
         }
         const parts = value.split("-");
         return {
-            year: parts[0],
-            month: parts[1],
-            day: parts[2],
+            year: parts[0] ?? "",
+            month: parts[1] ?? "",
+            day: parts[2] ?? "",
         };
     };
     const [dateValues, setDateValues] = useState<DateState>(extractDateFromValue);
@@ -66,6 +66,12 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
 
         // Date has a missing part
         if (countEmptyDate > 3 - formatParts.length) {
+            onChange(null);
+            return;
+        }
+
+        // Date is not valid
+        if (dateFormat === "YYYY-MM-DD" && !isDateValid(date)) {
             onChange(null);
             return;
         }
@@ -194,3 +200,27 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
         </fieldset>
     );
 };
+
+function isDateValid(date: DateState): boolean {
+    const { day, month, year } = date;
+
+    if (!day || !month || !year) {
+        return false;
+    }
+
+    const dayNum = parseInt(day, 10);
+    const monthNum = parseInt(month, 10);
+    const yearNum = parseInt(year, 10);
+
+    if (isNaN(dayNum) || isNaN(monthNum) || isNaN(yearNum)) {
+        return false;
+    }
+
+    const dateObj = new Date(yearNum, monthNum - 1, dayNum);
+
+    return (
+        dateObj.getFullYear() === yearNum &&
+        dateObj.getMonth() === monthNum - 1 &&
+        dateObj.getDate() === dayNum
+    );
+}
