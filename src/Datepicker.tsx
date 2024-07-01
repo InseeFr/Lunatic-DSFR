@@ -40,9 +40,9 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
         }
         const parts = value.split("-");
         return {
-            year: parts[0],
-            month: parts[1],
-            day: parts[2],
+            year: parts[0] ?? "",
+            month: parts[1] ?? "",
+            day: parts[2] ?? "",
         };
     };
     const [dateValues, setDateValues] = useState<DateState>(extractDateFromValue);
