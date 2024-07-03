@@ -1,25 +1,14 @@
 import type { LunaticData, LunaticSource } from "@inseefr/lunatic";
 
 export const source: LunaticSource = {
-    "cleaning": {},
-    "maxPage": "5",
+    "maxPage": "4",
     "components": [
         {
-            "id": "seq",
-            "componentType": "Sequence",
-            "label": {
-                "value": '"Description des individus de votre logement"',
-                "type": "VTL",
-            },
-            "conditionFilter": { "value": "true", "type": "VTL" },
-            "page": "1",
-        },
-        {
-            "id": "kze792d8",
+            "id": "how",
             "componentType": "InputNumber",
             "mandatory": false,
-            "page": "2",
-            "min": 0,
+            "page": "1",
+            "min": 1,
             "max": 10,
             "decimals": 0,
             "label": {
@@ -30,9 +19,9 @@ export const source: LunaticSource = {
             "response": { "name": "NB_HAB" },
         },
         {
-            "id": "kmnolkxb",
+            "id": "loop",
             "componentType": "Loop",
-            "page": "3",
+            "page": "2",
             "depth": 1,
             "paginatedLoop": false,
             "conditionFilter": { "value": "true", "type": "VTL" },
@@ -41,20 +30,15 @@ export const source: LunaticSource = {
                 "min": { "value": "NB_HAB", "type": "VTL" },
                 "max": { "value": "NB_HAB", "type": "VTL" },
             },
-            "label": {
-                "value": '"Label de la boucle"',
-                "type": "VTL|MD",
-            },
             "components": [
                 {
-                    "id": "kmno1n7m1",
+                    "id": "prenom",
                     "componentType": "Input",
                     "mandatory": false,
                     "maxLength": 20,
-                    "page": "3",
                     "label": {
-                        "value": '"Prénom"',
-                        "type": "VTL",
+                        "value": '"Prénom"))',
+                        "type": "VTL|MD",
                     },
                     "conditionFilter": {
                         "value": "true",
@@ -63,130 +47,80 @@ export const source: LunaticSource = {
                     "response": { "name": "PRENOMS" },
                 },
                 {
-                    "id": "kmno1n7m2",
-                    "componentType": "Input",
-                    "mandatory": false,
-                    "maxLength": 20,
-                    "page": "3",
+                    "id": "age",
+                    "componentType": "InputNumber",
+                    "maxLength": 3,
                     "label": {
-                        "value": '"Nom de famille"',
+                        "value": '"Age"))',
                         "type": "VTL|MD",
                     },
                     "conditionFilter": {
                         "value": "true",
                         "type": "VTL",
                     },
-                    "response": { "name": "NOMS" },
-                },
-                {
-                    "id": "kmno1n7m3",
-                    "componentType": "InputNumber",
-                    "mandatory": false,
-                    "page": "3",
-                    "label": {
-                        "value": '"Age"))',
-                        "type": "VTL",
-                    },
-                    "conditionFilter": {
-                        "value": "true",
-                        "type": "VTL",
-                    },
-                    "response": { "name": "AGES" },
-                },
-                {
-                    "id": "kmno1n7m4",
-                    "componentType": "Radio",
-                    "mandatory": false,
-                    "label": {
-                        "value": '"Resident"',
-                        "type": "VTL",
-                    },
-                    "page": "3",
-                    "conditionFilter": {
-                        "value": "true",
-                        "type": "VTL",
-                    },
-                    "options": [
-                        {
-                            "value": "1",
-                            "label": { "value": '"Oui"', "type": "VTL" },
-                        },
-                        {
-                            "value": "2",
-                            "label": { "value": '"Non"', "type": "VTL" },
-                        },
-                    ],
-                    "response": { "name": "RESIDENTS" },
+                    "response": { "name": "AGE" },
                 },
             ],
         },
         {
             "id": "roundabout",
             "componentType": "Roundabout",
-            "page": "4",
+            "page": "3",
             "conditionFilter": { "value": "true", "type": "VTL" },
             "iterations": { "value": "NB_HAB", "type": "VTL" },
-            "label": { "value": '"Les questionnaires individuels"', "type": "VTL" },
-            "locked": false,
-            "expressions": {
-                "complete": {
-                    "value": "not(isnull(COLOR)) and not(isnull(SEXE)) and not(isnull(SOMETHING))",
-                    "type": "VTL",
-                },
-                "partial": {
-                    "value": "not(isnull(COLOR)) or not(isnull(SEXE)) or not(isnull(SOMETHING))",
-                    "type": "VTL",
-                },
-                "unnecessary": {
-                    "value":
-                        'if (AGES < "14") or (RESIDENTS = "2") then (PRENOMS || " " || NOMS ||if AGES < "14" then " n’a pas à compléter de questionnaire individuel car il est âgé de moins de 14 ans." else " n’a pas à compléter de questionnaire individuel car il n’est pas catégoriser comme un résident permanent de ce logement.") else ""',
-                    "type": "VTL",
-                },
+            "label": { "value": '"Libellé du rondpoint"', "type": "VTL" },
+            "locked": true,
+            "progressVariable": "PROGRESS",
+            "item": {
                 "label": {
-                    "value": 'PRENOMS || " " || NOMS',
+                    "value": '"Questions de " || PRENOMS',
+                    "type": "VTL",
+                },
+                "description": {
+                    "value":
+                        'if AGE > 18 then "Aller aux question destinées à " || PRENOMS else PRENOMS || " n\'est pas majeur, il/elle n\'a pas à répondre aux questions"',
+                    "type": "VTL",
+                },
+                "disabled": {
+                    "value": "AGE < 18",
                     "type": "VTL",
                 },
             },
+            "controls": [],
             "components": [
                 {
-                    "id": "jsygk7m7",
-                    "componentType": "Subsequence",
-                    "page": "4.1",
+                    "id": "radio",
+                    "componentType": "Radio",
+                    "mandatory": false,
+                    "page": "3.1",
                     "label": {
-                        "value": '"Première page de questions pour " || PRENOMS',
-                        "type": "VTL",
+                        "value": '"Connaissez-vous le recensement de la population ?"',
+                        "type": "VTL|MD",
                     },
+
                     "conditionFilter": { "value": "true", "type": "VTL" },
-                },
-                {
-                    "id": "kmno1n7m",
-                    "componentType": "Input",
-                    "maxLength": 3,
-                    "page": "4.1",
-                    "label": {
-                        "value": '"colour?"))',
-                        "type": "VTL",
-                    },
-                    "conditionFilter": {
-                        "value": "true",
-                        "type": "VTL",
-                    },
-                    "response": { "name": "COLOR" },
+
+                    "options": [
+                        { "value": "1", "label": { "value": '"oui"', "type": "VTL|MD" } },
+
+                        { "value": "2", "label": { "value": '"non"', "type": "VTL|MD" } },
+                    ],
+                    "response": { "name": "KNOWREC" },
                 },
                 {
                     "id": "jsygk7m7",
                     "componentType": "Subsequence",
-                    "page": "4.2",
+                    "page": "3.2",
                     "label": {
                         "value": '"Deuxième page de questions pour "|| PRENOMS',
-                        "type": "VTL",
+                        "type": "VTL|MD",
                     },
                     "conditionFilter": { "value": "true", "type": "VTL" },
                 },
                 {
                     "id": "sexe",
                     "componentType": "Radio",
-                    "page": "4.2",
+                    "page": "3.2",
                     "label": {
                         "value": '"Sexe"',
                         "type": "VTL",
@@ -198,11 +132,11 @@ export const source: LunaticSource = {
                     "options": [
                         {
                             "value": "1",
-                            "label": { "value": '"Homme"', "type": "VTL" },
+                            "label": { "value": '"Homme"', "type": "VTL|MD" },
                         },
                         {
                             "value": "2",
-                            "label": { "value": '"Femme"', "type": "VTL" },
+                            "label": { "value": '"Femme"', "type": "VTL|MD" },
                         },
                     ],
                     "response": { "name": "SEXE" },
@@ -210,10 +144,10 @@ export const source: LunaticSource = {
                 {
                     "id": "jsygk7m7",
                     "componentType": "Subsequence",
-                    "page": "4.3",
+                    "page": "3.3",
                     "label": {
                         "value": '"Troisième page de questions " || PRENOMS',
-                        "type": "VTL",
+                        "type": "VTL|MD",
                     },
                     "conditionFilter": { "value": "true", "type": "VTL" },
                 },
@@ -221,10 +155,10 @@ export const source: LunaticSource = {
                     "id": "kmno1n7m",
                     "componentType": "Input",
                     "maxLength": 30,
-                    "page": "4.3",
+                    "page": "3.3",
                     "label": {
                         "value": '"Dites quelque chose."))',
-                        "type": "VTL",
+                        "type": "VTL|MD",
                     },
                     "conditionFilter": {
                         "value": "true",
@@ -240,10 +174,10 @@ export const source: LunaticSource = {
             "componentType": "Sequence",
             "label": {
                 "value": '"Merci !"',
-                "type": "VTL",
+                "type": "VTL|MD",
             },
             "conditionFilter": { "value": "true", "type": "VTL" },
-            "page": "5",
+            "page": "4",
         },
     ],
     "variables": [
@@ -252,7 +186,7 @@ export const source: LunaticSource = {
             "name": "NB_HAB",
             "values": {
                 "PREVIOUS": null,
-                "COLLECTED": null,
+                "COLLECTED": 2,
                 "FORCED": null,
                 "EDITED": null,
                 "INPUTTED": null,
@@ -262,77 +196,66 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "SOMETHING",
             "values": {
-                "PREVIOUS": [null],
-                "COLLECTED": [null],
-                "FORCED": [null],
-                "EDITED": [null],
-                "INPUTTED": [null],
+                "PREVIOUS": [],
+                "COLLECTED": [],
+                "FORCED": [],
+                "EDITED": [],
+                "INPUTTED": [],
             },
         },
         {
             "variableType": "COLLECTED",
-            "name": "COLOR",
+            "name": "AGE",
             "values": {
-                "PREVIOUS": [null],
-                "COLLECTED": [null],
-                "FORCED": [null],
-                "EDITED": [null],
-                "INPUTTED": [null],
+                "PREVIOUS": null,
+                "COLLECTED": [15, 15],
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTTED": null,
             },
         },
         {
             "variableType": "COLLECTED",
             "name": "SEXE",
             "values": {
-                "PREVIOUS": [null],
-                "COLLECTED": [null],
-                "FORCED": [null],
-                "EDITED": [null],
-                "INPUTTED": [null],
+                "PREVIOUS": [],
+                "COLLECTED": [],
+                "FORCED": [],
+                "EDITED": [],
+                "INPUTTED": [],
             },
         },
         {
             "variableType": "COLLECTED",
             "name": "PRENOMS",
             "values": {
-                "PREVIOUS": [null],
-                "COLLECTED": [null],
-                "FORCED": [null],
-                "EDITED": [null],
-                "INPUTTED": [null],
+                "PREVIOUS": null,
+                "COLLECTED": ["Fanny", "Ines"],
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTTED": null,
             },
         },
         {
             "variableType": "COLLECTED",
-            "name": "NOMS",
+            "name": "KNOWREC",
             "values": {
-                "PREVIOUS": [null],
-                "COLLECTED": [null],
-                "FORCED": [null],
-                "EDITED": [null],
-                "INPUTTED": [null],
+                "PREVIOUS": [],
+                "COLLECTED": [],
+                "FORCED": [],
+                "EDITED": [],
+                "INPUTTED": [],
             },
         },
         {
             "variableType": "COLLECTED",
-            "name": "AGES",
+            "name": "PROGRESS",
             "values": {
-                "PREVIOUS": [null],
-                "COLLECTED": [null],
-                "FORCED": [null],
-                "EDITED": [null],
-                "INPUTTED": [null],
-            },
-        },
-        {
-            "variableType": "COLLECTED",
-            "name": "RESIDENTS",
-            "values": {
-                "PREVIOUS": [null],
-                "COLLECTED": [null],
-                "FORCED": [null],
-                "EDITED": [null],
-                "INPUTTED": [null],
+                "PREVIOUS": [],
+                "COLLECTED": [],
+                "FORCED": [],
+                "EDITED": [],
+                "INPUTTED": [],
             },
         },
         {
@@ -342,23 +265,35 @@ export const source: LunaticSource = {
             "bindingDependencies": ["PRENOMS"],
             "inFilter": "true",
         },
+        {
+            "variableType": "CALCULATED",
+            "name": "COMPLETE",
+            "expression": {
+                "value": "not(isnull(KNOWREC)) and not(isnull(SEXE)) and not(isnull(SOMETHING))",
+                "type": "VTL",
+            },
+            "bindingDependencies": ["KNOWREC", "SEXE", "SOMETHING"],
+            "shapeFrom": "PRENOMS",
+            "inFilter": "true",
+        },
+        {
+            "variableType": "CALCULATED",
+            "name": "PARTIAL",
+            "expression": {
+                "value": "not(isnull(KNOWREC)) or not(isnull(SEXE)) or not(isnull(SOMETHING))",
+                "type": "VTL",
+            },
+            "bindingDependencies": ["KNOWREC", "SEXE", "SOMETHING"],
+            "shapeFrom": "PRENOMS",
+            "inFilter": "true",
+        },
     ],
     "resizing": {
         "NB_HAB": {
             "size": "NB_HAB",
-            "variables": ["PRENOMS", "COLOR", "SEXE", "SOMETHING"],
+            "variables": ["PRENOMS", "AGE", "SEXE", "SOMETHING", "DATNAIS"],
         },
     },
-    "label": {
-        "type": "VTL|MD",
-        "value": "Test-Dylan",
-    },
-    "lunaticModelVersion": "2.5.0",
-    "modele": "TESTDYLAN",
-    "enoCoreVersion": "2.7.1",
-    "generatingDate": "06-03-2024 12:46:44",
-    "missing": false,
-    "id": "lsvuvtbg",
 };
 
 export const data: LunaticData = {
@@ -368,35 +303,28 @@ export const data: LunaticData = {
             "FORCED": null,
             "INPUTTED": null,
             "PREVIOUS": null,
-            "COLLECTED": 4,
+            "COLLECTED": 2,
         },
         "PRENOMS": {
             "EDITED": [null],
             "FORCED": [null],
             "INPUTTED": [null],
             "PREVIOUS": [null],
-            "COLLECTED": ["Pierre", "Louise", "Maxime", "Spongebob"],
+            "COLLECTED": ["Fanny", "Ines"],
         },
-        "NOMS": {
+        "AGE": {
             "EDITED": [null],
             "FORCED": [null],
             "INPUTTED": [null],
             "PREVIOUS": [null],
-            "COLLECTED": ["Dupont", "Dupont", "Dupont", "Squarepants"],
+            "COLLECTED": [24, 22],
         },
-        "AGES": {
+        "PROGRESS": {
             "EDITED": [null],
             "FORCED": [null],
             "INPUTTED": [null],
             "PREVIOUS": [null],
-            "COLLECTED": ["30", "35", "12", "99"],
-        },
-        "RESIDENTS": {
-            "EDITED": [null],
-            "FORCED": [null],
-            "INPUTTED": [null],
-            "PREVIOUS": [null],
-            "COLLECTED": ["1", "1", "1", "2"],
+            "COLLECTED": [-1, -1],
         },
     },
 };
