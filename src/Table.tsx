@@ -32,12 +32,20 @@ export const Table: LunaticSlotComponents["Table"] = props => {
                     })}
                 </div>
             )}
-            <div id={id} className={fr.cx("fr-table", "fr-table--bordered")}>
-                <table
-                    {...(hasErrors ? { "aria-invalid": true, "aria-errormessage": errorMessageId } : {})}
-                >
-                    {children}
-                </table>
+            <div id={id} className={fr.cx("fr-table", "fr-table--lg")}>
+                <div className={fr.cx("fr-table__wrapper")}>
+                    <div className={fr.cx("fr-table__container")}>
+                        <div className={fr.cx("fr-table__content")}>
+                            <table
+                                {...(hasErrors
+                                    ? { "aria-invalid": true, "aria-errormessage": errorMessageId }
+                                    : {})}
+                            >
+                                {children}
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     );
