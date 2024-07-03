@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/addon-docs";
-import { useDarkMode } from "storybook-dark-mode";
+import { useIsDark } from "@codegouvfr/react-dsfr/useIsDark";
 
 <Meta title="Introduction" />
 
@@ -7,11 +7,12 @@ import { useDarkMode } from "storybook-dark-mode";
 
 <div style={{ "display": "flex", "justifyContent": "center" }}>
     <img
-        src={
-            useDarkMode()
+        src={(() => {
+            const { isDark } = useIsDark();
+            return isDark
                 ? "https://raw.githubusercontent.com/InseeFr/Lunatic-DSFR/main/overview-dark.png"
-                : "https://raw.githubusercontent.com/InseeFr/Lunatic-DSFR/main/overview-light.png"
-        }
+                : "https://raw.githubusercontent.com/InseeFr/Lunatic-DSFR/main/overview-light.png";
+        })()}
     />
 </div>
 
