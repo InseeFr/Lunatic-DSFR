@@ -47,4 +47,4 @@ export const slotComponents = {
     MarkdownLink,
     Accordion,
 } as Partial<LunaticSlotComponents> satisfies Partial<LunaticSlotComponents>;
-//We must remove `as Partial<LunaticSlotComponents>` when Roundabout and summary refactored
+//We must remove `as Partial<LunaticSlotComponents>` when summary refactored

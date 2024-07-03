@@ -31,11 +31,11 @@ export const Default = {
     args: { source: source, data: data },
 } satisfies Story;
 
-export const RoundaboutWithLockedSetToFalse = {
+export const RoundaboutWithLocked = {
     parameters: {
         docs: {
             description: {
-                story: "If the locked props is set to false then the user can reenter in an iteration even if it has already been completed.",
+                story: "If the locked props is set to true then the user can not reenter in an iteration after that has been completed",
             },
         },
     },
