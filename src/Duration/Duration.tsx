@@ -59,7 +59,19 @@ export const Duration: LunaticSlotComponents["Duration"] = props => {
 
     return (
         <fieldset
-            className={fr.cx("fr-fieldset", state === "error" && "fr-fieldset--error")}
+            className={fr.cx(
+                "fr-fieldset",
+                (() => {
+                    switch (state) {
+                        case "default":
+                            return undefined;
+                        case "error":
+                            return "fr-fieldset--error";
+                        case "success":
+                            return "fr-fieldset--valid";
+                    }
+                })(),
+            )}
             id={`${id}-fieldset`}
             aria-labelledby={`${id}-fieldset-legend ${id}-fieldset-messages`}
         >

@@ -39,10 +39,11 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
             return { year: "", month: "", day: "" };
         }
         const parts = value.split("-");
+
         return {
-            year: parts[0],
-            month: parts[1],
-            day: parts[2],
+            year: parts[0] ?? "",
+            month: parts[1] ?? "",
+            day: parts[2] ?? "",
         };
     };
     const [dateValues, setDateValues] = useState<DateState>(extractDateFromValue);
@@ -84,7 +85,19 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
 
     return (
         <fieldset
-            className={fr.cx("fr-fieldset", state === "error" && "fr-fieldset--error")}
+            className={fr.cx(
+                "fr-fieldset",
+                (() => {
+                    switch (state) {
+                        case "default":
+                            return undefined;
+                        case "error":
+                            return "fr-fieldset--error";
+                        case "success":
+                            return "fr-fieldset--valid";
+                    }
+                })(),
+            )}
             id={`${id}-fieldset`}
             aria-labelledby={`${id}-fieldset-legend ${id}-fieldset-messages`}
         >

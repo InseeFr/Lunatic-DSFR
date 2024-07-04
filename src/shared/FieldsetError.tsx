@@ -12,10 +12,22 @@ export function FiledsetError(props: FiledsetErrorProps) {
 
     if (props.state && stateRelatedMessage) {
         return (
-            <div id={id} className={fr.cx("fr-messages-group")} aria-live="assertive">
+            <div id={id} className={fr.cx("fr-messages-group")} role="alert">
                 <p
                     id={`${id}-${state}`}
-                    className={`fr-message--${state} ${fr.cx("fr-message", "fr-col-12", "fr-mt-0")}`}
+                    className={fr.cx(
+                        "fr-message",
+                        "fr-col-12",
+                        "fr-mt-0",
+                        (() => {
+                            switch (state) {
+                                case "error":
+                                    return "fr-message--error";
+                                case "success":
+                                    return "fr-message--valid";
+                            }
+                        })(),
+                    )}
                 >
                     {stateRelatedMessage}
                 </p>
