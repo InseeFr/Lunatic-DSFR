@@ -37,6 +37,7 @@ export const Table: LunaticSlotComponents["Table"] = props => {
                     <div className={fr.cx("fr-table__container")}>
                         <div className={fr.cx("fr-table__content")}>
                             <table
+                                className={fr.cx("fr-cell--multiline")}
                                 {...(hasErrors
                                     ? { "aria-invalid": true, "aria-errormessage": errorMessageId }
                                     : {})}
