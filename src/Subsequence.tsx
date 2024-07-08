@@ -11,7 +11,7 @@ export const Subsequence: LunaticSlotComponents["Subsequence"] = props => {
     return (
         <div id={id} className={fr.cx("fr-mb-2w")}>
             <h3>{label}</h3>
-            <p>{description}</p>
+            {description && <p>{description}</p>}
             <Declarations type="AFTER_QUESTION_TEXT" declarations={declarations} />
         </div>
     );

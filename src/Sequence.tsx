@@ -15,7 +15,7 @@ export const Sequence: LunaticSlotComponents["Sequence"] = props => {
             style={{ backgroundColor: fr.colors.decisions.background.alt.grey.default }}
         >
             <h2>{label}</h2>
-            <p>{description}</p>
+            {description && <p>{description}</p>}
             <Declarations type="AFTER_QUESTION_TEXT" declarations={declarations} id={id} />
         </div>
     );
