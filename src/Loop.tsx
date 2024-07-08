@@ -18,7 +18,7 @@ export const Loop: LunaticSlotComponents["Loop"] = props => {
         <>
             <label htmlFor={id} id={`label-${id}`}>
                 {label}
-                <span>{description}</span>
+                {description && <span>{description}</span>}
             </label>
             {hasErrors && (
                 <div role="alert">
