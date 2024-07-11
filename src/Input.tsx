@@ -44,7 +44,7 @@ export const Input: LunaticSlotComponents["Input"] = props => {
                 required: required,
                 onChange: e => onChange(e.target.value),
                 readOnly,
-                "aria-describedby": questionId,
+                "aria-labelledby": questionId,
                 ...(state === "error"
                     ? { "aria-invalid": true, "aria-errormessage": errorMessageId }
                     : {}),

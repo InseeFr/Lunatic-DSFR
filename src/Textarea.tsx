@@ -52,7 +52,7 @@ export const Textarea: LunaticSlotComponents["Textarea"] = props => {
                 cols,
                 placeholder: placeHolder,
                 readOnly,
-                "aria-describedby": questionId,
+                "aria-labelledby": questionId,
                 ...(state === "error"
                     ? { "aria-invalid": true, "aria-errormessage": errorMessageId }
                     : {}),

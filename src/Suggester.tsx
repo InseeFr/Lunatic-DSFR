@@ -91,7 +91,7 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
                         nativeInputProps={{
                             ...inputProps,
                             placeholder: "Commencez votre saisie",
-                            "aria-describedby": questionId,
+                            "aria-labelledby": questionId,
                             ...(state === "error"
                                 ? { "aria-invalid": true, "aria-errormessage": errorMessageId }
                                 : {}),
