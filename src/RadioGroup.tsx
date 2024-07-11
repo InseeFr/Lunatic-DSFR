@@ -56,7 +56,7 @@ export const RadioGroup: LunaticSlotComponents["RadioGroup"] = props => {
             })}
             state={state}
             stateRelatedMessage={stateRelatedMessage}
-            aria-labelledby={!label ? questionId : undefined}
+            aria-labelledby={label ? undefined : questionId}
         />
     );
 };

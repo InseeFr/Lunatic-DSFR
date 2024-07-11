@@ -26,7 +26,7 @@ export const Dropdown: LunaticSlotComponents["Dropdown"] = props => {
             nativeSelectProps={{
                 value: value ?? undefined,
                 onChange: e => onChange(e.target.value),
-                "aria-describedby": questionId,
+                "aria-labelledby": questionId,
                 ...(state === "error"
                     ? {
                           "aria-invalid": state === "error",

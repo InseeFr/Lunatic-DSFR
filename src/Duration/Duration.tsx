@@ -77,7 +77,7 @@ export const Duration: LunaticSlotComponents["Duration"] = props => {
                 })(),
             )}
             id={`${id}-fieldset`}
-            aria-labelledby={!label ? questionId : undefined}
+            aria-labelledby={label ? undefined : questionId}
         >
             {hasLegend && (
                 <legend className={fr.cx("fr-fieldset__legend")}>

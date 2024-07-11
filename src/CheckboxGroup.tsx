@@ -28,7 +28,7 @@ export const CheckboxGroup: LunaticSlotComponents["CheckboxGroup"] = props => {
             state={state}
             stateRelatedMessage={stateRelatedMessage}
             orientation={orientation}
-            aria-labelledby={!label ? questionId : undefined}
+            aria-labelledby={label ? undefined : questionId}
         />
     );
 };
