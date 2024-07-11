@@ -68,7 +68,7 @@
         }
     },
     "devDependencies": {
-        "@codegouvfr/react-dsfr": "^1.9.24",
+        "@codegouvfr/react-dsfr": "^1.9.26",
         "@emotion/react": "^11.11.4",
         "@emotion/styled": "^11.11.5",
         "@inseefr/lunatic": "^3.2.2",
