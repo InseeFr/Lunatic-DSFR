@@ -102,7 +102,6 @@ export const source: LunaticSource = {
     "modele": "TESTDYLAN",
     "enoCoreVersion": "2.7.1",
     "generatingDate": "06-03-2024 12:46:44",
-    "missing": false,
     "id": "lsvuvtbg",
     "maxPage": "1",
 };

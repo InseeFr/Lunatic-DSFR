@@ -6,6 +6,7 @@ export const source: LunaticSource = {
             "id": "checkboxbooleanGroupNumeric",
             "componentType": "CheckboxGroup",
             "page": "1",
+            "orientation": "horizontal",
             "label": {
                 "value": "Situation matrimoniale",
                 "type": "TXT",

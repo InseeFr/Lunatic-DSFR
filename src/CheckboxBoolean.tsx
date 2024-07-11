@@ -2,11 +2,16 @@ import { getErrorStates } from "./utils/errorStates";
 import { Checkbox } from "@codegouvfr/react-dsfr/Checkbox";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { useId } from "react";
+import { useQuestionId } from "./Question";
 
+/**
+ * @deprecated will be replaced by a Switch
+ */
 export const CheckboxBoolean: LunaticSlotComponents["CheckboxBoolean"] = props => {
     const { disabled, checked, onChange, label, declarations, description, errors, readOnly } = props;
 
     const id = useId();
+    const questionId = useQuestionId();
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
 
@@ -21,7 +26,7 @@ export const CheckboxBoolean: LunaticSlotComponents["CheckboxBoolean"] = props =
             disabled={disabled || readOnly}
             options={[
                 {
-                    label: <span>{label}</span>,
+                    label: label && <span>{label}</span>,
                     hintText: description,
                     nativeInputProps: {
                         onChange: onChange,
@@ -38,6 +43,7 @@ export const CheckboxBoolean: LunaticSlotComponents["CheckboxBoolean"] = props =
                     },
                 },
             ]}
+            aria-labelledby={questionId}
             state={state}
             stateRelatedMessage={stateRelatedMessage}
         />

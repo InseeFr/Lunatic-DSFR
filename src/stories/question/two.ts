@@ -6,7 +6,18 @@ export const source: LunaticSource = {
     "variables": [
         {
             "variableType": "COLLECTED",
-            "name": "TESTTEXTE",
+            "name": "TESTTEXTE1",
+            "values": {
+                "PREVIOUS": null,
+                "COLLECTED": null,
+                "FORCED": null,
+                "EDITED": null,
+                "INPUTTED": null,
+            },
+        },
+        {
+            "variableType": "COLLECTED",
+            "name": "TESTTEXTE2",
             "values": {
                 "PREVIOUS": null,
                 "COLLECTED": null,
@@ -52,17 +63,34 @@ export const source: LunaticSource = {
             "components": [
                 {
                     "componentType": "Input",
-                    "bindingDependencies": ["TESTTEXTE"],
-                    "response": { "name": "TESTTEXTE" },
+                    "response": { "name": "TESTTEXTE1" },
                     "conditionFilter": {
                         "type": "VTL",
                         "value": "true",
                     },
-                    "id": "kfxn6f16",
-                    "page": "1",
+                    "id": "input1",
                     "label": {
                         "type": "VTL|MD",
-                        "value": '"Label du composant (Input ici)"',
+                        "value": '"Label du composant Input 1"',
+                    },
+                    "description": {
+                        "type": "VTL|MD",
+                        "value": '"Description du composant"',
+                    },
+                    "mandatory": false,
+                    "maxLength": 15,
+                },
+                {
+                    "componentType": "Input",
+                    "response": { "name": "TESTTEXTE2" },
+                    "conditionFilter": {
+                        "type": "VTL",
+                        "value": "true",
+                    },
+                    "id": "input2",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": '"Label du composant Input 2"',
                     },
                     "description": {
                         "type": "VTL|MD",
@@ -84,6 +112,5 @@ export const source: LunaticSource = {
     "modele": "TESTDYLAN",
     "enoCoreVersion": "2.7.1",
     "generatingDate": "06-03-2024 12:46:44",
-    "missing": false,
     "id": "lsvuvtbg",
 };

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { source } from "./default";
+import { source as oneSource } from "./one";
+import { source as twoSource } from "./two";
 import { Orchestrator } from "../Orchestrator";
 
 const meta = {
@@ -11,6 +12,10 @@ export default meta;
 
 type Story = StoryObj<typeof Orchestrator>;
 
-export const Default = {
-    args: { source },
+export const OneComponent = {
+    args: { source: oneSource },
+} satisfies Story;
+
+export const TwoComponents = {
+    args: { source: twoSource },
 } satisfies Story;

@@ -4,6 +4,7 @@ import { useId } from "react";
 export const MarkdownLink: LunaticSlotComponents["MarkdownLink"] = props => {
     const { href, children, tooltip } = props;
 
+    console.log(props);
     const id = useId();
 
     return (

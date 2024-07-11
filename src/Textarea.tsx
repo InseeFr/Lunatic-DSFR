@@ -2,6 +2,7 @@ import { Input } from "@codegouvfr/react-dsfr/Input";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { useId } from "react";
 import { getErrorStates } from "./utils/errorStates";
+import { useQuestionId } from "./Question";
 
 export const Textarea: LunaticSlotComponents["Textarea"] = props => {
     const {
@@ -21,6 +22,8 @@ export const Textarea: LunaticSlotComponents["Textarea"] = props => {
     } = props;
 
     const id = useId();
+    const questionId = useQuestionId();
+
     /**
      * Note that the error message ID follows the format `${id}-desc-error` because this is the convention used by the underlying library react-dsfr
      * See: https://github.com/codegouvfr/react-dsfr/blob/4c41367febcb78307f261df1b761fedb52c8a905/src/Input.tsx#L103
@@ -49,6 +52,7 @@ export const Textarea: LunaticSlotComponents["Textarea"] = props => {
                 cols,
                 placeholder: placeHolder,
                 readOnly,
+                "aria-describedby": questionId,
                 ...(state === "error"
                     ? { "aria-invalid": true, "aria-errormessage": errorMessageId }
                     : {}),
