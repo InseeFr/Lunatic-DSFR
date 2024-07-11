@@ -13,8 +13,6 @@ export default {
     ],
 
     docs: {
-        //👇 See the table below for the list of supported options
-        autodocs: true,
         defaultName: "Documentation",
     },
 

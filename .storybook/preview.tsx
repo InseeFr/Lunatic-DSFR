@@ -32,6 +32,7 @@ const preview = {
             },
         },
     },
+
     parameters: {
         backgrounds: { disable: true },
         docs: {
@@ -48,6 +49,7 @@ const preview = {
             expanded: true,
         },
     },
+
     argTypes: {
         darkMode: {
             control: { type: "boolean" },
@@ -63,6 +65,7 @@ const preview = {
             control: { type: "boolean" },
         },
     },
+
     decorators: [
         (Story, context) => {
             const isStorybookUiDark = useStorybookUiDarkMode();
@@ -87,6 +90,8 @@ const preview = {
             return <Story />;
         },
     ],
+
+    tags: ["autodocs"],
 } satisfies Preview;
 
 export default preview;
