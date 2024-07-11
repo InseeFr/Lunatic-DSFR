@@ -8,6 +8,7 @@ import { buildValueFromDuration, extractDurationFromValue } from "./utils";
 import type { DurationKey, DurationValues, DurationValuesFormat } from "./type";
 import { DateElement } from "./DateElement";
 import { TimeElement } from "./TimeElement";
+import { useQuestionId } from "../Question";
 
 export const Duration: LunaticSlotComponents["Duration"] = props => {
     const {
@@ -24,6 +25,7 @@ export const Duration: LunaticSlotComponents["Duration"] = props => {
     } = props;
 
     const id = useId();
+    const questionId = useQuestionId();
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
 
@@ -57,6 +59,8 @@ export const Duration: LunaticSlotComponents["Duration"] = props => {
         updateDuration<T>(key, values.value);
     };
 
+    const hasLegend = Boolean(label || description);
+
     return (
         <fieldset
             className={fr.cx(
@@ -73,12 +77,14 @@ export const Duration: LunaticSlotComponents["Duration"] = props => {
                 })(),
             )}
             id={`${id}-fieldset`}
-            aria-labelledby={`${id}-fieldset-legend ${id}-fieldset-messages`}
+            aria-labelledby={!label ? questionId : undefined}
         >
-            <legend className={fr.cx("fr-fieldset__legend")} id={`${id}-fieldset-legend`}>
-                {label}
-                {description && <span className={fr.cx("fr-hint-text")}>{description}</span>}
-            </legend>
+            {hasLegend && (
+                <legend className={fr.cx("fr-fieldset__legend")}>
+                    {label}
+                    {description && <span className={fr.cx("fr-hint-text")}>{description}</span>}
+                </legend>
+            )}
 
             {(() => {
                 switch (durationValues.format) {

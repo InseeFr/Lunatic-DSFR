@@ -1,6 +1,7 @@
 import { fr } from "@codegouvfr/react-dsfr";
 import type { LunaticComponentProps, LunaticSlotComponents } from "@inseefr/lunatic";
 import { createContext, useContext } from "react";
+import { useQuestionHasMultipleComponents } from "./Question";
 
 const ComponentParentContext = createContext<LunaticComponentProps["componentType"]>(undefined);
 
@@ -11,7 +12,7 @@ export const ComponentWrapper: LunaticSlotComponents["ComponentWrapper"] = props
 
     return (
         <ComponentParentContext.Provider value={componentType}>
-            {parentComponentType === "Question" ? (
+            {parentComponentType === "Question" && useQuestionHasMultipleComponents() ? (
                 <div className={fr.cx("fr-fieldset__element")}>{children}</div>
             ) : (
                 children

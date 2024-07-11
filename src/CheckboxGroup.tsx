@@ -3,13 +3,15 @@ import { Checkbox } from "@codegouvfr/react-dsfr/Checkbox";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { getErrorStates } from "./utils/errorStates";
 import Input from "@codegouvfr/react-dsfr/Input";
+import { useQuestionId } from "./Question";
 
 export const CheckboxGroup: LunaticSlotComponents["CheckboxGroup"] = props => {
-    const { options, label, description, errors, disabled } = props;
+    const { options, label, description, errors, disabled, orientation } = props;
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
 
     const id = useId();
+    const questionId = useQuestionId();
 
     /**
      * Note that the error message ID follows the format `${id}-messages` because this is the convention used by the underlying library react-dsfr
@@ -25,6 +27,8 @@ export const CheckboxGroup: LunaticSlotComponents["CheckboxGroup"] = props => {
             options={getOptions({ options, error: errorOptions })}
             state={state}
             stateRelatedMessage={stateRelatedMessage}
+            orientation={orientation}
+            aria-labelledby={!label ? questionId : undefined}
         />
     );
 };

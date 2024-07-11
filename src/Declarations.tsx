@@ -48,7 +48,7 @@ const DeclarationAfter = (props: Declaration) => {
     return (
         //@ts-expect-error Disabling title rendering until it's added to the model. Even though it's mandatory, we won't provide it for now.
         <Alert
-            className={fr.cx("fr-fieldset__legend--regular")}
+            style={{ color: fr.colors.decisions.text.default.grey.default }}
             description={label}
             id={id}
             severity="info"

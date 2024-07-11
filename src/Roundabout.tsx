@@ -27,7 +27,7 @@ type RoundaboutItemProps = ItemOf<RoundaboutProps["items"]> & {
 const RoundaboutItem = (props: RoundaboutItemProps) => {
     const { label, progress, onClick, locked, disabled, description } = props;
 
-    const { css, cx } = useStyles();
+    const { css } = useStyles();
     return (
         <>
             <div className={fr.cx("fr-grid-row", "fr-pb-2w", "fr-grid-row--middle")}>
@@ -36,7 +36,7 @@ const RoundaboutItem = (props: RoundaboutItemProps) => {
                     {description && <p>{description}</p>}
                 </div>
 
-                <div className={cx(fr.cx("fr-col-12", "fr-col-md-3"))}>
+                <div className={fr.cx("fr-col-12", "fr-col-md-3")}>
                     <div
                         className={css({
                             [fr.breakpoints.up("md")]: {

@@ -3,6 +3,7 @@ import { Orchestrator } from "../Orchestrator";
 import { source } from "./default";
 import { source as questionSource } from "./question";
 import { source as arbitrarySource } from "./arbitrary";
+import { source as horizontalSource } from "./horizontal";
 
 import type { StoryObj, Meta } from "@storybook/react";
 
@@ -27,6 +28,10 @@ export const Default = { args: { source } } satisfies Story;
 
 export const Arbitrary = {
     args: { source: arbitrarySource },
+} satisfies Story;
+
+export const Horizontal = {
+    args: { source: horizontalSource },
 } satisfies Story;
 
 export const Question = {

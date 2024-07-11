@@ -4,6 +4,7 @@ import { getErrorStates } from "./utils/errorStates";
 import { getNumberSeparators } from "./utils/numbers";
 import { useId } from "react";
 import { CustomInputDsfr } from "./shared/CustomInputDsfr";
+import { useQuestionId } from "./Question";
 
 export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
     const {
@@ -24,6 +25,7 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
     } = props;
 
     const id = useId();
+    const questionId = useQuestionId();
     /**
      * Note that the error message ID follows the format `${id}-desc-error` because this is the convention used by the underlying library react-dsfr
      * See: https://github.com/codegouvfr/react-dsfr/blob/4c41367febcb78307f261df1b761fedb52c8a905/src/Input.tsx#L103
@@ -75,9 +77,7 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
             pattern={"[0-9]*"}
             placeholder={unit}
             value={value}
-            onBlur={e => {
-                e.target.setSelectionRange(0, 0);
-            }}
+            aria-describedby={questionId}
             {...(state === "error" ? { "aria-invalid": true, "aria-errormessage": errorMessageId } : {})}
         />
     );

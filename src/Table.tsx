@@ -2,13 +2,22 @@ import { fr } from "@codegouvfr/react-dsfr";
 import Alert from "@codegouvfr/react-dsfr/Alert";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { useId } from "react";
+import { useQuestionId } from "./Question";
 
 export const Table: LunaticSlotComponents["Table"] = props => {
-    const { children, errors } = props;
+    const { children, errors, declarations, label } = props;
 
     const id = useId();
-    const hasErrors = errors && errors.length > 0;
+    const questionId = useQuestionId();
     const errorMessageId = `${id}-messages`;
+
+    if (declarations) {
+        //TODO throw and handle globaly errors in an alert with a condition to avoid to display alert in prod
+        console.error("Only declaration in Question are displayed");
+    }
+
+    const hasErrors = errors && errors.length > 0;
+
     return (
         <>
             {hasErrors && (
@@ -24,7 +33,7 @@ export const Table: LunaticSlotComponents["Table"] = props => {
                                 severity="error"
                                 description={error.errorMessage}
                                 small
-                                className={fr.cx("fr-mt-1w")}
+                                //className={fr.cx("fr-mt-1w")}
                                 key={error.id}
                                 id={error.id}
                             />
@@ -38,10 +47,12 @@ export const Table: LunaticSlotComponents["Table"] = props => {
                         <div className={fr.cx("fr-table__content")}>
                             <table
                                 className={fr.cx("fr-cell--multiline")}
+                                aria-describedby={label ? questionId : undefined}
                                 {...(hasErrors
                                     ? { "aria-invalid": true, "aria-errormessage": errorMessageId }
                                     : {})}
                             >
+                                {label && <caption>{label}</caption>}
                                 {children}
                             </table>
                         </div>
@@ -74,10 +85,9 @@ export const Tr: LunaticSlotComponents["Tr"] = props => {
 };
 
 export const Td: LunaticSlotComponents["Td"] = props => {
-    const { children, ...rest } = props;
-
+    const { children, colSpan, rowSpan } = props;
     return (
-        <td className={fr.cx("fr-text--md")} {...rest}>
+        <td className={fr.cx("fr-text--md")} colSpan={colSpan} rowSpan={rowSpan}>
             {children}
         </td>
     );

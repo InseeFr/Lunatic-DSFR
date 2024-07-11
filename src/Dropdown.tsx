@@ -3,6 +3,7 @@ import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { Select } from "@codegouvfr/react-dsfr/SelectNext";
 import { useId } from "react";
 import { renderToString } from "react-dom/server";
+import { useQuestionId } from "./Question";
 
 export const Dropdown: LunaticSlotComponents["Dropdown"] = props => {
     const { onChange, options, value, declarations, description, disabled, errors, label, readOnly } =
@@ -17,12 +18,15 @@ export const Dropdown: LunaticSlotComponents["Dropdown"] = props => {
 
     const id = useId();
 
+    const questionId = useQuestionId();
+
     return (
         <Select
             id={id}
             nativeSelectProps={{
                 value: value ?? undefined,
                 onChange: e => onChange(e.target.value),
+                "aria-describedby": questionId,
                 ...(state === "error"
                     ? {
                           "aria-invalid": state === "error",

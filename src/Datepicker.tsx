@@ -6,6 +6,7 @@ import type { Split } from "./utils/type";
 import { NumericFormat, type NumberFormatValues } from "react-number-format";
 import { FiledsetError } from "./shared/FieldsetError";
 import { CustomInputDsfr } from "./shared/CustomInputDsfr";
+import { useQuestionId } from "./Question";
 
 type DateState = { day: string; month: string; year: string };
 
@@ -24,6 +25,8 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
     } = props;
 
     const id = useId();
+    const questionId = useQuestionId();
+
     const errorMessageId = `${id}-messages`;
 
     if (declarations) {
@@ -82,6 +85,7 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
     };
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
+    const hasLegend = Boolean(label || description);
 
     return (
         <fieldset
@@ -99,12 +103,14 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                 })(),
             )}
             id={`${id}-fieldset`}
-            aria-labelledby={`${id}-fieldset-legend ${id}-fieldset-messages`}
+            aria-labelledby={!label ? questionId : undefined}
         >
-            <legend className={fr.cx("fr-fieldset__legend")} id={`${id}-fieldset-legend`}>
-                {label}
-                {description && <span className={fr.cx("fr-hint-text")}>{description}</span>}
-            </legend>
+            {hasLegend && (
+                <legend className={fr.cx("fr-fieldset__legend")}>
+                    {label}
+                    {description && <span className={fr.cx("fr-hint-text")}>{description}</span>}
+                </legend>
+            )}
             {showDay && (
                 <div
                     className={fr.cx(

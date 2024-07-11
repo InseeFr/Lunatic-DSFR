@@ -5,6 +5,7 @@ import { fr } from "@codegouvfr/react-dsfr";
 import { getErrorStates } from "./utils/errorStates";
 import { Button } from "@codegouvfr/react-dsfr/Button";
 import { useId, useState } from "react";
+import { useQuestionId } from "./Question";
 
 export const Suggester: LunaticSlotComponents["Suggester"] = props => {
     const {
@@ -23,6 +24,7 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
     } = props;
 
     const id = useId();
+    const questionId = useQuestionId();
     /**
      * Note that the error message ID follows the format `${id}-desc-error` because this is the convention used by the underlying library react-dsfr
      * See: https://github.com/codegouvfr/react-dsfr/blob/4c41367febcb78307f261df1b761fedb52c8a905/src/Input.tsx#L103
@@ -89,6 +91,7 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
                         nativeInputProps={{
                             ...inputProps,
                             placeholder: "Commencez votre saisie",
+                            "aria-describedby": questionId,
                             ...(state === "error"
                                 ? { "aria-invalid": true, "aria-errormessage": errorMessageId }
                                 : {}),

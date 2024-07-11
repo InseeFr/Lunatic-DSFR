@@ -2,7 +2,7 @@ import type { LunaticSource } from "@inseefr/lunatic";
 
 export const source: LunaticSource = {
     "cleaning": {},
-    "maxPage": "1",
+    "maxPage": "3",
     "variables": [
         {
             "variableType": "COLLECTED",
@@ -103,21 +103,205 @@ export const source: LunaticSource = {
             },
             "name": "TABLEAUCLA33",
         },
+
         {
-            "variableType": "CALCULATED",
-            "expression": {
-                "type": "VTL",
-                "value": "true",
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "FORCED": null,
+                "INPUTTED": null,
+                "PREVIOUS": null,
             },
-            "name": "FILTER_RESULT_LIBELLEDUT",
+            "name": "TAB1_TABLEAUCLA11",
         },
         {
-            "variableType": "CALCULATED",
-            "expression": {
-                "type": "VTL",
-                "value": "true",
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "FORCED": null,
+                "INPUTTED": null,
+                "PREVIOUS": null,
             },
-            "name": "FILTER_RESULT_TABLEAUCLA",
+            "name": "TAB1_TABLEAUCLA21",
+        },
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "FORCED": null,
+                "INPUTTED": null,
+                "PREVIOUS": null,
+            },
+            "name": "TAB1_TABLEAUCLA31",
+        },
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "FORCED": null,
+                "INPUTTED": null,
+                "PREVIOUS": null,
+            },
+            "name": "TAB1_TABLEAUCLA12",
+        },
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "FORCED": null,
+                "INPUTTED": null,
+                "PREVIOUS": null,
+            },
+            "name": "TAB1_TABLEAUCLA22",
+        },
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "FORCED": null,
+                "INPUTTED": null,
+                "PREVIOUS": null,
+            },
+            "name": "TAB1_TABLEAUCLA32",
+        },
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "FORCED": null,
+                "INPUTTED": null,
+                "PREVIOUS": null,
+            },
+            "name": "TAB1_TABLEAUCLA13",
+        },
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "FORCED": null,
+                "INPUTTED": null,
+                "PREVIOUS": null,
+            },
+            "name": "TAB1_TABLEAUCLA23",
+        },
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "FORCED": null,
+                "INPUTTED": null,
+                "PREVIOUS": null,
+            },
+            "name": "TAB1_TABLEAUCLA33",
+        },
+
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "FORCED": null,
+                "INPUTTED": null,
+                "PREVIOUS": null,
+            },
+            "name": "TAB2_TABLEAUCLA11",
+        },
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "FORCED": null,
+                "INPUTTED": null,
+                "PREVIOUS": null,
+            },
+            "name": "TAB2_TABLEAUCLA21",
+        },
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "FORCED": null,
+                "INPUTTED": null,
+                "PREVIOUS": null,
+            },
+            "name": "TAB2_TABLEAUCLA31",
+        },
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "FORCED": null,
+                "INPUTTED": null,
+                "PREVIOUS": null,
+            },
+            "name": "TAB2_TABLEAUCLA12",
+        },
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "FORCED": null,
+                "INPUTTED": null,
+                "PREVIOUS": null,
+            },
+            "name": "TAB2_TABLEAUCLA22",
+        },
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "FORCED": null,
+                "INPUTTED": null,
+                "PREVIOUS": null,
+            },
+            "name": "TAB2_TABLEAUCLA32",
+        },
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "FORCED": null,
+                "INPUTTED": null,
+                "PREVIOUS": null,
+            },
+            "name": "TAB2_TABLEAUCLA13",
+        },
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "FORCED": null,
+                "INPUTTED": null,
+                "PREVIOUS": null,
+            },
+            "name": "TAB2_TABLEAUCLA23",
+        },
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "FORCED": null,
+                "INPUTTED": null,
+                "PREVIOUS": null,
+            },
+            "name": "TAB2_TABLEAUCLA33",
         },
     ],
     "components": [
@@ -162,101 +346,212 @@ export const source: LunaticSource = {
                             "criticality": "INFO",
                             "errorMessage": {
                                 "type": "VTL|MD",
-                                "value": '" La valeur doit être comprise entre 0 et 9999."',
+                                "value": '"Les valeurs du chiffre d\'affaire ne doivent pas être null"',
                             },
                             "typeOfControl": "FORMAT",
                             "control": {
                                 "type": "VTL",
                                 "value":
-                                    "not(not(isnull(TABLEAUCLA33)) and (0>TABLEAUCLA33 or 9999<TABLEAUCLA33))",
+                                    "not(isnull(TABLEAUCLA33) or isnull(TABLEAUCLA13) or isnull(TABLEAUCLA23))",
                             },
                             "id": "luwhnbxk-RDOP-luwhcilc-format-borne-inf-sup",
                         },
+                    ],
+                    "header": [
                         {
-                            "criticality": "INFO",
-                            "errorMessage": {
-                                "type": "VTL|MD",
-                                "value":
-                                    '"Le nombre doit comporter au maximum 0 chiffre(s) après la virgule."',
+                            "label": {
+                                "type": "TXT",
+                                "value": "",
                             },
-                            "typeOfControl": "FORMAT",
-                            "control": {
-                                "type": "VTL",
-                                "value":
-                                    "not(not(isnull(TABLEAUCLA33))  and round(TABLEAUCLA33,0)<>TABLEAUCLA33)",
-                            },
-                            "id": "luwhnbxk-RDOP-luwhcilc-format-decimal",
                         },
                         {
-                            "criticality": "INFO",
-                            "errorMessage": {
-                                "type": "VTL|MD",
-                                "value": '" La valeur doit être comprise entre 0 et 9999."',
+                            "label": {
+                                "type": "TXT",
+                                "value": "Domaines",
                             },
-                            "typeOfControl": "FORMAT",
-                            "control": {
-                                "type": "VTL",
-                                "value":
-                                    "not(not(isnull(TABLEAUCLA23)) and (0>TABLEAUCLA23 or 9999<TABLEAUCLA23))",
-                            },
-                            "id": "luwhnbxk-RDOP-luwh4tva-format-borne-inf-sup",
                         },
                         {
-                            "criticality": "INFO",
-                            "errorMessage": {
-                                "type": "VTL|MD",
-                                "value":
-                                    '"Le nombre doit comporter au maximum 0 chiffre(s) après la virgule."',
+                            "label": {
+                                "type": "TXT",
+                                "value": "Activité",
                             },
-                            "typeOfControl": "FORMAT",
-                            "control": {
-                                "type": "VTL",
-                                "value":
-                                    "not(not(isnull(TABLEAUCLA23))  and round(TABLEAUCLA23,0)<>TABLEAUCLA23)",
-                            },
-                            "id": "luwhnbxk-RDOP-luwh4tva-format-decimal",
                         },
                         {
-                            "criticality": "INFO",
-                            "errorMessage": {
-                                "type": "VTL|MD",
-                                "value": '" La valeur doit être comprise entre 0 et 9999."',
+                            "label": {
+                                "type": "TXT",
+                                "value": "Chiffre d'affaire",
                             },
-                            "typeOfControl": "FORMAT",
-                            "control": {
-                                "type": "VTL",
-                                "value":
-                                    "not(not(isnull(TABLEAUCLA13)) and (0>TABLEAUCLA13 or 9999<TABLEAUCLA13))",
-                            },
-                            "id": "luwhnbxk-RDOP-luwh7btb-format-borne-inf-sup",
-                        },
-                        {
-                            "criticality": "INFO",
-                            "errorMessage": {
-                                "type": "VTL|MD",
-                                "value":
-                                    '"Le nombre doit comporter au maximum 0 chiffre(s) après la virgule."',
-                            },
-                            "typeOfControl": "FORMAT",
-                            "control": {
-                                "type": "VTL",
-                                "value":
-                                    "not(not(isnull(TABLEAUCLA13))  and round(TABLEAUCLA13,0)<>TABLEAUCLA13)",
-                            },
-                            "id": "luwhnbxk-RDOP-luwh7btb-format-decimal",
                         },
                     ],
-                    "positioning": "HORIZONTAL",
-                    "hierarchy": {
-                        "sequence": {
-                            "id": "luwgeoe5",
-                            "page": "1",
-                            "label": {
-                                "type": "VTL|MD",
-                                "value": '"I - " || "Sequence"',
-                            },
-                        },
+                    "conditionFilter": {
+                        "type": "VTL",
+                        "value": "true",
                     },
+                    "id": "table",
+                    "body": [
+                        [
+                            {
+                                "label": {
+                                    "type": "VTL|MD",
+                                    "value": '"Libelle 1"',
+                                },
+                            },
+                            {
+                                "componentType": "Input",
+                                "response": {
+                                    "name": "TABLEAUCLA11",
+                                },
+                                "id": "input11",
+                                "maxLength": 249,
+                            },
+                            {
+                                "componentType": "Input",
+                                "response": {
+                                    "name": "TABLEAUCLA12",
+                                },
+                                "id": "input12",
+                                "maxLength": 249,
+                            },
+                            {
+                                "componentType": "InputNumber",
+                                "unit": "€",
+                                "min": 0.0,
+                                "max": 9999.0,
+                                "response": {
+                                    "name": "TABLEAUCLA13",
+                                },
+                                "decimals": 0,
+                                "id": "input13",
+                            },
+                        ],
+                        [
+                            {
+                                "label": {
+                                    "type": "VTL|MD",
+                                    "value": '"Libelle 2"',
+                                },
+                            },
+                            {
+                                "componentType": "Input",
+                                "response": {
+                                    "name": "TABLEAUCLA21",
+                                },
+                                "id": "input21",
+                                "maxLength": 249,
+                            },
+                            {
+                                "componentType": "Input",
+                                "response": {
+                                    "name": "TABLEAUCLA22",
+                                },
+                                "id": "input22",
+                                "maxLength": 249,
+                            },
+                            {
+                                "componentType": "InputNumber",
+                                "unit": "€",
+                                "min": 0.0,
+                                "max": 9999.0,
+                                "response": {
+                                    "name": "TABLEAUCLA23",
+                                },
+                                "decimals": 0,
+                                "id": "input23",
+                            },
+                        ],
+                        [
+                            {
+                                "label": {
+                                    "type": "VTL|MD",
+                                    "value": '"Libelle 3"',
+                                },
+                            },
+                            {
+                                "componentType": "Input",
+                                "response": {
+                                    "name": "TABLEAUCLA31",
+                                },
+                                "id": "input31",
+                                "maxLength": 249,
+                            },
+                            {
+                                "componentType": "Input",
+                                "response": {
+                                    "name": "TABLEAUCLA32",
+                                },
+                                "id": "luwhnbxk-RDOP-luwhd3mk",
+                                "maxLength": 249,
+                            },
+                            {
+                                "componentType": "InputNumber",
+                                "unit": "€",
+                                "min": 0.0,
+                                "max": 9999.0,
+                                "response": {
+                                    "name": "TABLEAUCLA33",
+                                },
+                                "decimals": 0,
+                                "id": "input32",
+                            },
+                        ],
+                    ],
+                    "mandatory": false,
+                },
+            ],
+        },
+
+        {
+            "componentType": "Question",
+            "id": "idQuestion2",
+            "page": "2",
+            "label": {
+                "type": "VTL|MD",
+                "value": '"Question avec 2 composants Table"',
+            },
+            "description": {
+                "type": "VTL|MD",
+                "value": '"Description de la question"',
+            },
+            "declarations": [
+                {
+                    "declarationType": "HELP",
+                    "id": "idQuestion-help1",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": '"Label de la déclaration en position : `BEFORE_QUESTION_TEXT`"',
+                    },
+                    "position": "BEFORE_QUESTION_TEXT",
+                },
+                {
+                    "declarationType": "HELP",
+                    "id": "idQuestion-help3",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value":
+                            '"Label de la déclaration en position  en position : `AFTER_QUESTION_TEXT`"',
+                    },
+                    "position": "AFTER_QUESTION_TEXT",
+                },
+            ],
+            "components": [
+                {
+                    "componentType": "Table",
+                    "controls": [
+                        {
+                            "criticality": "INFO",
+                            "errorMessage": {
+                                "type": "VTL|MD",
+                                "value": '"Les valeurs du chiffre d\'affaire ne doivent pas être null"',
+                            },
+                            "typeOfControl": "FORMAT",
+                            "control": {
+                                "type": "VTL",
+                                "value":
+                                    "not(isnull(TAB1_TABLEAUCLA33) or isnull(TAB1_TABLEAUCLA13) or isnull(TAB1_TABLEAUCLA23))",
+                            },
+                            "id": "control-tab1",
+                        },
+                    ],
                     "header": [
                         {
                             "label": {
@@ -287,11 +582,10 @@ export const source: LunaticSource = {
                         "type": "VTL",
                         "value": "true",
                     },
-                    "id": "luwhnbxk",
-                    "page": "1",
+                    "id": "table-1",
                     "label": {
                         "type": "VTL|MD",
-                        "value": '"Label du composant Table"',
+                        "value": '"Label du composant Table 1"',
                     },
                     "body": [
                         [
@@ -304,17 +598,17 @@ export const source: LunaticSource = {
                             {
                                 "componentType": "Input",
                                 "response": {
-                                    "name": "TABLEAUCLA11",
+                                    "name": "TAB1_TABLEAUCLA11",
                                 },
-                                "id": "luwhnbxk-RDOP-luwhcrpg",
+                                "id": "TAB1_INPUT11",
                                 "maxLength": 249,
                             },
                             {
                                 "componentType": "Input",
                                 "response": {
-                                    "name": "TABLEAUCLA12",
+                                    "name": "TAB1_TABLEAUCLA12",
                                 },
-                                "id": "luwhnbxk-RDOP-luwhnkls",
+                                "id": "TAB1_INPUT12",
                                 "maxLength": 249,
                             },
                             {
@@ -323,10 +617,10 @@ export const source: LunaticSource = {
                                 "min": 0.0,
                                 "max": 9999.0,
                                 "response": {
-                                    "name": "TABLEAUCLA13",
+                                    "name": "TAB1_TABLEAUCLA13",
                                 },
                                 "decimals": 0,
-                                "id": "luwhnbxk-RDOP-luwh7btb",
+                                "id": "TAB1_INPUT13",
                             },
                         ],
                         [
@@ -335,22 +629,21 @@ export const source: LunaticSource = {
                                     "type": "VTL|MD",
                                     "value": '"Libelle 2"',
                                 },
-                                "value": "2",
                             },
                             {
                                 "componentType": "Input",
                                 "response": {
-                                    "name": "TABLEAUCLA21",
+                                    "name": "TAB1_TABLEAUCLA21",
                                 },
-                                "id": "luwhnbxk-RDOP-luwhmbp1",
+                                "id": "TAB1_INPUT21",
                                 "maxLength": 249,
                             },
                             {
                                 "componentType": "Input",
                                 "response": {
-                                    "name": "TABLEAUCLA22",
+                                    "name": "TAB1_TABLEAUCLA22",
                                 },
-                                "id": "luwhnbxk-RDOP-luwhlejc",
+                                "id": "TAB1_INPUT22",
                                 "maxLength": 249,
                             },
                             {
@@ -359,10 +652,10 @@ export const source: LunaticSource = {
                                 "min": 0.0,
                                 "max": 9999.0,
                                 "response": {
-                                    "name": "TABLEAUCLA23",
+                                    "name": "TAB1_TABLEAUCLA23",
                                 },
                                 "decimals": 0,
-                                "id": "luwhnbxk-RDOP-luwh4tva",
+                                "id": "TAB1_INPUT23",
                             },
                         ],
                         [
@@ -371,22 +664,21 @@ export const source: LunaticSource = {
                                     "type": "VTL|MD",
                                     "value": '"Libelle 3"',
                                 },
-                                "value": "3",
                             },
                             {
                                 "componentType": "Input",
                                 "response": {
-                                    "name": "TABLEAUCLA31",
+                                    "name": "TAB1_TABLEAUCLA31",
                                 },
-                                "id": "luwhnbxk-RDOP-luwhalhn",
+                                "id": "TAB1_INPUT31",
                                 "maxLength": 249,
                             },
                             {
                                 "componentType": "Input",
                                 "response": {
-                                    "name": "TABLEAUCLA32",
+                                    "name": "TAB1_TABLEAUCLA32",
                                 },
-                                "id": "luwhnbxk-RDOP-luwhd3mk",
+                                "id": "TAB1_INPUT32",
                                 "maxLength": 249,
                             },
                             {
@@ -395,16 +687,188 @@ export const source: LunaticSource = {
                                 "min": 0.0,
                                 "max": 9999.0,
                                 "response": {
-                                    "name": "TABLEAUCLA33",
+                                    "name": "TAB1_TABLEAUCLA33",
                                 },
                                 "decimals": 0,
-                                "id": "luwhnbxk-RDOP-luwhcilc",
+                                "id": "TAB1_INPUT33",
+                            },
+                        ],
+                    ],
+                    "mandatory": false,
+                },
+                {
+                    "componentType": "Table",
+                    "controls": [
+                        {
+                            "criticality": "INFO",
+                            "errorMessage": {
+                                "type": "VTL|MD",
+                                "value": '"Les valeurs du chiffre d\'affaire ne doivent pas être null"',
+                            },
+                            "typeOfControl": "FORMAT",
+                            "control": {
+                                "type": "VTL",
+                                "value":
+                                    "not(isnull(TAB2_TABLEAUCLA33) or isnull(TAB2_TABLEAUCLA13) or isnull(TAB2_TABLEAUCLA23))",
+                            },
+                            "id": "control-tab2",
+                        },
+                    ],
+                    "header": [
+                        {
+                            "label": {
+                                "type": "VTL|MD",
+                                "value": "",
+                            },
+                        },
+                        {
+                            "label": {
+                                "type": "VTL|MD",
+                                "value": '"Domaines"',
+                            },
+                        },
+                        {
+                            "label": {
+                                "type": "VTL|MD",
+                                "value": '"Activité"',
+                            },
+                        },
+                        {
+                            "label": {
+                                "type": "VTL|MD",
+                                "value": '"Chiffre d\'affaire"',
+                            },
+                        },
+                    ],
+                    "conditionFilter": {
+                        "type": "VTL",
+                        "value": "true",
+                    },
+                    "id": "table-2",
+                    "label": {
+                        "type": "VTL|MD",
+                        "value": '"Label du composant Table 2"',
+                    },
+                    "body": [
+                        [
+                            {
+                                "label": {
+                                    "type": "VTL|MD",
+                                    "value": '"Libelle 1"',
+                                },
+                            },
+                            {
+                                "componentType": "Input",
+                                "response": {
+                                    "name": "TAB2_TABLEAUCLA11",
+                                },
+                                "id": "TAB2_INPUT11",
+                                "maxLength": 249,
+                            },
+                            {
+                                "componentType": "Input",
+                                "response": {
+                                    "name": "TAB2_TABLEAUCLA12",
+                                },
+                                "id": "TAB2_INPUT12",
+                                "maxLength": 249,
+                            },
+                            {
+                                "componentType": "InputNumber",
+                                "unit": "€",
+                                "min": 0.0,
+                                "max": 9999.0,
+                                "response": {
+                                    "name": "TAB2_TABLEAUCLA13",
+                                },
+                                "decimals": 0,
+                                "id": "TAB2_INPUT13",
+                            },
+                        ],
+                        [
+                            {
+                                "label": {
+                                    "type": "VTL|MD",
+                                    "value": '"Libelle 2"',
+                                },
+                            },
+                            {
+                                "componentType": "Input",
+                                "response": {
+                                    "name": "TAB2_TABLEAUCLA21",
+                                },
+                                "id": "TAB2_INPUT21",
+                                "maxLength": 249,
+                            },
+                            {
+                                "componentType": "Input",
+                                "response": {
+                                    "name": "TAB2_TABLEAUCLA22",
+                                },
+                                "id": "TAB2_INPUT22",
+                                "maxLength": 249,
+                            },
+                            {
+                                "componentType": "InputNumber",
+                                "unit": "€",
+                                "min": 0.0,
+                                "max": 9999.0,
+                                "response": {
+                                    "name": "TAB2_TABLEAUCLA23",
+                                },
+                                "decimals": 0,
+                                "id": "TAB2_INPUT23",
+                            },
+                        ],
+                        [
+                            {
+                                "label": {
+                                    "type": "VTL|MD",
+                                    "value": '"Libelle 3"',
+                                },
+                            },
+                            {
+                                "componentType": "Input",
+                                "response": {
+                                    "name": "TAB2_TABLEAUCLA31",
+                                },
+                                "id": "TAB2_INPUT31",
+                                "maxLength": 249,
+                            },
+                            {
+                                "componentType": "Input",
+                                "response": {
+                                    "name": "TAB2_TABLEAUCLA32",
+                                },
+                                "id": "TAB2_INPUT32",
+                                "maxLength": 249,
+                            },
+                            {
+                                "componentType": "InputNumber",
+                                "unit": "€",
+                                "min": 0.0,
+                                "max": 9999.0,
+                                "response": {
+                                    "name": "TAB2_TABLEAUCLA33",
+                                },
+                                "decimals": 0,
+                                "id": "TAB2_INPUT33",
                             },
                         ],
                     ],
                     "mandatory": false,
                 },
             ],
+        },
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": '"Bye!"',
+                "type": "VTL|MD",
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "3",
         },
     ],
     "pagination": "question",
@@ -417,6 +881,5 @@ export const source: LunaticSource = {
     "modele": "TESTDYLAN",
     "enoCoreVersion": "2.7.1",
     "generatingDate": "06-03-2024 12:46:44",
-    "missing": false,
     "id": "lsvuvtbg",
-} as any; //TODO remove any
+};
