@@ -44,7 +44,7 @@ function getOptions({
         const { label, description, name, onCheck, checked } = option;
         const displayArbitraryInput = !!option.onDetailChange && option.checked;
         return {
-            label: <span>{label}</span>,
+            label: <div>{label}</div>,
             hintText: displayArbitraryInput ? (
                 <>
                     {description}

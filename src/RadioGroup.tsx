@@ -29,7 +29,7 @@ export const RadioGroup: LunaticSlotComponents["RadioGroup"] = props => {
             options={options.map(option => {
                 const displayArbitraryInput = !!option.onDetailChange && option.checked;
                 return {
-                    label: <span>{option.label}</span>,
+                    label: <div>{option.label}</div>,
                     hintText: displayArbitraryInput ? (
                         <>
                             {option.description}
