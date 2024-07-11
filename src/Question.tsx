@@ -59,7 +59,7 @@ export const Question: LunaticSlotComponents["Question"] = props => {
                     <div className={fr.cx("fr-fieldset__content")}>{children}</div>
                 </fieldset>
             ) : (
-                <div>
+                <div className={fr.cx("fr-mb-4v")}>
                     <div className={fr.cx("fr-pb-2w")}>
                         <div id={id}>
                             <h4 className={fr.cx("fr-mb-2v")}>{label}</h4>
