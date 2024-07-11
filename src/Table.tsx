@@ -25,7 +25,9 @@ export const Table: LunaticSlotComponents["Table"] = props => {
                     {errors.map(error => {
                         if (!error.errorMessage) {
                             //TODO throw error
-                            console.error(`The error : ${error} do not contains message`);
+                            console.error(
+                                `The error : ${JSON.stringify(error)} do not contains message`,
+                            );
                             return;
                         }
                         return (
@@ -33,7 +35,6 @@ export const Table: LunaticSlotComponents["Table"] = props => {
                                 severity="error"
                                 description={error.errorMessage}
                                 small
-                                //className={fr.cx("fr-mt-1w")}
                                 key={error.id}
                                 id={error.id}
                             />
