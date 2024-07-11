@@ -142,6 +142,16 @@ export const source: LunaticSource = {
                 },
             ],
         },
+        {
+            "id": "seq",
+            "componentType": "Sequence",
+            "label": {
+                "value": '"Bye!"',
+                "type": "VTL|MD",
+            },
+            "conditionFilter": { "value": "true", "type": "VTL" },
+            "page": "3",
+        },
     ],
     "pagination": "question",
     "resizing": {},
