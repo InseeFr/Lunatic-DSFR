@@ -71,6 +71,8 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
             }}
             renderInput={params => {
                 const { InputProps, disabled, id, inputProps } = params;
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                const { className, ...muiInputProps } = inputProps;
                 return (
                     <Input
                         ref={InputProps.ref}
@@ -81,15 +83,16 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
                         id={id}
                         addon={
                             <Button
-                                iconId="fr-icon-delete-line"
+                                iconId="ri-close-line"
                                 priority="secondary"
                                 onClick={onClear}
                                 title="vider le champ"
+                                disabled={inputValue === ""}
                             />
                         }
                         disabled={disabled}
                         nativeInputProps={{
-                            ...inputProps,
+                            ...muiInputProps,
                             placeholder: "Commencez votre saisie",
                             "aria-labelledby": questionId,
                             ...(state === "error"
