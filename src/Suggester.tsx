@@ -71,8 +71,6 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
             }}
             renderInput={params => {
                 const { InputProps, disabled, id, inputProps } = params;
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                const { className, ...muiInputProps } = inputProps;
                 return (
                     <Input
                         ref={InputProps.ref}
@@ -92,7 +90,7 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
                         }
                         disabled={disabled}
                         nativeInputProps={{
-                            ...muiInputProps,
+                            ...inputProps,
                             placeholder: "Commencez votre saisie",
                             "aria-labelledby": questionId,
                             ...(state === "error"
