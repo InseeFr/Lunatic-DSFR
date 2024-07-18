@@ -1,14 +1,13 @@
 import type { Preview } from "@storybook/react";
 import { darkTheme, lightTheme } from "./customTheme";
-import "./static/dsfr/utility/icons/icons.min.css";
-import "./static/dsfr/dsfr.css";
+import "@codegouvfr/react-dsfr/dsfr/utility/icons/icons.min.css";
+import "@codegouvfr/react-dsfr/dsfr/dsfr.min.css";
 import { startReactDsfr } from "@codegouvfr/react-dsfr/spa";
 import { useIsDark as useIsDsfrDark } from "@codegouvfr/react-dsfr/useIsDark";
 import { useDarkMode as useStorybookUiDarkMode } from "storybook-dark-mode";
-import { useEffectOnValueChange } from "../src/hooks/useEffectOnValueChange";
 import type { Channel } from "@storybook/channels";
 import { UPDATE_STORY_ARGS } from "@storybook/core-events";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { DocsContainer } from "./DocsContainer";
 
 const defaultLang = "fr";
@@ -95,3 +94,20 @@ const preview = {
 } satisfies Preview;
 
 export default preview;
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function useEffectOnValueChange<T extends readonly [value: any, ...moreValues: any[]]>(
+    effect: (...args: T) => void | (() => void),
+    values: T,
+): void {
+    const refIsFistRender = useRef(true);
+
+    useEffect(() => {
+        if (refIsFistRender.current) {
+            refIsFistRender.current = false;
+            return;
+        }
+
+        return effect(...values);
+    }, values);
+}

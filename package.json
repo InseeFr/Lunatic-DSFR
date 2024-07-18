@@ -23,9 +23,9 @@
         "link-in-main-project": "ts-node --skipProject scripts/link-in-app.ts",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
-        "prestorybook": "copy-dsfr-to-public --publicDir .storybook/static && only-include-used-icons --publicDir .storybook/static",
-        "prebuild-storybook": "yarn prestorybook",
-        "prepare": "husky",
+        "prestorybook": "react-dsfr include-used-icons",
+        "prebuild-storybook": "react-dsfr include-used-icon",
+        "postinstall": "husky",
         "test:e2e": "playwright test",
         "test:e2e:visual": "playwright test --headed --debug e2e/pairwise.spec.ts",
         "test:e2e:codegen": "playwright codegen http://localhost:6006/iframe.html?viewMode=story&id="
@@ -54,7 +54,7 @@
     "keywords": [],
     "homepage": "https://inseefr.github.io/Lunatic-DSFR",
     "peerDependencies": {
-        "@codegouvfr/react-dsfr": "^1.9.0",
+        "@codegouvfr/react-dsfr": "^1.10.2",
         "@emotion/react": "^11.9.0",
         "@inseefr/lunatic": "^3.0.0",
         "@mui/material": "^5.15.0",
@@ -68,7 +68,7 @@
         }
     },
     "devDependencies": {
-        "@codegouvfr/react-dsfr": "^1.9.31",
+        "@codegouvfr/react-dsfr": "^1.10.2",
         "@emotion/react": "^11.11.4",
         "@emotion/styled": "^11.11.5",
         "@inseefr/lunatic": "^3.2.2",

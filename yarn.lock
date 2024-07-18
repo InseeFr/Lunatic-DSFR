@@ -1080,10 +1080,10 @@
   resolved "https://registry.yarnpkg.com/@base2/pretty-print-object/-/pretty-print-object-1.0.1.tgz#371ba8be66d556812dc7fb169ebc3c08378f69d4"
   integrity sha512-4iri8i1AqYHJE2DstZYkyEprg6Pq6sKx3xn5FpySk9sNhH7qN2LLlHJCfDTZRILNwQNPD7mATWM0TBui7uC1pA==
 
-"@codegouvfr/react-dsfr@^1.9.31":
-  version "1.9.31"
-  resolved "https://registry.yarnpkg.com/@codegouvfr/react-dsfr/-/react-dsfr-1.9.31.tgz#b8747a20344766fbf2692c82d4fe77f26923cf99"
-  integrity sha512-rE6SfshC/NmqkX6vbQiHtej5VhLkzAovDJmrqNY4CByF6ROkoUNmmphJJsQ6lUmttQ2QH2pAeesgdhjEqnsdgA==
+"@codegouvfr/react-dsfr@^1.10.2":
+  version "1.10.2"
+  resolved "https://registry.yarnpkg.com/@codegouvfr/react-dsfr/-/react-dsfr-1.10.2.tgz#d106e0e4dbc4cdbd9481eae95d3e8e0c1c2f79d5"
+  integrity sha512-L+LoJ7uZPMogc0OfnNEA7qSinFtrpGzK8kiagXPtPUxVEfeBjkHMYgBvAacducjvLd03CoMyQ4h368QH+ws+PQ==
   dependencies:
     tsafe "^1.6.3"
     yargs-parser "^21.1.1"

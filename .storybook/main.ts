@@ -24,7 +24,7 @@ export default {
     core: {
         builder: "@storybook/builder-vite",
     },
-    staticDirs: ["./static"],
+    staticDirs: ["./static", "../node_modules/@codegouvfr/react-dsfr"],
 
     async viteFinal(config) {
         const { mergeConfig } = await import("vite");
