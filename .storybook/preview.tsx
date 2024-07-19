@@ -1,7 +1,6 @@
 import type { Preview } from "@storybook/react";
 import { darkTheme, lightTheme } from "./customTheme";
-import "@codegouvfr/react-dsfr/dsfr/utility/icons/icons.min.css";
-import "@codegouvfr/react-dsfr/dsfr/dsfr.min.css";
+import "@codegouvfr/react-dsfr/main.css";
 import { startReactDsfr } from "@codegouvfr/react-dsfr/spa";
 import { useIsDark as useIsDsfrDark } from "@codegouvfr/react-dsfr/useIsDark";
 import { useDarkMode as useStorybookUiDarkMode } from "storybook-dark-mode";
