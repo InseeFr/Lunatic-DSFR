@@ -23,8 +23,7 @@ export function extractDurationFromValue(
     }
 
     const regex = new RegExp(format.replaceAll("n", "(\\d+)"));
-
-    const match = value.match(regex);
+    const match = RegExp(regex).exec(value);
 
     if (!match) {
         throw new Error(`Invalid duration value "${value}" does not match the format "${format}"`);
@@ -56,7 +55,7 @@ export const buildValueFromDuration = (params: DurationValues) => {
         if (hours === "" && minutes === "") {
             return null;
         }
-        return `PT${hours === "" ? "O" : hours}H${minutes === "" ? "O" : minutes}M`;
+        return `PT${hours === "" ? "0" : hours}H${minutes === "" ? "0" : minutes}M`;
     }
     throw new Error(`Invalid format "${format}"`);
 };
