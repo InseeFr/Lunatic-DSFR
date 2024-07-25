@@ -38,6 +38,7 @@ jobs:
             - uses: bahmutov/npm-install@v1
               env:
                   XDG_CACHE_HOME: "/home/runner/.cache/yarn"
+            - run: yarn test
             - run: yarn build
             - name: Build Storybook
               run: yarn run build-storybook
