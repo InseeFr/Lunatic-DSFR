@@ -7,7 +7,7 @@ export const source: LunaticSource = {
         "value": "DSFR  - tableaux dynamiques issue 1059",
     },
     "modele": "DSFRCOMPOS",
-    "maxPage": "4",
+    "maxPage": "3",
     "resizing": {},
     "variables": [
         {
@@ -80,21 +80,8 @@ export const source: LunaticSource = {
     ],
     "components": [
         {
-            "id": "lst6jn38",
-            "page": "1",
-            "label": {
-                "type": "VTL|MD",
-                "value": '"I - " || "S1"',
-            },
-            "componentType": "Sequence",
-            "conditionFilter": {
-                "type": "VTL",
-                "value": "true",
-            },
-        },
-        {
             "id": "question-lsvppebo",
-            "page": "2",
+            "page": "1",
             "label": {
                 "type": "VTL|MD",
                 "value": '"1\\. " || "Tableau dynamique type Estanp 10 lignes max"',
@@ -250,7 +237,7 @@ export const source: LunaticSource = {
         },
         {
             "id": "question-lxugy742",
-            "page": "3",
+            "page": "2",
             "label": {
                 "type": "VTL|MD",
                 "value": '"2\\. " || "Quel est le produit ?"',
@@ -286,7 +273,7 @@ export const source: LunaticSource = {
         },
         {
             "id": "lt72r9cn",
-            "page": "4",
+            "page": "3",
             "label": {
                 "type": "VTL|MD",
                 "value": '"II - " || "FIN"',
