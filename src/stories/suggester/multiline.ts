@@ -24,6 +24,29 @@ export const source: LunaticSource = {
             "iterationReference": "lsvppebo",
         },
         {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "INPUTTED": null,
+                "FORCED": null,
+                "PREVIOUS": null,
+            },
+            "name": "SUGGESTER_SUGG_LABEL",
+        },
+        {
+            "variableType": "COLLECTED",
+            "values": {
+                "COLLECTED": null,
+                "EDITED": null,
+                "INPUTTED": null,
+                "FORCED": null,
+                "PREVIOUS": null,
+            },
+            "name": "SUGGESTER_QUELESTLEP_LABEL",
+        },
+
+        {
             "name": "CA",
             "values": {
                 "EDITED": [],
@@ -189,6 +212,12 @@ export const source: LunaticSource = {
                             },
                             "storeName": "L_DECHETS",
                             "componentType": "Suggester",
+                            "optionResponses": [
+                                {
+                                    "name": "SUGGESTER_SUGG_LABEL",
+                                    "attribute": "label",
+                                },
+                            ],
                         },
                         {
                             "id": "lsvppebo-RDOP-lyphj3dg",
@@ -252,6 +281,12 @@ export const source: LunaticSource = {
                     "mandatory": false,
                     "storeName": "L_DECHETS",
                     "componentType": "Suggester",
+                    "optionResponses": [
+                        {
+                            "name": "SUGGESTER_QUELESTLEP_LABEL",
+                            "attribute": "label",
+                        },
+                    ],
                 },
             ],
             "declarations": [

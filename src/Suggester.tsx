@@ -30,10 +30,9 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
      * See: https://github.com/codegouvfr/react-dsfr/blob/4c41367febcb78307f261df1b761fedb52c8a905/src/Input.tsx#L103
      */
 
-    const inputValue = ((search || value[0]?.label) ?? "").toString();
+    const inputValue = ((value[0]?.label || search) ?? "").toString();
     const { state: errorState, stateRelatedMessage } = getErrorStates(errors);
 
-    console.log({ inputValue, search, value, options });
     return (
         <Autocomplete
             id={id}
@@ -55,12 +54,13 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
                 }
                 return option.label;
             }}
-            onInputChange={(_, v) => {
-                onSearch(v);
+            onInputChange={(e, v) => {
+                if (e && e.type === "change") {
+                    onSearch(v);
+                }
             }}
             renderInput={params => {
                 const errorMessageId = `${params.id}-desc-error`; //we use the same convention as react-dsfr
-
                 return (
                     <div
                         ref={params.InputProps.ref}
