@@ -2,6 +2,7 @@ import { Orchestrator } from "../Orchestrator";
 
 import { source } from "./source";
 import { source as arbitrarySource } from "./arbitrary";
+import { source as multilineSource } from "./multiline";
 import { source as questionSource } from "./question";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -38,6 +39,9 @@ export const Arbitrary = {
     args: { source: arbitrarySource },
 } satisfies Story;
 
+export const Multiline = {
+    args: { source: multilineSource },
+} satisfies Story;
 export const Question = {
     args: { source: questionSource },
 } satisfies Story;
