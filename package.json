@@ -72,7 +72,7 @@
         "@codegouvfr/react-dsfr": "^1.10.11",
         "@emotion/react": "^11.13.0",
         "@emotion/styled": "^11.13.0",
-        "@inseefr/lunatic": "^3.2.4",
+        "@inseefr/lunatic": "^3.3.0",
         "@mui/material": "^5.16.5",
         "@playwright/test": "^1.45.3",
         "@storybook/addon-a11y": "^8.2.6",
