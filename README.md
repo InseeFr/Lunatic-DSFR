@@ -18,7 +18,7 @@ This library is designed to be an opt-in solution to replace the native style of
 
 **To visualise the Storybook**
 
-Currently the storybook is not deployed. In order to visualise and test the components you can launch the storybook locally. It is also recommended that any proposed changes to any components or any new components be tested in the storybook before proposing a PR.
+The storybook is deployed [here](https://inseefr.github.io/Lunatic-DSFR/storybook/). In order to visualise and test the components you can launch the storybook locally. It is also recommended that any proposed changes to any components or any new components be tested in the storybook before proposing a PR.
 
 To launch the storybook locally, ensure that you have cloned the repository.
 
@@ -31,47 +31,46 @@ Once you have the repository cloned locally, navigate to the folder containing t
 ```bash
 cd lunatic-dsfr
 yarn install
+yarn storybook
 ```
 
 Now you are ready to launch the storybook, which will be accessible at [localhost:6006](http://localhost:6006/)
 
-**Connect Lunatic-DSFR with `useLunatic()`**
+**Connect Lunatic-DSFR with Lunatic**
 
-In any application that uses the [Lunatic components library](https://github.com/InseeFr/Lunatic), it is possible to over-ride the native Lunatic components by injecting **Lunatic-DSFR** as an argument in the `uselunatic()` function.
+In any application that uses the [Lunatic components library](https://github.com/InseeFr/Lunatic), it is possible to override the native Lunatic components by injecting **Lunatic-DSFR** ones. These process is detailed in Lunatic Documentation [here](https://inseefr.github.io/Lunatic/docs/components/personnalisation).
 
-To use Lunatic-DSFR, first install the package into your application that calls `useLunatic()`:
+To use Lunatic-DSFR, first install theses packages into your application :
 
 ```bash
-yarn add @inseefr/lunatic-dsfr
+yarn add @inseefr/lunatic-dsfr @codegouvfr/react-dsfr tss-react @emotion/react
 ```
 
-Import the Lunatic-DSFR components in the file where you call `useLunatic()`:
+Import the Lunatic-DSFR components in the file where you use `LunaticComponents`:
 
 ```js
-import { customComponents } from "@inseefr/lunatic-dsfr";
+import { slotComponents } from "@inseefr/lunatic-dsfr";
 ```
 
-Then inject `custom: customComponents` as an argument of the `useLunatic()` function:
+Then inject `slotComponents` into `LunaticComponents`
 
 ```js
-const {
-    getComponents,
-    goPreviousPage,
-    goNextPage,
-    isFirstPage,
-    isLastPage,
-    goToPage,
-    getData,
-    Provider,
-    compileControls,
-    pageTag,
-} = useLunatic(source, data, {
-    getReferentiel,
-    preferences,
-    features,
-    savingType,
-    autoSuggesterloading,
-    onChange,
-    custom: customComponents,
-});
+<LunaticComponents slots={slots} />
+```
+
+If you use `Suggester` component you will need to add these dependencies for [MUI](https://mui.com/) :
+
+```bash
+yarn add @mui/material @emotion/styled
+
+```
+
+Finally surround the `LunaticComponents` by the `MuiDsfrThemeProvider` provided by [`@codegouvfr/react-dsfr`](https://react-dsfr.codegouv.studio/mui)
+
+```js
+<MuiDsfrThemeProvider>
+    {/*...*/}
+    <LunaticComponents slots={slots} />
+    {/*...*/}
+</MuiDsfrThemeProvider>
 ```
