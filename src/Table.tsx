@@ -21,10 +21,9 @@ export const Table: LunaticSlotComponents["Table"] = props => {
     return (
         <>
             {hasErrors && (
-                <div id={errorMessageId} role="alert">
+                <div id={errorMessageId} role="alert" className={fr.cx("fr-mb-2v")}>
                     {errors.map(error => {
                         if (!error.errorMessage) {
-                            //TODO throw error
                             console.error(
                                 `The error : ${JSON.stringify(error)} do not contains message`,
                             );
@@ -42,7 +41,7 @@ export const Table: LunaticSlotComponents["Table"] = props => {
                     })}
                 </div>
             )}
-            <div id={id} className={fr.cx("fr-table", "fr-table--lg")}>
+            <div id={id} className={fr.cx("fr-table", "fr-table--lg", "fr-mt-0")}>
                 <div className={fr.cx("fr-table__wrapper")}>
                     <div className={fr.cx("fr-table__container")}>
                         <div className={fr.cx("fr-table__content")}>
