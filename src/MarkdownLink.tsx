@@ -23,6 +23,7 @@ export const MarkdownLink: LunaticSlotComponents["MarkdownLink"] = props => {
             ) : (
                 <span
                     id={id}
+                    tabIndex={0}
                     aria-describedby={tooltip ? `tooltip-${id}` : undefined}
                     className={css({
                         textDecoration: "underline",
