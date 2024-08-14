@@ -10,9 +10,10 @@ export const ComponentWrapper: LunaticSlotComponents["ComponentWrapper"] = props
 
     const parentComponentType = useContext(ComponentParentContext);
 
+    const isQuestionHasMultipleComponents = useQuestionHasMultipleComponents();
     return (
         <ComponentParentContext.Provider value={componentType}>
-            {parentComponentType === "Question" && useQuestionHasMultipleComponents() ? (
+            {parentComponentType === "Question" && isQuestionHasMultipleComponents ? (
                 <div className={fr.cx("fr-fieldset__element")}>{children}</div>
             ) : (
                 children

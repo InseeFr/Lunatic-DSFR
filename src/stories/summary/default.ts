@@ -6,7 +6,6 @@ export const source: LunaticSource = {
     "components": [
         {
             "id": "Summary",
-            // @ts-expect-error
             "componentType": "Summary",
             "label": {
                 "value": '"Récapulatif des habitants "',
