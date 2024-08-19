@@ -5,12 +5,49 @@ import type { ItemOf } from "./utils/type";
 import { Badge } from "@codegouvfr/react-dsfr/Badge";
 import { fr } from "@codegouvfr/react-dsfr";
 import { useStyles } from "tss-react/dsfr";
+import Alert from "@codegouvfr/react-dsfr/Alert";
 
 export const Roundabout: LunaticSlotComponents["Roundabout"] = props => {
-    const { goToIteration, items, label, locked } = props;
+    const { goToIteration, items, label, locked, errors: globalErrors } = props;
+
+    const errors = [
+        ...(globalErrors ?? []),
+        ...items.flatMap((item, index) =>
+            (item.errors ?? []).map(error => ({
+                ...error,
+                id: `${error.id}-${index}`, //We need to change item error id because we could have 2 errors with same id
+            })),
+        ),
+    ];
+
+    console.log(errors);
+    const hasErrors = errors.length > 0;
+
     return (
         <div className={fr.cx("fr-container--fluid")}>
             <h3>{label}</h3>
+
+            {hasErrors && (
+                <div role="alert" className={fr.cx("fr-mb-2v")}>
+                    {errors.map(error => {
+                        if (!error.errorMessage) {
+                            console.error(`The error : ${error.id} do not contains message`);
+                            return;
+                        }
+                        return (
+                            <Alert
+                                severity="error"
+                                description={error.errorMessage}
+                                small
+                                className={fr.cx("fr-mt-1w")}
+                                key={error.id}
+                                id={error.id}
+                            />
+                        );
+                    })}
+                </div>
+            )}
+
             <hr />
             {items.map((item, i) => (
                 <RoundaboutItem key={i} {...item} locked={locked} onClick={() => goToIteration(i)} />

@@ -25,7 +25,7 @@ export const Loop: LunaticSlotComponents["Loop"] = props => {
                     {errors.map(error => {
                         if (!error.errorMessage) {
                             //TODO throw error
-                            console.error(`The error : ${error} do not contains message`);
+                            console.error(`The error : ${error.id} do not contains message`);
                             return;
                         }
                         return (
