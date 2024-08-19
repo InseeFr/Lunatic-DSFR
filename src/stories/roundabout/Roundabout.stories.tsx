@@ -1,6 +1,8 @@
 import { Orchestrator } from "../Orchestrator";
 import { source, data } from "./default";
 import { source as lockedSource, data as lockedData } from "./locked";
+import { source as controlSource } from "./control";
+
 import type { StoryObj, Meta } from "@storybook/react";
 
 const meta = {
@@ -40,4 +42,15 @@ export const RoundaboutWithLocked = {
         },
     },
     args: { source: lockedSource, data: lockedData },
+} satisfies Story;
+
+export const RoundaboutWithControl = {
+    parameters: {
+        docs: {
+            description: {
+                story: "Display the control that consolidates and presents both global and item-specific errors",
+            },
+        },
+    },
+    args: { source: controlSource },
 } satisfies Story;
