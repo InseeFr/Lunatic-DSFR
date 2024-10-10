@@ -25,10 +25,11 @@ export function SuggesterNotification(props: PropsWithChildren<SuggesterNotifica
             <>
                 <label>{label}</label>
                 <Alert
-                    description={`Votre référentiel ${label} n'est pas disponible. Vous pouvez poursuivre sans répondre à ce champ.`}
-                    severity="error"
+                    description={`Votre référentiel ${label} n'est pas disponible. Vous pouvez répondre sans utiliser de suggestions.`}
+                    severity="warning"
                     small
                 />
+                {children}
             </>
         );
     }
