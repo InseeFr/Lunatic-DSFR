@@ -23,7 +23,6 @@ export function SuggesterNotification(props: PropsWithChildren<SuggesterNotifica
     if (status === STATUS.error || status === STATUS.unknown) {
         return (
             <>
-                <label>{label}</label>
                 <Alert
                     description={`Votre référentiel ${label} n'est pas disponible. Vous pouvez répondre sans utiliser de suggestions.`}
                     severity="warning"
