@@ -1,6 +1,6 @@
 {
     "name": "@inseefr/lunatic-dsfr",
-    "version": "2.4.1",
+    "version": "2.4.2-rc.0",
     "description": "Couche graphique pour Lunatic reposant sur le Système de Design de l'État (DSFR)",
     "repository": {
         "type": "git",
@@ -8,12 +8,12 @@
     },
     "author": "INSEE (http://www.insee.fr)",
     "license": "MIT",
-    "type": "module",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
+    "module": "dist/esm/index.js",
     "scripts": {
         "knip": "knip",
-        "build": "tsc -p tsconfig.build.json",
+        "build": "tsc -p tsconfig.build.json && tsc -p tsconfig-esm.json",
         "check": "tsc --noEmit",
         "lint:check": "eslint ./src",
         "lint": "npm run lint:check -- --fix",
@@ -29,11 +29,14 @@
         "test": "vitest",
         "test:e2e": "playwright test",
         "test:e2e:visual": "playwright test --headed --debug e2e/pairwise.spec.ts",
-        "test:e2e:codegen": "playwright codegen http://localhost:6006/iframe.html?viewMode=story&id="
+        "test:e2e:codegen": "playwright codegen http://localhost:6006/iframe.html?viewMode=story&id=",
+        "link-in-app": "tsx scripts/link-in-app.ts"
     },
     "exports": {
-        ".": "./dist/index.js",
-        "./*": "./dist/*.js"
+        ".": {
+            "module": "./dist/esm/index.js",
+            "default": "./dist/index.js"
+        }
     },
     "lint-staged": {
         "*.{ts,tsx}": [
@@ -50,7 +53,8 @@
     },
     "files": [
         "src/",
-        "dist/"
+        "dist/",
+        "!dist/tsconfig.tsbuildinfo"
     ],
     "keywords": [],
     "homepage": "https://inseefr.github.io/Lunatic-DSFR",
