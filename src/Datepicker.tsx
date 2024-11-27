@@ -75,7 +75,7 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
         }
 
         const mapping = {
-            "YYYY": date.year,
+            "YYYY": date.year.padStart(4, "0"),
             "MM": date.month.padStart(2, "0"),
             "DD": date.day.padStart(2, "0"),
         };
@@ -134,7 +134,7 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                         allowLeadingZeros
                         isAllowed={({ value, floatValue }) =>
                             floatValue === undefined ||
-                            (floatValue >= 0 && value !== "00" && floatValue <= 31)
+                            (floatValue >= 0 && value.length <= 2 && value !== "00" && floatValue <= 31)
                         }
                         onValueChange={values => onValueChange(values, "day")}
                         value={dateValues.day}
@@ -163,7 +163,7 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                         allowLeadingZeros
                         isAllowed={({ value, floatValue }) =>
                             floatValue === undefined ||
-                            (floatValue >= 0 && value !== "00" && floatValue <= 12)
+                            (floatValue >= 0 && value.length <= 2 && value !== "00" && floatValue <= 12)
                         }
                         value={dateValues.month}
                         onValueChange={values => onValueChange(values, "month")}
@@ -193,9 +193,10 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                     disabled={disabled}
                     readOnly={readOnly}
                     allowNegative={false}
-                    allowLeadingZeros={false}
-                    isAllowed={({ floatValue }) =>
-                        floatValue === undefined || (floatValue >= 1 && floatValue <= 9999)
+                    allowLeadingZeros
+                    isAllowed={({ value, floatValue }) =>
+                        floatValue === undefined ||
+                        (floatValue >= 0 && value.length <= 4 && value !== "0000" && floatValue <= 9999)
                     }
                     onValueChange={values => onValueChange(values, "year")}
                     value={dateValues.year}
