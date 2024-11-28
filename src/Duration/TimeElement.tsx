@@ -30,6 +30,7 @@ export function TimeElement(props: TimeElementProps) {
                     dsfrProps={{ label: "Heures" }}
                     inputMode="numeric"
                     allowLeadingZeros={false}
+                    decimalScale={0}
                     isAllowed={({ floatValue }) =>
                         floatValue === undefined || (floatValue >= 0 && floatValue <= 99)
                     }
@@ -54,6 +55,7 @@ export function TimeElement(props: TimeElementProps) {
                         label: "Minutes",
                     }}
                     allowLeadingZeros
+                    decimalScale={0}
                     isAllowed={({ floatValue }) =>
                         floatValue === undefined || (floatValue >= 0 && floatValue <= 59)
                     }

@@ -34,6 +34,7 @@ export function DateElement(props: DateElementProps) {
                     value={durationValues.years}
                     allowNegative={false}
                     allowLeadingZeros={false}
+                    decimalScale={0}
                     isAllowed={({ floatValue }) =>
                         floatValue === undefined || (floatValue >= 1 && floatValue <= 9999)
                     }
@@ -54,6 +55,7 @@ export function DateElement(props: DateElementProps) {
                     allowNegative={false}
                     dsfrProps={{ label: "Mois" }}
                     allowLeadingZeros
+                    decimalScale={0}
                     isAllowed={({ floatValue }) =>
                         floatValue === undefined || (floatValue >= 0 && floatValue <= 11)
                     }
