@@ -61,7 +61,7 @@
     "peerDependencies": {
         "@codegouvfr/react-dsfr": "^1.10.0",
         "@emotion/react": "^11.9.0",
-        "@inseefr/lunatic": "^3.0.0",
+        "@inseefr/lunatic": "^3.4.8",
         "@mui/material": "^5.15.0",
         "@types/react": "^18.0.0",
         "react": "^18.0.0",
@@ -77,7 +77,7 @@
         "@emotion/react": "^11.13.0",
         "@emotion/styled": "^11.13.0",
         "@eslint/js": "^9.9.0",
-        "@inseefr/lunatic": "^3.4.3",
+        "@inseefr/lunatic": "^3.4.8",
         "@mui/material": "^5.16.7",
         "@playwright/test": "^1.46.1",
         "@storybook/addon-a11y": "^8.2.9",
