@@ -4,7 +4,7 @@ import { getErrorStates } from "./utils/errorStates";
 import { Button } from "@codegouvfr/react-dsfr/Button";
 import { useId } from "react";
 import { useQuestionId } from "./Question";
-import type { SuggesterOptionType } from "@inseefr/lunatic/lib/components/Suggester/SuggesterType";
+import type { SuggesterOptionType } from "@inseefr/lunatic/components/Suggester/SuggesterType";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import { fr } from "@codegouvfr/react-dsfr";
 
