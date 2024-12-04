@@ -221,13 +221,17 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
     );
 };
 
+/**
+ * Check if the date provided by the user is valid (e.g. not 02/31)
+ */
 function isDateValid(date: DateState) {
     const { year, month, day } = date;
     const yearNum = parseInt(year, 10);
     const monthNum = parseInt(month, 10);
     const dayNum = parseInt(day, 10);
 
-    const dateObj = new Date(yearNum, monthNum - 1, dayNum);
+    const dateObj = new Date();
+    dateObj.setFullYear(yearNum, monthNum - 1, dayNum);
 
     return (
         dateObj.getFullYear() === yearNum &&
