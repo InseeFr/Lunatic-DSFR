@@ -13,5 +13,18 @@ export type CustomInputProps = InputProps["nativeInputProps"] & {
  */
 export const CustomInputDsfr = forwardRef<HTMLInputElement, CustomInputProps>((props, ref) => {
     const { dsfrProps, ...restProps } = props;
-    return <Input {...dsfrProps} ref={ref} nativeInputProps={restProps} />;
+    return (
+        <Input
+            {...dsfrProps}
+            ref={ref}
+            nativeInputProps={{
+                style: {
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                },
+                ...restProps,
+            }}
+        />
+    );
 });

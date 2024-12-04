@@ -75,6 +75,9 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
             pattern={"[0-9]*"}
             placeholder={unit}
             value={value}
+            onBlur={e => {
+                e.target.setSelectionRange(0, 0);
+            }}
             {...(state === "error" ? { "aria-invalid": true, "aria-errormessage": errorMessageId } : {})}
         />
     );
