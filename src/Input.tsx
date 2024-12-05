@@ -43,6 +43,14 @@ export const Input: LunaticSlotComponents["Input"] = props => {
                 value: value ?? "",
                 required: required,
                 onChange: e => onChange(e.target.value),
+                onBlur: e => {
+                    e.target.setSelectionRange(0, 0);
+                },
+                style: {
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                },
                 readOnly,
                 "aria-labelledby": questionId,
                 ...(state === "error"

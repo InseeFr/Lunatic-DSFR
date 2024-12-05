@@ -23,6 +23,10 @@ export const CustomInputDsfr = forwardRef<HTMLInputElement, CustomInputProps>((p
                     textOverflow: "ellipsis",
                     whiteSpace: "nowrap",
                 },
+                onBlur: e => {
+                    e.target.setSelectionRange(0, 0);
+                },
+                title: restProps.value?.toString() ?? "",
                 ...restProps,
             }}
         />
