@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
     useLunatic,
     LunaticComponents,
@@ -23,6 +23,7 @@ export type OrchestratorProps = {
     shortcut?: boolean;
     autoSuggesterLoading: boolean;
     filterDescription: boolean;
+    detailAlwaysDisplayed?: boolean;
 };
 
 const onLogChange: LunaticChangesHandler = params => console.log("onChange", params);
@@ -35,8 +36,12 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
     shortcut = false,
     autoSuggesterLoading = false,
     filterDescription = true,
+    detailAlwaysDisplayed = false,
 }) => {
     const { maxPage } = source;
+
+    const componentsOptions = useMemo(() => ({ detailAlwaysDisplayed }), [detailAlwaysDisplayed]);
+
     const {
         getComponents,
         goPreviousPage,
@@ -54,6 +59,7 @@ export const Orchestrator: (props: OrchestratorProps) => JSX.Element = ({
         autoSuggesterLoading,
         activeControls,
         getReferentiel,
+        componentsOptions,
     });
 
     const components = getComponents();

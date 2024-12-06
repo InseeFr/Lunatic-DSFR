@@ -6,7 +6,7 @@ import Input from "@codegouvfr/react-dsfr/Input";
 import { useQuestionId } from "./Question";
 
 export const CheckboxGroup: LunaticSlotComponents["CheckboxGroup"] = props => {
-    const { options, label, description, errors, disabled, orientation } = props;
+    const { options, label, description, errors, disabled, orientation, detailAlwaysDisplayed } = props;
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
 
@@ -17,14 +17,14 @@ export const CheckboxGroup: LunaticSlotComponents["CheckboxGroup"] = props => {
      * Note that the error message ID follows the format `${id}-messages` because this is the convention used by the underlying library react-dsfr
      * See: https://github.com/codegouvfr/react-dsfr/blob/4c41367febcb78307f261df1b761fedb52c8a905/src/shared/Fieldset.tsx#L101
      */
-    const errorOptions = { state, messageId: `${id}-messages` };
+    const errorOptions = { state, messageId: `${id}-messages`, detailAlwaysDisplayed };
     return (
         <Checkbox
             id={id}
             legend={label}
             hintText={description}
             disabled={disabled}
-            options={getOptions({ options, error: errorOptions })}
+            options={getOptions({ options, error: errorOptions, detailAlwaysDisplayed })}
             state={state}
             stateRelatedMessage={stateRelatedMessage}
             orientation={orientation}
@@ -36,13 +36,18 @@ export const CheckboxGroup: LunaticSlotComponents["CheckboxGroup"] = props => {
 function getOptions({
     options,
     error,
+    detailAlwaysDisplayed,
 }: {
     options: ComponentProps<LunaticSlotComponents["CheckboxGroup"]>["options"];
     error: { state: "default" | "error" | "success"; messageId: string };
+    detailAlwaysDisplayed: ComponentProps<
+        LunaticSlotComponents["CheckboxGroup"]
+    >["detailAlwaysDisplayed"];
 }) {
     return options.map(option => {
         const { label, description, name, onCheck, checked } = option;
-        const displayArbitraryInput = !!option.onDetailChange && option.checked;
+        const displayArbitraryInput =
+            !!option.onDetailChange && (detailAlwaysDisplayed || option.checked);
         return {
             label: <div>{label}</div>,
             hintText: displayArbitraryInput ? (
