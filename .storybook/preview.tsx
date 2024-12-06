@@ -62,6 +62,10 @@ const preview = {
             table: { disable: true },
             control: { type: "boolean" },
         },
+        detailAlwaysDisplayed: {
+            table: { disable: true, category: "components options" },
+            control: { type: "boolean" },
+        },
     },
 
     decorators: [
@@ -94,7 +98,6 @@ const preview = {
 
 export default preview;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function useEffectOnValueChange<T extends readonly [value: any, ...moreValues: any[]]>(
     effect: (...args: T) => void | (() => void),
     values: T,

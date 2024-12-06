@@ -2,7 +2,7 @@ import { Orchestrator } from "../Orchestrator";
 
 import { source } from "./default";
 import { source as questionSource } from "./question";
-import { source as arbitrarySource } from "./arbitrary";
+import { source as detailSource } from "./detail";
 import { source as horizontalSource } from "./horizontal";
 
 import type { StoryObj, Meta } from "@storybook/react";
@@ -26,8 +26,13 @@ type Story = StoryObj<typeof Orchestrator>;
 
 export const Default = { args: { source } } satisfies Story;
 
-export const Arbitrary = {
-    args: { source: arbitrarySource },
+export const withDetail = {
+    args: { source: detailSource, detailAlwaysDisplayed: false },
+    argTypes: {
+        detailAlwaysDisplayed: {
+            table: { disable: false },
+        },
+    },
 } satisfies Story;
 
 export const Horizontal = {

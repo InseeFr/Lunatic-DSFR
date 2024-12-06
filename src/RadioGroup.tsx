@@ -6,7 +6,16 @@ import Input from "@codegouvfr/react-dsfr/Input";
 import { useQuestionId } from "./Question";
 
 export const RadioGroup: LunaticSlotComponents["RadioGroup"] = props => {
-    const { options, label, description, errors, disabled, readOnly, orientation } = props;
+    const {
+        options,
+        label,
+        description,
+        errors,
+        disabled,
+        readOnly,
+        orientation,
+        detailAlwaysDisplayed,
+    } = props;
 
     const id = useId();
     const questionId = useQuestionId();
@@ -27,7 +36,8 @@ export const RadioGroup: LunaticSlotComponents["RadioGroup"] = props => {
             orientation={orientation}
             disabled={disabled || readOnly}
             options={options.map(option => {
-                const displayArbitraryInput = !!option.onDetailChange && option.checked;
+                const displayArbitraryInput =
+                    !!option.onDetailChange && (detailAlwaysDisplayed || option.checked);
                 return {
                     label: <div>{option.label}</div>,
                     hintText: displayArbitraryInput ? (
