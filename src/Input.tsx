@@ -37,11 +37,6 @@ export const Input: LunaticSlotComponents["Input"] = props => {
         <InputDSFR
             label={label}
             disabled={disabled}
-            style={{
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                whiteSpace: "nowrap",
-            }}
             nativeInputProps={{
                 id,
                 maxLength: maxLength,
