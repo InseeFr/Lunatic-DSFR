@@ -37,6 +37,11 @@ export const Input: LunaticSlotComponents["Input"] = props => {
         <InputDSFR
             label={label}
             disabled={disabled}
+            style={{
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+            }}
             nativeInputProps={{
                 id,
                 maxLength: maxLength,
@@ -44,6 +49,15 @@ export const Input: LunaticSlotComponents["Input"] = props => {
                 required: required,
                 onChange: e => onChange(e.target.value),
                 readOnly,
+                title: value ?? "",
+                style: {
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                },
+                onBlur: e => {
+                    e.target.setSelectionRange(0, 0);
+                },
                 "aria-labelledby": questionId,
                 ...(state === "error"
                     ? { "aria-invalid": true, "aria-errormessage": errorMessageId }
