@@ -1,32 +1,28 @@
 import { render } from "@testing-library/react";
 import { describe, it, expect, vi, Mock } from "vitest";
-import { CheckboxGroup } from "./CheckboxGroup";
-import { Checkbox } from "@codegouvfr/react-dsfr/Checkbox";
+import { RadioGroup } from "./RadioGroup";
+import { RadioButtons } from "@codegouvfr/react-dsfr/RadioButtons";
 import { getErrorStates } from "./utils/errorStates";
 
-vi.mock("@codegouvfr/react-dsfr/Checkbox", () => ({
-    Checkbox: vi.fn(() => <div data-testid="mock-checkbox" />),
+vi.mock("@codegouvfr/react-dsfr/RadioButtons", () => ({
+    RadioButtons: vi.fn(() => <div data-testid="radio-buttons"></div>),
 }));
 
-vi.mock("@codegouvfr/react-dsfr/Input", () => ({
-    __esModule: true,
-    default: vi.fn(() => <div data-testid="mock-input" />),
-}));
+vi.mock("react", async importOriginal => {
+    // needs to import the actual React module, else it does not work
+    const actual = (await importOriginal()) as typeof import("react");
+    return {
+        ...actual,
+        useId: vi.fn(() => "mock-id"),
+    };
+});
 
 vi.mock("./utils/errorStates", () => ({
     getErrorStates: vi.fn(),
 }));
 
-vi.mock("react", () => ({
-    useId: vi.fn(() => "mock-id"),
-}));
-
-vi.mock("./Question", () => ({
-    useQuestionId: vi.fn(() => "mock-question-id"),
-}));
-
-describe("CheckboxGroup Component", () => {
-    it("renders the Checkbox with correct options", () => {
+describe("RadioGroup Component", () => {
+    it("renders the radio buttons correctly", () => {
         (getErrorStates as Mock).mockReturnValue({
             state: "default",
             stateRelatedMessage: undefined,
@@ -36,6 +32,7 @@ describe("CheckboxGroup Component", () => {
 
         const props = {
             id: "my-id",
+            value: null,
             options: [
                 {
                     id: "option1",
@@ -56,24 +53,21 @@ describe("CheckboxGroup Component", () => {
             ],
             label: "Group Label",
             description: "Group Description",
-            disabled: false,
             orientation: "vertical" as const, // type error if considered as a string
         };
 
-        render(<CheckboxGroup {...props} />);
+        render(<RadioGroup {...props} />);
 
-        expect(Checkbox).toHaveBeenCalledWith(
+        expect(RadioButtons).toHaveBeenCalledWith(
             {
                 id: "mock-id",
                 legend: "Group Label",
                 hintText: "Group Description",
-                disabled: false,
                 options: [
                     expect.objectContaining({
                         label: expect.any(Object),
                         hintText: "Description 1",
                         nativeInputProps: expect.objectContaining({
-                            name: "option1",
                             checked: false,
                             onChange: expect.any(Function),
                         }),
@@ -82,7 +76,6 @@ describe("CheckboxGroup Component", () => {
                         label: expect.any(Object),
                         hintText: "Description 2",
                         nativeInputProps: expect.objectContaining({
-                            name: "option2",
                             checked: true,
                             onChange: expect.any(Function),
                         }),
@@ -91,6 +84,7 @@ describe("CheckboxGroup Component", () => {
                 state: "default",
                 stateRelatedMessage: undefined,
                 orientation: "vertical",
+                disabled: undefined,
                 "aria-labelledby": undefined,
             },
             {},
@@ -102,6 +96,7 @@ describe("CheckboxGroup Component", () => {
 
         const props = {
             id: "my-id",
+            value: null,
             options: [
                 {
                     id: "option1",
@@ -114,7 +109,6 @@ describe("CheckboxGroup Component", () => {
             ],
             label: "Group Label",
             description: "Group Description",
-            disabled: false,
             orientation: "vertical" as const, // type error if considered as a string
         };
 
@@ -124,9 +118,9 @@ describe("CheckboxGroup Component", () => {
             stateRelatedMessage: "Error message",
         });
 
-        render(<CheckboxGroup {...props} />);
+        render(<RadioGroup {...props} />);
 
-        expect(Checkbox).toHaveBeenCalledWith(
+        expect(RadioButtons).toHaveBeenCalledWith(
             expect.objectContaining({
                 options: [
                     expect.objectContaining({
