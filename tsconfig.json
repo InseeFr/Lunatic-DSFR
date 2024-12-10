@@ -19,7 +19,8 @@
         "noFallthroughCasesInSwitch": true,
         "resolveJsonModule": true,
         "allowSyntheticDefaultImports": true,
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "types": ["vitest/globals", "@testing-library/jest-dom"]
     },
     "include": ["src", "src/tests/setup.ts"],
     "exclude": ["src/stories/", "**/*.test.ts", "src/**/*.deno.ts", "src/**/*.deno.tsx"]
