@@ -20,6 +20,7 @@ import { Table, Tr, Td } from "./Table";
 import { Loop } from "./Loop";
 import { MarkdownLink } from "./MarkdownLink";
 import { Accordion } from "./Accordion";
+import { Button } from "./Button";
 
 export const slotComponents = {
     Question,
@@ -46,5 +47,6 @@ export const slotComponents = {
     Loop,
     MarkdownLink,
     Accordion,
+    Button,
 } as Partial<LunaticSlotComponents> satisfies Partial<LunaticSlotComponents>;
 //We must remove `as Partial<LunaticSlotComponents>` when summary refactored
