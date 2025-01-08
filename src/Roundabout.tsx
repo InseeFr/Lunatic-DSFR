@@ -6,9 +6,18 @@ import { Badge } from "@codegouvfr/react-dsfr/Badge";
 import { fr } from "@codegouvfr/react-dsfr";
 import { useStyles } from "tss-react/dsfr";
 import Alert from "@codegouvfr/react-dsfr/Alert";
+import { Declarations } from "./Declarations";
 
 export const Roundabout: LunaticSlotComponents["Roundabout"] = props => {
-    const { goToIteration, items, label, locked, errors: globalErrors } = props;
+    const {
+        goToIteration,
+        items,
+        label,
+        locked,
+        errors: globalErrors,
+        description,
+        declarations,
+    } = props;
 
     const errors = [
         ...(globalErrors ?? []),
@@ -26,6 +35,8 @@ export const Roundabout: LunaticSlotComponents["Roundabout"] = props => {
     return (
         <div className={fr.cx("fr-container--fluid")}>
             <h3>{label}</h3>
+            {description && <p>{description}</p>}
+            <Declarations type="AFTER_QUESTION_TEXT" declarations={declarations} />
 
             {hasErrors && (
                 <div role="alert" className={fr.cx("fr-mb-2v")}>
