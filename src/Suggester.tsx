@@ -16,8 +16,8 @@ const CustomPaper = styled(Paper)(() => ({
 
 const CustomPopper = styled(Popper)(() => ({
     width: "auto !important",
-    minWidth: "100px",
-    maxWidth: "80%",
+    minWidth: "50px",
+    maxWidth: "75%",
     left: "0 !important",
 }));
 
@@ -71,6 +71,11 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
                     onSearch(v);
                 }
             }}
+            renderOption={(props, option) => (
+                <li {...props} title={option.label}>
+                    {option.label}
+                </li>
+            )}
             sx={{
                 "& .MuiAutocomplete-listbox": {
                     "& li": {
@@ -135,15 +140,7 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
                                     minHeight: 0, //Override dsfr minHeight
                                     resize: "none",
                                 }}
-                            >
-                                <Button
-                                    iconId="ri-close-line"
-                                    priority="secondary"
-                                    onClick={onClear}
-                                    title="vider le champ"
-                                    disabled={inputValue === ""}
-                                />
-                            </TextareaAutosize>
+                            />
                             <Button
                                 iconId="ri-close-line"
                                 priority="secondary"
