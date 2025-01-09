@@ -7,6 +7,19 @@ import { useQuestionId } from "./Question";
 import type { SuggesterOptionType } from "@inseefr/lunatic/components/Suggester/SuggesterType";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import { fr } from "@codegouvfr/react-dsfr";
+import { Paper, Popper, styled } from "@mui/material";
+
+const CustomPaper = styled(Paper)(() => ({
+    zIndex: 1,
+    backgroundColor: "white",
+}));
+
+const CustomPopper = styled(Popper)(() => ({
+    width: "auto !important",
+    minWidth: "100px",
+    maxWidth: "80%",
+    left: "0 !important",
+}));
 
 export const Suggester: LunaticSlotComponents["Suggester"] = props => {
     const {
@@ -36,7 +49,6 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
     return (
         <Autocomplete
             id={id}
-            disablePortal
             value={(value[0] ?? null) as SuggesterOptionType} //To remove when https://github.com/InseeFr/Lunatic/pull/1067 merged
             inputValue={inputValue}
             isOptionEqualToValue={(a, b) => a.id === b.id}
@@ -59,6 +71,17 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
                     onSearch(v);
                 }
             }}
+            sx={{
+                "& .MuiAutocomplete-listbox": {
+                    "& li": {
+                        whiteSpace: "nowrap !important",
+                        overflow: "hidden !important",
+                        textOverflow: "ellipsis !important",
+                    },
+                },
+            }}
+            PaperComponent={({ children }) => <CustomPaper elevation={3}>{children}</CustomPaper>}
+            PopperComponent={props => <CustomPopper {...props} placement="bottom-start" />}
             renderInput={params => {
                 const errorMessageId = `${params.id}-desc-error`; //we use the same convention as react-dsfr
                 return (
