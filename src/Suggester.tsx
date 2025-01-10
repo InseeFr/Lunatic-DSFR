@@ -15,10 +15,7 @@ const CustomPaper = styled(Paper)(() => ({
 }));
 
 const CustomPopper = styled(Popper)(() => ({
-    width: "auto !important",
-    minWidth: "50px",
-    maxWidth: "75%",
-    left: "0 !important",
+    minWidth: "fit-content",
 }));
 
 export const Suggester: LunaticSlotComponents["Suggester"] = props => {
