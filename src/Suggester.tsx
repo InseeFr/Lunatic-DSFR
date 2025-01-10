@@ -73,15 +73,6 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
                     {option.label}
                 </li>
             )}
-            sx={{
-                "& .MuiAutocomplete-listbox": {
-                    "& li": {
-                        whiteSpace: "nowrap !important",
-                        overflow: "hidden !important",
-                        textOverflow: "ellipsis !important",
-                    },
-                },
-            }}
             PaperComponent={({ children }) => <CustomPaper elevation={3}>{children}</CustomPaper>}
             PopperComponent={props => <CustomPopper {...props} placement="bottom-start" />}
             renderInput={params => {
