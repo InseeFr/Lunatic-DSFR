@@ -7,16 +7,7 @@ import { useQuestionId } from "./Question";
 import type { SuggesterOptionType } from "@inseefr/lunatic/components/Suggester/SuggesterType";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import { fr } from "@codegouvfr/react-dsfr";
-import { Paper, Popper, styled } from "@mui/material";
-
-const CustomPaper = styled(Paper)(() => ({
-    zIndex: 1,
-    backgroundColor: "white",
-}));
-
-const CustomPopper = styled(Popper)(() => ({
-    minWidth: "fit-content",
-}));
+import { useStyles } from "tss-react";
 
 export const Suggester: LunaticSlotComponents["Suggester"] = props => {
     const {
@@ -32,7 +23,16 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
         onClear,
         disabled,
     } = props;
-
+    const { css } = useStyles();
+    const classes = {
+        paper: css({
+            zIndex: 1,
+            backgroundColor: fr.colors.decisions.background.default.grey.default,
+        }),
+        popper: css({
+            minWidth: "fit-content",
+        }),
+    };
     const id = useId();
     const questionId = useQuestionId();
     /**
@@ -46,6 +46,7 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
     return (
         <Autocomplete
             id={id}
+            classes={classes}
             value={(value[0] ?? null) as SuggesterOptionType} //To remove when https://github.com/InseeFr/Lunatic/pull/1067 merged
             inputValue={inputValue}
             isOptionEqualToValue={(a, b) => a.id === b.id}
@@ -73,8 +74,6 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
                     {option.label}
                 </li>
             )}
-            PaperComponent={({ children }) => <CustomPaper elevation={3}>{children}</CustomPaper>}
-            PopperComponent={props => <CustomPopper {...props} placement="bottom-start" />}
             renderInput={params => {
                 const errorMessageId = `${params.id}-desc-error`; //we use the same convention as react-dsfr
                 return (
