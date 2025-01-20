@@ -28,9 +28,13 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
         paper: css({
             zIndex: 1,
             backgroundColor: fr.colors.decisions.background.default.grey.default,
+            color: fr.colors.decisions.text.default.grey.default,
         }),
         popper: css({
             minWidth: "fit-content",
+        }),
+        option: css({
+            color: fr.colors.decisions.text.default.grey.default,
         }),
     };
     const id = useId();
@@ -46,7 +50,11 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
     return (
         <Autocomplete
             id={id}
-            classes={classes}
+            classes={{
+                paper: classes.paper,
+                popper: classes.popper,
+                option: classes.option,
+            }}
             value={(value[0] ?? null) as SuggesterOptionType} //To remove when https://github.com/InseeFr/Lunatic/pull/1067 merged
             inputValue={inputValue}
             isOptionEqualToValue={(a, b) => a.id === b.id}
