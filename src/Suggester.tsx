@@ -7,16 +7,6 @@ import { useQuestionId } from "./Question";
 import type { SuggesterOptionType } from "@inseefr/lunatic/components/Suggester/SuggesterType";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import { fr } from "@codegouvfr/react-dsfr";
-import { Paper, Popper, styled } from "@mui/material";
-
-const CustomPaper = styled(Paper)(() => ({
-    zIndex: 1,
-    backgroundColor: "white",
-}));
-
-const CustomPopper = styled(Popper)(() => ({
-    minWidth: "fit-content",
-}));
 
 export const Suggester: LunaticSlotComponents["Suggester"] = props => {
     const {
@@ -46,6 +36,7 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
     return (
         <Autocomplete
             id={id}
+            disablePortal
             value={(value[0] ?? null) as SuggesterOptionType} //To remove when https://github.com/InseeFr/Lunatic/pull/1067 merged
             inputValue={inputValue}
             isOptionEqualToValue={(a, b) => a.id === b.id}
@@ -68,13 +59,6 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
                     onSearch(v);
                 }
             }}
-            renderOption={(props, option) => (
-                <li {...props} title={option.label}>
-                    {option.label}
-                </li>
-            )}
-            PaperComponent={({ children }) => <CustomPaper elevation={3}>{children}</CustomPaper>}
-            PopperComponent={props => <CustomPopper {...props} placement="bottom-start" />}
             renderInput={params => {
                 const errorMessageId = `${params.id}-desc-error`; //we use the same convention as react-dsfr
                 return (
@@ -128,7 +112,15 @@ export const Suggester: LunaticSlotComponents["Suggester"] = props => {
                                     minHeight: 0, //Override dsfr minHeight
                                     resize: "none",
                                 }}
-                            />
+                            >
+                                <Button
+                                    iconId="ri-close-line"
+                                    priority="secondary"
+                                    onClick={onClear}
+                                    title="vider le champ"
+                                    disabled={inputValue === ""}
+                                />
+                            </TextareaAutosize>
                             <Button
                                 iconId="ri-close-line"
                                 priority="secondary"
