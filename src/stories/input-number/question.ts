@@ -78,7 +78,6 @@ export const source: LunaticSource = {
                     "componentType": "InputNumber",
                     "mandatory": false,
                     "min": 0,
-                    "max": 10,
                     "decimals": 2,
                     "conditionFilter": { "value": "true", "type": "VTL" },
                     "response": { "name": "NB" },
