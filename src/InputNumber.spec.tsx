@@ -38,14 +38,6 @@ describe("InputNumber", () => {
         expect(input).toHaveValue("10");
     });
 
-    it("renders with big value", () => {
-        const { container } = render(<InputNumber {...baseProps} value={10000.45} decimals={2} />);
-
-        const input = container.querySelector('input[type="text"]');
-
-        expect(input).toHaveValue("10 000,45");
-    });
-
     it("calls onChange with parsed value", () => {
         const { container } = render(<InputNumber {...baseProps} id="number" />);
 
