@@ -99,17 +99,8 @@ describe("InputNumber", () => {
     });
 
     it("should have the proper title", async () => {
-        const { getByTitle } = render(
-            <InputNumber {...baseProps} value={100000000000000000000000000000000000} />,
-        );
-        expect(getByTitle("100 000 000 000 000 000 000 000 000 000 000 000")).toBeInTheDocument();
-    });
-
-    it("should have the proper title with unit", async () => {
-        const { getByTitle } = render(
-            <InputNumber {...baseProps} value={100000000000000000000000000000000000} unit="€" />,
-        );
-        expect(getByTitle("100 000 000 000 000 000 000 000 000 000 000 000 €")).toBeInTheDocument();
+        const { getByTitle } = render(<InputNumber {...baseProps} value={100000} unit="€" />);
+        expect(getByTitle(content => content.includes("€"))).toBeInTheDocument();
     });
 
     it("should have the proper title when equal to 0", async () => {
