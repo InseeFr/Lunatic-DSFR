@@ -13,10 +13,6 @@ export const source: LunaticSource = {
         {
             "name": "SUGG",
             "values": {
-                "EDITED": [],
-                "FORCED": [],
-                "INPUTTED": [],
-                "PREVIOUS": [],
                 "COLLECTED": [],
             },
             "dimension": 1,
@@ -27,10 +23,6 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "values": {
                 "COLLECTED": null,
-                "EDITED": null,
-                "INPUTTED": null,
-                "FORCED": null,
-                "PREVIOUS": null,
             },
             "name": "SUGGESTER_SUGG_LABEL",
         },
@@ -38,10 +30,6 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "values": {
                 "COLLECTED": null,
-                "EDITED": null,
-                "INPUTTED": null,
-                "FORCED": null,
-                "PREVIOUS": null,
             },
             "name": "SUGGESTER_QUELESTLEP_LABEL",
         },
@@ -49,10 +37,6 @@ export const source: LunaticSource = {
         {
             "name": "CA",
             "values": {
-                "EDITED": [],
-                "FORCED": [],
-                "INPUTTED": [],
-                "PREVIOUS": [],
                 "COLLECTED": [],
             },
             "dimension": 1,
@@ -62,10 +46,6 @@ export const source: LunaticSource = {
         {
             "name": "CA2",
             "values": {
-                "EDITED": [],
-                "FORCED": [],
-                "INPUTTED": [],
-                "PREVIOUS": [],
                 "COLLECTED": [],
             },
             "dimension": 1,
@@ -75,10 +55,6 @@ export const source: LunaticSource = {
         {
             "name": "QUELESTLEP",
             "values": {
-                "EDITED": null,
-                "FORCED": null,
-                "INPUTTED": null,
-                "PREVIOUS": null,
                 "COLLECTED": null,
             },
             "dimension": 0,

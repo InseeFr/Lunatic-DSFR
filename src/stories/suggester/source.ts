@@ -66,10 +66,6 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "values": {
                 "COLLECTED": null,
-                "EDITED": null,
-                "INPUTTED": null,
-                "FORCED": null,
-                "PREVIOUS": null,
             },
             "name": "SUGGESTER_VARIABLEPA_LABEL",
         },
@@ -77,10 +73,6 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "values": {
                 "COLLECTED": null,
-                "EDITED": null,
-                "INPUTTED": null,
-                "FORCED": null,
-                "PREVIOUS": null,
             },
             "name": "VARIABLEPA",
         },

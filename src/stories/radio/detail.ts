@@ -75,11 +75,7 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "Q2",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
 
@@ -87,11 +83,7 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "Q2_DETAIL",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
     ],

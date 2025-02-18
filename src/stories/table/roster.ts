@@ -7,10 +7,6 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "values": {
                 "COLLECTED": [null, null],
-                "EDITED": [],
-                "FORCED": [],
-                "INPUTTED": [],
-                "PREVIOUS": [],
             },
             "name": "DOMAINES",
         },
@@ -18,10 +14,6 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "values": {
                 "COLLECTED": [null, null],
-                "EDITED": [],
-                "FORCED": [],
-                "INPUTTED": [],
-                "PREVIOUS": [],
             },
             "name": "ACTIVITES",
         },
@@ -29,10 +21,6 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "values": {
                 "COLLECTED": [null, null],
-                "EDITED": [],
-                "FORCED": [],
-                "INPUTTED": [],
-                "PREVIOUS": [],
             },
             "name": "CA",
         },

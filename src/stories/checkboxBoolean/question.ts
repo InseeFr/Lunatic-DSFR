@@ -8,10 +8,6 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "values": {
                 "COLLECTED": null,
-                "EDITED": null,
-                "INPUTTED": null,
-                "FORCED": null,
-                "PREVIOUS": null,
             },
             "name": "CHECKBOXBoolean",
         },
@@ -19,10 +15,6 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "values": {
                 "COLLECTED": null,
-                "EDITED": null,
-                "INPUTTED": null,
-                "FORCED": null,
-                "PREVIOUS": null,
             },
             "name": "BOL1",
         },
@@ -30,10 +22,6 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "values": {
                 "COLLECTED": null,
-                "EDITED": null,
-                "INPUTTED": null,
-                "FORCED": null,
-                "PREVIOUS": null,
             },
             "name": "BOL2",
         },

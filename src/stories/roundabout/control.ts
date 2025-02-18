@@ -82,10 +82,6 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "values": {
                 "COLLECTED": ["John", "Jane"],
-                "EDITED": null,
-                "INPUTTED": null,
-                "FORCED": null,
-                "PREVIOUS": null,
             },
             "name": "PRENOMS",
         },
@@ -93,10 +89,6 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "values": {
                 "COLLECTED": [null],
-                "EDITED": [null],
-                "INPUTTED": [null],
-                "FORCED": [null],
-                "PREVIOUS": [null],
             },
             "name": "PROGRESS",
         },
@@ -104,10 +96,6 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "values": {
                 "COLLECTED": [17, 22],
-                "EDITED": [null],
-                "INPUTTED": [null],
-                "FORCED": [null],
-                "PREVIOUS": [null],
             },
             "name": "AGES",
         },
