@@ -13,10 +13,6 @@ export const source: LunaticSource = {
         {
             "name": "TESTDATEA",
             "values": {
-                "EDITED": null,
-                "FORCED": null,
-                "INPUTTED": null,
-                "PREVIOUS": null,
                 "COLLECTED": null,
             },
             "dimension": 0,
@@ -25,10 +21,6 @@ export const source: LunaticSource = {
         {
             "name": "DUREE",
             "values": {
-                "EDITED": null,
-                "FORCED": null,
-                "INPUTTED": null,
-                "PREVIOUS": null,
                 "COLLECTED": null,
             },
             "dimension": 0,
@@ -37,10 +29,6 @@ export const source: LunaticSource = {
         {
             "name": "FIN",
             "values": {
-                "EDITED": null,
-                "FORCED": null,
-                "INPUTTED": null,
-                "PREVIOUS": null,
                 "COLLECTED": null,
             },
             "dimension": 0,

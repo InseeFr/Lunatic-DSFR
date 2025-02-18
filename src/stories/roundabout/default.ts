@@ -185,77 +185,49 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "NB_HAB",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": 2,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
         {
             "variableType": "COLLECTED",
             "name": "SOMETHING",
             "values": {
-                "PREVIOUS": [],
                 "COLLECTED": [],
-                "FORCED": [],
-                "EDITED": [],
-                "INPUTTED": [],
             },
         },
         {
             "variableType": "COLLECTED",
             "name": "AGE",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": [15, 15],
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
         {
             "variableType": "COLLECTED",
             "name": "SEXE",
             "values": {
-                "PREVIOUS": [],
                 "COLLECTED": [],
-                "FORCED": [],
-                "EDITED": [],
-                "INPUTTED": [],
             },
         },
         {
             "variableType": "COLLECTED",
             "name": "PRENOMS",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": ["Fanny", "Ines"],
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
         {
             "variableType": "COLLECTED",
             "name": "KNOWREC",
             "values": {
-                "PREVIOUS": [],
                 "COLLECTED": [],
-                "FORCED": [],
-                "EDITED": [],
-                "INPUTTED": [],
             },
         },
         {
             "variableType": "COLLECTED",
             "name": "PROGRESS",
             "values": {
-                "PREVIOUS": [],
                 "COLLECTED": [],
-                "FORCED": [],
-                "EDITED": [],
-                "INPUTTED": [],
             },
         },
         {
@@ -299,31 +271,15 @@ export const source: LunaticSource = {
 export const data: LunaticData = {
     "COLLECTED": {
         "NB_HAB": {
-            "EDITED": null,
-            "FORCED": null,
-            "INPUTTED": null,
-            "PREVIOUS": null,
             "COLLECTED": 2,
         },
         "PRENOMS": {
-            "EDITED": [null],
-            "FORCED": [null],
-            "INPUTTED": [null],
-            "PREVIOUS": [null],
             "COLLECTED": ["Fanny", "Ines"],
         },
         "AGE": {
-            "EDITED": [null],
-            "FORCED": [null],
-            "INPUTTED": [null],
-            "PREVIOUS": [null],
             "COLLECTED": [24, 22],
         },
         "PROGRESS": {
-            "EDITED": [null],
-            "FORCED": [null],
-            "INPUTTED": [null],
-            "PREVIOUS": [null],
             "COLLECTED": [-1, -1],
         },
     },

@@ -8,22 +8,14 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "TESTTEXTE1",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
         {
             "variableType": "COLLECTED",
             "name": "TESTTEXTE2",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
     ],

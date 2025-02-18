@@ -23,11 +23,7 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "DUREE",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": "PT12H50M",
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
     ],
