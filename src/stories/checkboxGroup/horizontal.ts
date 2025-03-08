@@ -85,11 +85,7 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "NATIO1N1",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
 
@@ -97,11 +93,7 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "NATIO1N2",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
 
@@ -109,11 +101,7 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "NATIO1N3",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
 
@@ -121,11 +109,7 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "NATIO1N4",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
 
@@ -133,11 +117,7 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "MOIS1",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
 
@@ -145,11 +125,7 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "MOIS2",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
 
@@ -157,11 +133,7 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "MOIS3",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
 
@@ -169,11 +141,7 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "MOIS4",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
 
@@ -181,11 +149,7 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "MOIS5",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
 
@@ -193,11 +157,7 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "MOIS6",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
 
@@ -205,11 +165,7 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "MOIS7",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
 
@@ -217,11 +173,7 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "MOIS8",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
 
@@ -229,11 +181,7 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "MOIS9",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
 
@@ -241,11 +189,7 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "MOIS10",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
 
@@ -253,11 +197,7 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "MOIS11",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
 
@@ -265,33 +205,21 @@ export const source: LunaticSource = {
             "variableType": "COLLECTED",
             "name": "MOIS12",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
         {
             "variableType": "COLLECTED",
             "name": "NATIO1N_OTHER",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
         {
             "variableType": "COLLECTED",
             "name": "NATIO1N_DETAIL",
             "values": {
-                "PREVIOUS": null,
                 "COLLECTED": null,
-                "FORCED": null,
-                "EDITED": null,
-                "INPUTTED": null,
             },
         },
     ],
