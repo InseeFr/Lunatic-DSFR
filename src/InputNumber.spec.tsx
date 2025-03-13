@@ -97,4 +97,14 @@ describe("InputNumber", () => {
         });
         expect(setSelectionRangeMock).toHaveBeenCalledWith(0, 0);
     });
+
+    it("should have the proper title", async () => {
+        const { getByTitle } = render(<InputNumber {...baseProps} value={100000} unit="€" />);
+        expect(getByTitle(content => content.includes("€"))).toBeInTheDocument();
+    });
+
+    it("should have the proper title when equal to 0", async () => {
+        const { getByTitle } = render(<InputNumber {...baseProps} value={0} unit="€" />);
+        expect(getByTitle("0 €")).toBeInTheDocument();
+    });
 });
