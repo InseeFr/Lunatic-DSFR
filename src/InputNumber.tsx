@@ -82,7 +82,6 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
             placeholder={unit}
             suffix={value !== null && unit ? ` ${unit}` : undefined}
             value={value}
-            title={value !== null && unit ? ` ${unit}` : undefined}
             aria-labelledby={questionId}
             {...(state === "error" ? { "aria-invalid": true, "aria-errormessage": errorMessageId } : {})}
         />
