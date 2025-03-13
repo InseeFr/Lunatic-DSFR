@@ -89,7 +89,7 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
             inputMode={decimals === 0 ? "numeric" : "decimal"}
             pattern={"[0-9]*"}
             placeholder={unit}
-            suffix={value !== null && unit ? " " + unit : ""}
+            suffix={value !== null && unit ? ` ${unit}` : undefined}
             value={value}
             title={title}
             aria-labelledby={questionId}
