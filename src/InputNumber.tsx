@@ -52,15 +52,6 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
         return min < 0 ? floatValue >= min : floatValue <= max;
     };
 
-    // we want to display the user input and its unit on hover.
-    // We can't use suffix props for now since we don't want to display the unit
-    // in the input so we make up the title ourselves.
-    let title;
-    if (value !== null) {
-        const unitTitle = unit ? ` ${unit}` : "";
-        title = `${value.toLocaleString()}${unitTitle}`;
-    }
-
     return (
         <NumericFormat
             id={`${id}-${iteration ?? ""}`}
@@ -89,8 +80,8 @@ export const InputNumber: LunaticSlotComponents["InputNumber"] = props => {
             inputMode={decimals === 0 ? "numeric" : "decimal"}
             pattern={"[0-9]*"}
             placeholder={unit}
+            suffix={value !== null && unit ? ` ${unit}` : undefined}
             value={value}
-            title={title}
             aria-labelledby={questionId}
             {...(state === "error" ? { "aria-invalid": true, "aria-errormessage": errorMessageId } : {})}
         />

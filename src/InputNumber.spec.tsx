@@ -49,11 +49,19 @@ describe("InputNumber", () => {
     });
 
     it("renders unit element as placeholder if provided", () => {
-        const { queryByText } = render(
+        const { container } = render(
             <InputNumber {...baseProps} id="input-number-test" label="Input Number" unit="kg" />,
         );
-        const unit = queryByText("kg");
-        expect(unit).toBeNull();
+        const input = container.querySelector('input[type="text"]');
+        expect(input).toHaveAttribute("placeholder", "kg");
+    });
+
+    it("renders unit element as suffix if a value is provided", () => {
+        const { container } = render(
+            <InputNumber {...baseProps} id="input-number-test" label="Input Number" unit="kg" />,
+        );
+        const input = container.querySelector('input[type="text"]');
+        expect(input).toHaveValue("10 kg");
     });
 
     it("disables input when disabled prop is true", () => {
