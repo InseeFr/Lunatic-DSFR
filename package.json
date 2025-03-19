@@ -78,7 +78,7 @@
         "@emotion/styled": "^11.13.0",
         "@eslint/js": "^9.9.0",
         "@inseefr/lunatic": "^3.4.17",
-        "@mui/material": "^5.16.7",
+        "@mui/material": "^6.0.0",
         "@playwright/test": "^1.46.1",
         "@storybook/addon-a11y": "^8.2.9",
         "@storybook/addon-essentials": "^8.2.9",
