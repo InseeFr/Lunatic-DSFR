@@ -7,7 +7,6 @@ import { fr } from "@codegouvfr/react-dsfr";
 import { fr as frLocale } from "date-fns/locale/fr";
 import { parseISO, format } from "date-fns";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
-import { FiledsetError } from "./shared/FieldsetError";
 import { useQuestionId } from "./Question";
 import { frFR } from "@mui/x-date-pickers/locales";
 
@@ -30,7 +29,6 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
 
     const id = useId();
     const questionId = useQuestionId();
-    const errorMessageId = `${id}-messages`;
 
     if (declarations) {
         console.error("Only declaration in Question are displayed");
@@ -51,58 +49,78 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
     };
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
-    const hasLegend = Boolean(label || description);
+    const hasLabel = Boolean(label || description);
+    const labelId = `label-${id}`;
 
     return (
-        <fieldset
+        <div
             className={fr.cx(
-                "fr-fieldset",
+                "fr-input-group",
                 (() => {
                     switch (state) {
+                        case "error":
+                            return "fr-input-group--error";
+                        case "success":
+                            return "fr-input-group--valid";
                         case "default":
                             return undefined;
-                        case "error":
-                            return "fr-fieldset--error";
-                        case "success":
-                            return "fr-fieldset--valid";
                     }
                 })(),
             )}
-            id={`${id}-fieldset`}
-            aria-labelledby={label ? undefined : questionId}
         >
-            {hasLegend && (
-                <legend className={fr.cx("fr-fieldset__legend")}>
+            {hasLabel && (
+                <label className={fr.cx("fr-label")} htmlFor={id} id={`label-${id}`}>
+                    {label}
                     {description && <span className={fr.cx("fr-hint-text")}>{description}</span>}
-                </legend>
+                </label>
             )}
 
-            <div className={fr.cx("fr-fieldset__element", "fr-fieldset__element--inline")}>
-                {/* Cannot give the className directly to MuiDatePicker since mui style overloads it. */}
-                <LocalizationProvider
-                    dateAdapter={AdapterDateFns}
-                    adapterLocale={frLocale}
-                    localeText={frFR.components.MuiLocalizationProvider.defaultProps.localeText}
-                >
-                    <MuiDatePicker
-                        value={selectedDate}
-                        onChange={handleDateChange}
-                        format={computeDisplayedFormat(dateFormat)}
-                        minDate={minDate}
-                        maxDate={maxDate}
-                        disabled={disabled}
-                        readOnly={readOnly}
-                        slotProps={{
-                            field: {
-                                clearable: true,
-                            },
-                        }}
-                    />
-                </LocalizationProvider>
-            </div>
+            <LocalizationProvider
+                dateAdapter={AdapterDateFns}
+                adapterLocale={frLocale}
+                localeText={frFR.components.MuiLocalizationProvider.defaultProps.localeText}
+            >
+                <MuiDatePicker
+                    value={selectedDate}
+                    onChange={handleDateChange}
+                    format={computeDisplayedFormat(dateFormat)}
+                    minDate={minDate}
+                    maxDate={maxDate}
+                    disabled={disabled}
+                    readOnly={readOnly}
+                    slotProps={{
+                        field: {
+                            clearable: true,
+                        },
+                        textField: {
+                            id,
+                            "aria-labelledby": hasLabel ? labelId : questionId,
+                        },
+                    }}
+                />
+            </LocalizationProvider>
 
-            <FiledsetError state={state} stateRelatedMessage={stateRelatedMessage} id={errorMessageId} />
-        </fieldset>
+            {state && stateRelatedMessage && (
+                <div id={`${id}-messages-group`} className={fr.cx("fr-messages-group")} role="alert">
+                    <p
+                        id={`${id}-${state}`}
+                        className={fr.cx(
+                            "fr-message",
+                            (() => {
+                                switch (state) {
+                                    case "error":
+                                        return "fr-message--error";
+                                    case "success":
+                                        return "fr-message--valid";
+                                }
+                            })(),
+                        )}
+                    >
+                        {stateRelatedMessage}
+                    </p>
+                </div>
+            )}
+        </div>
     );
 };
 
