@@ -61,6 +61,7 @@
     "peerDependencies": {
         "@codegouvfr/react-dsfr": "^1.11.3",
         "@emotion/react": "^11.13.0",
+        "@emotion/styled": "^11.13.0",
         "@inseefr/lunatic": "^3.4.17",
         "@mui/material": "^5.16.7",
         "@types/react": "^18.x",
@@ -117,6 +118,8 @@
         "vitest": "^2.0.5"
     },
     "dependencies": {
+        "@mui/x-date-pickers": "^7.28.0",
+        "date-fns": "^4.1.0",
         "react-number-format": "^5.4.0"
     },
     "publishConfig": {
