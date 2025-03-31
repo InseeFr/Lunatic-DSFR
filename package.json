@@ -20,7 +20,7 @@
         "_format": "prettier '**/*.{ts,tsx,js,json,md}'",
         "format": "npm run _format -- --write",
         "format:check": "npm run _format -- --list-different",
-        "link-in-main-project": "ts-node --skipProject scripts/link-in-app.ts",
+        "link-in-app": "tsx scripts/link-in-app.ts",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
         "prestorybook": "react-dsfr update-icons",
@@ -29,8 +29,7 @@
         "test": "vitest",
         "test:e2e": "playwright test",
         "test:e2e:visual": "playwright test --headed --debug e2e/pairwise.spec.ts",
-        "test:e2e:codegen": "playwright codegen http://localhost:6006/iframe.html?viewMode=story&id=",
-        "link-in-app": "tsx scripts/link-in-app.ts"
+        "test:e2e:codegen": "playwright codegen http://localhost:6006/iframe.html?viewMode=story&id="
     },
     "exports": {
         ".": {
@@ -61,6 +60,7 @@
     "peerDependencies": {
         "@codegouvfr/react-dsfr": "^1.11.3",
         "@emotion/react": "^11.13.0",
+        "@emotion/styled": "^11.13.0",
         "@inseefr/lunatic": "^3.4.17",
         "@mui/material": "^5.16.7",
         "@types/react": "^18.x",
@@ -108,8 +108,8 @@
         "react-dom": "^18.3.1",
         "storybook": "^8.2.9",
         "storybook-dark-mode": "^4.0.2",
-        "ts-node": "^10.9.2",
         "tss-react": "^4.9.12",
+        "tsx": "^4.19.3",
         "typescript": "^5.5.4",
         "typescript-eslint": "^8.1.0",
         "vite": "^5.4.1",
