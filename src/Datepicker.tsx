@@ -1,14 +1,17 @@
 import { useId, useState } from "react";
 import { getErrorStates } from "./utils/errorStates";
+import { DatePicker as MuiDatePicker } from "@mui/x-date-pickers/DatePicker";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
 import { fr } from "@codegouvfr/react-dsfr";
+import { fr as frLocale } from "date-fns/locale/fr";
+import { parseISO, format } from "date-fns";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
-import type { Split } from "./utils/type";
-import { NumericFormat, type NumberFormatValues } from "react-number-format";
-import { FiledsetError } from "./shared/FieldsetError";
-import { CustomInputDsfr } from "./shared/CustomInputDsfr";
 import { useQuestionId } from "./Question";
+import { frFR } from "@mui/x-date-pickers/locales";
+import type { DateView } from "@mui/x-date-pickers";
 
-type DateState = { day: string; month: string; year: string };
+export type DateFormat = "YYYY-MM-DD" | "YYYY-MM" | "YYYY";
 
 export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
     const {
@@ -16,226 +19,138 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
         readOnly,
         value = "",
         dateFormat = "YYYY-MM-DD",
+        min,
+        max,
         label,
         errors,
         description,
         declarations,
         onChange,
-        iteration,
     } = props;
 
     const id = useId();
     const questionId = useQuestionId();
 
-    const errorMessageId = `${id}-messages`;
-
     if (declarations) {
-        //TODO throw and handle globaly errors in an alert with a condition to avoid to display alert in prod
         console.error("Only declaration in Question are displayed");
     }
 
-    const showDay = dateFormat.includes("DD");
-    const showMonth = dateFormat.includes("MM");
+    // Convert value string to Date object
+    const parsedDate = value ? parseISO(value) : null;
+    const [selectedDate, setSelectedDate] = useState<Date | null>(parsedDate);
 
-    const extractDateFromValue = () => {
-        if (!value) {
-            return { year: "", month: "", day: "" };
-        }
-        const parts = value.split("-");
+    // Convert min/max props to Date objects
+    const minDate = min ? parseISO(min) : undefined;
+    const maxDate = max ? parseISO(max) : undefined;
 
-        return {
-            year: parts[0] ?? "",
-            month: parts[1] ?? "",
-            day: parts[2] ?? "",
-        };
-    };
-    const [dateValues, setDateValues] = useState<DateState>(extractDateFromValue);
-
-    const onValueChange = (values: NumberFormatValues, key: keyof DateState) => {
-        updateDate(key, values.value);
-    };
-
-    const updateDate = (key: keyof DateState, value: string) => {
-        const newDate = {
-            ...dateValues,
-            [key]: value,
-        };
-        setDateValues(newDate);
-        onDateChange(newDate);
-    };
-
-    const onDateChange = (date: DateState) => {
-        const formatParts = dateFormat.split("-") as Split<"YYYY-MM-DD" | "YYYY-MM" | "YYYY", "-">;
-        const countEmptyDate = Object.values(date).filter(d => d === "").length;
-
-        // Date has a missing part
-        if (countEmptyDate > 3 - formatParts.length) {
-            onChange(null);
-            return;
-        }
-
-        // Date is not valid
-        if (dateFormat === "YYYY-MM-DD" && !isDateValid(date)) {
-            onChange(null);
-            return;
-        }
-
-        const mapping = {
-            "YYYY": date.year.padStart(4, "0"),
-            "MM": date.month.padStart(2, "0"),
-            "DD": date.day.padStart(2, "0"),
-        };
-
-        const result = formatParts.map(part => mapping[part]).join("-");
-        onChange(result);
+    const handleDateChange = (date: Date | null) => {
+        setSelectedDate(date);
+        // Convert the date back to the string format expected by the component
+        onChange(date ? format(date, computeDateFnsFormat(dateFormat)) : null);
     };
 
     const { state, stateRelatedMessage } = getErrorStates(errors);
-    const hasLegend = Boolean(label || description);
+    const hasLabel = Boolean(label || description);
+    const labelId = `label-${id}`;
 
     return (
-        <fieldset
+        <div
             className={fr.cx(
-                "fr-fieldset",
+                "fr-input-group",
                 (() => {
                     switch (state) {
+                        case "error":
+                            return "fr-input-group--error";
+                        case "success":
+                            return "fr-input-group--valid";
                         case "default":
                             return undefined;
-                        case "error":
-                            return "fr-fieldset--error";
-                        case "success":
-                            return "fr-fieldset--valid";
                     }
                 })(),
             )}
-            id={`${id}-fieldset`}
-            aria-labelledby={label ? undefined : questionId}
         >
-            {hasLegend && (
-                <legend className={fr.cx("fr-fieldset__legend")}>
+            {hasLabel && (
+                <label className={fr.cx("fr-label")} htmlFor={id} id={`label-${id}`}>
                     {label}
                     {description && <span className={fr.cx("fr-hint-text")}>{description}</span>}
-                </legend>
-            )}
-            {showDay && (
-                <div
-                    className={fr.cx(
-                        "fr-fieldset__element",
-                        "fr-fieldset__element--inline",
-                        "fr-fieldset__element--number",
-                    )}
-                >
-                    <NumericFormat
-                        id={`${id}-day-${iteration ?? ""}`}
-                        key={`${id}-${iteration ?? ""}-day`}
-                        customInput={CustomInputDsfr}
-                        disabled={disabled}
-                        readOnly={readOnly}
-                        allowNegative={false}
-                        inputMode="numeric"
-                        dsfrProps={{
-                            label: "Jour",
-                            hintText: "Exemple: 14",
-                        }}
-                        allowLeadingZeros
-                        isAllowed={({ value, floatValue }) =>
-                            floatValue === undefined ||
-                            (floatValue >= 0 && value.length <= 2 && value !== "00" && floatValue <= 31)
-                        }
-                        onValueChange={values => onValueChange(values, "day")}
-                        value={dateValues.day}
-                        {...(state === "error"
-                            ? { "aria-invalid": true, "aria-errormessage": errorMessageId }
-                            : {})}
-                    />
-                </div>
-            )}
-            {showMonth && (
-                <div
-                    className={fr.cx(
-                        "fr-fieldset__element",
-                        "fr-fieldset__element--inline",
-                        "fr-fieldset__element--number",
-                    )}
-                >
-                    <NumericFormat
-                        key={`${id}-${iteration ?? ""}-month`}
-                        id={`${id}-${iteration ?? ""}-month`}
-                        inputMode="numeric"
-                        customInput={CustomInputDsfr}
-                        disabled={disabled}
-                        readOnly={readOnly}
-                        allowNegative={false}
-                        allowLeadingZeros
-                        isAllowed={({ value, floatValue }) =>
-                            floatValue === undefined ||
-                            (floatValue >= 0 && value.length <= 2 && value !== "00" && floatValue <= 12)
-                        }
-                        value={dateValues.month}
-                        onValueChange={values => onValueChange(values, "month")}
-                        dsfrProps={{
-                            label: "Mois",
-                            hintText: "Exemple: 07",
-                        }}
-                        {...(state === "error"
-                            ? { "aria-invalid": true, "aria-errormessage": errorMessageId }
-                            : {})}
-                    />
-                </div>
+                </label>
             )}
 
-            <div
-                className={fr.cx(
-                    "fr-fieldset__element",
-                    "fr-fieldset__element--inline",
-                    "fr-fieldset__element--year",
-                )}
+            <LocalizationProvider
+                dateAdapter={AdapterDateFns}
+                adapterLocale={frLocale}
+                localeText={frFR.components.MuiLocalizationProvider.defaultProps.localeText}
             >
-                <NumericFormat
-                    key={`${id}-${iteration ?? ""}-year`}
-                    id={`${id}-${iteration ?? ""}-year`}
-                    inputMode="numeric"
-                    customInput={CustomInputDsfr}
+                <MuiDatePicker
+                    value={selectedDate}
+                    onChange={handleDateChange}
+                    format={computeDisplayedFormat(dateFormat)}
+                    views={computeViews(dateFormat)}
+                    minDate={minDate}
+                    maxDate={maxDate}
                     disabled={disabled}
                     readOnly={readOnly}
-                    allowNegative={false}
-                    allowLeadingZeros
-                    isAllowed={({ value, floatValue }) =>
-                        floatValue === undefined ||
-                        (floatValue >= 0 && value.length <= 4 && value !== "0000" && floatValue <= 9999)
-                    }
-                    onValueChange={values => onValueChange(values, "year")}
-                    value={dateValues.year}
-                    dsfrProps={{
-                        label: "Année",
-                        hintText: "Exemple: 2024",
+                    slotProps={{
+                        field: {
+                            clearable: true,
+                        },
+                        textField: {
+                            id,
+                            "aria-labelledby": hasLabel ? labelId : questionId,
+                        },
                     }}
-                    {...(state === "error"
-                        ? { "aria-invalid": true, "aria-errormessage": errorMessageId }
-                        : {})}
                 />
-            </div>
+            </LocalizationProvider>
 
-            <FiledsetError state={state} stateRelatedMessage={stateRelatedMessage} id={errorMessageId} />
-        </fieldset>
+            {state && stateRelatedMessage && (
+                <div id={`${id}-messages-group`} className={fr.cx("fr-messages-group")} role="alert">
+                    <p
+                        id={`${id}-${state}`}
+                        className={fr.cx(
+                            "fr-message",
+                            (() => {
+                                switch (state) {
+                                    case "error":
+                                        return "fr-message--error";
+                                    case "success":
+                                        return "fr-message--valid";
+                                }
+                            })(),
+                        )}
+                    >
+                        {stateRelatedMessage}
+                    </p>
+                </div>
+            )}
+        </div>
     );
 };
 
-/**
- * Check if the date provided by the user is valid (e.g. not 02/31)
- */
-function isDateValid(date: DateState) {
-    const { year, month, day } = date;
-    const yearNum = parseInt(year, 10);
-    const monthNum = parseInt(month, 10);
-    const dayNum = parseInt(day, 10);
+/** Compute displayed format for DatePicker */
+function computeDisplayedFormat(format: DateFormat) {
+    switch (format) {
+        case "YYYY-MM":
+            return "MM/yyyy";
+        case "YYYY":
+            return "yyyy";
+        default:
+            return "dd/MM/yyyy";
+    }
+}
 
-    const dateObj = new Date();
-    dateObj.setFullYear(yearNum, monthNum - 1, dayNum);
+/** Compute date-fns format */
+function computeDateFnsFormat(format: DateFormat) {
+    return format.replace("YYYY", "yyyy").replace("DD", "dd");
+}
 
-    return (
-        dateObj.getFullYear() === yearNum &&
-        dateObj.getMonth() === monthNum - 1 &&
-        dateObj.getDate() === dayNum
-    );
+/** Compute views for calendar */
+function computeViews(format: DateFormat): DateView[] {
+    switch (format) {
+        case "YYYY":
+            return ["year"];
+        case "YYYY-MM":
+            return ["month", "year"];
+        default:
+            return ["year", "month", "day"];
+    }
 }

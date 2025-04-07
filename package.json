@@ -117,6 +117,8 @@
         "vitest": "^2.0.5"
     },
     "dependencies": {
+        "@mui/x-date-pickers": "^7.28.0",
+        "date-fns": "^4.1.0",
         "react-number-format": "^5.4.0"
     },
     "publishConfig": {
