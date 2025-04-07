@@ -9,6 +9,7 @@ import { parseISO, format } from "date-fns";
 import type { LunaticSlotComponents } from "@inseefr/lunatic";
 import { useQuestionId } from "./Question";
 import { frFR } from "@mui/x-date-pickers/locales";
+import type { DateView } from "@mui/x-date-pickers";
 
 export type DateFormat = "YYYY-MM-DD" | "YYYY-MM" | "YYYY";
 
@@ -84,6 +85,7 @@ export const Datepicker: LunaticSlotComponents["Datepicker"] = props => {
                     value={selectedDate}
                     onChange={handleDateChange}
                     format={computeDisplayedFormat(dateFormat)}
+                    views={computeViews(dateFormat)}
                     minDate={minDate}
                     maxDate={maxDate}
                     disabled={disabled}
@@ -139,4 +141,16 @@ function computeDisplayedFormat(format: DateFormat) {
 /** Compute date-fns format */
 function computeDateFnsFormat(format: DateFormat) {
     return format.replace("YYYY", "yyyy").replace("DD", "dd");
+}
+
+/** Compute views for calendar */
+function computeViews(format: DateFormat): DateView[] {
+    switch (format) {
+        case "YYYY":
+            return ["year"];
+        case "YYYY-MM":
+            return ["month", "year"];
+        default:
+            return ["year", "month", "day"];
+    }
 }
