@@ -31,9 +31,7 @@ export function TimeElement(props: TimeElementProps) {
                     inputMode="numeric"
                     allowLeadingZeros={false}
                     decimalScale={0}
-                    isAllowed={({ floatValue }) =>
-                        floatValue === undefined || (floatValue >= 0 && floatValue <= 99)
-                    }
+                    isAllowed={({ floatValue }) => floatValue === undefined || floatValue >= 0}
                     onValueChange={values => onValueChange(values, "hours")}
                     id={`${id}-hours`}
                     value={durationValues.hours}

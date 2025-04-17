@@ -5685,7 +5685,7 @@ export const source: LunaticSource = {
                     "mandatory": false,
                     "page": "6",
                     "min": 0.0,
-                    "max": 99.0,
+                    "max": Infinity,
                     "decimals": 0,
                     "conditionFilter": { "value": "true", "type": "VTL" },
                     "controls": [
@@ -5694,12 +5694,11 @@ export const source: LunaticSource = {
                             "typeOfControl": "FORMAT",
                             "criticality": "ERROR",
                             "control": {
-                                "value":
-                                    "not(not(isnull(HEURE_REMPL)) and (0>HEURE_REMPL or 99<HEURE_REMPL))",
+                                "value": "not(not(isnull(HEURE_REMPL)))",
                                 "type": "VTL",
                             },
                             "errorMessage": {
-                                "value": '" La valeur doit être comprise entre 0 et 99."',
+                                "value": '" La valeur doit être supérieure à 0"',
                                 "type": "VTL|MD",
                             },
                         },
