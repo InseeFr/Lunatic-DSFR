@@ -1,3 +1,10 @@
+# Lunatic-Dsfr
+
+## ⚠️DEPRECATED⚠️
+
+This code repository is deprecated because the library is only used for a single project.
+The “Lunatic-Dsfr” components have been internalized in the [Stromae-Dsfr](https://github.com/InseeFr/stromae-dsfr) code repository, the storybook can be found [here](https://inseefr.github.io/stromae-dsfr/storybook).
+
 <p align="center">
  <img src="https://raw.githubusercontent.com/InseeFr/Lunatic-DSFR/main/overview-light.png#gh-light-mode-only" />
  <img src="https://raw.githubusercontent.com/InseeFr/Lunatic-DSFR/main/overview-dark.png#gh-dark-mode-only" />
