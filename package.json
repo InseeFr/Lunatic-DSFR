@@ -78,7 +78,7 @@
         "@emotion/styled": "^11.13.0",
         "@eslint/js": "^9.9.0",
         "@inseefr/lunatic": "^3.5.4",
-        "@mui/material": "^5.16.7",
+        "@mui/material": "^7.0.0",
         "@playwright/test": "^1.46.1",
         "@storybook/addon-a11y": "^8.2.9",
         "@storybook/addon-essentials": "^8.2.9",
@@ -117,7 +117,7 @@
         "vitest": "^2.0.5"
     },
     "dependencies": {
-        "@mui/x-date-pickers": "^7.28.0",
+        "@mui/x-date-pickers": "^8.0.0",
         "date-fns": "^4.1.0",
         "react-number-format": "^5.4.0"
     },
